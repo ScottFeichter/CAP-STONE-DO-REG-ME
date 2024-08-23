@@ -6,6 +6,7 @@ cors
 csurf
 dotenv
 express
+express-validator
 express-async-errors
 helmet
 jsonwebtoken
