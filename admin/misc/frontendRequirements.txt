@@ -1,0 +1,16 @@
+'use https://github.com/ScottFeichter/my-react-vite-template'
+
+'follow instructions and do plain: '
+npm install
+
+'then: '
+
+# npm install for:
+js-cookie
+react-redux
+react-router-dom@^5
+redux
+redux-thunk
+
+#npm install -D for:
+redux-logger
