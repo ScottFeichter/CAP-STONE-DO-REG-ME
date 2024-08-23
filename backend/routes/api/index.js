@@ -13,8 +13,14 @@ router.use('/users', usersRouter);
 
 // =========================TEST ROUTES===========================//
 
+//first get test
+router.get('/hello/world', function(req, res) {
+  res.cookie('XSRF-TOKEN', req.csrfToken());
+  res.send('Hello World!');
+});
+
 // first post test
-router.post("/test", function (req, res) {
+router.post('/test', function (req, res) {
   res.json({ requestBody: req.body });
 });
 
