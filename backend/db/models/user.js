@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       createdAt: DataTypes.DATE,
-      updatedAt: DataTypes.DATE
+      updatedAt: DataTypes.DATE,
     },
     {
       sequelize,
