@@ -1,3 +1,20 @@
+// import React from "react";
+import LoginForm from "./components/session/LoginFormPage/LoginForm.jsx"
+
+function App() {
+  // console.log("APP COMPONENT RAN");
+  // return <RouterProvider router={router} />;
+  return (
+        <LoginForm />
+  );
+
+}
+
+export default App;
+
+
+
+
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // import { useDispatch } from "react-redux";
@@ -75,13 +92,3 @@
 //   ]
 // }
 // ]);
-
-
-function App() {
-  // console.log("APP COMPONENT RAN");
-  // return <RouterProvider router={router} />;
-  return <h1> Hello from App </h1>;
-
-}
-
-export default App;

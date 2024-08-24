@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import App from './App.jsx'
 import configureStore from './redux/zStore.js';
 import { restoreCSRF, csrfFetch } from './redux/xCsrf.js';
-// import * as sessionActions from './redux/sessionReducer.js';
+import * as sessionActions from './redux/sessionReducer.js';
 import { Modal, ModalProvider } from './context/Modal';
 // import { router } from "./router";
 import './index.css'
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   window.csrfFetch = csrfFetch;
   window.store = store;
-  // window.sessionActions = sessionActions;
+  window.sessionActions = sessionActions;
 }
 
 

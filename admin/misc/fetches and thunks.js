@@ -1,0 +1,35 @@
+// ==============================FETCHES======================================//
+
+//  fetch from backend to test
+fetch("/api/test",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "XSRF-Token": "TOKEN GOES HERE !!!!!!!!!"
+    },
+    body: JSON.stringify({credential: "Demo-lition", password: "password"})
+  }).then(res => res.json()).then(data => console.log(data));
+
+
+// fetch from frontend to test - expect object requestBody:
+ window.csrfFetch('/api/test', {
+  method: 'POST',
+  body: JSON.stringify({ credential: 'Demo-lition', password: 'password' })
+}).then(res => res.json()).then(data => console.log(data));
+
+
+
+// ==============================THUNKS=======================================//
+
+
+//  login thunk action test in the browser's dev tools console:
+window.store.dispatch(
+    window.sessionActions.thunkLogin({
+      credential: "Demo-lition",
+      password: "password",
+    })
+  );
+
+window.store.dispatch(window.sessionActions.thunkLogout());
+window.store.dispatch(window.sessionActions.thunkRestoreUser());
