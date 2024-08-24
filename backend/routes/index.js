@@ -15,6 +15,7 @@ router.get('/hello/world', function(req, res) {
 // Static routes
 // Serve React build files in production
 if (process.env.NODE_ENV === 'production') {
+  console.log('line 18 from backend routes/index.js')
   const path = require('path');
   // Serve the frontend's index.html file at the root route
   router.get('/', (req, res) => {
@@ -41,7 +42,9 @@ if (process.env.NODE_ENV === 'production') {
 // Add a XSRF-TOKEN cookie in development
 if (process.env.NODE_ENV !== 'production') {
   router.get('/api/csrf/restore', (req, res) => {
+
     console.log("!!!!!!!!!!! the first /api/csrf/restore from routes/index.js !!!!!!!!!!!!")
+
     const csrfToken = req.csrfToken();
     res.cookie('XSRF-TOKEN', req.csrfToken());
     res.status(200).json({
@@ -54,7 +57,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Add a XSRF-TOKEN cookie if in production?
 router.get("/api/csrf/restore", (req, res) => {
+
   console.log("!!!!!!!!!!! the second /api/csrf/restore from routes/index.js !!!!!!!!!!!!")
+
   const csrfToken = req.csrfToken();
   res.cookie("XSRF-TOKEN", csrfToken);
   res.status(200).json({

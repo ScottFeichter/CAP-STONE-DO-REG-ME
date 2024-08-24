@@ -14,7 +14,7 @@ let enhancer;
 // import.meta.env.MODE
 // process.env.NODE_ENV
 
-if (import.meta.env.MODE === 'production') {
+if (process.env.NODE_ENV === 'production') {
   enhancer = applyMiddleware(thunk);
 } else {
   const logger = (await import("redux-logger")).default;

@@ -14,8 +14,8 @@ router.use('/users', usersRouter);
 // =========================TEST ROUTES===========================//
 
 // first post test
-router.post("/test", function (req, res) {
-  res.json({ requestBody: req.body });
+router.post("/test", (req, res) => {
+  return res.json({ requestBody: req.body })
 });
 
 // GET /api/restore-user
