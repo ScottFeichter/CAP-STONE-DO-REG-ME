@@ -7,6 +7,17 @@
     border: blue solid 2px;
 }
 
+#NavigationProfileButton{
+    width: 3rem;
+    margin: 0 0 0 1rem;
+    /* border: 2px pink dashed; */
+}
+
+#NavigationImgLogo{
+    width: 3rem;
+    margin: 0 1rem 0 0;
+}
+
 
 .NavigationTopBarUlLi{
     display: inline;

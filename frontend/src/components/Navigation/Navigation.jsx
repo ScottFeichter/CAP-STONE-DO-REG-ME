@@ -3,6 +3,7 @@ import {useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton/ProfileButton.jsx';
 import * as sessionActions from '../../redux/sessionReducer.js';
+import logo from "../../../../admin/images/logoDraft5.png"
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -30,14 +31,14 @@ function Navigation({ isLoaded }){
   return (
     <>
       <ul id="NavigationUlHorizontal">
-        <li className="NavigationTopBarUlLi">
-          <ProfileButton user={sessionUser} />
+        <li className="NavigationTopBarUlLi" >
+          <ProfileButton user={sessionUser} id="NavigationProfileButton"/>
         </li>
         <li className="NavigationTopBarUlLi">
           <input type="text"></input>
         </li>
         <li className="NavigationTopBarUlLi">
-          <img src="" alt="DoRegMi"></img>
+          <img src={logo} alt="DoRegMi" id="NavigationImgLogo"></img>
         </li>
       </ul>
 

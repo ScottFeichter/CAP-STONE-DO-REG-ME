@@ -51,7 +51,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={toggleMenu} ref={ulRef}><CgProfile /></button>
-        <div id="PofileButtonDropdownLiContainerDiv">
+        {/* <div id="PofileButtonDropdownLiContainerDiv"> */}
           <ul className={ulClassName} >
             <li className={"ProfileButtonDropdownUlLi"}>{user.username}</li>
             <li className={"ProfileButtonDropdownUlLi"}>{user.firstName} {user.lastName}</li>
@@ -60,7 +60,7 @@ function ProfileButton({ user }) {
               <button onClick={logout}>Log Out</button>
             </li>
           </ul>
-        </div>
+        {/* </div> */}
     </>
   );
 }
