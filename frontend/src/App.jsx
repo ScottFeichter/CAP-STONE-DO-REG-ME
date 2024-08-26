@@ -1,11 +1,11 @@
 // import React from "react";
-import LoginForm from "./components/session/LoginFormPage/LoginForm.jsx"
+import SplashPage from "./components/session/Splash.jsx";
 
 function App() {
   // console.log("APP COMPONENT RAN");
   // return <RouterProvider router={router} />;
   return (
-        <LoginForm />
+        <SplashPage />
   );
 
 }

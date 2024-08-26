@@ -33,3 +33,13 @@ window.store.dispatch(
 
 window.store.dispatch(window.sessionActions.thunkLogout());
 window.store.dispatch(window.sessionActions.thunkRestoreUser());
+
+window.store.dispatch(
+  window.sessionActions.signup({
+    username: "NewUser",
+    firstName: "New",
+    lastName: "User",
+    email: "new@user.io",
+    password: "password",
+  })
+);
