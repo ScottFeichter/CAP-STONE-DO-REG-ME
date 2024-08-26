@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../../redux/sessionReducer.js";
 import "./LoginForm.css";
+import DemoRegistrarLogin from "../DemoLogins/DemoRegistrarLogin.jsx";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -50,7 +51,10 @@ function LoginForm() {
         </label>
         {errors.credential && <p>{errors.credential}</p>}
         <button type="submit">Log In</button>
+
       </form>
+
+      <DemoRegistrarLogin></DemoRegistrarLogin>
     </>
   );
 }

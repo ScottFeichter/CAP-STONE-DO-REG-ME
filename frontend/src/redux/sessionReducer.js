@@ -68,7 +68,7 @@ export const thunkRestoreUser = () => async (dispatch) => {
   const data = await response.json()
   // console.log(`RESTORE USER RAN - DATA`, data);
   dispatch(setUser(data.user));
-  return response;
+  return data.user;
 }
 
 
@@ -93,10 +93,10 @@ const initialSessionState = { user: null };
 const sessionReducer = (sessionState = initialSessionState, action) => {
   switch (action.type) {
     case SET_USER:
-      console.log("SESSION STATE FROM SESSION REDUCER", sessionState, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
+      // console.log("SESSION STATE FROM SESSION REDUCER", sessionState, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
       return { ...sessionState, user: action.payload };
       case REMOVE_USER:
-        console.log("SESSION STATE FROM SESSION REDUCER", sessionState, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
+        // console.log("SESSION STATE FROM SESSION REDUCER", sessionState, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
         return { ...sessionState, user: null };
       default:
         return sessionState;

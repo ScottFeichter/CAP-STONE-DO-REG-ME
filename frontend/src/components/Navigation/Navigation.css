@@ -1,0 +1,31 @@
+#NavigationUlHorizontal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 2rem 0 2rem;
+    padding: 2rem 0 2rem 0;
+    border: blue solid 2px;
+}
+
+
+.NavigationTopBarUlLi{
+    display: inline;
+    list-style-type: none;
+}
+
+#NavigationUlVertical{
+    display: inline-flex;
+    flex-direction: column;
+    margin: 2rem 2rem 0 2rem;
+    padding: 2rem 0 2rem 0;
+    border: green solid 2px;
+}
+
+
+.NavigationDropdownUlLi{
+    list-style-type: none;
+}
+
+.NavigationDropdownUlLiHidden{
+    display: none;
+}

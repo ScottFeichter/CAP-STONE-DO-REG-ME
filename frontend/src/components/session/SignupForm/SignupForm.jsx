@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../../redux/sessionReducer.js";
+import DemoRegistrarSignup from "../DemoSignups/DemoRegistrarSignup.jsx";
 import "./SignupForm.css";
+
 
 function SignupForm() {
   const dispatch = useDispatch();
@@ -51,6 +52,8 @@ function SignupForm() {
         {errors.credential && <p>{errors.credential}</p>}
         <button type="submit">Sign Up</button>
       </form>
+      <DemoRegistrarSignup></DemoRegistrarSignup>
+
     </>
   );
 }

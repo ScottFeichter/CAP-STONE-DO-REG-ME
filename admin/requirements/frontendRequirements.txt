@@ -11,6 +11,7 @@ react-redux
 react-router-dom@^5
 redux
 redux-thunk
+react-icons --save
 
 #npm install -D for:
 redux-logger

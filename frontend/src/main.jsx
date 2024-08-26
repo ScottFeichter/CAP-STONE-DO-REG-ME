@@ -1,7 +1,7 @@
-import React from 'react'
+// import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux';
-// import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx'
 import configureStore from './redux/zStore.js';
 import { restoreCSRF, csrfFetch } from './redux/xCsrf.js';
@@ -26,14 +26,14 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <ModalProvider>
       <Provider store={store}>
-        {/* <BrowserRouter> */}
+        <BrowserRouter>
           <App />
           <Modal />
-        {/* </BrowserRouter> */}
+        </BrowserRouter>
       </Provider>
     </ModalProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 )

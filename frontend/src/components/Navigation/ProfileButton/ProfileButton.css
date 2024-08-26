@@ -1,0 +1,32 @@
+#PofileButtonDropdownLiContainerDiv{
+    background: red;
+    width: 2rem;
+    height: 2rem;
+    border: 2px black solid;
+    z-index: 4;
+}
+
+.ProfileButtonDropdownUl{
+    position: absolute;
+    display: inline;
+    list-style-type: none;
+    left: 2.5rem;
+    margin: 1.5rem 0 0 0;
+    padding: 0 0 0 0;
+    border: red 2px solid;
+    background-color: rgba(255, 255, 255, 0.4);
+
+    z-index: 3;
+    filter: drop-shadow(0 0 0.75rem crimson);
+    /* filter: blur(8px); */
+    /* filter: drop-shadow(3px 3px red) sepia(100%) drop-shadow(-3px -3px blue) blur(8px); */
+
+}
+
+.ProfileButtonDropdownUlHidden{
+    display: none;
+}
+
+.ProfileButtonDropdownUlLi{
+    list-style-type: none;
+}

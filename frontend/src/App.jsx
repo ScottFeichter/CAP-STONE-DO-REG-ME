@@ -1,16 +1,45 @@
-// import React from "react";
-import SplashPage from "./components/session/Splash.jsx";
+// // import React from "react";
+// import SplashPage from "./components/session/Splash.jsx";
+
+// function App() {
+//   // console.log("APP COMPONENT RAN");
+//   // return <RouterProvider router={router} />;
+//   return (
+//         <SplashPage />
+//   );
+
+// }
+
+// export default App;
+
+// frontend/src/App.js
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import Splash from "./components/Session/Splash";
+import Navigation from "./components/Navigation/Navigation";
+import * as sessionActions from "./redux/sessionReducer";
 
 function App() {
-  // console.log("APP COMPONENT RAN");
-  // return <RouterProvider router={router} />;
-  return (
-        <SplashPage />
-  );
+  const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
 
+  useEffect(() => {
+    dispatch(sessionActions.thunkRestoreUser()).then((user) => user ? setIsLoaded(true) : "");
+  }, [dispatch]);
+
+  return (
+    <>
+       {isLoaded ?  <Navigation /> : <Splash />}
+    </>
+  );
 }
 
 export default App;
+
+
+
+
+
 
 
 
