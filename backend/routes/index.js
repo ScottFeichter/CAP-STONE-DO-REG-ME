@@ -8,7 +8,7 @@ router.use('/api', apiRouter);
 // test route for routes/index.js (this file)
 router.get('/hello/world', function(req, res) {
   res.cookie('XSRF-TOKEN', req.csrfToken());
-  res.send('Hello World!');
+  res.send('Hello world from route /hello/world!');
 });
 
 

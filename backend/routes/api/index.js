@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-const employeeDepartmentsRouter = require('.employeeDepartments.js');
-const academicDepartmentsRouter = require('academicDepartments.js');
+const employeeDepartmentsRouter = require('./employeeDepartments.js');
+const academicDepartmentsRouter = require('./academicDepartments.js');
 
 const { restoreUser } = require("../../utils/auth.js");
 
@@ -16,6 +16,12 @@ router.use('/employeeDepartments', employeeDepartmentsRouter);
 router.use('/academicDepartments', academicDepartmentsRouter);
 
 // =========================TEST ROUTES===========================//
+
+// test route for routes/api/index.js (this file)
+router.get('/hello/world', function(req, res) {
+  res.cookie('XSRF-TOKEN', req.csrfToken());
+  res.send('Hello world from route api/hello/world!');
+});
 
 // first post test
 router.post("/test", (req, res) => {
