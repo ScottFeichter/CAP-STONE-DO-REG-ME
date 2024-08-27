@@ -246,7 +246,7 @@ user's information.
 
 ### Get all Employee Departments
 
-Returns all the Employee Departments.
+Returns all Employee Departments.
 
 * Require Authentication: true
 * Request
@@ -300,7 +300,7 @@ Returns the details of a spot specified by its id.
     }
     ```
 
-* Error response: Couldn't find a Employee Department with the specified id
+* Error response: Couldn't find an Employee Department with the specified id
   * Status Code: 404
   * Headers:
     * Content-Type: application/json
@@ -312,7 +312,7 @@ Returns the details of a spot specified by its id.
     }
     ```
 
-### Create a Employee Department
+### Create an Employee Department
 
 Creates and returns a new Employee Department.
 
@@ -381,9 +381,9 @@ Creates and returns a new Employee Department.
     }
     ```
 
-### Add an Image to a Employee Department based on the Employee Department's id
+### Add an Image to an Employee Department based on the Employee Department's id
 
-Create and return a new image for a Employee Department specified by id.
+Create and return a new image for an Employee Department specified by id.
 
 * Require Authentication: true
 * Require proper authorization: User must be admin or super
@@ -417,7 +417,7 @@ Create and return a new image for a Employee Department specified by id.
     }
     ```
 
-* Error response: Couldn't find a Employee Department with the specified id
+* Error response: Couldn't find an Employee Department with the specified id
   * Status Code: 404
   * Headers:
     * Content-Type: application/json
@@ -486,7 +486,7 @@ Updates and returns an existing Employee Department.
     }
     ```
 
-* Error response: Couldn't find a Employee Department with the specified id
+* Error response: Couldn't find an Employee Department with the specified id
   * Status Code: 404
   * Headers:
     * Content-Type: application/json
@@ -521,7 +521,7 @@ Deletes an existing Employee Department.
     }
     ```
 
-* Error response: Couldn't find a Employee Department with the specified id
+* Error response: Couldn't find an Employee Department with the specified id
   * Status Code: 404
   * Headers:
     * Content-Type: application/json
@@ -572,7 +572,7 @@ Returns all the Academic Departments.
 
 ### Get details of an Academic Department from an id
 
-Returns the details of a spot specified by its id.
+Returns the details of an Academic Deparment specified by its id.
 
 * Require Authentication: true
 * Request
@@ -597,7 +597,7 @@ Returns the details of a spot specified by its id.
     }
     ```
 
-* Error response: Couldn't find a Academic Department with the specified id
+* Error response: Couldn't find an Academic Department with the specified id
   * Status Code: 404
   * Headers:
     * Content-Type: application/json
@@ -611,7 +611,7 @@ Returns the details of a spot specified by its id.
 
 ### Create a Academic Department
 
-Creates and returns a new Academic Department.
+Creates and returns an new Academic Department.
 
 * Require Authentication: true
 * Request
@@ -684,13 +684,13 @@ Creates and returns a new Academic Department.
 
 ### Add an imageURL to a Academic Department based on the Academic Department's id
 
-Create and return a new imageURL for a Academic Department specified by id.
+Create and return a new imageURL for an Academic Department specified by id.
 
 * Require Authentication: true
 * Require proper authorization: User must be admin or super
 * Request
   * Method: POST
-  * URL: /api/academicDepartments/:academicDepartmentsId/imageURLs
+  * URL: /api/academicDepartments/:academicDepartmentsId/images
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -719,7 +719,7 @@ Create and return a new imageURL for a Academic Department specified by id.
     }
     ```
 
-* Error response: Couldn't find a Academic Department with the specified id
+* Error response: Couldn't find an Academic Department with the specified id
   * Status Code: 404
   * Headers:
     * Content-Type: application/json
@@ -791,7 +791,7 @@ Updates and returns an existing Academic Department.
     }
     ```
 
-* Error response: Couldn't find a Academic Department with the specified id
+* Error response: Couldn't find an Academic Department with the specified id
   * Status Code: 404
   * Headers:
     * Content-Type: application/json
