@@ -1,6 +1,6 @@
 'use strict';
 
-const { employeeDepartment } = require('../models');
+const { EmployeeDepartment } = require('../models');
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await employeeDepartment.bulkCreate([
+    await EmployeeDepartment.bulkCreate([
       {
         name: 'Principles',
         imageURL: null,
@@ -26,7 +26,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    options.tableName = 'Employee Departments';
+    options.tableName = 'EmployeeDepartments';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
       name: { [Op.in]: ['Principles', 'Registrars', 'Teachers'] }

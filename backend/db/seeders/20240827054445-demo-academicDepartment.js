@@ -1,6 +1,6 @@
 'use strict';
 
-const { academicDepartment } = require('../models');
+const { AcademicDepartment } = require('../models');
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await academicDepartment.bulkCreate([
+    await AcademicDepartment.bulkCreate([
       {
         name: 'Voice',
         chair: 'Mariah Carey',
@@ -29,7 +29,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    options.tableName = 'Academic Departments';
+    options.tableName = 'AcademicDepartments';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
       name: { [Op.in]: ['Voice', 'Bowed Strings', 'Plucked Strings'] }
