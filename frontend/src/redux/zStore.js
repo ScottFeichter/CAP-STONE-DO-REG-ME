@@ -2,12 +2,13 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { thunk } from 'redux-thunk';
 import sessionReducer from './sessionReducer.js';
 import employeeDepartmentsReducer from './employeeDepartmentsReducer.js';
+import academicDepartmentsReducer from './academicDepartmentsReducer.js';
 
 const rootReducer = combineReducers({
 
   session: sessionReducer,
   employeeDepartments: employeeDepartmentsReducer,
-
+  academicDepartments: academicDepartmentsReducer,
 
 });
 

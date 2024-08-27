@@ -20,7 +20,7 @@ const employeeDepartmentsSearch = (employeeDepartments) => {
 };
 
 const employeeDepartmentsAll = (employeeDepartments) => {
-  // console.log('EMPLOYEE_DEPARTMENTSSEARCH RAN - EMPLOYEE DEPARTMENTS', employeeDepartments);
+  // console.log('EMPLOYEE_DEPARTMENTS ALL RAN - EMPLOYEE DEPARTMENTS', employeeDepartments);
   return {
     type: EMPLOYEE_DEPARTMENTS_ALL,
     payload: employeeDepartments
@@ -29,7 +29,7 @@ const employeeDepartmentsAll = (employeeDepartments) => {
 
 
 const employeeDepartmentById = (employeeDepartment) => {
-  // console.log('EMPLOYEE_DEPARTMENTBYID RAN - EMPLOYEE DEPARTMENTS', employeeDepartment);
+  // console.log('EMPLOYEE_DEPARTMENT BY ID RAN - EMPLOYEE DEPARTMENTS', employeeDepartment);
   return {
     type: EMPLOYEE_DEPARTMENT_BY_ID,
     payload: employeeDepartment
@@ -37,7 +37,7 @@ const employeeDepartmentById = (employeeDepartment) => {
 };
 
 const newCreatedEmployeeDepartment = (employeeDepartment) => {
-  // console.log('NEWCREATEDEMPLOYEE_DEPARTMENT RAN - EMPLOYEE DEPARTMENTS', employeeDepartment);
+  // console.log('NEW CREATED EMPLOYEE_DEPARTMENT RAN - EMPLOYEE DEPARTMENTS', employeeDepartment);
   return {
     type: CREATE_EMPLOYEE_DEPARTMENT,
     payload: employeeDepartment
@@ -45,7 +45,7 @@ const newCreatedEmployeeDepartment = (employeeDepartment) => {
 };
 
 const updateEmployeeDepartment = (employeeDepartment) => {
-  // console.log('UPDATEDEMPLOYEE_DEPARTMENT RAN - EMPLOYEE DEPARTMENTS', employeeDepartment);
+  // console.log('UPDATED EMPLOYEE_DEPARTMENT RAN - EMPLOYEE DEPARTMENTS', employeeDepartment);
   return {
     type: UPDATE_EMPLOYEE_DEPARTMENT,
     payload: employeeDepartment
@@ -53,7 +53,7 @@ const updateEmployeeDepartment = (employeeDepartment) => {
 };
 
 const deletedEmployeeDepartment = (employeeDepartment) => {
-  // console.log('DELETEDEMPLOYEE_DEPARTMENT RAN - EMPLOYEE DEPARTMENTS', employeeDepartment);
+  // console.log('DELETED EMPLOYEE_DEPARTMENT RAN - EMPLOYEE DEPARTMENTS', employeeDepartment);
   return {
     type: DELETE_EMPLOYEE_DEPARTMENT,
     payload: employeeDepartment
