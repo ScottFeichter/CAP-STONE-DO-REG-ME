@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
       },
       imageURL: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
         allowNull: true,
       },
       createdAt: {
@@ -24,7 +24,7 @@ module.exports = {
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       }
     });

@@ -7,7 +7,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
         type: Sequelize.STRING(30),
@@ -18,7 +18,7 @@ module.exports = {
         allowNull: true,
       },
       imageURL: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
         allowNull: true,
       },
       createdAt: {
