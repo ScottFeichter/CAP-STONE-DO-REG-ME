@@ -1,4 +1,4 @@
-import { csrfFetch } from "./csrf";
+import { csrfFetch } from "./xCsrf";
 
 /** =============ACTION TYPE CONSTANTS:=======================================*/
 
@@ -61,12 +61,12 @@ const deletedEmployeeDepartment = (employeeDepartment) => {
 };
 
 
-/** =======THUNKS: =========*/
+/** ==============THUNKS:=====================================================*/
 
-/** GET EMPLOYEE DEPARTMENTS */
+/** SEARCH EMPLOYEE DEPARTMENTS */
 export const search = (/*search*/) => async (dispatch) => {
 
-  const response = await fetch("/api/employeeDepartments");
+  const response = await csrfFetch("/api/employeeDepartments");
   const data = await response.json();
   const employeeDepartments = data.employeeDepartments;
   // console.log('THUNK SEARCH RAN DATA: ', employeeDepartments);
@@ -76,21 +76,21 @@ export const search = (/*search*/) => async (dispatch) => {
 
 
 /** GET EMPLOYEE DEPARTMENTS */
-export const getEmployeeDepartmentsAll = () => async (dispatch) => {
+export const thunkGetEmployeeDepartmentsAll = () => async (dispatch) => {
 
-  const response = await fetch("/api/employeeDepartments");
+  const response = await csrfFetch("/api/employeeDepartments");
   const data = await response.json();
   const employeeDepartments = data.employeeDepartments;
-  // console.log('THUNK SEARCH RAN DATA: ', employeeDepartments);
+  // console.log('THUNK GET EMPLOYEE DEPARTMENTS ALL RAN DATA: ', employeeDepartments);
 
   return dispatch(employeeDepartmentsAll(employeeDepartments))
 };
 
 
 /** GET DETAILS OF A EMPLOYEE DEPARTMENT FROM AN ID */
-export const getEmployeeDepartmentDetailsById = (employeeDepartmentId) => async (dispatch) => {
+export const thunkGetEmployeeDepartmentById = (employeeDepartmentId) => async (dispatch) => {
   // console.log('EMPLOYEE_DEPARTMENTID FORM EMPLOYEE_DEPARTMENTDETAILS EMPLOYEE DEPARTMENTS 89', employeeDepartmentId)
-  const response = await fetch(`/api/employeeDepartments/${employeeDepartmentId}`);
+  const response = await csrfFetch(`/api/employeeDepartments/${employeeDepartmentId}`);
   const data = await response.json();
   // console.log('THUNK GETEMPLOYEE_DEPARTMENTBYID RAN DATA: ', data );
 
@@ -99,8 +99,7 @@ export const getEmployeeDepartmentDetailsById = (employeeDepartmentId) => async 
 
 
 /** POST EMPLOYEE DEPARTMENTS */
-
-export const createEmployeeDepartment = (newEmployeeDepartment) => async (dispatch) => {
+export const thunkCreateEmployeeDepartment = (newEmployeeDepartment) => async (dispatch) => {
   const response = await csrfFetch(`/api/employeeDepartments/`, {
     method: "POST",
     headers: {
@@ -110,15 +109,14 @@ export const createEmployeeDepartment = (newEmployeeDepartment) => async (dispat
   });
 
   const data = await response.json();
-  // console.log('THUNK CREATEEMPLOYEE_DEPARTMENT RAN DATA: ', data );
+  // console.log('THUNK CREATE EMPLOYEE_DEPARTMENT RAN DATA: ', data );
 
   return dispatch(newCreatedEmployeeDepartment(data));
 };
 
 
 /** PUT EMPLOYEE DEPARTMENTS */
-
-export const editEmployeeDepartment = (editedEmployeeDepartment) => async (dispatch) => {
+export const thunkEditEmployeeDepartment = (editedEmployeeDepartment) => async (dispatch) => {
   const { employeeDepartmentId, updatedEmployeeDepartment } = editedEmployeeDepartment;
 //  console.log('UPDATED EMPLOYEE DEPARTMENT FROM EMPLOYEE DEPARTMENTS EDIT EMPLOYEE DEPARTMENT', updatedEmployeeDepartment);
 
@@ -131,31 +129,31 @@ export const editEmployeeDepartment = (editedEmployeeDepartment) => async (dispa
   });
 
   const data = await response.json();
-  // console.log('THUNK EDITEMPLOYEE_DEPARTMENT RAN DATA: ', data );
+  // console.log('THUNK EDIT EMPLOYEE DEPARTMENT RAN DATA: ', data );
 
   return dispatch(updateEmployeeDepartment(data));
 };
 
-/** DELETE EMPLOYEE DEPARTMENTS */
 
-export const deleteEmployeeDepartment = (employeeDepartment) => async (dispatch) => {
+/** DELETE EMPLOYEE DEPARTMENTS */
+export const thunkDeleteEmployeeDepartment = (employeeDepartment) => async (dispatch) => {
   const employeeDepartmentId = employeeDepartment.id;
   const response = await csrfFetch(`/api/employeeDepartments/${employeeDepartmentId}`, {
     method: "DELETE",
   });
   response
   // const data = await response.json();
-  // console.log('THUNK DELETEEMPLOYEE_DEPARTMENT RAN: ', response );
+  // console.log('THUNK DELET EEMPLOYEE DEPARTMENT RAN: ', response );
   return dispatch(deletedEmployeeDepartment(employeeDepartment));
 };
 
 
 
 
-/** =======INITIAL STATE: =========*/
+/** ==============INITIAL STATE: =============================================*/
 const initialEmployeeDepartmentsState = {}
 
-/** =======REDUCER: =========*/
+/** ==============REDUCER: ===================================================*/
 const employeeDepartmentsReducer = (employeeDepartmentsState = initialEmployeeDepartmentsState, action) => {
   // console.log('EMPLOYEE DEPARTMENTS REDUCER RAN - STATE AND ACTION', state, action)
 
