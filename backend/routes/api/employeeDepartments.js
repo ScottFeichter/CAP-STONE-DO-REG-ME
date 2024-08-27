@@ -44,10 +44,7 @@ const pagination = (reqQuery) => {
 
 
 // ==================GET ALL EMPLOYEE DEPARTMENTS==============================
-router.get("/employeeDepartments", async (req, res, next) => {
-  console.log("inside the route");
-
-
+router.get("/", requireAuth, async (req, res, next) => {
 
 
   let employeeDepartments = await EmployeeDepartment.findAll({
@@ -62,21 +59,138 @@ router.get("/employeeDepartments", async (req, res, next) => {
   });
 
 
-
   return res.json({ employeeDepartments, /* page, size */ });
+
+
+});
+
+// ==================GET A SPOT BY ID =========================================
+router.get("/:employeeDepartmentId", async (req, res, next) => {
+  const employeeDepartment = await EmployeeDepartment.findByPk(req.params.employeeDepartmentId, {
+    attributes: [
+      "id",
+      "name",
+      "imageURL",
+      "createdAt",
+      "updatedAt",
+    ],
+  });
+
+  if (!employeeDepartment) {
+    const err = new Error("Employee Department couldn't be found.");
+    err.status = 404;
+    return next(err);
+  }
+
+  res.json(employeeDepartment);
+});
+
+
+// ==================CREATE AN EMPLOYEE DEPARTMENT=============================
+
+router.post("/", requireAuth, async (req, res, next) => {
+
+  const { name, imageURL } = req.body;
+
+
+  const exists = await EmployeeDepartment.findAll({
+    where: [
+      { name: name },
+    ],
+  });
+
+  if (exists.length) {
+    const err = new Error("Employee Department already exists.");
+    err.status = 409;
+    next(err);
+  } else {
+    const nuEmployeeDepartment = await EmployeeDepartment.build({
+      name: name,
+      imageURL: imageURL,
+    });
+
+    await nuEmployeeDepartment.validate();
+    await nuEmployeeDepartment.save();
+  }
+
+  const nuEmployeeDepartmentFromDB = await EmployeeDepartment.findAll({
+    where: [
+      { name: name },
+    ],
+  });
+
+
+  return  res.status(201).json(nuEmployeeDepartmentFromDB);
+
 
 });
 
 
 
-
-// ==================CREATE AN EMPLOYEE DEPARTMENT=============================
-
-
 // ==================EDIT AN EMPLOYEE DEPARTMENT===============================
+
+
+router.put("/:employeeDepartmentId", requireAuth, async (req, res, next) => {
+  const { name, imageURL } = req.body;
+  const employeeDepartmentId = req.params.employeeDepartmentId;
+
+  const employeeDepartmentToUpdate = await EmployeeDepartment.findByPk(req.params.employeeDepartmentId);
+
+  if (!employeeDepartmentToUpdate) {
+    const err = new Error("Employee Department couldn't be found");
+    err.status = 404;
+    return next(err);
+  }
+
+  if (
+    (typeof name !== "string" && name !== undefined) ||
+    name.length > 30 ||
+    name === "" ||
+    name === null
+  ) {
+    const err = new Error("Bad Request");
+    err.errors = { name: "Name must be less than 30 characters" };
+    err.status = 400;
+    return next(err);
+  }
+
+  if (
+    (typeof imageURL !== "string" && (imageURL !== undefined || imageURL !== null))
+  ) {
+    const err = new Error("Bad Request");
+    err.errors = { imageURL: "Image URL is invalid" };
+    err.status = 400;
+    return next(err);
+  }
+
+
+  if (name !== undefined) employeeDepartmentToUpdate.name = name;
+  if (imageURL !== undefined) employeeDepartmentToUpdate.imageURL = imageURL;
+
+
+  await employeeDepartmentToUpdate.save();
+
+  res.json(employeeDepartmentToUpdate);
+});
 
 
 // ==================DELETE AN EMPLOYEE DEPARTMENT=============================
 
+router.delete("/:employeeDepartmentId", requireAuth, async (req, res, next) => {
+  const employeeDepartmentToDelete = await EmployeeDepartment.findByPk(req.params.employeeDepartmentId);
+
+
+  if (!employeeDepartmentToDelete) {
+    const err = new Error("Employee Department couldn't be found");
+    err.status = 404;
+    return next(err);
+  }
+
+  await employeeDepartmentToDelete.destroy();
+  res.json({ message: "Successfully Deleted" });
+});
+
+
+// ===========================================================================
 
 module.exports = router;
