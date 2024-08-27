@@ -1,18 +1,3 @@
-// // import React from "react";
-// import SplashPage from "./components/session/Splash.jsx";
-
-// function App() {
-//   // console.log("APP COMPONENT RAN");
-//   // return <RouterProvider router={router} />;
-//   return (
-//         <SplashPage />
-//   );
-
-// }
-
-// export default App;
-
-// frontend/src/App.js
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Splash from "./components/Session/Splash";
@@ -35,14 +20,6 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
 
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
