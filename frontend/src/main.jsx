@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -26,7 +26,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <ModalProvider>
       <Provider store={store}>
         <BrowserRouter>
@@ -35,5 +35,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </BrowserRouter>
       </Provider>
     </ModalProvider>
-  // </React.StrictMode>
+  </React.StrictMode>
 )
