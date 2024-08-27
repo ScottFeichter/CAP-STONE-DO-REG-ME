@@ -64,7 +64,7 @@ router.get("/", requireAuth, async (req, res, next) => {
 
 });
 
-// ==================GET A SPOT BY ID =========================================
+// ==================GET AN EMPLOYEE DEPARTMENT BY ID =========================
 router.get("/:employeeDepartmentId", async (req, res, next) => {
   const employeeDepartment = await EmployeeDepartment.findByPk(req.params.employeeDepartmentId, {
     attributes: [
