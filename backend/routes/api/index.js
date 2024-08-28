@@ -3,6 +3,7 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const employeeDepartmentsRouter = require('./employeeDepartments.js');
 const academicDepartmentsRouter = require('./academicDepartments.js');
+const userTypesRouter = require('./userTypes.js')
 
 const { restoreUser } = require("../../utils/auth.js");
 
@@ -14,6 +15,7 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/employeeDepartments', employeeDepartmentsRouter);
 router.use('/academicDepartments', academicDepartmentsRouter);
+router.use('/userTypes', userTypesRouter);
 
 // =========================TEST ROUTES===========================//
 
