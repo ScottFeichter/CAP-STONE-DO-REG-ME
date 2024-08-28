@@ -1,9 +1,16 @@
 "use strict";
 
-/** @type {import('sequelize-cli').Migration} */
+const { Branch } = require("../models");
+
+let options = {};
+if (process.env.NODE_ENV === "production") {
+  options.schema = process.env.SCHEMA; // define your schema in options object
+}
+
+
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await UserType.bulkCreate(
+    await Branch.bulkCreate(
       [
         {
           name: "Online",
@@ -13,7 +20,7 @@ module.exports = {
           zip: 99999,
         },
         {
-          name: Mission,
+          name: "Mission",
           street: "455 Mission St",
           city: "San Francisco",
           state: "CA",
@@ -32,11 +39,15 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    options.tableName = "Branches";
+    const Op = Sequelize.Op;
+    return queryInterface.bulkDelete(
+      options,
+      {
+        name: { [Op.in]: ["Online", "Mission", "Richmond"] },
+      },
+      {}
+    );
+
   },
 };
