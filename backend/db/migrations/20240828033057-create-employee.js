@@ -14,13 +14,14 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true,
           allowNull: false,
+          unique: true,
           type: Sequelize.INTEGER,
         },
         employeeDepartment_Id: {
           type: Sequelize.INTEGER,
           allowNull: true,
           references: {
-            model: "EmployeeDepartment",
+            model: "EmployeeDepartments",
             key: "id",
           },
           // onDelete: "CASCADE"
@@ -29,7 +30,7 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: true,
           references: {
-            model: "AcademicDepartment",
+            model: "AcademicDepartments",
             key: "id",
           },
           // onDelete: "CASCADE"
@@ -38,7 +39,7 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false,
           references: {
-            model: "UserType",
+            model: "UserTypes",
             key: "id",
           },
           // onDelete: "CASCADE"
@@ -124,12 +125,12 @@ module.exports = {
           unique: false,
           type: Sequelize.STRING,
         },
-        secondLange: {
+        secondLang: {
           allowNull: true,
           unique: false,
           type: Sequelize.STRING,
         },
-        thirdLange: {
+        thirdLang: {
           allowNull: true,
           unique: false,
           type: Sequelize.STRING,

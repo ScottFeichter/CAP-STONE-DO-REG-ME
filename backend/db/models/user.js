@@ -1,15 +1,22 @@
-'use strict';
-const { Model, Validator } = require('sequelize');
+"use strict";
+const { Model, Validator } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
       // define association here
     }
-  };
+  }
 
   User.init(
     {
+      id: {
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+        unique: true,
+        type: DataTypes.INTEGER,
+      },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -27,23 +34,23 @@ module.exports = (sequelize, DataTypes) => {
             if (Validator.isEmail(value)) {
               throw new Error("Cannot be an email.");
             }
-          }
-        }
+          },
+        },
       },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [3, 256],
-          isEmail: true
-        }
+          isEmail: true,
+        },
       },
       hashedPassword: {
         type: DataTypes.STRING.BINARY,
         allowNull: false,
         validate: {
-          len: [60, 60]
-        }
+          len: [60, 60],
+        },
       },
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE,
@@ -53,7 +60,7 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "User",
       defaultScope: {
         attributes: {
-          exclude: ["hashedPassword", "loginEmail", "createdAt", "updatedAt"]
+          exclude: ["hashedPassword", "loginEmail", "createdAt", "updatedAt"],
         },
       },
       scopes: {
@@ -64,6 +71,7 @@ module.exports = (sequelize, DataTypes) => {
           attributes: {},
         },
       },
-    });
+    }
+  );
   return User;
 };

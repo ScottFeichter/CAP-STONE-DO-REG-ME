@@ -3,13 +3,20 @@ const { Model, Validator } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   class Employee extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
       // define association here
+      Employee.belongsTo(models.EmployeeDepartment, {
+        foreignKey: "employeeDepartment_Id",
+        // as: ''
+      });
+      Employee.belongsTo(models.AcademicDepartment, {
+        foreignKey: "academicDepartment_Id",
+        // as: ''
+      });
+      Employee.belongsTo(models.UserType, {
+        foreignKey: "userType_Id",
+        // as: ''
+      });
     }
   }
   Employee.init(
@@ -18,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
+        unique: true,
         type: DataTypes.INTEGER,
       },
       employeeDepartment_Id: {
@@ -113,12 +121,12 @@ module.exports = (sequelize, DataTypes) => {
         unique: false,
         type: DataTypes.STRING,
       },
-      secondLange: {
+      secondLang: {
         allowNull: true,
         unique: false,
         type: DataTypes.STRING,
       },
-      thirdLange: {
+      thirdLang: {
         allowNull: true,
         unique: false,
         type: DataTypes.STRING,
@@ -156,7 +164,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryPayRate: {
         allowNull: false,
         unique: false,
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
       },
       secondaryTitle: {
         allowNull: true,
@@ -176,7 +184,7 @@ module.exports = (sequelize, DataTypes) => {
       secondaryPayRate: {
         allowNull: true,
         unique: false,
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
       },
       tertiaryTitle: {
         allowNull: true,
@@ -196,7 +204,7 @@ module.exports = (sequelize, DataTypes) => {
       tertiaryPayRate: {
         allowNull: true,
         unique: false,
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
       },
       quarternaryTitle: {
         allowNull: true,
@@ -216,7 +224,7 @@ module.exports = (sequelize, DataTypes) => {
       quarternaryPayRate: {
         allowNull: true,
         unique: false,
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
       },
       biography: {
         allowNull: true,
