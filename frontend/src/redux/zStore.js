@@ -3,12 +3,16 @@ import { thunk } from 'redux-thunk';
 import sessionReducer from './sessionReducer.js';
 import employeeDepartmentsReducer from './employeeDepartmentsReducer.js';
 import academicDepartmentsReducer from './academicDepartmentsReducer.js';
+import userTypesReducer from './userTypesReducer.js';
+import employeesReducer from './employeesReducer.js';
 
 const rootReducer = combineReducers({
 
   session: sessionReducer,
   employeeDepartments: employeeDepartmentsReducer,
   academicDepartments: academicDepartmentsReducer,
+  userTypes: userTypesReducer,
+  employees: employeesReducer,
 
 });
 

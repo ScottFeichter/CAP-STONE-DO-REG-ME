@@ -6,6 +6,10 @@ import { RouterProvider } from 'react-router-dom';
 import configureStore from './redux/zStore.js';
 import { restoreCSRF, csrfFetch } from './redux/xCsrf.js';
 import * as sessionActions from './redux/sessionReducer.js';
+import * as userTypesActions from './redux/userTypesReducer.js';
+import * as academicDepartmentsActions from './redux/academicDepartmentsReducer.js';
+import * as employeeDepartmentsActions from './redux/employeeDepartmentsReducer.js';
+import * as employeesActions from './redux/employeesReducer.js';
 
 import { router } from "./router/Router.jsx";
 import './index.css'
@@ -21,6 +25,11 @@ if (process.env.NODE_ENV !== 'production') {
   window.csrfFetch = csrfFetch;
   window.store = store;
   window.sessionActions = sessionActions;
+  window.academicDepartmentsActions = academicDepartmentsActions;
+  window.employeeDepartmentsActions = employeeDepartmentsActions;
+  window.userTypesActions = userTypesActions;
+  window.employeesActions = employeesActions;
+
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(

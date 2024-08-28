@@ -20,7 +20,7 @@ fetch("/api/test",
 
 
 
-// ==============================THUNKS=======================================//
+// ==============================SESSION THUNKS===============================//
 
 
 //  login thunk action test in the browser's dev tools console:
@@ -43,3 +43,8 @@ window.store.dispatch(
     password: "password",
   })
 );
+
+
+// ==============================USER TYPES THUNKS===============================//
+
+window.store.dispatch(window.userTypesActions.thunkGetUserTypesAll());
