@@ -69,7 +69,7 @@ module.exports = {
           type: Sequelize.STRING,
         },
         personalEmail: {
-          type: DataTypes.STRING,
+          type: Sequelize.STRING,
           allowNull: true,
           // validate: {
           //   len: [3, 256],
@@ -77,7 +77,7 @@ module.exports = {
           // }
         },
         personalPhone: {
-          type: DataTypes.STRING,
+          type: Sequelize.STRING,
           allowNull: false,
           // validate: {
           //   len: [3, 256],
