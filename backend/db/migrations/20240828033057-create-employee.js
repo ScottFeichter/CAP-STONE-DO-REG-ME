@@ -151,12 +151,12 @@ module.exports = {
           type: Sequelize.STRING,
         },
         primaryTitle: {
-          allowNull: false,
+          allowNull: true,
           unique: false,
           type: Sequelize.STRING,
         },
         primaryStartDate: {
-          allowNull: false,
+          allowNull: true,
           unique: false,
           type: Sequelize.STRING,
         },

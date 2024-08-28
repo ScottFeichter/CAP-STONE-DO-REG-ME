@@ -162,7 +162,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       primaryPayRate: {
-        allowNull: false,
+        allowNull: true,
         unique: false,
         type: DataTypes.FLOAT,
       },
