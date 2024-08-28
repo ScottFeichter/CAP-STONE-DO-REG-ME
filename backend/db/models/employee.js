@@ -164,7 +164,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryPayRate: {
         allowNull: true,
         unique: false,
-        type: DataTypes.FLOAT,
+        type: DataTypes.REAL,
       },
       secondaryTitle: {
         allowNull: true,
@@ -184,7 +184,7 @@ module.exports = (sequelize, DataTypes) => {
       secondaryPayRate: {
         allowNull: true,
         unique: false,
-        type: DataTypes.FLOAT,
+        type: DataTypes.REAL,
       },
       tertiaryTitle: {
         allowNull: true,
@@ -204,7 +204,7 @@ module.exports = (sequelize, DataTypes) => {
       tertiaryPayRate: {
         allowNull: true,
         unique: false,
-        type: DataTypes.FLOAT,
+        type: DataTypes.REAL,
       },
       quarternaryTitle: {
         allowNull: true,
@@ -224,7 +224,7 @@ module.exports = (sequelize, DataTypes) => {
       quarternaryPayRate: {
         allowNull: true,
         unique: false,
-        type: DataTypes.FLOAT,
+        type: DataTypes.REAL,
       },
       biography: {
         allowNull: true,
