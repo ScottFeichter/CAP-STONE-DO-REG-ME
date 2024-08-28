@@ -37,7 +37,7 @@ module.exports = {
         },
         userType_Id: {
           type: Sequelize.INTEGER,
-          allowNull: false,
+          allowNull: true,
           references: {
             model: "UserTypes",
             key: "id",
@@ -168,7 +168,7 @@ module.exports = {
         primaryPayRate: {
           allowNull: true,
           unique: false,
-          type: Sequelize.REAL,
+          type: Sequelize.INTEGER,
         },
         secondaryTitle: {
           allowNull: true,
@@ -188,7 +188,7 @@ module.exports = {
         secondaryPayRate: {
           allowNull: true,
           unique: false,
-          type: Sequelize.REAL,
+          type: Sequelize.INTEGER,
         },
         tertiaryTitle: {
           allowNull: true,
@@ -208,7 +208,7 @@ module.exports = {
         tertiaryPayRate: {
           allowNull: true,
           unique: false,
-          type: Sequelize.REAL,
+          type: Sequelize.INTEGER,
         },
         quarternaryTitle: {
           allowNull: true,
@@ -228,7 +228,7 @@ module.exports = {
         quarternaryPayRate: {
           allowNull: true,
           unique: false,
-          type: Sequelize.REAL,
+          type: Sequelize.INTEGER,
         },
         biography: {
           allowNull: true,

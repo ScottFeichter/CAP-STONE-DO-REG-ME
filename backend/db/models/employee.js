@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       userType_Id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       firstName1: {
         allowNull: false,
@@ -164,7 +164,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryPayRate: {
         allowNull: true,
         unique: false,
-        type: DataTypes.REAL,
+        type: DataTypes.INTEGER,
       },
       secondaryTitle: {
         allowNull: true,
@@ -184,7 +184,7 @@ module.exports = (sequelize, DataTypes) => {
       secondaryPayRate: {
         allowNull: true,
         unique: false,
-        type: DataTypes.REAL,
+        type: DataTypes.INTEGER,
       },
       tertiaryTitle: {
         allowNull: true,
@@ -204,7 +204,7 @@ module.exports = (sequelize, DataTypes) => {
       tertiaryPayRate: {
         allowNull: true,
         unique: false,
-        type: DataTypes.REAL,
+        type: DataTypes.INTEGER,
       },
       quarternaryTitle: {
         allowNull: true,
@@ -224,7 +224,7 @@ module.exports = (sequelize, DataTypes) => {
       quarternaryPayRate: {
         allowNull: true,
         unique: false,
-        type: DataTypes.REAL,
+        type: DataTypes.INTEGER,
       },
       biography: {
         allowNull: true,

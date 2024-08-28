@@ -39,7 +39,7 @@ module.exports = {
           primaryTitle: "Teacher",
           primaryStartDate: "01/01/2010",
           primaryEndDate: null,
-          primaryPayRate: 1000.00,
+          primaryPayRate: 1000,
           secondaryTitle: null,
           secondaryStartDate: null,
           secondaryEndDate: null,
@@ -73,7 +73,7 @@ module.exports = {
           zip: 94123,
           dob: "01/01/1975",
           age: 49,
-          ssn: "123-45-7891",
+          ssn: "123-45-9876",
           firstLang: "English",
           secondLang: null,
           thirdLang: null,
@@ -83,7 +83,7 @@ module.exports = {
           primaryTitle: "Maintenence Tech",
           primaryStartDate: "01/01/2010",
           primaryEndDate: null,
-          primaryPayRate: 25.75,
+          primaryPayRate: 25,
           secondaryTitle: null,
           secondaryStartDate: null,
           secondaryEndDate: null,
@@ -129,7 +129,7 @@ module.exports = {
           primaryTitle: "Registrar",
           primaryStartDate: "01/01/2010",
           primaryEndDate: null,
-          primaryPayRate: 200.00,
+          primaryPayRate: 200,
           secondaryTitle: null,
           secondaryStartDate: null,
           secondaryEndDate: null,
@@ -156,7 +156,7 @@ module.exports = {
     return queryInterface.bulkDelete(
       options,
       {
-        ssn: { [Op.in]: ["123-45-7891", "123-45-7891", "123-45-6767"] },
+        ssn: { [Op.in]: ["123-45-7891", "123-45-9876", "123-45-6767"] },
       },
       {}
     );
