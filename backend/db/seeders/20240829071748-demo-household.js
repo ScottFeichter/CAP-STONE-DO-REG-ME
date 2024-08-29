@@ -34,7 +34,7 @@ module.exports = {
     return queryInterface.bulkDelete(
       options,
       {
-        householdName: { [Op.in]: ["Tom Bueller Household", "Gomez Addams Household", "Arthur Weasley Household"] },
+        name: { [Op.in]: ["Tom Bueller Household", "Gomez Addams Household", "Arthur Weasley Household"] },
       },
       {}
     );

@@ -51,7 +51,8 @@ router.get("/", requireAuth, async (req, res, next) => {
   let households = await Household.findAll({
     attributes: [
       "id",
-      "type",
+      "name",
+      "notes",
       "createdAt",
       "updatedAt",
     ],
@@ -67,7 +68,8 @@ router.get("/:householdId", async (req, res, next) => {
   const household = await Household.findByPk(req.params.householdId, {
     attributes: [
       "id",
-      "type",
+      "name",
+      "notes",
       "createdAt",
       "updatedAt",
     ],
@@ -87,12 +89,12 @@ router.get("/:householdId", async (req, res, next) => {
 
 router.post("/", requireAuth, async (req, res, next) => {
 
-  const { householdName, notes } = req.body;
+  const { name, notes } = req.body;
 
 
   const exists = await Household.findAll({
     where: [
-      { householdName: householdName },
+      { name: name },
     ],
   });
 
@@ -102,7 +104,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     next(err);
   } else {
     const nuHousehold = await Household.build({
-      householdName: householdName,
+      name: name,
       notes: notes,
     });
 
@@ -112,7 +114,7 @@ router.post("/", requireAuth, async (req, res, next) => {
 
   const nuHouseholdFromDB = await Household.findAll({
     where: [
-      { householdName: householdName },
+      { name: name },
     ],
   });
 
@@ -128,7 +130,7 @@ router.post("/", requireAuth, async (req, res, next) => {
 
 
 router.put("/:householdId", requireAuth, async (req, res, next) => {
-  const { householdName, notes } = req.body;
+  const { name, notes } = req.body;
   const householdId = req.params.householdId;
 
   const householdToUpdate = await Household.findByPk(req.params.householdId);
@@ -140,19 +142,19 @@ router.put("/:householdId", requireAuth, async (req, res, next) => {
   }
 
   if (
-    (typeof householdName !== "string" && householdName !== undefined) ||
-    householdName.length > 60 ||
-    householdName === "" ||
-    householdName === null
+    (typeof name !== "string" && name !== undefined) ||
+    name.length > 60 ||
+    name === "" ||
+    name === null
   ) {
     const err = new Error("Bad Request");
-    err.errors = { householdName: "Household name must be less than 60 characters" };
+    err.errors = { name: "Household name must be less than 60 characters" };
     err.status = 400;
     return next(err);
   }
 
 
-  if (householdName !== undefined) householdToUpdate.householdName = householdName;
+  if (name !== undefined) householdToUpdate.name = name;
   if (notes !== undefined) householdToUpdate.notes = notes;
 
 

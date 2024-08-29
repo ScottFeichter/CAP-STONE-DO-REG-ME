@@ -107,7 +107,7 @@ module.exports = {
     return queryInterface.bulkDelete(
       options,
       {
-        ssn: { [Op.in]: ["123-45-7891", "123-45-9876", "123-45-6767"] },
+        firstName1: { [Op.in]: ["Ferris", "Wednesday", "Ronald"] },
       },
       {}
     );

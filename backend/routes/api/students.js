@@ -200,7 +200,7 @@ router.post("/", requireAuth, async (req, res, next) => {
   }
 
   const nuStudentFromDB = await Student.findAll({
-    where: [{ ssn: ssn }],
+    where: [{ firstName1: firstName1 }, { lastName1: lastName1 }, { personalEmail: personalEmail }],
   });
 
   return res.status(201).json(nuStudentFromDB);
