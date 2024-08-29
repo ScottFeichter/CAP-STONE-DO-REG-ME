@@ -7,6 +7,8 @@ import userTypesReducer from './userTypesReducer.js';
 import employeesReducer from './employeesReducer.js';
 import branchesReducer from './branchesReducer.js';
 import facilitiesReducer from './facilitiesReducer.js';
+import householdsReducer from './householdsReducer.js';
+import studentsReducer from './studentsReducer.js';
 
 const rootReducer = combineReducers({
 
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   employees: employeesReducer,
   branches: branchesReducer,
   facilities: facilitiesReducer,
+  households: householdsReducer,
+  students: studentsReducer,
 
 });
 

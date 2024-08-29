@@ -12,6 +12,8 @@ import * as employeeDepartmentsActions from './redux/employeeDepartmentsReducer.
 import * as employeesActions from './redux/employeesReducer.js';
 import * as branchesActions from './redux/branchesReducer.js';
 import * as facilitiesActions from './redux/facilitiesReducer.js';
+import * as householdsActions from './redux/householdsReducer.js';
+import * as studentsActions from './redux/studentsReducer.js';
 
 import { router } from "./router/Router.jsx";
 import './index.css'
@@ -33,7 +35,8 @@ if (process.env.NODE_ENV !== 'production') {
   window.employeesActions = employeesActions;
   window.branchesActions = branchesActions;
   window.facilitiesActions = facilitiesActions;
-
+  window.householdsActions = householdsActions;
+  window.studentsActions = studentsActions;
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
