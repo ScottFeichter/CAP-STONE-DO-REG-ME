@@ -280,7 +280,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"type\": \"Rookie\"\n}",
+					"raw": "{\n  \"type\": \"I.T.\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -313,7 +313,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"type\": \"Sophomore\"\n}",
+					"raw": "{\n  \"type\": \"Volunteer\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -321,13 +321,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/userTypes/4",
+					"raw": "{{url}}/userTypes/6",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"userTypes",
-						"4"
+						"6"
 					]
 				}
 			},
@@ -345,13 +345,13 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/userTypes/4",
+					"raw": "{{url}}/userTypes/6",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"userTypes",
-						"4"
+						"6"
 					]
 				}
 			},

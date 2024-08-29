@@ -20,6 +20,12 @@ module.exports = {
         {
           type: "Teacher",
         },
+        {
+          type: "Staff",
+        },
+        {
+          type: "Student",
+        }
       ],
       { validate: true }
     );

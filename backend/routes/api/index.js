@@ -7,6 +7,8 @@ const userTypesRouter = require('./userTypes.js');
 const employeesRouter = require('./employees.js');
 const branchesRouter = require('./branches.js');
 const facilitiesRouter = require('./facilities.js');
+const householdsRouter = require('./households.js');
+const studentsRouter = require('./students.js');
 
 const { restoreUser } = require("../../utils/auth.js");
 
@@ -22,13 +24,15 @@ router.use('/userTypes', userTypesRouter);
 router.use('/employees', employeesRouter);
 router.use('/branches', branchesRouter);
 router.use('/facilities', facilitiesRouter);
+router.use('/households', householdsRouter);
+router.use('/students', studentsRouter);
 
 // =========================TEST ROUTES===========================//
 
 // test route for routes/api/index.js (this file)
 router.get('/hello/world', function(req, res) {
   res.cookie('XSRF-TOKEN', req.csrfToken());
-  res.send('Hello world from route api/hello/world!');
+  res.send('Hello world from route api/index/hello/world!');
 });
 
 // first post test
