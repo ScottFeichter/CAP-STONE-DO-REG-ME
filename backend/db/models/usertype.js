@@ -14,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
         // onDelete: "CASCADE",
         hooks: true
       });
+      UserType.hasMany(models.Student, {
+        foreignKey: 'userType_Id',
+        // onDelete: "CASCADE",
+        hooks: true
+      });
 
     }
   }
