@@ -8,6 +8,7 @@ const BRANCH_BY_ID = "branch/branchById";
 const CREATE_BRANCH = "branch/createBranch";
 const UPDATE_BRANCH = "branch/updateBranch";
 const DELETE_BRANCH = "branch/deletedBranch";
+const REMOVE_BRANCH_DATA_FROM_STORE = "branch/removeBranchDataFromStore"
 
 /** ==============ACTION CREATORS:============================================*/
 
@@ -57,6 +58,14 @@ const deletedBranch = (branch) => {
   return {
     type: DELETE_BRANCH,
     payload: branch
+  };
+};
+
+const removeBranchDataFromStore = () => {
+  // console.log('REMOVE BRANCH DATA FROM STORE RAN - BRANCHES', branch);
+  return {
+    type: REMOVE_BRANCH_DATA_FROM_STORE,
+    payload: {}
   };
 };
 
@@ -148,11 +157,17 @@ export const thunkDeleteBranch = (branch) => async (dispatch) => {
 };
 
 
+/** REMOVE BRANCH DATA FROM STORE */
+export const thunkRemoveBranchDataFromStore = () => async (dispatch) => {
+  return dispatch(removeBranchDataFromStore());
+};
+
+
 
 
 /** ==============INITIAL STATE: =============================================*/
 
-const initialBranchesState = {}
+const initialBranchesState = { branches: null }
 
 /** ==============REDUCER: ===================================================*/
 const branchesReducer = (branchesState = initialBranchesState, action) => {
@@ -183,6 +198,10 @@ const branchesReducer = (branchesState = initialBranchesState, action) => {
     case DELETE_BRANCH:
       // console.log("BRANCHESREDUCER RAN DELETE_BRANCH CASE RETURNING: ")
       return {...branchesState, DeletedBranch: action.payload};
+
+    case REMOVE_BRANCH_DATA_FROM_STORE:
+      // console.log("BRANCHESREDUCER RAN DELETE_BRANCH CASE RETURNING: ")
+      return {branches: "branch data removed on logout"};
 
     default:
       // console.log('BRANCHESREDUCER RAN DEFAULT')

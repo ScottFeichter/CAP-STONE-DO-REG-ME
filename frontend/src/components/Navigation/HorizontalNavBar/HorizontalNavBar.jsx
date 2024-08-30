@@ -3,15 +3,15 @@ import './HorizontalNavBar.css';
 import ProfileButton from '../ProfileButton/ProfileButton.jsx'
 import logo from '../../../../../ADMIN/images/logoDraft5.png'
 
-function HorizontalNavBar({propsForButton}) {
+function HorizontalNavBar({user}) {
   // const sessionUser = useSelector(state => state.session.user);
-  console.log("propsForButton in HorizontalNavBar: ", propsForButton);
+
 
   return(
     <>
       <ul id="NavigationUlHorizontal">
         <li className="NavigationTopBarUlLi" >
-          <ProfileButton propsForButton={propsForButton} id="NavigationProfileButton"/>
+          <ProfileButton user={user} id="NavigationProfileButton"/>
         </li>
         <li className="NavigationTopBarUlLi">
           <input type="text"></input>

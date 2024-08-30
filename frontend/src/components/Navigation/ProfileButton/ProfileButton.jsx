@@ -1,16 +1,16 @@
 import { CgProfile } from "react-icons/cg";
 import { useState, useEffect, useRef } from "react";
 import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import * as sessionActions from '../../../redux/sessionReducer';
 import "./ProfileButton.css"
 
 
-function ProfileButton({propsForButton}) {
+function ProfileButton({user}) {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
-  console.log("propsForButton in ProfileButton: ", propsForButton);
-  let user = propsForButton.user;
 
 
 
@@ -45,7 +45,8 @@ function ProfileButton({propsForButton}) {
   // logout handler for the logout button in the drop down menu
   const logout = (e) => {
     e.preventDefault();
-    dispatch(sessionActions.thunkLogout()).then(() => propsForButton.isLoaded = false);
+    dispatch(sessionActions.thunkLogout());
+    navigate('/')
   };
 
 

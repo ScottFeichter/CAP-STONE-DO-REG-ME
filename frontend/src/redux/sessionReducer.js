@@ -1,3 +1,4 @@
+import { thunkGetBranchesAll, thunkRemoveBranchDataFromStore } from "./branchesReducer";
 import { csrfFetch } from "./xCsrf";
 
 /**===================ACTION TYPE CONSTANTS: =====================*/
@@ -34,6 +35,7 @@ export const thunkLogin = (user) => async (dispatch) => {
     }),
   });
   const data = await response.json();
+  if(response.ok) dispatch(thunkGetBranchesAll());
   // console.log('THUNK LOGIN RAN - USER: ', user, 'RESPONSE:', response, 'DATA: ', data);
   dispatch(setUser(data.user));
   return response;
@@ -76,6 +78,7 @@ export const thunkLogout = () => async (dispatch) => {
 
   // console.log(`LOGOUT RAN - RESPONSE.STATUS`, response.status);
   dispatch(removeUser());
+  dispatch(thunkRemoveBranchDataFromStore());
   return response;
 }
 
