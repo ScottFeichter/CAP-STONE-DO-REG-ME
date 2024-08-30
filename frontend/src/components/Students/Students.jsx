@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 function Students() {
   const students = useSelector(state => state.students.students);
-  console.log("students: ", students);
+  // console.log("students: ", students);
 
 
   return(

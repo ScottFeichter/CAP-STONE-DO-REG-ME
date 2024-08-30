@@ -25,6 +25,12 @@ function VerticalNavBar(){
 
 
     //============================VERTICAL NAV HANDLERS START=================================
+
+      const handleHomeClick = (e) => {
+        e.preventDefault;
+        navigate('/')
+      }
+
       const handleResourcesClick = (e) => {
         e.preventDefault;
         navigate('/resources/')
@@ -50,6 +56,9 @@ function VerticalNavBar(){
   return (
         <>
             <ul id="NavigationUlVertical">
+                <li className="NavigationUlVerticalLi">
+                    <button onClick={handleHomeClick}>Home</button>
+                </li>
                 <li className="NavigationUlVerticalLi">
                     <button onClick={handleResourcesClick}>Resources</button>
                 </li>

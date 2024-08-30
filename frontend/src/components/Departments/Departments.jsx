@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 function Departments() {
   const employeeDepartments = useSelector(state => state.employeeDepartments.employeeDepartments);
   const academicDepartments = useSelector(state => state.academicDepartments.academicDepartments);
-  console.log("employeeDepartments: ", employeeDepartments);
-  console.log("academicDepartments: ", academicDepartments);
+  // console.log("employeeDepartments: ", employeeDepartments);
+  // console.log("academicDepartments: ", academicDepartments);
 
 
 
