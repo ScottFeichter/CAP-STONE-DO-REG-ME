@@ -8,6 +8,7 @@ const STUDENT_BY_ID = "student/studentById";
 const CREATE_STUDENT = "student/createStudent";
 const UPDATE_STUDENT = "student/updateStudent";
 const DELETE_STUDENT = "student/deletedStudent";
+const REMOVE_STUDENT_DATA_FROM_STORE = "student/removeStudentDataFromStore";
 
 /** ==============ACTION CREATORS:============================================*/
 
@@ -57,6 +58,14 @@ const deleteStudent = (student) => {
   return {
     type: DELETE_STUDENT,
     payload: student
+  };
+};
+
+const removeStudentDataFromStore = () => {
+  // console.log('REMOVE STUDENT DATA FROM STORE RAN);
+  return {
+    type: REMOVE_STUDENT_DATA_FROM_STORE,
+    payload: {}
   };
 };
 
@@ -148,7 +157,10 @@ export const thunkDeleteStudent = (student) => async (dispatch) => {
 };
 
 
-
+/** REMOVE STUDENT DATA FROM STORE */
+export const thunkRemoveStudentDataFromStore = () => async (dispatch) => {
+  return dispatch(removeStudentDataFromStore());
+};
 
 /** ==============INITIAL STATE: =============================================*/
 
@@ -183,6 +195,10 @@ const studentsReducer = (studentsState = initialStudentsState, action) => {
     case DELETE_STUDENT:
       // console.log("STUDENTSREDUCER RAN DELETE_STUDENT CASE RETURNING: ")
       return {...studentsState, DeletedStudent: action.payload};
+
+    case REMOVE_STUDENT_DATA_FROM_STORE:
+      // console.log("STUDENTESREDUCER RAN REMOVE FROM STORE CASE")
+      return {};
 
     default:
       // console.log('STUDENTSREDUCER RAN DEFAULT')

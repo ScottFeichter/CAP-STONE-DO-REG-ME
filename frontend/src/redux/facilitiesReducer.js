@@ -8,6 +8,7 @@ const FACILITY_BY_ID = "facility/facilityById";
 const CREATE_FACILITY = "facility/createFacility";
 const UPDATE_FACILITY = "facility/updateFacility";
 const DELETE_FACILITY = "facility/deletedFacility";
+const REMOVE_FACILITIES_DATA_FROM_STORE = "facility/removeFacilityDataFromStore";
 
 /** ==============ACTION CREATORS:============================================*/
 
@@ -60,6 +61,14 @@ const deletedFacility = (facility) => {
   };
 };
 
+const removeFacilitiesDataFromStore = () => {
+  // console.log('REMOVE FACILITY DATA FROM STORE RAN - FACILITYES', facility);
+  return {
+    type: REMOVE_FACILITIES_DATA_FROM_STORE,
+    payload: {}
+  };
+};
+
 
 /** ==============THUNKS:=====================================================*/
 
@@ -76,7 +85,7 @@ export const search = (/*search*/) => async (dispatch) => {
 
 
 /** GET FACILITIES */
-export const thunkGetFacilitysAll = () => async (dispatch) => {
+export const thunkGetFacilitiesAll = () => async (dispatch) => {
 
   const response = await csrfFetch("/api/facilities");
   const data = await response.json();
@@ -148,21 +157,25 @@ export const thunkDeleteFacility = (facility) => async (dispatch) => {
 };
 
 
+/** REMOVE FACILITY DATA FROM STORE */
+export const thunkRemoveFacilitiesDataFromStore = () => async (dispatch) => {
+  return dispatch(removeFacilitiesDataFromStore());
+};
 
 
 /** ==============INITIAL STATE: =============================================*/
 
-const initialFacilitysState = {}
+const initialFacilitiesState = {}
 
 /** ==============REDUCER: ===================================================*/
-const facilitiesReducer = (facilitiesState = initialFacilitysState, action) => {
+const facilitiesReducer = (facilitiesState = initialFacilitiesState, action) => {
   // console.log('FACILITIES REDUCER RAN - STATE AND ACTION', state, action)
 
   switch (action.type) {
 
     case FACILITIES_SEARCH:
       // console.log("FACILITIESREDUCER RAN FACILITIES_SEARCH CASE RETURNING: ", {...state, facilities: action.payload})
-      return {...facilitiesState, resultsFacilitys: action.payload}
+      return {...facilitiesState, resultsFacilities: action.payload}
 
     case FACILITIES_ALL:
       // console.log("FACILITIESREDUCER RAN FACILITIES_CURRENT_USER CASE RETURNING: ", {...facilitiesState, facilitiesCurrentUser: action.payload})
@@ -183,6 +196,10 @@ const facilitiesReducer = (facilitiesState = initialFacilitysState, action) => {
     case DELETE_FACILITY:
       // console.log("FACILITIESREDUCER RAN DELETE_FACILITY CASE RETURNING: ")
       return {...facilitiesState, DeletedFacility: action.payload};
+
+    case REMOVE_FACILITIES_DATA_FROM_STORE:
+      // console.log("FACILITYESREDUCER RAN REMOVE DATA FROM STORE CASE")
+      return {};
 
     default:
       // console.log('FACILITIESREDUCER RAN DEFAULT')

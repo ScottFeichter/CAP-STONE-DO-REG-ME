@@ -8,6 +8,7 @@ const EMPLOYEE_DEPARTMENT_BY_ID = "employeeDepartment/employeeDepartmentById";
 const CREATE_EMPLOYEE_DEPARTMENT = "employeeDepartment/createEmployeeDepartment";
 const UPDATE_EMPLOYEE_DEPARTMENT = "employeeDepartment/updateEmployeeDepartment";
 const DELETE_EMPLOYEE_DEPARTMENT = "employeeDepartment/deletedEmployeeDepartment";
+const REMOVE_EMPLOYEE_DEPARMENTS_DATA_FROM_STORE = "employeeDepartments/removeEmployeeDepartmentsDataFromStore";
 
 /** ==============ACTION CREATORS:============================================*/
 
@@ -57,6 +58,14 @@ const deletedEmployeeDepartment = (employeeDepartment) => {
   return {
     type: DELETE_EMPLOYEE_DEPARTMENT,
     payload: employeeDepartment
+  };
+};
+
+const removeEmployeeDepartmentsDataFromStore = () => {
+  // console.log('REMOVE EMPLOYEE DEPARTMENT DATA FROM STORE RAN');
+  return {
+    type: REMOVE_EMPLOYEE_DEPARMENTS_DATA_FROM_STORE,
+    payload: {}
   };
 };
 
@@ -148,9 +157,14 @@ export const thunkDeleteEmployeeDepartment = (employeeDepartment) => async (disp
 };
 
 
+/** REMOVE EMPLOYEE DEPARTMENTS DATA FROM STORE */
+export const thunkRemoveEmployeeDepartmentsDataFromStore = () => async (dispatch) => {
+  return dispatch(removeEmployeeDepartmentsDataFromStore());
+};
 
 
 /** ==============INITIAL STATE: =============================================*/
+
 const initialEmployeeDepartmentsState = {}
 
 /** ==============REDUCER: ===================================================*/
@@ -182,6 +196,10 @@ const employeeDepartmentsReducer = (employeeDepartmentsState = initialEmployeeDe
     case DELETE_EMPLOYEE_DEPARTMENT:
       // console.log("EMPLOYEE_DEPARTMENTSREDUCER RAN DELETE_EMPLOYEE_DEPARTMENT CASE RETURNING: ")
       return {...employeeDepartmentsState, DeletedEmployeeDepartment: action.payload};
+
+    case REMOVE_EMPLOYEE_DEPARMENTS_DATA_FROM_STORE:
+      // console.log("EMPLOYEE_DEPARTMENTSREDUCER RAN REMOVE FROM STORE CASE")
+      return {};
 
     default:
       // console.log('EMPLOYEE_DEPARTMENTSREDUCER RAN DEFAULT')

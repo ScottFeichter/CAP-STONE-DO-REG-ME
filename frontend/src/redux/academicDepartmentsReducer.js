@@ -8,6 +8,7 @@ const ACADEMIC_DEPARTMENT_BY_ID = "academicDepartment/academicDepartmentById";
 const CREATE_ACADEMIC_DEPARTMENT = "academicDepartment/createAcademicDepartment";
 const UPDATE_ACADEMIC_DEPARTMENT = "academicDepartment/updateAcademicDepartment";
 const DELETE_ACADEMIC_DEPARTMENT = "academicDepartment/deletedAcademicDepartment";
+const REMOVE_ACADEMIC_DEPARTMENTS_DATA_FROM_STORE = "academicDepartments/removeAcademicDepartmentsDataFromStore";
 
 /** ==============ACTION CREATORS:============================================*/
 
@@ -57,6 +58,15 @@ const deletedAcademicDepartment = (academicDepartment) => {
   return {
     type: DELETE_ACADEMIC_DEPARTMENT,
     payload: academicDepartment
+  };
+};
+
+
+const removeAcademicDepartmentsDataFromStore = () => {
+  // console.log('REMOVE ACADEMIC DEPARTMENTS DATA FROM STORE RAN');
+  return {
+    type: REMOVE_ACADEMIC_DEPARTMENTS_DATA_FROM_STORE,
+    payload: {}
   };
 };
 
@@ -148,7 +158,10 @@ export const thunkDeleteAcademicDepartment = (academicDepartment) => async (disp
 };
 
 
-
+/** REMOVE ACADEMIC DEPARTMENTS DATA FROM STORE */
+export const thunkRemoveAcademicDepartmentsDataFromStore = () => async (dispatch) => {
+  return dispatch(removeAcademicDepartmentsDataFromStore());
+};
 
 /** ==============INITIAL STATE: =============================================*/
 const initialAcademicDepartmentsState = {}
@@ -182,6 +195,10 @@ const academicDepartmentsReducer = (academicDepartmentsState = initialAcademicDe
     case DELETE_ACADEMIC_DEPARTMENT:
       // console.log("ACADEMIC_DEPARTMENTSREDUCER RAN DELETE_ACADEMIC_DEPARTMENT CASE RETURNING: ")
       return {...academicDepartmentsState, DeletedAcademicDepartment: action.payload};
+
+    case REMOVE_ACADEMIC_DEPARTMENTS_DATA_FROM_STORE:
+      // console.log("ACADEMIC_DEPARTMENTSREDUCER RAN REMOVE FROM STORE CASE")
+      return {};
 
     default:
       // console.log('ACADEMIC_DEPARTMENTSREDUCER RAN DEFAULT')

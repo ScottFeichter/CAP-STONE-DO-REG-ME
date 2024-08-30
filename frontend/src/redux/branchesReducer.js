@@ -8,7 +8,7 @@ const BRANCH_BY_ID = "branch/branchById";
 const CREATE_BRANCH = "branch/createBranch";
 const UPDATE_BRANCH = "branch/updateBranch";
 const DELETE_BRANCH = "branch/deletedBranch";
-const REMOVE_BRANCH_DATA_FROM_STORE = "branch/removeBranchDataFromStore"
+const REMOVE_BRANCH_DATA_FROM_STORE = "branch/removeBranchDataFromStore";
 
 /** ==============ACTION CREATORS:============================================*/
 
@@ -78,7 +78,7 @@ export const search = (/*search*/) => async (dispatch) => {
   const response = await csrfFetch("/api/branches");
   const data = await response.json();
   const branches = data.branches;
-  // console.log('THUNK SEARCH RAN DATA: ', branches);
+  // console.log('THUNK SEARCH RAN DATA: ', data, 'BRANCHES: ', branches);
 
   return dispatch(branchesSearch(branches))
 };
@@ -90,7 +90,7 @@ export const thunkGetBranchesAll = () => async (dispatch) => {
   const response = await csrfFetch("/api/branches");
   const data = await response.json();
   const branches = data.branches;
-  // console.log('THUNK GET BRANCHES ALL RAN DATA: ', branches);
+  console.log('THUNK GET BRANCHES ALL RAN DATA: ', data, 'BRANCHES: ', branches);
 
   return dispatch(branchesAll(branches))
 };
@@ -167,7 +167,7 @@ export const thunkRemoveBranchDataFromStore = () => async (dispatch) => {
 
 /** ==============INITIAL STATE: =============================================*/
 
-const initialBranchesState = { branches: null }
+const initialBranchesState = {}
 
 /** ==============REDUCER: ===================================================*/
 const branchesReducer = (branchesState = initialBranchesState, action) => {
@@ -200,8 +200,8 @@ const branchesReducer = (branchesState = initialBranchesState, action) => {
       return {...branchesState, DeletedBranch: action.payload};
 
     case REMOVE_BRANCH_DATA_FROM_STORE:
-      // console.log("BRANCHESREDUCER RAN DELETE_BRANCH CASE RETURNING: ")
-      return {branches: "branch data removed on logout"};
+      // console.log("BRANCHESREDUCER RAN REMOVE FROM STORE CASE")
+      return {};
 
     default:
       // console.log('BRANCHESREDUCER RAN DEFAULT')

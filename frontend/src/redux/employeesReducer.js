@@ -8,6 +8,7 @@ const EMPLOYEE_BY_ID = "employee/employeeById";
 const CREATE_EMPLOYEE = "employee/createEmployee";
 const UPDATE_EMPLOYEE = "employee/updateEmployee";
 const DELETE_EMPLOYEE = "employee/deletedEmployee";
+const REMOVE_EMPLOYEE_DATA_FROM_STORE = "employee/removeEmployeeDataFromStore";
 
 /** ==============ACTION CREATORS:============================================*/
 
@@ -57,6 +58,14 @@ const deletedEmployee = (employee) => {
   return {
     type: DELETE_EMPLOYEE,
     payload: employee
+  };
+};
+
+const removeEmployeeDataFromStore = () => {
+  // console.log('REMOVE EMPLOYEE DATA FROM STORE RAN);
+  return {
+    type: REMOVE_EMPLOYEE_DATA_FROM_STORE,
+    payload: {}
   };
 };
 
@@ -148,6 +157,10 @@ export const thunkDeleteEmployee = (employee) => async (dispatch) => {
 };
 
 
+/** REMOVE EMPLOYEE DATA FROM STORE */
+export const thunkRemoveEmployeeDataFromStore = () => async (dispatch) => {
+  return dispatch(removeEmployeeDataFromStore());
+};
 
 
 /** ==============INITIAL STATE: =============================================*/
@@ -183,6 +196,10 @@ const employeesReducer = (employeesState = initialEmployeesState, action) => {
     case DELETE_EMPLOYEE:
       // console.log("EMPLOYEESREDUCER RAN DELETE_EMPLOYEE CASE RETURNING: ")
       return {...employeesState, DeletedEmployee: action.payload};
+
+    case REMOVE_EMPLOYEE_DATA_FROM_STORE:
+      // console.log("EMPLOYEEESREDUCER RAN REMOVE FROM STORE CASE")
+      return {};
 
     default:
       // console.log('EMPLOYEESREDUCER RAN DEFAULT')

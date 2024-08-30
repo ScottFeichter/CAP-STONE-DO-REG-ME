@@ -1,4 +1,11 @@
 import { thunkGetBranchesAll, thunkRemoveBranchDataFromStore } from "./branchesReducer";
+import { thunkGetFacilitiesAll, thunkRemoveFacilitiesDataFromStore } from "./facilitiesReducer";
+import { thunkGetAcademicDepartmentsAll, thunkRemoveAcademicDepartmentsDataFromStore } from "./academicDepartmentsReducer";
+import { thunkGetEmployeeDepartmentsAll, thunkRemoveEmployeeDepartmentsDataFromStore } from "./employeeDepartmentsReducer";
+import { thunkGetUserTypesAll, thunkRemoveUserTypeDataFromStore } from "./userTypesReducer";
+import { thunkGetHouseholdsAll, thunkRemoveHouseholdDataFromStore } from "./householdsReducer";
+import { thunkGetEmployeesAll, thunkRemoveEmployeeDataFromStore } from "./employeesReducer";
+import { thunkGetStudentsAll, thunkRemoveStudentDataFromStore } from "./studentsReducer";
 import { csrfFetch } from "./xCsrf";
 
 /**===================ACTION TYPE CONSTANTS: =====================*/
@@ -23,7 +30,6 @@ const removeUser = () => {
 
 /** ======================THUNKS: ================================*/
 
-
 /** LOGIN */
 export const thunkLogin = (user) => async (dispatch) => {
   const { credential, password } = user;
@@ -34,13 +40,23 @@ export const thunkLogin = (user) => async (dispatch) => {
       password,
     }),
   });
+
+  if (response.ok) {
+    dispatch(thunkGetBranchesAll());
+    dispatch(thunkGetFacilitiesAll());
+    dispatch(thunkGetAcademicDepartmentsAll());
+    dispatch(thunkGetEmployeeDepartmentsAll());
+    dispatch(thunkGetUserTypesAll());
+    dispatch(thunkGetHouseholdsAll());
+    dispatch(thunkGetEmployeesAll());
+    dispatch(thunkGetStudentsAll());
+  }
+
   const data = await response.json();
-  if(response.ok) dispatch(thunkGetBranchesAll());
   // console.log('THUNK LOGIN RAN - USER: ', user, 'RESPONSE:', response, 'DATA: ', data);
   dispatch(setUser(data.user));
   return response;
 };
-
 
 /** SIGNUP */
 export const thunkSignup = (user) => async (dispatch) => {
@@ -52,8 +68,8 @@ export const thunkSignup = (user) => async (dispatch) => {
       firstName,
       lastName,
       email,
-      password
-    })
+      password,
+    }),
   });
   const data = await response.json();
   // console.log('THUNK SIGNUP RAN - USER: ', user, 'RESPONSE:', response, 'DATA: ', data);
@@ -61,33 +77,35 @@ export const thunkSignup = (user) => async (dispatch) => {
   return response;
 };
 
-
 /** RESTORE */
 export const thunkRestoreUser = () => async (dispatch) => {
-  const response = await csrfFetch('/api/session');
-  const data = await response.json()
-  console.log(`THUNK RESTORE USER RAN - DATA`, data);
+  const response = await csrfFetch("/api/session");
+  const data = await response.json();
+  // console.log(`THUNK RESTORE USER RAN - DATA`, data);
   dispatch(setUser(data.user));
   return data.user;
-}
-
+};
 
 /** LOGOUT */
 export const thunkLogout = () => async (dispatch) => {
-  const response = await csrfFetch('/api/session', {method: 'DELETE'});
+  const response = await csrfFetch("/api/session", { method: "DELETE" });
 
   // console.log(`LOGOUT RAN - RESPONSE.STATUS`, response.status);
-  dispatch(removeUser());
   dispatch(thunkRemoveBranchDataFromStore());
+  dispatch(thunkRemoveFacilitiesDataFromStore());
+  dispatch(thunkRemoveAcademicDepartmentsDataFromStore());
+  dispatch(thunkRemoveEmployeeDepartmentsDataFromStore());
+  dispatch(thunkRemoveUserTypeDataFromStore());
+  dispatch(thunkRemoveHouseholdDataFromStore());
+  dispatch(thunkRemoveEmployeeDataFromStore());
+  dispatch(thunkRemoveStudentDataFromStore());
+  dispatch(removeUser());
   return response;
-}
-
-
-
+};
 
 /** ======================INITIAL SESSION STATE: ==================*/
 
-const initialSessionState = { user: null };
+const initialSessionState = {};
 
 /** ===========================REDUCER: ===========================*/
 
@@ -96,12 +114,12 @@ const sessionReducer = (sessionState = initialSessionState, action) => {
     case SET_USER:
       // console.log("SESSION STATE FROM SESSION REDUCER", sessionState, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
       return { ...sessionState, user: action.payload };
-      case REMOVE_USER:
-        // console.log("SESSION STATE FROM SESSION REDUCER", sessionState, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
-        return { ...sessionState, user: null };
-      default:
-        return sessionState;
-    }
+    case REMOVE_USER:
+      // console.log("SESSION STATE FROM SESSION REDUCER", sessionState, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
+      return { user: null };
+    default:
+      return sessionState;
+  }
 };
 
 export default sessionReducer;

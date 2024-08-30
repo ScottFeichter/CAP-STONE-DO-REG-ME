@@ -8,6 +8,7 @@ const HOUSEHOLD_BY_ID = "household/householdById";
 const CREATE_HOUSEHOLD = "household/createHousehold";
 const UPDATE_HOUSEHOLD = "household/updateHousehold";
 const DELETE_HOUSEHOLD = "household/deletedHousehold";
+const REMOVE_HOUSEHOLD_DATA_FROM_STORE = "household/removeHouseholdDataFromStore";
 
 /** ==============ACTION CREATORS:============================================*/
 
@@ -57,6 +58,14 @@ const deletedHousehold = (household) => {
   return {
     type: DELETE_HOUSEHOLD,
     payload: household
+  };
+};
+
+const removeHouseholdDataFromStore = () => {
+  // console.log('REMOVE HOUSEHOLD DATA FROM STORE RAN);
+  return {
+    type: REMOVE_HOUSEHOLD_DATA_FROM_STORE,
+    payload: {}
   };
 };
 
@@ -148,7 +157,10 @@ export const thunkDeleteHousehold = (household) => async (dispatch) => {
 };
 
 
-
+/** REMOVE HOUSEHOLD DATA FROM STORE */
+export const thunkRemoveHouseholdDataFromStore = () => async (dispatch) => {
+  return dispatch(removeHouseholdDataFromStore());
+};
 
 /** ==============INITIAL STATE: =============================================*/
 
@@ -183,6 +195,10 @@ const householdsReducer = (householdsState = initialHouseholdsState, action) => 
     case DELETE_HOUSEHOLD:
       // console.log("HOUSEHOLDSREDUCER RAN DELETE_HOUSEHOLD CASE RETURNING: ")
       return {...householdsState, DeletedHousehold: action.payload};
+
+    case REMOVE_HOUSEHOLD_DATA_FROM_STORE:
+      // console.log("HOUSEHOLDESREDUCER RAN REMOVE FROM STORE CASE")
+      return {};
 
     default:
       // console.log('HOUSEHOLDSREDUCER RAN DEFAULT')

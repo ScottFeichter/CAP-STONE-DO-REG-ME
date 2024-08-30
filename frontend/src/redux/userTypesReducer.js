@@ -8,6 +8,7 @@ const USER_TYPE_BY_ID = "userType/userTypeById";
 const CREATE_USER_TYPE = "userType/createUserType";
 const UPDATE_USER_TYPE = "userType/updateUserType";
 const DELETE_USER_TYPE = "userType/deletedUserType";
+const REMOVE_USER_TYPE_DATA_FROM_STORE = "userType/removeUserTypeDataFromStore";
 
 /** ==============ACTION CREATORS:============================================*/
 
@@ -57,6 +58,14 @@ const deletedUserType = (userType) => {
   return {
     type: DELETE_USER_TYPE,
     payload: userType
+  };
+};
+
+const removeUserTypeDataFromStore = () => {
+  // console.log('REMOVE USER TYPE DATA FROM STORE RAN - USER TYPEES', branch);
+  return {
+    type: REMOVE_USER_TYPE_DATA_FROM_STORE,
+    payload: {}
   };
 };
 
@@ -148,6 +157,10 @@ export const thunkDeleteUserType = (userType) => async (dispatch) => {
 };
 
 
+/** REMOVE USER TYPE DATA FROM STORE */
+export const thunkRemoveUserTypeDataFromStore = () => async (dispatch) => {
+  return dispatch(removeUserTypeDataFromStore());
+};
 
 
 /** ==============INITIAL STATE: =============================================*/
@@ -183,6 +196,10 @@ const userTypesReducer = (userTypesState = initialUserTypesState, action) => {
     case DELETE_USER_TYPE:
       // console.log("USER_TYPESREDUCER RAN DELETE_USER_TYPE CASE RETURNING: ")
       return {...userTypesState, DeletedUserType: action.payload};
+
+    case REMOVE_USER_TYPE_DATA_FROM_STORE:
+      // console.log("USER _TYPESESREDUCER RAN REMOVE FROM STORE CASE")
+      return {};
 
     default:
       // console.log('USER_TYPESREDUCER RAN DEFAULT')
