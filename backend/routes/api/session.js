@@ -78,6 +78,7 @@ router.delete(
 router.get(
   '/',
   (req, res) => {
+    console.log("req from session route get /", req.user);
     const { user } = req;
     if (user) {
       const safeUser = {

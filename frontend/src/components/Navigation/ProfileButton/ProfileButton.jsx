@@ -5,10 +5,13 @@ import * as sessionActions from '../../../redux/sessionReducer';
 import "./ProfileButton.css"
 
 
-function ProfileButton({ user }) {
+function ProfileButton({propsForButton}) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  console.log("propsForButton in ProfileButton: ", propsForButton);
+  let user = propsForButton.user;
+
 
 
   // called onClick from button to toggle showMenu
@@ -42,7 +45,7 @@ function ProfileButton({ user }) {
   // logout handler for the logout button in the drop down menu
   const logout = (e) => {
     e.preventDefault();
-    dispatch(sessionActions.thunkLogout());
+    dispatch(sessionActions.thunkLogout()).then(() => propsForButton.isLoaded = false);
   };
 
 

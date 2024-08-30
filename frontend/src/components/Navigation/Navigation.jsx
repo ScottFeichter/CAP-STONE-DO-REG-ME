@@ -1,14 +1,19 @@
 
 import './Navigation.css';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import VerticalNavBar from './VerticalNavBar/VerticalNavBar.jsx';
 import HorizontalNavBar from './HorizontalNavBar/HorizontalNavBar.jsx';
 
-function Navigation(){
-    // const sessionUser = useSelector(state => state.session.user);
+function Navigation(isLoaded){
+    const user = useSelector(state => state.session.user);
+    const propsForButton = {isLoaded: isLoaded, user: user }
+    console.log("isLoaded: ", isLoaded);
+    console.log("propsForButton: ", propsForButton);
+
+
   return (
     <>
-      <HorizontalNavBar />
+      <HorizontalNavBar propsForButton={propsForButton}/>
       <VerticalNavBar />
     </>
   );

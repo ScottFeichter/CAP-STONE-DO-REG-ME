@@ -64,7 +64,7 @@ export const thunkSignup = (user) => async (dispatch) => {
 export const thunkRestoreUser = () => async (dispatch) => {
   const response = await csrfFetch('/api/session');
   const data = await response.json()
-  // console.log(`RESTORE USER RAN - DATA`, data);
+  console.log(`THUNK RESTORE USER RAN - DATA`, data);
   dispatch(setUser(data.user));
   return data.user;
 }
