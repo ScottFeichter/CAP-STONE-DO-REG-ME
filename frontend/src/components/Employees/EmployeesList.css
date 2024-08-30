@@ -1,0 +1,19 @@
+.EmployeeListMain {
+    margin: 1rem;
+    /* border: black 3px solid; */
+  }
+
+  .EmployeeListMain h2 {
+    font-weight: 550;
+    /* font-size: 2rem; */
+    /* border: purple 2px solid; */
+  }
+
+  .EmployeeListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* width: 1200px; */
+    /* margin-top: 20px; */
+    /* border: red 2px solid; */
+  }

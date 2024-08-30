@@ -6,10 +6,14 @@ import Pagination from "./Pagination";
 
 function ListStocks() {
   const listOfStocks = useLoaderData();
+
   const [currentPage, setCurrentPage] = useState(1);
+
   const [stocksPerPage, setStocksPerPage] = useState(30);
+
   const lastPostIndex = currentPage * stocksPerPage;
   const firstPostIndex = lastPostIndex - stocksPerPage;
+  
   const currentPost = listOfStocks.stocks.slice(firstPostIndex, lastPostIndex);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);

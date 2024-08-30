@@ -1,0 +1,86 @@
+
+.EmployeeListIndexContainer {
+    display: flex;
+    /* gap: 45px; */
+    /* margin-left: 110px; */
+    /* width: 1200px; */
+    text-wrap: nowrap;
+    width: fit-content;
+    /* border: blue 2px solid; */
+  }
+
+  .EmployeeListIndexItemContainerGeneral {
+    display: flex;
+    flex-direction: column;
+    width: 8rem;
+    border: green 2px solid;
+  }
+
+
+
+
+.EmployeeListIndexItemContainerID {
+    display: flex;
+    flex-direction: column;
+    width: 2rem;
+    border: green 2px solid;
+  }
+
+  .EmployeeListIndexItemContainerED {
+    display: flex;
+    flex-direction: column;
+    width: 2rem;
+    border: green 2px solid;
+  }
+
+  .EmployeeListIndexItemContainerAD {
+    display: flex;
+    flex-direction: column;
+    width: 2rem;
+    border: green 2px solid;
+  }
+
+  .EmployeeListIndexItemContainerName {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    border: green 2px solid;
+  }
+
+
+
+  .EmployeeListIndexItemContainerLang {
+    display: flex;
+    flex-direction: column;
+    width: 4rem;
+    border: green 2px solid;
+  }
+
+  .EmployeeListIndexItemContainerInst {
+    display: flex;
+    flex-direction: column;
+    width: 4rem;
+    border: green 2px solid;
+  }
+
+
+
+
+.EmployeeListIndexItemH4{
+    margin: 0;
+    text-wrap: nowrap;
+    width: fit-content;
+    border: 1px darkgrey solid;
+}
+
+.EmployeeListIndexItemP{
+    margin: 0;
+    text-wrap: nowrap;
+    width: fit-content;
+    border: 1px orange solid;
+}
+
+.EmployeeListIndexBorder {
+    border: 0.5px solid var(--time-line);
+    margin-left: 90px;
+  }
