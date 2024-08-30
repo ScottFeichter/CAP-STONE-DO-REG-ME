@@ -1,8 +1,9 @@
 import './Resources.css';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function Resources() {
-  // const departments = useSelector(state => state.session.user);
+  const employeeDepartments = useSelector(state => state.employeeDepartments.employeeDepartments);
+  console.log(employeeDepartments);
 
 
 
