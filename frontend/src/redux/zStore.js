@@ -1,4 +1,5 @@
 import { legacy_createStore as createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createLogger } from 'redux-logger';
 import { thunk } from 'redux-thunk';
 import sessionReducer from './sessionReducer.js';
 import employeeDepartmentsReducer from './employeeDepartmentsReducer.js';
@@ -32,7 +33,11 @@ let enhancer;
 // process.env.NODE_ENV
 
 if (process.env.NODE_ENV === 'production') {
-  enhancer = applyMiddleware(thunk);
+  const logger = createLogger({
+    collapsed: true
+    // collapsed: (getState, action, logEntry) => !logEntry.error
+  });
+  enhancer = applyMiddleware(thunk, logger);
 } else {
   const logger = (await import("redux-logger")).default;
   const composeEnhancers =
