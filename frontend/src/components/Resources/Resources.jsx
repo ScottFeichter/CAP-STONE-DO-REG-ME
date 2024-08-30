@@ -2,10 +2,10 @@ import './Resources.css';
 import { useSelector } from 'react-redux';
 
 function Resources() {
-  const employeeDepartments = useSelector(state => state.employeeDepartments.employeeDepartments);
-  console.log(employeeDepartments);
-
-
+  const branches = useSelector(state => state.branches.branches);
+  const facilities = useSelector(state => state.facilities.facilities);
+  console.log("branches: ", branches);
+  console.log("facilities: ", facilities);
 
   return(
     <>
@@ -14,7 +14,6 @@ function Resources() {
                 <h1>This is Resources!</h1>
             </div>
         </main>
-
     </>
   )
 }

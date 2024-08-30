@@ -6,6 +6,7 @@ import { thunkGetUserTypesAll, thunkRemoveUserTypeDataFromStore } from "./userTy
 import { thunkGetHouseholdsAll, thunkRemoveHouseholdDataFromStore } from "./householdsReducer";
 import { thunkGetEmployeesAll, thunkRemoveEmployeeDataFromStore } from "./employeesReducer";
 import { thunkGetStudentsAll, thunkRemoveStudentDataFromStore } from "./studentsReducer";
+
 import { csrfFetch } from "./xCsrf";
 
 /**===================ACTION TYPE CONSTANTS: =====================*/
@@ -81,16 +82,23 @@ export const thunkSignup = (user) => async (dispatch) => {
 export const thunkRestoreUser = () => async (dispatch) => {
   const response = await csrfFetch("/api/session");
   const data = await response.json();
-  // console.log(`THUNK RESTORE USER RAN - DATA`, data);
+  // console.log(`THUNK RESTORE USER RAN - DATA`, data, response);
+
   dispatch(setUser(data.user));
+
+  // if (data.user !== null) {}
+
+
+
+
   return data.user;
 };
 
 /** LOGOUT */
 export const thunkLogout = () => async (dispatch) => {
   const response = await csrfFetch("/api/session", { method: "DELETE" });
-
   // console.log(`LOGOUT RAN - RESPONSE.STATUS`, response.status);
+  
   dispatch(thunkRemoveBranchDataFromStore());
   dispatch(thunkRemoveFacilitiesDataFromStore());
   dispatch(thunkRemoveAcademicDepartmentsDataFromStore());

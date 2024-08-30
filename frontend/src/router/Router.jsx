@@ -5,6 +5,7 @@ import Resources from "../components/Resources/Resources.jsx";
 import Departments from "../components/Departments/Departments.jsx";
 import Students from "../components/Students/Students.jsx";
 import Employees from "../components/Employees/Employees.jsx";
+import ListStocks from "../components/ListStocks/ListStocks.jsx"
 // import { initialLoader } from "../components/_Loaders/InitialLoader/initialLoader.js";
 // import { modifyPortfolio } from "../components/actions/portfolios";
 
@@ -41,6 +42,11 @@ export const router = createBrowserRouter([
         {
           path: "/employees",
           element: <Employees />
+        },
+        {
+          path: "/stocks/",
+          // loader: listStocksLoader,
+          element: <ListStocks />,
         },
 
 

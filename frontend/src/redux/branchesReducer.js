@@ -62,7 +62,7 @@ const deletedBranch = (branch) => {
 };
 
 const removeBranchDataFromStore = () => {
-  // console.log('REMOVE BRANCH DATA FROM STORE RAN - BRANCHES', branch);
+  console.log('REMOVE BRANCH DATA FROM STORE RAN - BRANCHES');
   return {
     type: REMOVE_BRANCH_DATA_FROM_STORE,
     payload: {}
@@ -90,7 +90,7 @@ export const thunkGetBranchesAll = () => async (dispatch) => {
   const response = await csrfFetch("/api/branches");
   const data = await response.json();
   const branches = data.branches;
-  console.log('THUNK GET BRANCHES ALL RAN DATA: ', data, 'BRANCHES: ', branches);
+  // console.log('THUNK GET BRANCHES ALL RAN DATA: ', data, 'BRANCHES: ', branches);
 
   return dispatch(branchesAll(branches))
 };
@@ -200,7 +200,7 @@ const branchesReducer = (branchesState = initialBranchesState, action) => {
       return {...branchesState, DeletedBranch: action.payload};
 
     case REMOVE_BRANCH_DATA_FROM_STORE:
-      // console.log("BRANCHESREDUCER RAN REMOVE FROM STORE CASE")
+      console.log("BRANCHESREDUCER RAN REMOVE FROM STORE CASE")
       return {};
 
     default:
