@@ -33,10 +33,15 @@
 }
 
 
-.NavigationDropdownUlLi{
+.NavigationUlVerticalLi{
     list-style-type: none;
 }
 
-.NavigationDropdownUlLiHidden{
+
+/* .NavigationDropdownUlLi{
+    list-style-type: none;
+} */
+
+/* .NavigationDropdownUlLiHidden{
     display: none;
-}
+} */

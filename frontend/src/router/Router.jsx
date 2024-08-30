@@ -1,6 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
-import Home from "../components/Home/Home";
+import Home from "../components/Home/Home.jsx";
+import Resources from "../components/Resources/Resources.jsx";
+import Departments from "../components/Departments/Departments.jsx";
+import Students from "../components/Students/Students.jsx";
+import Employees from "../components/Employees/Employees.jsx";
 // import { userPortfolios } from "../components/loaders/portfolios";
 // import { modifyPortfolio } from "../components/actions/portfolios";
 
@@ -18,11 +22,25 @@ export const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
-
         {
-        path: "/",
-        // loader: userPortfolios,
-        element: <Home />,
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/resources",
+          element: <Resources />
+        },
+        {
+          path: "/departments",
+          element: <Departments />
+        },
+        {
+          path: "/students",
+          element: <Students />
+        },
+        {
+          path: "/employees",
+          element: <Employees />
         },
 
 
