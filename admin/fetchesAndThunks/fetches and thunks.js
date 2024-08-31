@@ -20,6 +20,13 @@ fetch("/api/test",
 
 
 
+// log out but not working may need xsrf 
+fetch('/api/session/', {
+  method: 'DELETE',
+});
+
+
+
 // ==============================SESSION THUNKS===============================//
 
 

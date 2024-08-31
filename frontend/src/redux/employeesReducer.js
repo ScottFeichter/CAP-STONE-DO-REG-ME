@@ -157,6 +157,22 @@ export const thunkDeleteEmployee = (employee) => async (dispatch) => {
 };
 
 
+
+// /** RESTORE */
+// export const thunkRestoreEmployeesAll = (data) => async (dispatch) => {
+//   const {user} = data;
+//   const response = await fetch("/api/employees");
+//   const data = await response.json();
+//   const employees = data.employees;
+//   console.log(`THUNK RESTORE EMPLOYEES RAN - DATA`,  response);
+//   // console.log('THUNK GET EMPLOYEES ALL RAN DATA: ', employees);
+
+//   return dispatch(employeesAll(employees))
+// };
+
+
+
+
 /** REMOVE EMPLOYEE DATA FROM STORE */
 export const thunkRemoveEmployeeDataFromStore = () => async (dispatch) => {
   return dispatch(removeEmployeeDataFromStore());

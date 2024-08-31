@@ -10,6 +10,7 @@ import SplashPage from "../components/Session/Splash.jsx";
 
 
 function Layout() {
+
     const dispatch = useDispatch();
     const sessionUser = useSelector((store) => store.session.user);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -35,5 +36,6 @@ function Layout() {
       </>
     );
   }
+
 
   export default Layout;

@@ -62,7 +62,7 @@ const deletedBranch = (branch) => {
 };
 
 const removeBranchDataFromStore = () => {
-  console.log('REMOVE BRANCH DATA FROM STORE RAN - BRANCHES');
+  // console.log('REMOVE BRANCH DATA FROM STORE RAN - BRANCHES');
   return {
     type: REMOVE_BRANCH_DATA_FROM_STORE,
     payload: {}
@@ -200,7 +200,7 @@ const branchesReducer = (branchesState = initialBranchesState, action) => {
       return {...branchesState, DeletedBranch: action.payload};
 
     case REMOVE_BRANCH_DATA_FROM_STORE:
-      console.log("BRANCHESREDUCER RAN REMOVE FROM STORE CASE")
+      // console.log("BRANCHESREDUCER RAN REMOVE FROM STORE CASE")
       return {};
 
     default:

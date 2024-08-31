@@ -82,15 +82,22 @@ export const thunkSignup = (user) => async (dispatch) => {
 export const thunkRestoreUser = () => async (dispatch) => {
   const response = await csrfFetch("/api/session");
   const data = await response.json();
-  // console.log(`THUNK RESTORE USER RAN - DATA`, data, response);
+  console.log(`THUNK RESTORE USER RAN - DATA`,  response);
 
-  dispatch(setUser(data.user));
+  // if(data.user !== null) {
+  //     console.log("data.user", data.user);
+  //     dispatch(thunkGetBranchesAll());
+  //     dispatch(thunkGetFacilitiesAll());
+  //     dispatch(thunkGetAcademicDepartmentsAll());
+  //     dispatch(thunkGetEmployeeDepartmentsAll());
+  //     dispatch(thunkGetUserTypesAll());
+  //     dispatch(thunkGetHouseholdsAll());
+  //     dispatch(thunkGetEmployeesAll());
+  //     dispatch(thunkGetStudentsAll());
+  //   }
 
-  // if (data.user !== null) {}
 
-
-
-
+  dispatch(setUser(data.user))
   return data.user;
 };
 
@@ -98,7 +105,7 @@ export const thunkRestoreUser = () => async (dispatch) => {
 export const thunkLogout = () => async (dispatch) => {
   const response = await csrfFetch("/api/session", { method: "DELETE" });
   // console.log(`LOGOUT RAN - RESPONSE.STATUS`, response.status);
-  
+
   dispatch(thunkRemoveBranchDataFromStore());
   dispatch(thunkRemoveFacilitiesDataFromStore());
   dispatch(thunkRemoveAcademicDepartmentsDataFromStore());
@@ -107,6 +114,8 @@ export const thunkLogout = () => async (dispatch) => {
   dispatch(thunkRemoveHouseholdDataFromStore());
   dispatch(thunkRemoveEmployeeDataFromStore());
   dispatch(thunkRemoveStudentDataFromStore());
+
+
   dispatch(removeUser());
   return response;
 };
