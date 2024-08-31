@@ -1,18 +1,26 @@
 import './Employees.css';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+import {useNavigate} from 'react-router-dom'
 import EmployeesList from './EmployeesList';
 
 function Employees() {
-  const employees = useSelector(state => state.employees.employees);
-  console.log("employees: ", employees);
+  const navigate = useNavigate();
+
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    navigate('/createNewEmployeeForm');
+  }
 
 
   return(
     <>
-        <main>
-            <div>
-                <h1>This is Employees!</h1>
-            </div>
+        <main id="EmployeesMain">
+
+            <h1 id="EmployeesH1">Employees</h1>
+
+            <button id="EmployeesCreateButton" onClick={handleClick}>Create New Employee</button>
+
             <EmployeesList />
 
         </main>

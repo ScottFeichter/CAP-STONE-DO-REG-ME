@@ -2,11 +2,13 @@ import { CgProfile } from "react-icons/cg";
 import { useState, useEffect, useRef } from "react";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import * as sessionActions from '../../../redux/sessionReducer';
 import "./ProfileButton.css"
 
 
-function ProfileButton({user}) {
+function ProfileButton() {
+  const sessionUser = useSelector((store) => store.session.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -54,17 +56,19 @@ function ProfileButton({user}) {
 
   return (
     <>
-      <button onClick={toggleMenu} ref={ulRef}><CgProfile /></button>
-        {/* <div id="PofileButtonDropdownLiContainerDiv"> */}
-          <ul className={ulClassName} >
-            <li className={"ProfileButtonDropdownUlLi"}>{user.username}</li>
-            <li className={"ProfileButtonDropdownUlLi"}>{user.firstName} {user.lastName}</li>
-            <li className={"ProfileButtonDropdownUlLi"}>{user.email}</li>
-            <li className={"ProfileButtonDropdownUlLi"}>
-              <button onClick={logout}>Log Out</button>
-            </li>
-          </ul>
-        {/* </div> */}
+      <main id="ProfileButtonMain">
+        <button onClick={toggleMenu} ref={ulRef}><CgProfile id="ProfileButtonButton"/></button>
+          {/* <div id="PofileButtonDropdownLiContainerDiv"> */}
+            <ul className={ulClassName} >
+              <li className={"ProfileButtonDropdownUlLi"}>{sessionUser.username}</li>
+              <li className={"ProfileButtonDropdownUlLi"}>{sessionUser.firstName} {sessionUser.lastName}</li>
+              <li className={"ProfileButtonDropdownUlLi"}>{sessionUser.email}</li>
+              <li className={"ProfileButtonDropdownUlLi"}>
+                <button onClick={logout}>Log Out</button>
+              </li>
+            </ul>
+          {/* </div> */}
+        </main>
     </>
   );
 }

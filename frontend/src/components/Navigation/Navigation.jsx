@@ -10,8 +10,10 @@ function Navigation(){
 
   return (
     <>
-      <HorizontalNavBar user={user}/>
-      <VerticalNavBar />
+     <main id="NavigationMain">
+        <HorizontalNavBar user={user}/>
+        <VerticalNavBar />
+      </main>
     </>
   );
 }

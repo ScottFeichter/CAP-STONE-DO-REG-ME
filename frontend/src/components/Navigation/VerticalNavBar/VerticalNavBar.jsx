@@ -55,20 +55,20 @@ function VerticalNavBar(){
 
   return (
         <>
-            <ul id="NavigationUlVertical">
-                <li className="NavigationUlVerticalLi">
+            <ul id="VerticalNavBarUl">
+                <li className="VerticalNavBarLi">
                     <button onClick={handleHomeClick}>Home</button>
                 </li>
-                <li className="NavigationUlVerticalLi">
+                <li className="VerticalNavBarLi">
                     <button onClick={handleResourcesClick}>Resources</button>
                 </li>
-                <li className="NavigationUlVerticalLi">
+                <li className="VerticalNavBarLi">
                     <button onClick={handleDepartmentsClick}>Departments</button>
                 </li>
-                <li className="NavigationUlVerticalLi">
+                <li className="VerticalNavBarLi">
                     <button onClick={handleStudentsClick}>Students</button>
                 </li>
-                <li className="NavigationUlVerticalLi">
+                <li className="VerticalNavBarLi">
                     <button onClick={handleEmployeesClick}>Employees</button>
                 </li>
             </ul>

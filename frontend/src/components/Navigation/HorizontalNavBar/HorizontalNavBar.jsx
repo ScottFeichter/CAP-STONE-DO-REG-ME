@@ -3,23 +3,21 @@ import './HorizontalNavBar.css';
 import ProfileButton from '../ProfileButton/ProfileButton.jsx'
 import logo from '../../../../../ADMIN/images/logoDraft5.png'
 
-function HorizontalNavBar({user}) {
+function HorizontalNavBar() {
   // const sessionUser = useSelector(state => state.session.user);
 
 
   return(
     <>
-      <ul id="NavigationUlHorizontal">
-        <li className="NavigationTopBarUlLi" >
-          <ProfileButton user={user} id="NavigationProfileButton"/>
-        </li>
-        <li className="NavigationTopBarUlLi">
+      <main id="HorizontalNavBarMain">
+
+          <img id="NavigationImgLogo" src={logo} alt="DoRegMi" ></img>
+
           <input type="text"></input>
-        </li>
-        <li className="NavigationTopBarUlLi">
-          <img src={logo} alt="DoRegMi" id="NavigationImgLogo"></img>
-        </li>
-      </ul>
+
+          <ProfileButton />
+
+      </main>
     </>
   )
 }

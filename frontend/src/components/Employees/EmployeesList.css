@@ -12,7 +12,7 @@
   .EmployeeListContainer {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: .25rem;
     /* width: 1200px; */
     /* margin-top: 20px; */
     /* border: red 2px solid; */

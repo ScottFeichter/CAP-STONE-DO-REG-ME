@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux'
 import EmployeesListIndex from './EmployeesListIndex';
 import Pagination from "./Pagination";
+import EmployeesListItemHeader from './EmployeesListItemHeader';
 
 function EmployeesList(){
     const employeesList = useSelector(state => state.employees);
@@ -24,14 +25,15 @@ function EmployeesList(){
     return(
     <>
     <main className="EmployeeListMain">
-      <h2>List of all employees</h2>
+      {/* <h2>List of all employees</h2> */}
+      <EmployeesListItemHeader />
 
       <div className="EmployeeListContainer">
-        {currentPost.map((employee, index) => {
+        {currentPost.map((employee, id) => {
           return (
             <EmployeesListIndex
               employee={employee}
-              key={index}
+              key={id}
               totalPages={employeesList.employees.length}
               employeesPerPage={employeesPerPage}
             />
