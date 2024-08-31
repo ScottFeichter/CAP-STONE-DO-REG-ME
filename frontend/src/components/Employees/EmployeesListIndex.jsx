@@ -1,5 +1,5 @@
 import './EmployeesListIndex.css';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function EmployeesListIndex({ employee }) {
   return (
@@ -9,67 +9,109 @@ function EmployeesListIndex({ employee }) {
       <div className="EmployeeListIndexContainer">
 
         <div className="EmployeeListIndexItemContainerID">
-          <p to={`/employees/${employee.id}`} className="EmployeeListIndexItemP">
-            {employee.id}
-          </p>
+          <Link
+            to={`/employees/${employee.id}`}
+            state={{employee: employee}}
+            className="EmployeeListIndexItemP">
+              {employee.id}
+          </Link>
         </div>
 
         <div className="EmployeeListIndexItemContainerED">
-          <p to={`/employees/${employee.id}`} className="EmployeeListIndexItemP">
-            {employee.employeeDepartment_Id
-              ? employee.employeeDepartment_Id
-              : "N/A"}
-          </p>
+          <Link
+            to={`/employees/${employee.id}`}
+            state={{employee: employee}}
+            className="EmployeeListIndexItemP">
+              {employee.employeeDepartment_Id
+                ? employee.employeeDepartment_Id
+                : "N/A"}
+          </Link>
         </div>
 
         <div className="EmployeeListIndexItemContainerAD">
-          <p to={`/employees/${employee.id}`} className="EmployeeListIndexItemP">
-            {employee.academicDepartment_Id
-              ? employee.academicDepartment_Id
-              : "N/A"}
-          </p>
+          <Link
+            to={`/employees/${employee.id}`}
+            state={{employee: employee}}
+            className="EmployeeListIndexItemP">
+              {employee.academicDepartment_Id
+                ? employee.academicDepartment_Id
+                : "N/A"}
+          </Link>
         </div>
 
         <div className="EmployeeListIndexItemContainerName">
-          <p to={`/employees/${employee.id}`} className="EmployeeListIndexItemP">
-            {employee.firstName1 + " " + employee.lastName1}
-          </p>
+          <Link
+            to={`/employees/${employee.id}`}
+            state={{employee: employee}}
+            className="EmployeeListIndexItemP">
+              {employee.firstName1 + " " + employee.lastName1}
+          </Link>
         </div>
 
         <div className="EmployeeListIndexItemContainerPhone">
-          <p to={`/employees/${employee.id}`} className="EmployeeListIndexItemP">
-            {employee.personalPhone ? employee.personalPhone : "N/A"}
-          </p>
+          <Link
+            to={`/employees/${employee.id}`}
+            state={{employee: employee}}
+            className="EmployeeListIndexItemP">
+              {employee.personalPhone
+                ? employee.personalPhone
+                : "N/A"}
+          </Link>
         </div>
 
         <div className="EmployeeListIndexItemContainerEmail">
-          <p to={`/employees/${employee.id}`} className="EmployeeListIndexItemP">
-            {employee.personalEmail ? employee.personalEmail : "N/A"}
-          </p>
+          <Link
+            to={`/employees/${employee.id}`}
+            state={{employee: employee}}
+            className="EmployeeListIndexItemP">
+              {employee.personalEmail
+                ? employee.personalEmail
+                : "N/A"}
+          </Link>
         </div>
 
         <div className="EmployeeListIndexItemContainerLang">
-          <p to={`/employees/${employee.id}`} className="EmployeeListIndexItemP">
-            {employee.firstLang ? employee.firstLang : "N/A"}
-          </p>
+          <Link
+            to={`/employees/${employee.id}`}
+            state={{employee: employee}}
+            className="EmployeeListIndexItemP">
+              {employee.firstLang
+                ? employee.firstLang
+                : "N/A"}
+          </Link>
         </div>
 
         <div className="EmployeeListIndexItemContainerLang">
-          <p to={`/employees/${employee.id}`} className="EmployeeListIndexItemP">
-            {employee.secondLang ? employee.secondLang : "N/A"}
-          </p>
+          <Link
+          to={`/employees/${employee.id}`}
+          state={{employee: employee}}
+          className="EmployeeListIndexItemP">
+            {employee.secondLang
+              ? employee.secondLang
+              : "N/A"}
+          </Link>
         </div>
 
         <div className="EmployeeListIndexItemContainerInst">
-          <p to={`/employees/${employee.id}`} className="EmployeeListIndexItemP">
-            {employee.firstInst ? employee.firstInst : "N/A"}
-          </p>
+          <Link
+            to={`/employees/${employee.id}`}
+            state={{employee: employee}}
+            className="EmployeeListIndexItemP">
+              {employee.firstInst
+                ? employee.firstInst
+                : "N/A"}
+          </Link>
         </div>
 
         <div className="EmployeeListIndexItemContainerInst">
-          <p to={`/employees/${employee.id}`} className="EmployeeListIndexItemP">
-            {employee.secondInst ? employee.secondInst : "N/A"}
-          </p>
+          <Link
+          to={`/employees/${employee.id}`}
+          state={{employee: employee}}
+          className="EmployeeListIndexItemP">
+            {employee.secondInst
+              ? employee.secondInst
+              : "N/A"}
+          </Link>
         </div>
 
       </div>
