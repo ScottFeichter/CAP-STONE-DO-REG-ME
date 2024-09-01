@@ -1,6 +1,18 @@
+//============CSS IMPORT AND BASE CLASS NAME============//
+
 import './EmployeeDetailsPage.css';
+const BASE_CLASS_NAME = "EmployeeDetailsPage";
+
+
+//==================OTHER IMPORTS=======================//
+
+
+import EmployeeDetailsKeyValue from './EmployeeDetailsKeyValue';
 import { useLocation } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
+
+
+//===============FUNCTION DECLARATION===================//
 
 function EmployeeDetailsPage() {
   // const employee = useSelector(state => state.employees.employees[0]);
@@ -110,18 +122,26 @@ function EmployeeDetailsPage() {
     notes,
 )
 
-// for (let i = 0; i < employeeObjectEntries.length; i++){};
 
 
+
+//=================FUNCTION RETURN======================//
 
   return(
     <>
-        <main>
+        <main className={`${BASE_CLASS_NAME} + `}>
             <h1>This is EmployeeDetailsPage!</h1>
-            <div><h2>Here are the details</h2>
+            <div>
 
-                {employeeObjectEntries.map((arr)=> { return (<p key={arr[0]}>{arr}</p>)})}
-                  {/* // {<div><p>{`${arr[0]}`}</p><p>{`${arr[1]}`}</p></div>} */}
+               {employeeObjectEntries.map((arr)=> {
+                const kv = {k: arr[0], v: arr[1]}
+                return <EmployeeDetailsKeyValue {...kv} key={employee.id}  />
+                })}
+
+
+
+                {/* {employeeObjectEntries.map((arr)=> { return (<p key={arr[0]}>{arr}</p>)})} */}
+
 
 
             </div>
@@ -130,4 +150,6 @@ function EmployeeDetailsPage() {
   )
 }
 
+
+//===================FUNCTION EXPORT====================//
 export default EmployeeDetailsPage;

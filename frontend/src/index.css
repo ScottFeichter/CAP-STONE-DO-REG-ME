@@ -1,1 +1,5 @@
 /* TODO: Add sitewide styles */
+:root{
+    --backgroundColor: #1e90ff;
+    --border: 2px solid rgb(255, 217, 0);
+}
