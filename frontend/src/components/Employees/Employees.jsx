@@ -17,9 +17,15 @@ function Employees() {
     <>
         <main id="EmployeesMain">
 
-            <h1 id="EmployeesH1">Employees</h1>
+            <nav id="EmployeesNav">
+              <button id="EmployeesCreateButton" onClick={handleClick}>Create New Employee</button>
+              <h1 id="EmployeesH1">Employees</h1>
+              <input type="text" id="EmployeesSearchBar" placeholder='Search Employees' ></input>
+            </nav>
 
-            <button id="EmployeesCreateButton" onClick={handleClick}>Create New Employee</button>
+
+
+
 
             <EmployeesList />
 

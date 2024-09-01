@@ -1,9 +1,148 @@
 #EmployeesMain{
     text-align: center;
+    overflow: hidden;
+    /* size-adjust: calc(); */
+    width: 1000px;
+    margin: 0 1rem 0 1rem;
+    border: var(--border);
+}
+
+#EmployeesNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#EmployeesH1{}
+
+
+
+/*================= CREATE BUTTON =================*/
+
+#EmployeesCreateButton {
+    margin: 1rem .5rem 1rem .5rem;
+    width: 12rem;
+    height: 1.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+
+}
+
+#EmployeesCreateButton:enabled {
+    color: var(--buttonColor);
+    background-color: var(--buttonBackgroundColor);
+    border: var(--buttonBorder);
+
+
+    transition-delay: 0s;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    transition-property: border, background-color;
+
+    /* animation-name: none;
+    animation-delay: none;
+    animation-duration: .3s;
+    animation-timing-function: calc();
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-play-state: initial; */
+
+
+}
+
+#EmployeesCreateButton:disabled {
+    color: var(--buttonDisabledColor);
+    background-color: var(--buttonDisabledBackgroundColor);
+    border: var(--buttonDisabledBorder);
+
+}
+
+#EmployeesCreateButton:enabled:hover {
+    color: var(--buttonHoverColor);
+    background-color: var(--buttonHoverBackgroundColor);
+    border: var(--buttonHoverBorder);
+    cursor: pointer;
+}
+
+#EmployeesCreateButton:enabled:active{
+    color: var(--buttonActiveColor);
+    background-color: var(--buttonActiveBackgroundColor);
+    border: var(--buttonActiveBorder);
+    cursor: pointer;
 }
 
 
 
-#EmployeesH1{}
 
-#EmployeesCreateButton{}
+
+/*================== SEARCH BAR ==================*/
+
+
+#EmployeesSearchBar {
+    margin: 1rem .5rem 1rem .5rem;
+    width: 12rem;
+    height: 1.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+
+}
+
+
+#EmployeesSearchBar::placeholder{
+    color: var(--searchBarPlaceHolderColor);
+    text-align: center;
+}
+
+#EmployeesSearchBar::placeholder:hover{
+    color: var(--searchBarPlaceHolderHoverColor);
+    text-align: center;
+}
+
+
+
+#EmployeesSearchBar:enabled {
+    color: var(--buttonColor);
+    background-color: var(--searchBarBackgroundColor);
+    border: var(--searchBarBorder);
+
+
+    transition-delay: 0s;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    transition-property: border, background-color;
+
+    /* animation-name: none;
+    animation-delay: none;
+    animation-duration: .3s;
+    animation-timing-function: calc();
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-play-state: initial; */
+
+
+}
+
+#EmployeesSearchBar:disabled {
+    color: var(--searchBarDisabledColor);
+    background-color: var(--searchBarDisabledBackgroundColor);
+    border: var(--searchBarDisabledBorder);
+
+}
+
+#EmployeesSearchBar:enabled:hover {
+    color: var(--searchBarHoverColor);
+    background-color: var(--searchBarHoverBackgroundColor);
+    border: var(--searchBarHoverBorder);
+    cursor: pointer;
+}
+
+#EmployeesSearchBar:enabled:active{
+    color: var(--searchBarActiveColor);
+    background-color: var(--searchBarActiveBackgroundColor);
+    border: var(--searchBarActiveBorder);
+    cursor: pointer;
+}
