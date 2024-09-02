@@ -102,8 +102,8 @@ export const thunkGetEmployeeById = (employeeId) => async (dispatch) => {
   const response = await csrfFetch(`/api/employees/${employeeId}`);
   const data = await response.json();
   // console.log('THUNK GET EMPLOYEE BY ID RAN DATA: ', data );
-
-  return dispatch(employeeById(data));
+  dispatch(employeeById(data));
+  return data;
 };
 
 

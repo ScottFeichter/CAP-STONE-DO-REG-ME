@@ -19,14 +19,17 @@ function CreateNewEmployeeForm() {
 
         const [errors, setErrors] = useState({});
 
+        //-----required
         const [errorsFirstName1, setErrorsFirstName1] = useState({});
         const [errorsLastName1, setErrorsLastName1] = useState({});
         const [errorsPersonalPhone, setErrorsPersonalPhone] = useState({});
         const [errorsFirstLang, setErrorsFirstLang] = useState({});
+        const [errorsSsn, setErrorsSsn] = useState({});
         const [requiredFieldsMessage, setRequiredFieldsMessage] = useState({});
 
 
 
+        //-----must be integers
         const [errorsEmployeeDepartment_Id, setErrorsEmployeeDepartment_Id] = useState({})
         const [errorsAcademicDepartment_Id, setErrorsAcademicDepartment_Id ] = useState({})
         const [errorsUserType_Id, setErrorsUserType_Id ] = useState({})
@@ -201,6 +204,7 @@ const checkRequired = () => {
     let lastName1Bool = false;
     let personalPhoneBool = false;
     let firstLangBool = false;
+    let ssnBool = false;
 
 
     if(!firstName1) {
@@ -236,11 +240,21 @@ const checkRequired = () => {
         setErrorsFirstLang({})
     }
 
+    if(!ssn) {
+        ssnBool = true;
+        setErrorsSsn({ssn: "SSN is required"});
+
+    } else {
+        ssnBool = false;
+        setErrorsSsn({})
+    }
+
     if (
         (firstName1Bool) ||
         (lastName1Bool) ||
         (personalPhoneBool) ||
-        (firstLangBool)
+        (firstLangBool) ||
+        (ssnBool)
     ) {
         return true
     } else {
@@ -378,7 +392,7 @@ const checkInteger = () => {
 // -----------------------------HANDLE SUBMIT -------------------------------//
         const handleSubmit = async (e) => {
             e.preventDefault();
-            console.log('HANDLE SUBMIT NEW EMPLOYEE IS RUNNING');
+            // console.log('HANDLE SUBMIT NEW EMPLOYEE IS RUNNING');
 
         // -----------------CLIENT SIDE VALIDATIONS-----------------------//
 
@@ -445,42 +459,33 @@ const checkInteger = () => {
          if(	biography	)	newEmployee	.	biography	=	biography	;
          if(	notes	)	newEmployee	.	notes	=	notes	;
 
+        //  console.log("newEmployee 448: ", newEmployee)
 
-
-
-
-
-
+         // --------------------------MAKING THE DISPATCH---------------------//
             let employeeId;
+            let newEmployeeDetails;
 
-
-
-            await dispatch(employeesActions.createEmployee(newEmployee))
+            await dispatch(employeesActions.thunkCreateEmployee(newEmployee))
             .then(response => {
-                // console.log('CREATENEWSPOT RESPONSE: ', response, 'CREATENEWSPOT THENEWSPOT: ')
                 return response
             })
             .then(response => {
-                // console.log(`NEW SPOT CREATED`, response);
-                employeeId = response.payload.id;
-                return response;
-            }).then(response => {
-                // console.log('RESPONSE++++++++++++++++++++++++++++145', response)
-                response
-                return dispatch(employeesActions.getEmployeeDetailsById(employeeId))
-            }).then(response => {
-                // console.log('RESPONSE++++++++++++++++++++++++++++154', response, response.payload)
-                response
-                navigate(`/employees/${employeeId}`)
-            }).catch(
-                async (res) => {
+                employeeId = response.payload[0].id;
+                return employeeId;
+            }).catch(async (res) => {
                     const data = await res.json();
                     if (data.errors) setErrors(data.errors);
                     // console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
                 }
             )
+            
+            await dispatch(employeesActions.thunkGetEmployeeById(employeeId)).then(response => {
+                newEmployeeDetails = response;
+                navigate(`/employees/${employeeId}`)
+                return response
+            });
 
-            console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+            // console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         }
 
 
@@ -802,7 +807,7 @@ const checkInteger = () => {
                                         </label>
 
                             </div>
-                            {errors.ssn && <p className='CreateNewEmployeeErrors'>{errors.ssn}</p>}
+                            {errorsSsn.ssn && <p className='CreateNewEmployeeErrors'>{errorsSsn.ssn}</p>}
 
 
 

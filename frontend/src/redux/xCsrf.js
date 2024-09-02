@@ -20,18 +20,18 @@ export const csrfFetch = async (url, options = {}) => {
     options.headers['XSRF-Token'] = Cookies.get('XSRF-TOKEN');
   }
 
-  console.log("url and options", url, options);
+  // console.log("url and options", url, options);
   const res = await window.fetch(url, options);
   const resClone = res.clone()
 
-  console.log("res and resClone", res, resClone);
+  // console.log("res and resClone", res, resClone);
   const data = await resClone.json();
 
 
   if(!data["XSRF-Token"]){
     if(data.user !== null) {
-      console.log("data.user", data.user);
-      console.log("url and options", url, options);
+      // console.log("data.user", data.user);
+      // console.log("url and options", url, options);
       // window.dispatch(thunkGetBranchesAll());
       // window.dispatch(thunkGetFacilitiesAll());
       // window.dispatch(thunkGetAcademicDepartmentsAll());

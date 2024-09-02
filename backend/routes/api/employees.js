@@ -145,6 +145,8 @@ router.get("/:employeeId", async (req, res, next) => {
     ],
   });
 
+  console.log('EMPLOYEE================================', employee)
+
   if (!employee) {
     const err = new Error("Employee couldn't be found.");
     err.status = 404;
@@ -152,6 +154,7 @@ router.get("/:employeeId", async (req, res, next) => {
   }
 
   res.json(employee);
+  return
 });
 
 // ==================CREATE A EMPLOYEE=============================
@@ -205,7 +208,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     where: [{ ssn: ssn }],
   });
 
-  console.log("exists ===============================================: ", exists)
+  // console.log("exists ===============================================: ", exists)
 
   if (exists.length !== 0) {
     const err = new Error("Employee already exists.");
