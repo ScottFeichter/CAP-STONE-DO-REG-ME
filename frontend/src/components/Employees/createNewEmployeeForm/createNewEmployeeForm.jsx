@@ -5,6 +5,7 @@ import './CreateNewEmployeeForm.css';
 import {useState } from 'react';
 import {useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 // import * as employeesActions from '../../employees'
 // import * as imagesActions from '../../images';
 // import * as reviewsActions from '../../reviews';
@@ -17,9 +18,18 @@ function CreateNewEmployeeForm() {
         const dispatch = useDispatch();
         const navigate = useNavigate();
 
-
         const [errors, setErrors] = useState({});
+
+        const [errorsFirstName1, setErrorsFirstName1] = useState({});
+        const [errorsLastName1, setErrorsLastName1] = useState({});
+        const [errorsPersonalPhone, setErrorsPersonalPhone] = useState({});
+        const [errorsFirstLang, setErrorsFirstLang] = useState({});
+        const [requiredFieldsMessage, setRequiredFieldsMessage] = useState({});
         // const [isDisabled, setIsDisabled] = useState(false);
+
+
+
+
 
 
         let newEmployee = {
@@ -143,7 +153,7 @@ function CreateNewEmployeeForm() {
         const [quarternaryEndDate, setQuarternaryEndDate] = useState("");
         const [quarternaryPayRate, setQuarternaryPayRate] = useState("");
 
-        const [basePrice, setBasePrice] = useState("")
+
 
 
 
@@ -171,129 +181,179 @@ function CreateNewEmployeeForm() {
 
 
 
-// CreateNewEmployee Button handler------------------------------------------------------------------------
+// CreateNewEmployee Button handler---------------------------------------------------
+
+
+
+// helper for handleSubmit check required fields
+
+const checkRequired = () => {
+
+
+    if(!firstName1) {
+        setErrorsFirstName1({firstName1: "First Name 1 is required"})
+    } else {
+        setErrorsFirstName1({})
+    }
+
+    if(!lastName1) {
+        setErrorsLastName1({lastName1: "Last Name 1 is required"})
+    } else {
+        setErrorsLastName1({})
+    }
+
+    if(!personalPhone) {
+        setErrorsPersonalPhone({personalPhone: "Personal Phone is required"})
+    } else {
+        setErrorsPersonalPhone({})
+    }
+
+
+    if(!firstLang) {
+        setErrorsFirstLang({firstLang: "First Language is required"})
+    } else {
+        setErrorsFirstLang({})
+    }
+
+    if (
+        (errorsFirstName1.firstName1) ||
+        (errorsLastName1.lastName1) ||
+        (errorsPersonalPhone.personalPhone) ||
+        (errorsFirstLang.firstLange)
+    ) {return true}
+
+    return false
+}
+
+
 
 
 
         const handleSubmit = async (e) => {
             e.preventDefault();
-            // console.log('HANDLE SUBMIT NEW SPOT IS RUNNING');
+            console.log('HANDLE SUBMIT NEW EMPLOYEE IS RUNNING');
 
-            if(!country) {
-                setErrors({country: "Country is required"})
-                return;
+            if(checkRequired()) {
+
+                // setRequiredFieldsMessage({message: "Required field must be complete - see errors above."});
+                return console.log("HANDLE SUBMIT STOPPED DUE TO REQUIRED FIELD MISSING INFORMATION")
+
             }
 
-            if(!description) {
-                setErrors({description: "You must provide a description"})
-                return;
-            }
-
-            if(description.length < 10){
-                setErrors({description: "Please provide a longer description"})
-                return;
-            }
-
-            if(!title){
-                setErrors({title: "Please provide a title"})
-                return;
-            }
-
-            if(!basePrice){
-                setErrors({price: "Please provide a price"})
-                return;
-            }
-
-            if(!previewImg) {
-                setErrors({previewImg: "A preview image is required"});
-                return;
-            }
-
-            const newEmployee = {
-                "address": street,
-                "city": city,
-                "state": state,
-                "country": country,
-                "lat": +latitude,
-                "lng": +longitude,
-                "name": title,
-                "description": description,
-                "price": +basePrice,
-            }
-
-            let employeeId;
-
-            await dispatch(employeesActions.createEmployee(newEmployee))
-            .then(response => {
-                // console.log('CREATENEWSPOT RESPONSE: ', response, 'CREATENEWSPOT THENEWSPOT: ')
-                return response
-            })
-            .then(response => {
-                // console.log(`NEW SPOT CREATED`, response);
-                employeeId = response.payload.id;
-                return response;
-            })
-            .then(response =>  {
-                const prevImageInfo = {employeeId: response.payload.id, url: previewImg, preview: true};
-                return dispatch(imagesActions.addImageToEmployee(prevImageInfo));
-            }).then(response =>  {
-                // console.log('RESPONSE++++++++++++++++++++++++++++110', response)
-                if(img1) {
-                    const img1Info = {employeeId: employeeId, url: img1, preview: false};
-                    return dispatch(imagesActions.addImageToEmployee(img1Info));
-                }
-                return response;
-            }).then(response =>  {
-                // console.log('RESPONSE++++++++++++++++++++++++++++117', response)
-                if(img2) {
-                    const img2Info = {employeeId: employeeId, url: img2, preview: false};
-                    return dispatch(imagesActions.addImageToEmployee(img2Info));
-                }
-                return response;
-            }).then(response =>  {
-                // console.log('RESPONSE++++++++++++++++++++++++++++124', response)
-                if(img3) {
-                    const img3Info = {employeeId: employeeId, url: img1, preview: false};
-                    return dispatch(imagesActions.addImageToEmployee(img3Info));
-                }
-                return response;
-            }).then(async response =>  {
-                // console.log('RESPONSE++++++++++++++++++++++++++++131', response)
-                if(img4) {
-                    const img4Info = {employeeId: employeeId, url: img1, preview: false};
-                    return dispatch(imagesActions.addImageToEmployee(img4Info));
-                }
-                return response;
-            }).then(response => {
-                // console.log(`NEW SPOT IMAGES ADDED`);
-                // console.log('RESPONSE++++++++++++++++++++++++++++139', response)
-                return response;
-            }).then(response => {
-                // console.log('RESPONSE++++++++++++++++++++++++++++142', response)
-                response
-                return dispatch(reviewsActions.getReviewsByEmployeeId(employeeId));
-            }).then(response => {
-                // console.log('RESPONSE++++++++++++++++++++++++++++145', response)
-                response
-                return dispatch(employeesActions.getEmployeeDetailsById(employeeId))
-            }).then(response => {
-                // console.log('RESPONSE++++++++++++++++++++++++++++148', response)
-                response
-                return dispatch(employeesActions.search());
-            }).then(response => {
-                // console.log('RESPONSE++++++++++++++++++++++++++++154', response, response.payload)
-                response
-                navigate(`/employees/${employeeId}`)
-            }).catch(
-                async (res) => {
-                    const data = await res.json();
-                    if (data.errors) setErrors(data.errors);
-                    // console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
-                }
-            )
 
 
-            // console.log('HANDLE SUBMIT NEW SPOT HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+
+
+
+
+
+
+
+            // if(description.length < 10){
+            //     setErrors({description: "Please provide a longer description"})
+            //     return;
+            // }
+
+            // if(!title){
+            //     setErrors({title: "Please provide a title"})
+            //     return;
+            // }
+
+            // if(!basePrice){
+            //     setErrors({price: "Please provide a price"})
+            //     return;
+            // }
+
+            // if(!previewImg) {
+            //     setErrors({previewImg: "A preview image is required"});
+            //     return;
+            // }
+
+            // const newEmployee = {
+            //     "address": street,
+            //     "city": city,
+            //     "state": state,
+            //     "country": country,
+            //     "lat": +latitude,
+            //     "lng": +longitude,
+            //     "name": title,
+            //     "description": description,
+            //     "price": +basePrice,
+            // }
+
+            // let employeeId;
+
+            // await dispatch(employeesActions.createEmployee(newEmployee))
+            // .then(response => {
+            //     // console.log('CREATENEWSPOT RESPONSE: ', response, 'CREATENEWSPOT THENEWSPOT: ')
+            //     return response
+            // })
+            // .then(response => {
+            //     // console.log(`NEW SPOT CREATED`, response);
+            //     employeeId = response.payload.id;
+            //     return response;
+            // })
+            // .then(response =>  {
+            //     const prevImageInfo = {employeeId: response.payload.id, url: previewImg, preview: true};
+            //     return dispatch(imagesActions.addImageToEmployee(prevImageInfo));
+            // }).then(response =>  {
+            //     // console.log('RESPONSE++++++++++++++++++++++++++++110', response)
+            //     if(img1) {
+            //         const img1Info = {employeeId: employeeId, url: img1, preview: false};
+            //         return dispatch(imagesActions.addImageToEmployee(img1Info));
+            //     }
+            //     return response;
+            // }).then(response =>  {
+            //     // console.log('RESPONSE++++++++++++++++++++++++++++117', response)
+            //     if(img2) {
+            //         const img2Info = {employeeId: employeeId, url: img2, preview: false};
+            //         return dispatch(imagesActions.addImageToEmployee(img2Info));
+            //     }
+            //     return response;
+            // }).then(response =>  {
+            //     // console.log('RESPONSE++++++++++++++++++++++++++++124', response)
+            //     if(img3) {
+            //         const img3Info = {employeeId: employeeId, url: img1, preview: false};
+            //         return dispatch(imagesActions.addImageToEmployee(img3Info));
+            //     }
+            //     return response;
+            // }).then(async response =>  {
+            //     // console.log('RESPONSE++++++++++++++++++++++++++++131', response)
+            //     if(img4) {
+            //         const img4Info = {employeeId: employeeId, url: img1, preview: false};
+            //         return dispatch(imagesActions.addImageToEmployee(img4Info));
+            //     }
+            //     return response;
+            // }).then(response => {
+            //     // console.log(`NEW SPOT IMAGES ADDED`);
+            //     // console.log('RESPONSE++++++++++++++++++++++++++++139', response)
+            //     return response;
+            // }).then(response => {
+            //     // console.log('RESPONSE++++++++++++++++++++++++++++142', response)
+            //     response
+            //     return dispatch(reviewsActions.getReviewsByEmployeeId(employeeId));
+            // }).then(response => {
+            //     // console.log('RESPONSE++++++++++++++++++++++++++++145', response)
+            //     response
+            //     return dispatch(employeesActions.getEmployeeDetailsById(employeeId))
+            // }).then(response => {
+            //     // console.log('RESPONSE++++++++++++++++++++++++++++148', response)
+            //     response
+            //     return dispatch(employeesActions.search());
+            // }).then(response => {
+            //     // console.log('RESPONSE++++++++++++++++++++++++++++154', response, response.payload)
+            //     response
+            //     navigate(`/employees/${employeeId}`)
+            // }).catch(
+            //     async (res) => {
+            //         const data = await res.json();
+            //         if (data.errors) setErrors(data.errors);
+            //         // console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
+            //     }
+            // )
+
+
+            console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
 
         }
 
@@ -362,7 +422,7 @@ function CreateNewEmployeeForm() {
                                         </label>
 
                             </div>
-                            {errors.firstName1 && <p className='CreateNewEmployeeErrors'>{errors.firstName1}</p>}
+                            {errorsFirstName1.firstName1 && <p className='CreateNewEmployeeErrors'>{errorsFirstName1.firstName1}</p>}
 
 
                             <div id='firstName2Container' className='CreateNewEmployeeFormLabelInputContainer'>
@@ -426,7 +486,7 @@ function CreateNewEmployeeForm() {
 
 
                             </div>
-                            {errors.lastName1 && <p className='CreateNewEmployeeErrors'>{errors.lastName1}</p>}
+                            {errorsLastName1.lastName1 && <p className='CreateNewEmployeeErrors'>{errorsLastName1.lastName1}</p>}
 
 
 
@@ -493,7 +553,7 @@ function CreateNewEmployeeForm() {
 
 
                             </div>
-                            {errors.personalPhone && <p className='CreateNewEmployeeErrors'>{errors.personalPhone}</p>}
+                            {errorsPersonalPhone.personalPhone && <p className='CreateNewEmployeeErrors'>{errorsPersonalPhone.personalPhone}</p>}
 
 
 
@@ -849,7 +909,7 @@ function CreateNewEmployeeForm() {
 
 
                             </div>
-                            {errors.firstLang && <p className='CreateNewEmployeeErrors'>{errors.firstLang}</p>}
+                            {errorsFirstLang.firstLang && <p className='CreateNewEmployeeErrors'>{errorsFirstLang.firstLang}</p>}
 
 
 
@@ -1309,6 +1369,7 @@ function CreateNewEmployeeForm() {
 {/* form button---------------------------------------------------------- */}
 
                         <div id="buttonContainer">
+                        {requiredFieldsMessage.message && <p className='CreateNewEmployeeErrors'>{requiredFieldsMessage.message}</p>}
                             <button
                                 id="CreateNewEmployeeButton"
                                 type="submit"
