@@ -10,14 +10,9 @@ import { useNavigate } from 'react-router-dom';
 // import * as reviewsActions from '../../reviews';
 
 
-
-
-
-
-
 function CreateNewEmployeeForm() {
 
-
+        const required = "*";
 
         const dispatch = useDispatch();
         const navigate = useNavigate();
@@ -117,7 +112,7 @@ function CreateNewEmployeeForm() {
         const [primaryPayRate, setPrimaryPayRate] = useState("");
 
 
-        const [description, setDescription] = useState("")
+
 
 // biographical information form section 3----------------------------------------------------------
 
@@ -131,7 +126,7 @@ function CreateNewEmployeeForm() {
         const [biography, setBiography] = useState("");
         const [notes, setNotes] = useState("");
 
-        const [title, setTitle] = useState("")
+
 
 // states form section 4----------------------------------------------------------
 
@@ -150,13 +145,7 @@ function CreateNewEmployeeForm() {
 
         const [basePrice, setBasePrice] = useState("")
 
-// states form section 5----------------------------------------------------------
 
-        const [previewImg, setPreviewImg] = useState("")
-        const [img1, setImg1] = useState("")
-        const [img2, setImg2] = useState("")
-        const [img3, setImg3] = useState("")
-        const [img4, setImg4] = useState("")
 
 // CreateNewEmployee Button Disabled------------------------------------------------------------------------
 
@@ -337,7 +326,7 @@ function CreateNewEmployeeForm() {
         return (
           <main id="CreateNewEmployeeMain">
 
-            <h1>Create A New Employee</h1>
+            <h1 id='CreateNewEmployeeH1'>Create A New Employee</h1>
 
 
                     <form id='CreateNewEmployeeForm' onSubmit={handleSubmit}>
@@ -350,13 +339,16 @@ function CreateNewEmployeeForm() {
                             <p id="CreateNewEmployeeFormSection1P">
                                 Enter personal information for new employee.
                             </p>
+                            <h5 className='CreateNewEmployeeH5'>* indicates required field</h5>
 
 
 
                             <div id='firstName1Container' className='CreateNewEmployeeFormLabelInputContainer'>
 
+                                        <p className='CreateNewEmployeeFormRequired'>{required}</p>
                                         <label className='CreateNewEmployeeFormLabel'>
                                             First Name 1:
+
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="firstName1"
@@ -368,6 +360,7 @@ function CreateNewEmployeeForm() {
                                             required
                                             />
                                         </label>
+
                             </div>
                             {errors.firstName1 && <p className='CreateNewEmployeeErrors'>{errors.firstName1}</p>}
 
@@ -384,7 +377,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='First Name 2'
                                             value={firstName2}
                                             onChange={(e) => setFirstName2(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -404,7 +397,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Middle Name'
                                             value={middleName}
                                             onChange={(e) => setMiddleName(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -416,6 +409,7 @@ function CreateNewEmployeeForm() {
 
                             <div id='lastName1Container' className='CreateNewEmployeeFormLabelInputContainer'>
 
+                                        <p className='CreateNewEmployeeFormRequired'>{required}</p>
                                         <label className='CreateNewEmployeeFormLabel'>
                                             Last Name 1:
                                             <input
@@ -429,6 +423,7 @@ function CreateNewEmployeeForm() {
                                             required
                                             />
                                         </label>
+
 
                             </div>
                             {errors.lastName1 && <p className='CreateNewEmployeeErrors'>{errors.lastName1}</p>}
@@ -447,9 +442,10 @@ function CreateNewEmployeeForm() {
                                             placeholder='Last Name 2'
                                             value={lastName2}
                                             onChange={(e) => setLastName2(e.target.value)}
-                                            required
+
                                             />
                                         </label>
+
 
                             </div>
                             {errors.lastName2 && <p className='CreateNewEmployeeErrors'>{errors.lastName2}</p>}
@@ -469,7 +465,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Personal Email'
                                             value={personalEmail}
                                             onChange={(e) => setPersonalEmail(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -480,6 +476,7 @@ function CreateNewEmployeeForm() {
 
                             <div id='personalPhoneContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
+                                        <p className='CreateNewEmployeeFormRequired'>{required}</p>
                                         <label className='CreateNewEmployeeFormLabel'>
                                             Personal Phone:
                                             <input
@@ -494,28 +491,11 @@ function CreateNewEmployeeForm() {
                                             />
                                         </label>
 
+
                             </div>
                             {errors.personalPhone && <p className='CreateNewEmployeeErrors'>{errors.personalPhone}</p>}
 
 
-                                                      <div id='personalEmailContainer' className='CreateNewEmployeeFormLabelInputContainer'>
-
-                                        <label className='CreateNewEmployeeFormLabel'>
-                                            Personal Email:
-                                            <input
-                                            className='CreateNewEmployeeFormInput'
-                                            id="personalEmail"
-                                            name="personalEmail"
-                                            type="text"
-                                            placeholder='Personal Email'
-                                            value={personalEmail}
-                                            onChange={(e) => setPersonalEmail(e.target.value)}
-                                            required
-                                            />
-                                        </label>
-
-                            </div>
-                            {errors.personalEmail && <p className='CreateNewEmployeeErrors'>{errors.personalEmail}</p>}
 
 
                             <div id='streetContainer' className='CreateNewEmployeeFormLabelInputContainer'>
@@ -530,7 +510,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Street'
                                             value={street}
                                             onChange={(e) => setStreet(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -551,7 +531,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='City'
                                             value={city}
                                             onChange={(e) => setCity(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -571,7 +551,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='State'
                                             value={state}
                                             onChange={(e) => setState(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -591,7 +571,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Zip'
                                             value={zip}
                                             onChange={(e) => setZip(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -603,16 +583,16 @@ function CreateNewEmployeeForm() {
                             <div id='dobContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            DOB:
+                                            Date Of Birth  (mm/dd/yyyy):
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="dob"
                                             name="dob"
                                             type="text"
-                                            placeholder='DOB'
+                                            placeholder='Date Of Birth  (mm/dd/yyyy)'
                                             value={dob}
                                             onChange={(e) => setDob(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -632,7 +612,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Age'
                                             value={age}
                                             onChange={(e) => setAge(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -652,7 +632,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='SSN'
                                             value={ssn}
                                             onChange={(e) => setSsn(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -674,6 +654,7 @@ function CreateNewEmployeeForm() {
                             <p id="CreateNewEmployeeFormSection2P">
                                 Enter employment information for new employee.
                             </p>
+                            <h5 className='CreateNewEmployeeH5'>* indicates required field</h5>
 
 
 
@@ -689,7 +670,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Employee Department ID'
                                             value={employeeDepartment_Id}
                                             onChange={(e) => setEmployeeDepartment_Id(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -710,7 +691,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Academic Department ID'
                                             value={academicDepartment_Id}
                                             onChange={(e) => setAcademicDepartment_Id(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -731,7 +712,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='User Type ID'
                                             value={userType_Id}
                                             onChange={(e) => setUserType_Id(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -752,7 +733,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Primary Title'
                                             value={primaryTitle}
                                             onChange={(e) => setPrimaryTitle(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -764,16 +745,16 @@ function CreateNewEmployeeForm() {
                             <div id='primaryStartDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            Primary Start Date:
+                                            Primary Start Date  (mm/dd/yyyy):
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="primaryStartDate"
                                             name="primaryStartDate"
                                             type="text"
-                                            placeholder='Primary Start Date'
+                                            placeholder='Primary Start Date  (mm/dd/yyyy)'
                                             value={primaryStartDate}
                                             onChange={(e) => setPrimaryStartDate(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -785,7 +766,7 @@ function CreateNewEmployeeForm() {
                             <div id='primaryEndDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            Primary End Date:
+                                            Primary End Date  (mm/dd/yyyy):
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="primaryEndDate"
@@ -794,7 +775,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Primary End Date'
                                             value={primaryEndDate}
                                             onChange={(e) => setPrimaryEndDate(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -806,16 +787,16 @@ function CreateNewEmployeeForm() {
                             <div id='primaryPayRateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            Primary Pay Rate:
+                                            Primary Pay Rate $ (USD):
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="primaryPayRate"
                                             name="primaryPayRate"
                                             type="text"
-                                            placeholder='Primary Pay Rate'
+                                            placeholder='Primary Pay Rate $ (USD)'
                                             value={primaryPayRate}
                                             onChange={(e) => setPrimaryPayRate(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -845,11 +826,13 @@ function CreateNewEmployeeForm() {
                             <p id="CreateNewEmployeeFormSection3P">
                                 Enter biographical information for new employee.
                             </p>
+                            <h5 className='CreateNewEmployeeH5'>* indicates required field</h5>
 
 
 
                             <div id='firstLangContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
+                                        <p className='CreateNewEmployeeFormRequired'>{required}</p>
                                         <label className='CreateNewEmployeeFormLabel'>
                                             First Language:
                                             <input
@@ -863,6 +846,7 @@ function CreateNewEmployeeForm() {
                                             required
                                             />
                                         </label>
+
 
                             </div>
                             {errors.firstLang && <p className='CreateNewEmployeeErrors'>{errors.firstLang}</p>}
@@ -881,7 +865,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Second Language'
                                             value={secondLang}
                                             onChange={(e) => setSecondLang(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -901,7 +885,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Third Language'
                                             value={thirdLang}
                                             onChange={(e) => setThirdLang(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -922,7 +906,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='First Instrument'
                                             value={firstInst}
                                             onChange={(e) => setFirstInst(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -943,7 +927,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Second Instrument'
                                             value={secondInst}
                                             onChange={(e) => setSecondInst(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -965,7 +949,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Third Instrument'
                                             value={thirdInst}
                                             onChange={(e) => setThirdInst(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -979,7 +963,7 @@ function CreateNewEmployeeForm() {
                             <div id='biographyContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-
+                                            Biography:
                                             <textarea
                                             className='CreateNewEmployeeFormInput'
                                             id="biography"
@@ -990,7 +974,7 @@ function CreateNewEmployeeForm() {
                                             placeholder="Enter biography here"
                                             value={biography}
                                             onChange={(e) => setBiography(e.target.value)}
-                                            required
+
                                             />
                                         </label>
                             </div>
@@ -1002,7 +986,7 @@ function CreateNewEmployeeForm() {
                             <div id='notesContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-
+                                            Notes:
                                             <textarea
                                             className='CreateNewEmployeeFormInput'
                                             id="notes"
@@ -1013,7 +997,7 @@ function CreateNewEmployeeForm() {
                                             placeholder="Enter notes here"
                                             value={notes}
                                             onChange={(e) => setNotes(e.target.value)}
-                                            required
+
                                             />
                                         </label>
                             </div>
@@ -1040,6 +1024,7 @@ function CreateNewEmployeeForm() {
                             <p id="CreateNewEmployeeFormSection4P">
                             Enter additional employment information for new employee.
                             </p>
+                            <h5 className='CreateNewEmployeeH5'>* indicates required field</h5>
 
 
 {/* -------------------------------- SECONDARY -----------------------------*/}
@@ -1056,7 +1041,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Secondary Title'
                                             value={secondaryTitle}
                                             onChange={(e) => setSecondaryTitle(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -1068,7 +1053,7 @@ function CreateNewEmployeeForm() {
                             <div id='secondaryStartDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            Secondary Start Date:
+                                            Secondary Start Date  (mm/dd/yyyy):
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="secondaryStartDate"
@@ -1077,7 +1062,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Secondary Start Date'
                                             value={secondaryStartDate}
                                             onChange={(e) => setSecondaryStartDate(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -1089,16 +1074,16 @@ function CreateNewEmployeeForm() {
                             <div id='secondaryEndDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            Secondary End Date:
+                                            Secondary End Date  (mm/dd/yyyy):
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="secondaryEndDate"
                                             name="secondaryEndDate"
                                             type="text"
-                                            placeholder='Secondary End Date'
+                                            placeholder='Secondary End Date  (mm/dd/yyyy)  (mm/dd/yyyy)'
                                             value={secondaryEndDate}
                                             onChange={(e) => setSecondaryEndDate(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -1110,16 +1095,16 @@ function CreateNewEmployeeForm() {
                             <div id='secondaryPayRateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            Secondary Pay Rate:
+                                            Secondary Pay Rate $ (USD):
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="secondaryPayRate"
                                             name="secondaryPayRate"
                                             type="text"
-                                            placeholder='Secondary Pay Rate'
+                                            placeholder='Secondary Pay Rate $ (USD)'
                                             value={secondaryPayRate}
                                             onChange={(e) => setSecondaryPayRate(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -1148,7 +1133,7 @@ function CreateNewEmployeeForm() {
                                             placeholder='Tertiary Title'
                                             value={tertiaryTitle}
                                             onChange={(e) => setTertiaryTitle(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -1160,16 +1145,16 @@ function CreateNewEmployeeForm() {
                             <div id='tertiaryStartDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            Tertiary Start Date:
+                                            Tertiary Start Date  (mm/dd/yyyy):
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="tertiaryStartDate"
                                             name="tertiaryStartDate"
                                             type="text"
-                                            placeholder='Tertiary Start Date'
+                                            placeholder='Tertiary Start Date  (mm/dd/yyyy)'
                                             value={tertiaryStartDate}
                                             onChange={(e) => setTertiaryStartDate(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -1181,16 +1166,16 @@ function CreateNewEmployeeForm() {
                             <div id='tertiaryEndDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            Tertiary End Date:
+                                            Tertiary End Date  (mm/dd/yyyy):
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="tertiaryEndDate"
                                             name="tertiaryEndDate"
                                             type="text"
-                                            placeholder='Tertiary End Date'
+                                            placeholder='Tertiary End Date  (mm/dd/yyyy)'
                                             value={tertiaryEndDate}
                                             onChange={(e) => setTertiaryEndDate(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -1203,16 +1188,16 @@ function CreateNewEmployeeForm() {
                             <div id='tertiaryPayRateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            Tertiary Pay Rate:
+                                            Tertiary Pay Rate $ (USD):
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="tertiaryPayRate"
                                             name="tertiaryPayRate"
                                             type="text"
-                                            placeholder='Tertiary Pay Rate'
+                                            placeholder='Tertiary Pay Rate $ (USD)'
                                             value={tertiaryPayRate}
                                             onChange={(e) => setTertiaryPayRate(e.target.value)}
-                                            required
+
                                             />
                                         </label>
 
@@ -1241,7 +1226,7 @@ function CreateNewEmployeeForm() {
                                 placeholder='Quarternary Title'
                                 value={quarternaryTitle}
                                 onChange={(e) => setQuarternaryTitle(e.target.value)}
-                                required
+
                                 />
                             </label>
 
@@ -1253,16 +1238,16 @@ function CreateNewEmployeeForm() {
                             <div id='quarternaryStartDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                             <label className='CreateNewEmployeeFormLabel'>
-                                Quarternary Start Date:
+                                Quarternary Start Date  (mm/dd/yyyy):
                                 <input
                                 className='CreateNewEmployeeFormInput'
                                 id="quarternaryStartDate"
                                 name="quarternaryStartDate"
                                 type="text"
-                                placeholder='Quarternary Start Date'
+                                placeholder='Quarternary Start Date  (mm/dd/yyyy)'
                                 value={quarternaryStartDate}
                                 onChange={(e) => setQuarternaryStartDate(e.target.value)}
-                                required
+
                                 />
                             </label>
 
@@ -1274,16 +1259,16 @@ function CreateNewEmployeeForm() {
                             <div id='quarternaryEndDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                             <label className='CreateNewEmployeeFormLabel'>
-                                Quarternary End Date:
+                                Quarternary End Date  (mm/dd/yyyy):
                                 <input
                                 className='CreateNewEmployeeFormInput'
                                 id="quarternaryEndDate"
                                 name="quarternaryEndDate"
                                 type="text"
-                                placeholder='Quarternary End Date'
+                                placeholder='Quarternary End Date  (mm/dd/yyyy)'
                                 value={quarternaryEndDate}
                                 onChange={(e) => setQuarternaryEndDate(e.target.value)}
-                                required
+
                                 />
                             </label>
 
@@ -1296,16 +1281,16 @@ function CreateNewEmployeeForm() {
                             <div id='quarternaryPayRateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                             <label className='CreateNewEmployeeFormLabel'>
-                                Quarternary Pay Rate:
+                                Quarternary Pay Rate $ (USD):
                                 <input
                                 className='CreateNewEmployeeFormInput'
                                 id="quarternaryPayRate"
                                 name="quarternaryPayRate"
                                 type="text"
-                                placeholder='Quarternary Pay Rate'
+                                placeholder='Quarternary Pay Rate $ (USD)'
                                 value={quarternaryPayRate}
                                 onChange={(e) => setQuarternaryPayRate(e.target.value)}
-                                required
+
                                 />
                             </label>
 
@@ -1314,172 +1299,10 @@ function CreateNewEmployeeForm() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            <div id='basePriceContainer' className='CreateNewEmployeeFormLabelInputContainer'>
-
-                                        <label className='CreateNewEmployeeFormLabel' id="basePriceLabel">
-
-                                            <p>$</p>
-                                            <input
-                                            className='CreateNewEmployeeFormInput'
-                                            id="basePrice"
-                                            name="basePrice"
-                                            type="text"
-                                            placeholder='Price per night (USD)'
-                                            value={basePrice}
-                                            onChange={(e) => setBasePrice(e.target.value)}
-                                            required
-                                            />
-                                        </label>
-                            </div>
-                            {errors.price && <p className='CreateNewEmployeeErrors'>{errors.price}</p>}
-
-
-
                         </section>
 
                         <hr className='CreateNewEmployeeHr'></hr>
 
-
-{/* form section 5---------------------------------------------------------- */}
-
-                        <section id="CreateNewEmployeeFormSection5">
-
-                            <h4 id="CreateNewEmployeeFormSection5H4">Liven up your employee with photos</h4>
-
-                            <p id="CreateNewEmployeeFormSection5P">
-                                Submit a link to at least one photo to publish your employee.
-                            </p>
-
-                            <div id='previewImgContainer' className='CreateNewEmployeeFormLabelInputContainer'>
-
-                                        <label className='CreateNewEmployeeFormLabel'>
-                                            <input
-                                            className='CreateNewEmployeeFormInput'
-                                            id="previewImg"
-                                            name="previewImg"
-                                            type="text"
-                                            placeholder='Preview Image URL'
-                                            value={previewImg}
-                                            onChange={(e) => setPreviewImg(e.target.value)}
-                                            required
-                                            />
-                                        </label>
-                            </div>
-                            {errors.previewImg && <p className='CreateNewEmployeeErrors'>{errors.previewImg}</p>}
-
-                            <div id='img1Container' className='CreateNewEmployeeFormLabelInputContainer'>
-
-                                        <label className='CreateNewEmployeeFormLabel'>
-
-                                            <input
-                                            className='CreateNewEmployeeFormInput'
-                                            id="img1"
-                                            name="img1"
-                                            type="text"
-                                            placeholder='Image URL'
-                                            value={img1}
-                                            onChange={(e) => setImg1(e.target.value)}
-
-                                            />
-                                        </label>
-                            </div>
-                            {errors.img1 && <p className='CreateNewEmployeeErrors'>{errors.img1}</p>}
-
-                            <div id='img2Container' className='CreateNewEmployeeFormLabelInputContainer'>
-
-                                        <label className='CreateNewEmployeeFormLabel'>
-
-                                            <input
-                                            className='CreateNewEmployeeFormInput'
-                                            id="img2"
-                                            name="img2"
-                                            type="text"
-                                            placeholder='Image URL'
-                                            value={img2}
-                                            onChange={(e) => setImg2(e.target.value)}
-
-                                            />
-                                        </label>
-                            </div>
-                            {errors.img2 && <p className='CreateNewEmployeeErrors'>{errors.img2}</p>}
-
-                            <div id='img3Container' className='CreateNewEmployeeFormLabelInputContainer'>
-
-                                        <label className='CreateNewEmployeeFormLabel'>
-
-                                            <input
-                                            className='CreateNewEmployeeFormInput'
-                                            id="img3"
-                                            name="img3"
-                                            type="text"
-                                            placeholder='Image URL'
-                                            value={img3}
-                                            onChange={(e) => setImg3(e.target.value)}
-
-                                            />
-                                        </label>
-                            </div>
-                            {errors.img3 && <p>{errors.img3}</p>}
-
-                            <div id='img4Container' className='CreateNewEmployeeFormLabelInputContainer'>
-
-                                        <label className='CreateNewEmployeeFormLabel'>
-
-                                            <input
-                                            className='CreateNewEmployeeFormInput'
-                                            id="img4"
-                                            name="img4"
-                                            type="text"
-                                            placeholder='Image URL'
-                                            value={img4}
-                                            onChange={(e) => setImg4(e.target.value)}
-
-                                            />
-                                        </label>
-                            </div>
-                            {errors.img4 && <p className='CreateNewEmployeeErrors'>{errors.img4}</p>}
-
-
-
-                        </section>
-
-                        <hr className='CreateNewEmployeeHr'></hr>
 
 
 

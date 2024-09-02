@@ -2,7 +2,7 @@
 
 }
 
-h1 {
+#CreateNewEmployeeH1 {
     text-align: center;
 }
 
@@ -16,7 +16,7 @@ h1 {
 
 #CreateNewEmployeeForm{
     margin: 2rem 4rem 4rem 4rem;
-    padding: 1rem 0rem 0rem 0rem;
+    padding: 0rem 0rem 0rem 0rem;
     border: var(--border);
     border-radius: 25px;
     display: flex;
@@ -26,31 +26,55 @@ h1 {
 }
 
 
+
+
+.CreateNewEmployeeFormLabelInputContainer {
+    display: flex;
+    justify-content: center;
+    /* border: 2px grey solid; */
+}
+
 .CreateNewEmployeeFormLabel {
     color: black;
     font-size: medium;
     font-weight: 600;
-    margin: 0;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: left;
     justify-content: center;
 }
 
-.CreateNewEmployeeFormLabelInputContainer {
-    display: flex;
-    justify-content: center;
-}
+
 
 .CreateNewEmployeeFormInput {
-    margin-bottom: 1rem;
+    font-size: small;
+    height: 1.5rem;
+    margin-bottom: 1.5rem;
     width: 442px;
 }
+
+
+
+
+.CreateNewEmployeeFormRequired{
+    position:sticky;
+
+    margin: 1.25rem 0 0 -1rem;
+    padding: .5rem .5rem 0 0;
+    color: red;
+    font-size: medium;
+}
+
+
+
+
 
 .CreateNewEmployeeHr {
     border: 1px grey solid;
     width: 80%;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
 }
 
@@ -69,26 +93,17 @@ h1 {
 
 #CreateNewEmployeeFormSection1P, #CreateNewEmployeeFormSection2P, #CreateNewEmployeeFormSection3P, #CreateNewEmployeeFormSection4P, #CreateNewEmployeeFormSection5P {
     text-align: center;
-    margin: -.5rem 0 3rem 0;
+    margin: -1rem 0 .5rem 0;
     font-size: medium;
     font-weight: 400;
     color: black;
 }
 
-#basePriceLabel{
-    display: flex;
-    flex-direction: row;
-    align-items: first baseline;
-    justify-content: space-between;
-    /* border: 2px blue dashed; */
-    width: 450px
-
+.CreateNewEmployeeH5 {
+    margin: 0rem 0 3rem 0;
+    color: red;
+    text-align: center;
 }
-
-#basePrice {
-    width: 424px;
-}
-
 
 
 
