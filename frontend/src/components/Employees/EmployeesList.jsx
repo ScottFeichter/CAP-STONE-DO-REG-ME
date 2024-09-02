@@ -7,7 +7,7 @@ import EmployeesListItemHeader from './EmployeesListItemHeader';
 
 function EmployeesList(){
     const employeesList = useSelector(state => state.employees);
-    console.log(employeesList);
+    // console.log(employeesList);
 
     const [currentPage, setCurrentPage] = useState(1);
 

@@ -1,7 +1,7 @@
 //============CSS IMPORT AND BASE CLASS NAME============//
 
-import './EmployeeDetailsPage.css';
-const BASE_CLASS_NAME = "EmployeeDetailsPage";
+import './OldEmployeeDetailsPage.css';
+const BASE_CLASS_NAME = "OldEmployeeDetailsPage";
 
 
 //==================OTHER IMPORTS=======================//
@@ -15,7 +15,7 @@ import { useLocation } from 'react-router-dom';
 
 //===============FUNCTION DECLARATION===================//
 
-function EmployeeDetailsPage() {
+function OldEmployeeDetailsPage() {
   // const employee = useSelector(state => state.employees.employees[0]);
   const navigate = useNavigate();
   const location = useLocation();
@@ -152,7 +152,14 @@ const handleClickDeleteEmployee = (e) => {
 
             <div>
 
+               {employeeObjectEntries.map((arr)=> {
+                const kv = {k: arr[0], v: arr[1]}
+                return <EmployeeDetailsKeyValue {...kv} key={employee.id}  />
+                })}
 
+
+
+                {/* {employeeObjectEntries.map((arr)=> { return (<p key={arr[0]}>{arr}</p>)})} */}
 
 
 
@@ -164,4 +171,4 @@ const handleClickDeleteEmployee = (e) => {
 
 
 //===================FUNCTION EXPORT====================//
-export default EmployeeDetailsPage;
+export default OldEmployeeDetailsPage;

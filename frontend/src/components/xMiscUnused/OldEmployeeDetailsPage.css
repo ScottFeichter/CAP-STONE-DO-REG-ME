@@ -1,4 +1,4 @@
-#EmployeeDetailsPageMain{
+#OldEmployeeDetailsPageMain{
     text-align: center;
     overflow: hidden;
     /* width: 1000px; */
@@ -8,13 +8,13 @@
     border-radius: 25px;
 }
 
-#EmployeeDetailsPageNav{
+#OldEmployeeDetailsPageNav{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
-#EmployeeDetailsPageH1{
+#OldEmployeeDetailsPageH1{
     font-size: 2.5rem;
 }
 
@@ -22,7 +22,7 @@
 
 /*================= EDIT BUTTON =================*/
 
-#EmployeeDetailsPageEditButton {
+#OldEmployeeDetailsPageEditButton {
     margin: 1rem .5rem 1rem .5rem;
     width: 12rem;
     height: 1.8rem;
@@ -32,7 +32,7 @@
 
 }
 
-#EmployeeDetailsPageEditButton:enabled {
+#OldEmployeeDetailsPageEditButton:enabled {
     color: var(--buttonColor);
     background-color: var(--buttonBackgroundColor);
     border: var(--buttonBorder);
@@ -55,21 +55,21 @@
 
 }
 
-#EmployeeDetailsPageEditButton:disabled {
+#OldEmployeeDetailsPageEditButton:disabled {
     color: var(--buttonDisabledColor);
     background-color: var(--buttonDisabledBackgroundColor);
     border: var(--buttonDisabledBorder);
 
 }
 
-#EmployeeDetailsPageEditButton:enabled:hover {
+#OldEmployeeDetailsPageEditButton:enabled:hover {
     color: var(--buttonHoverColor);
     background-color: var(--buttonHoverBackgroundColor);
     border: var(--buttonHoverBorder);
     cursor: pointer;
 }
 
-#EmployeeDetailsPageEditButton:enabled:active{
+#OldEmployeeDetailsPageEditButton:enabled:active{
     color: var(--buttonActiveColor);
     background-color: var(--buttonActiveBackgroundColor);
     border: var(--buttonActiveBorder);
@@ -78,7 +78,7 @@
 
 /*================= DELETE BUTTON =================*/
 
-#EmployeeDetailsPageDeleteButton {
+#OldEmployeeDetailsPageDeleteButton {
     margin: 1rem .5rem 1rem .5rem;
     width: 12rem;
     height: 1.8rem;
@@ -88,7 +88,7 @@
 
 }
 
-#EmployeeDetailsPageDeleteButton:enabled {
+#OldEmployeeDetailsPageDeleteButton:enabled {
     color: var(--buttonColor);
     background-color: var(--buttonBackgroundColor);
     border: var(--buttonBorder);
@@ -111,21 +111,21 @@
 
 }
 
-#EmployeeDetailsPageDeleteButton:disabled {
+#OldEmployeeDetailsPageDeleteButton:disabled {
     color: var(--buttonDisabledColor);
     background-color: var(--buttonDisabledBackgroundColor);
     border: var(--buttonDisabledBorder);
 
 }
 
-#EmployeeDetailsPageDeleteButton:enabled:hover {
+#OldEmployeeDetailsPageDeleteButton:enabled:hover {
     color: var(--buttonHoverColor);
     background-color: var(--buttonHoverBackgroundColor);
     border: var(--buttonHoverBorder);
     cursor: pointer;
 }
 
-#EmployeeDetailsPageDeleteButton:enabled:active{
+#OldEmployeeDetailsPageDeleteButton:enabled:active{
     color: var(--buttonActiveColor);
     background-color: var(--buttonActiveBackgroundColor);
     border: var(--buttonActiveBorder);

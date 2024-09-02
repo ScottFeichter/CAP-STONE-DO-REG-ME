@@ -10,13 +10,14 @@ import { useNavigate } from 'react-router-dom';
 // import * as reviewsActions from '../../reviews';
 
 
-// const testNewEmployee = {
 
-//     description: "All work and no play makes jack a dull boy. All work and no play makes jack a dull boy. All work and no play makes jack a dull boy. All work and no play makes jack a dull boy. All work and no play makes jack a dull boy. All work and no play makes jack a dull boy. All work and no play makes jack a dull boy. All work and no play makes jack a dull boy. All work and no play makes jack a dull boy. All work and no play makes jack a dull boy. All work and no play makes jack a dull boy."
-// }
+
+
 
 
 function CreateNewEmployeeForm() {
+
+
 
         const dispatch = useDispatch();
         const navigate = useNavigate();
@@ -25,23 +26,127 @@ function CreateNewEmployeeForm() {
         const [errors, setErrors] = useState({});
         // const [isDisabled, setIsDisabled] = useState(false);
 
-// states form section 1----------------------------------------------------------
-        const [country, setCountry] = useState("");
-        const [streetAddress, setStreetAddress] = useState("");
+
+        let newEmployee = {
+
+// personal information form section 1----------------------------------------------------------
+            firstName1	            :	null	,
+            firstName2	            :	null	,
+            middleName	            :	null	,
+            lastName1	            :	null	,
+            lastName2	            :	null	,
+            personalEmail	        :	null	,
+            personalPhone	        :	null	,
+            street	                :	null	,
+            city	                :	null	,
+            state	                :	null	,
+            zip	                    :	null	,
+            dob	                    :	null	,
+            age	                    :	null	,
+            ssn	                    :	null	,
+
+// employment information form section 2----------------------------------------------------------
+            employeeDepartment_Id	:	null	,
+            academicDepartment_Id	:	null	,
+            userType_Id	            :	null	,
+            primaryTitle	        :	null	,
+            primaryStartDate	    :	null	,
+            primaryEndDate	        :	null	,
+            primaryPayRate	        :	null	,
+
+// biographical information form section 3----------------------------------------------------------
+            firstLang	            :	null	,
+            secondLang	            :	null	,
+            thirdLang	            :	null	,
+            firstInst	            :	null	,
+            secondInst	            :	null	,
+            thirdInst	            :	null	,
+            biography	            :	null	,
+            notes	                :	null	,
+
+// additional employment information form section 2----------------------------------------------------------
+            secondaryTitle	        :	null	,
+            secondaryStartDate	    :	null	,
+            secondaryEndDate	    :	null	,
+            secondaryPayRate	    :	null	,
+            tertiaryTitle	        :	null	,
+            tertiaryStartDate	    :	null	,
+            tertiaryEndDate	        :	null	,
+            tertiaryPayRate	        :	null	,
+            quarternaryTitle	    :	null	,
+            quarternaryStartDate	:	null	,
+            quarternaryEndDate	    :	null	,
+            quarternaryPayRate	    :	null	,
+
+        }
+
+
+
+
+// personal information form section 1----------------------------------------------------------
+
+
+
+
+        const [firstName1, setFirstName1] = useState("");
+        const [firstName2, setFirstName2] = useState("");
+        const [middleName, setMiddleName] = useState("");
+        const [lastName1, setLastName1] = useState("");
+        const [lastName2, setLastName2] = useState("");
+        const [personalEmail, setPersonalEmail] = useState("");
+        const [personalPhone, setPersonalPhone] = useState("");
+        const [street, setStreet] = useState("");
         const [city, setCity] = useState("");
         const [state, setState] = useState("");
-        const [latitude, setLatitude] = useState("");
-        const [longitude, setLongitude] = useState("");
+        const [zip, setZip] = useState("");
+        const [dob, setDob] = useState("");
+        const [age, setAge] = useState("");
+        const [ssn, setSsn] = useState("");
 
-// states form section 2----------------------------------------------------------
+
+
+
+// employment information form section 2----------------------------------------------------------
+
+        const [employeeDepartment_Id, setEmployeeDepartment_Id] = useState("");
+        const [academicDepartment_Id, setAcademicDepartment_Id] = useState("");
+        const [userType_Id, setUserType_Id] = useState("");
+        const [primaryTitle, setPrimaryTitle] = useState("");
+        const [primaryStartDate, setPrimaryStartDate] = useState("");
+        const [primaryEndDate, setPrimaryEndDate] = useState("");
+        const [primaryPayRate, setPrimaryPayRate] = useState("");
+
 
         const [description, setDescription] = useState("")
 
-// states form section 3----------------------------------------------------------
+// biographical information form section 3----------------------------------------------------------
+
+
+        const [firstLang, setFirstLang] = useState("");
+        const [secondLang, setSecondLang] = useState("");
+        const [thirdLang, setThirdLang] = useState("");
+        const [firstInst, setFirstInst] = useState("");
+        const [secondInst, setSecondInst] = useState("");
+        const [thirdInst, setThirdInst] = useState("");
+        const [biography, setBiography] = useState("");
+        const [notes, setNotes] = useState("");
 
         const [title, setTitle] = useState("")
 
 // states form section 4----------------------------------------------------------
+
+        const [secondaryTitle, setSecondaryTitle] = useState("");
+        const [secondaryStartDate, setSecondaryStartDate] = useState("");
+        const [secondaryEndDate, setSecondaryEndDate] = useState("");
+        const [secondaryPayRate, setSecondaryPayRate] = useState("");
+        const [tertiaryTitle, setTertiaryTitle] = useState("");
+        const [tertiaryStartDate, setTertiaryStartDate] = useState("");
+        const [tertiaryEndDate, setTertiaryEndDate] = useState("");
+        const [tertiaryPayRate, setTertiaryPayRate] = useState("");
+        const [quarternaryTitle, setQuarternaryTitle] = useState("");
+        const [quarternaryStartDate, setQuarternaryStartDate] = useState("");
+        const [quarternaryEndDate, setQuarternaryEndDate] = useState("");
+        const [quarternaryPayRate, setQuarternaryPayRate] = useState("");
 
         const [basePrice, setBasePrice] = useState("")
 
@@ -59,7 +164,7 @@ function CreateNewEmployeeForm() {
     // const checkDisabled = () => {
     //     if(
     //     (country.length === 0 || !country) ||
-    //     (streetAddress.length === 0 || !streetAddress) ||
+    //     (street.length === 0 || !street) ||
     //     (city.length === 0 || !city) ||
     //     (state.length === 0 || !state) ||
     //     (latitude.length === 0 || !latitude) ||
@@ -116,7 +221,7 @@ function CreateNewEmployeeForm() {
             }
 
             const newEmployee = {
-                "address": streetAddress,
+                "address": street,
                 "city": city,
                 "state": state,
                 "country": country,
@@ -210,8 +315,8 @@ function CreateNewEmployeeForm() {
         //     e.preventDefault();
         //     if (longitude === latitude) {
         //         setErrors({});
-        //         // // console.log('HANDLE SUBMIT RAN - SIGNUP INFO', country, streetAddress, city, state, latitude);
-        //         return dispatch(employeesActions.signup({country, streetAddress, city, state, latitude}))
+        //         // // console.log('HANDLE SUBMIT RAN - SIGNUP INFO', country, street, city, state, latitude);
+        //         return dispatch(employeesActions.signup({country, street, city, state, latitude}))
         //         .then(closeModal)
         //         .catch(
         //             async (res) => {
@@ -240,120 +345,322 @@ function CreateNewEmployeeForm() {
 {/* form section 1---------------------------------------------------------- */}
                         <section id="CreateNewEmployeeFormSection1">
 
-                            <h4 id="CreateNewEmployeeFormSection1H4">Where&apos;s your place located?</h4>
+                            <h4 id="CreateNewEmployeeFormSection1H4">Personal Information</h4>
 
                             <p id="CreateNewEmployeeFormSection1P">
-                                Guests will only get your exact address once they booked a reservation.
+                                Enter personal information for new employee.
                             </p>
 
-                            <div id='countryContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+
+                            <div id='firstName1Container' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            Country:
+                                            First Name 1:
                                             <input
                                             className='CreateNewEmployeeFormInput'
-                                            id="country"
-                                            name="country"
+                                            id="firstName1"
+                                            name="firstName1"
                                             type="text"
-                                            placeholder='Country'
-                                            value={country}
-                                            onChange={(e) => setCountry(e.target.value)}
+                                            placeholder='First Name 1'
+                                            value={firstName1}
+                                            onChange={(e) => setFirstName1(e.target.value)}
                                             required
                                             />
                                         </label>
-                                    </div>
-                                    {errors.country && <p className='CreateNewEmployeeErrors'>{errors.country}</p>}
+                            </div>
+                            {errors.firstName1 && <p className='CreateNewEmployeeErrors'>{errors.firstName1}</p>}
 
-                                <div id='streetAddressContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                            <div id='firstName2Container' className='CreateNewEmployeeFormLabelInputContainer'>
+
                                         <label className='CreateNewEmployeeFormLabel'>
-                                            Street Address:
+                                            First Name 2:
                                             <input
                                             className='CreateNewEmployeeFormInput'
-                                            id="streetAddress"
-                                            name="streetAddress"
-                                            placeholder='Address'
-                                            value={streetAddress}
+                                            id="firstName2"
+                                            name="firstName2"
                                             type="text"
-                                            onChange={(e) => setStreetAddress(e.target.value)}
+                                            placeholder='First Name 2'
+                                            value={firstName2}
+                                            onChange={(e) => setFirstName2(e.target.value)}
                                             required
                                             />
                                         </label>
-                                    </div>
-                                    {errors.address && <p className='CreateNewEmployeeErrors'>{errors.address}</p>}
 
-                                <div id='cityContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+                            </div>
+                            {errors.firstName2 && <p className='CreateNewEmployeeErrors'>{errors.firstName2}</p>}
+
+
+                            <div id='middleNameContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-                                                City:
+                                            Middle Name:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="middleName"
+                                            name="middleName"
+                                            type="text"
+                                            placeholder='Middle Name'
+                                            value={middleName}
+                                            onChange={(e) => setMiddleName(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.middleName && <p className='CreateNewEmployeeErrors'>{errors.middleName}</p>}
+
+
+
+
+                            <div id='lastName1Container' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Last Name 1:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="lastName1"
+                                            name="lastName1"
+                                            type="text"
+                                            placeholder='Last Name 1'
+                                            value={lastName1}
+                                            onChange={(e) => setLastName1(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.lastName1 && <p className='CreateNewEmployeeErrors'>{errors.lastName1}</p>}
+
+
+
+                            <div id='lastName2Container' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Last Name 2:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="lastName2"
+                                            name="lastName2"
+                                            type="text"
+                                            placeholder='Last Name 2'
+                                            value={lastName2}
+                                            onChange={(e) => setLastName2(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.lastName2 && <p className='CreateNewEmployeeErrors'>{errors.lastName2}</p>}
+
+
+
+
+                            <div id='personalEmailContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Personal Email:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="personalEmail"
+                                            name="personalEmail"
+                                            type="text"
+                                            placeholder='Personal Email'
+                                            value={personalEmail}
+                                            onChange={(e) => setPersonalEmail(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.personalEmail && <p className='CreateNewEmployeeErrors'>{errors.personalEmail}</p>}
+
+
+
+                            <div id='personalPhoneContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Personal Phone:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="personalPhone"
+                                            name="personalPhone"
+                                            type="text"
+                                            placeholder='Personal Phone'
+                                            value={personalPhone}
+                                            onChange={(e) => setPersonalPhone(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.personalPhone && <p className='CreateNewEmployeeErrors'>{errors.personalPhone}</p>}
+
+
+                                                      <div id='personalEmailContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Personal Email:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="personalEmail"
+                                            name="personalEmail"
+                                            type="text"
+                                            placeholder='Personal Email'
+                                            value={personalEmail}
+                                            onChange={(e) => setPersonalEmail(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.personalEmail && <p className='CreateNewEmployeeErrors'>{errors.personalEmail}</p>}
+
+
+                            <div id='streetContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Street:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="street"
+                                            name="street"
+                                            type="text"
+                                            placeholder='Street'
+                                            value={street}
+                                            onChange={(e) => setStreet(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.street && <p className='CreateNewEmployeeErrors'>{errors.street}</p>}
+
+
+
+                            <div id='cityContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            City:
                                             <input
                                             className='CreateNewEmployeeFormInput'
                                             id="city"
                                             name="city"
+                                            type="text"
                                             placeholder='City'
                                             value={city}
-                                            type="text"
                                             onChange={(e) => setCity(e.target.value)}
                                             required
                                             />
                                         </label>
-                                    </div>
-                                    {errors.city && <p className='CreateNewEmployeeErrors'>{errors.city}</p>}
 
-                                <div id='stateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
-
-                                            <label className='CreateNewEmployeeFormLabel'>
-                                                State:
-                                                <input
-                                                className='CreateNewEmployeeFormInput'
-                                                id="state"
-                                                name="state"
-                                                placeholder='STATE'
-                                                value={state}
-                                                type="state"
-                                                onChange={(e) => setState(e.target.value)}
-                                                required
-                                                />
-                                            </label>
-                                        </div>
-                                        {errors.state && <p className='CreateNewEmployeeErrors'>{errors.state}</p>}
+                            </div>
+                            {errors.city && <p className='CreateNewEmployeeErrors'>{errors.city}</p>}
 
 
-                                    <div id='latitudeContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+                            <div id='stateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
-                                            <label className='CreateNewEmployeeFormLabel'>
-                                                Latitude:
-                                                <input
-                                                className='CreateNewEmployeeFormInput'
-                                                id="latitude"
-                                                name="latitude"
-                                                placeholder='Latitude'
-                                                value={latitude}
-                                                type="latitude"
-                                                onChange={(e) => setLatitude(e.target.value)}
-                                                required
-                                                />
-                                            </label>
-                                        </div>
-                                        {errors.latitude && <p>{errors.latitude}</p>}
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            State:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="state"
+                                            name="state"
+                                            type="text"
+                                            placeholder='State'
+                                            value={state}
+                                            onChange={(e) => setState(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.state && <p className='CreateNewEmployeeErrors'>{errors.state}</p>}
 
 
-                                    <div id='longitudeContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+                            <div id='zipContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
-                                            <label className='CreateNewEmployeeFormLabel'>
-                                                Longitude:
-                                                <input
-                                                className='CreateNewEmployeeFormInput'
-                                                id="longitude"
-                                                name="longitude"
-                                                placeholder='Longitude'
-                                                value={longitude}
-                                                type="latitude"
-                                                onChange={(e) => setLongitude(e.target.value)}
-                                                required
-                                                />
-                                            </label>
-                                        </div>
-                                        {errors.longitude && <p>{errors.longitude}</p>}
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Zip:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="zip"
+                                            name="zip"
+                                            type="text"
+                                            placeholder='Zip'
+                                            value={zip}
+                                            onChange={(e) => setZip(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.zip && <p className='CreateNewEmployeeErrors'>{errors.zip}</p>}
+
+
+
+                            <div id='dobContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            DOB:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="dob"
+                                            name="dob"
+                                            type="text"
+                                            placeholder='DOB'
+                                            value={dob}
+                                            onChange={(e) => setDob(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.dob && <p className='CreateNewEmployeeErrors'>{errors.dob}</p>}
+
+
+                            <div id='ageContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Age:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="age"
+                                            name="age"
+                                            type="text"
+                                            placeholder='Age'
+                                            value={age}
+                                            onChange={(e) => setAge(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.age && <p className='CreateNewEmployeeErrors'>{errors.age}</p>}
+
+
+                            <div id='ssnContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            SSN:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="ssn"
+                                            name="ssn"
+                                            type="text"
+                                            placeholder='SSN'
+                                            value={ssn}
+                                            onChange={(e) => setSsn(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.ssn && <p className='CreateNewEmployeeErrors'>{errors.ssn}</p>}
+
+
+
 
                         </section>
 
@@ -362,31 +669,164 @@ function CreateNewEmployeeForm() {
 
                         <section id="CreateNewEmployeeFormSection2">
 
-                        <h4 id="CreateNewEmployeeFormSection2H4">Describe your place to guests</h4>
+                        <h4 id="CreateNewEmployeeFormSection2H4">Employment Information</h4>
 
                             <p id="CreateNewEmployeeFormSection2P">
-                                Mention the best features of your space, any special amentities like fast wifi or parking, and what you love about the neighborhood.
+                                Enter employment information for new employee.
                             </p>
 
-                            <div id='descriptionContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+
+                            <div id='employeeDepartment_IdContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
-
-                                            <textarea
+                                            Employee Department ID:
+                                            <input
                                             className='CreateNewEmployeeFormInput'
-                                            id="description"
-                                            name="description"
-                                            rows={8}
-                                            cols={40}
-                                            type="text-area"
-                                            placeholder="Please write at least 30 characters"
-                                            value={description}
-                                            onChange={(e) => setDescription(e.target.value)}
+                                            id="employeeDepartment_Id"
+                                            name="employeeDepartment_Id"
+                                            type="text"
+                                            placeholder='Employee Department ID'
+                                            value={employeeDepartment_Id}
+                                            onChange={(e) => setEmployeeDepartment_Id(e.target.value)}
                                             required
                                             />
                                         </label>
+
                             </div>
-                            {errors.description && <p className='CreateNewEmployeeErrors'>{errors.description}</p>}
+                            {errors.employeeDepartment_Id && <p className='CreateNewEmployeeErrors'>{errors.employeeDepartment_Id}</p>}
+
+
+
+                            <div id='academicDepartment_IdContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Academic Department ID:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="academicDepartment_Id"
+                                            name="academicDepartment_Id"
+                                            type="text"
+                                            placeholder='Academic Department ID'
+                                            value={academicDepartment_Id}
+                                            onChange={(e) => setAcademicDepartment_Id(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.academicDepartment_Id && <p className='CreateNewEmployeeErrors'>{errors.academicDepartment_Id}</p>}
+
+
+
+                            <div id='userType_IdContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            User Type ID:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="userType_Id"
+                                            name="userType_Id"
+                                            type="text"
+                                            placeholder='User Type ID'
+                                            value={userType_Id}
+                                            onChange={(e) => setUserType_Id(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.userType_Id && <p className='CreateNewEmployeeErrors'>{errors.userType_Id}</p>}
+
+
+
+                            <div id='primaryTitleContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Primary Title:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="primaryTitle"
+                                            name="primaryTitle"
+                                            type="text"
+                                            placeholder='Primary Title'
+                                            value={primaryTitle}
+                                            onChange={(e) => setPrimaryTitle(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.primaryTitle && <p className='CreateNewEmployeeErrors'>{errors.primaryTitle}</p>}
+
+
+
+                            <div id='primaryStartDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Primary Start Date:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="primaryStartDate"
+                                            name="primaryStartDate"
+                                            type="text"
+                                            placeholder='Primary Start Date'
+                                            value={primaryStartDate}
+                                            onChange={(e) => setPrimaryStartDate(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.primaryStartDate && <p className='CreateNewEmployeeErrors'>{errors.primaryStartDate}</p>}
+
+
+
+                            <div id='primaryEndDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Primary End Date:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="primaryEndDate"
+                                            name="primaryEndDate"
+                                            type="text"
+                                            placeholder='Primary End Date'
+                                            value={primaryEndDate}
+                                            onChange={(e) => setPrimaryEndDate(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.primaryEndDate && <p className='CreateNewEmployeeErrors'>{errors.primaryEndDate}</p>}
+
+
+
+                            <div id='primaryPayRateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Primary Pay Rate:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="primaryPayRate"
+                                            name="primaryPayRate"
+                                            type="text"
+                                            placeholder='Primary Pay Rate'
+                                            value={primaryPayRate}
+                                            onChange={(e) => setPrimaryPayRate(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.primaryPayRate && <p className='CreateNewEmployeeErrors'>{errors.primaryPayRate}</p>}
+
+
+
+
+
+
 
 
 
@@ -400,29 +840,186 @@ function CreateNewEmployeeForm() {
 
                         <section id="CreateNewEmployeeFormSection3">
 
-                        <h4 id="CreateNewEmployeeFormSection3H4">Create a title for your employee</h4>
+                        <h4 id="CreateNewEmployeeFormSection3H4">Biographical Information</h4>
 
                             <p id="CreateNewEmployeeFormSection3P">
-                                Catch guests&apos; attention with a employee title that highlights what makes your place special.
+                                Enter biographical information for new employee.
                             </p>
 
-                            <div id='titleContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+
+                            <div id='firstLangContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            First Language:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="firstLang"
+                                            name="firstLang"
+                                            type="text"
+                                            placeholder='First Language'
+                                            value={firstLang}
+                                            onChange={(e) => setFirstLang(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.firstLang && <p className='CreateNewEmployeeErrors'>{errors.firstLang}</p>}
+
+
+
+                            <div id='secondLangContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Second Language:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="secondLang"
+                                            name="secondLang"
+                                            type="text"
+                                            placeholder='Second Language'
+                                            value={secondLang}
+                                            onChange={(e) => setSecondLang(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.secondLang && <p className='CreateNewEmployeeErrors'>{errors.secondLang}</p>}
+
+
+                            <div id='thirdLangContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Third Language:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="thirdLang"
+                                            name="thirdLang"
+                                            type="text"
+                                            placeholder='Third Language'
+                                            value={thirdLang}
+                                            onChange={(e) => setThirdLang(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.thirdLang && <p className='CreateNewEmployeeErrors'>{errors.thirdLang}</p>}
+
+
+
+                            <div id='firstInstContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            First Instrument:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="firstInst"
+                                            name="firstInst"
+                                            type="text"
+                                            placeholder='First Instrument'
+                                            value={firstInst}
+                                            onChange={(e) => setFirstInst(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.firstInst && <p className='CreateNewEmployeeErrors'>{errors.firstInst}</p>}
+
+
+
+                            <div id='secondInstContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Second Instrument:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="secondInst"
+                                            name="secondInst"
+                                            type="text"
+                                            placeholder='Second Instrument'
+                                            value={secondInst}
+                                            onChange={(e) => setSecondInst(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.secondInst && <p className='CreateNewEmployeeErrors'>{errors.secondInst}</p>}
+
+
+
+
+                            <div id='thirdInstContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Third Instrument:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="thirdInst"
+                                            name="thirdInst"
+                                            type="text"
+                                            placeholder='Third Instrument'
+                                            value={thirdInst}
+                                            onChange={(e) => setThirdInst(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.thirdInst && <p className='CreateNewEmployeeErrors'>{errors.thirdInst}</p>}
+
+
+
+
+
+                            <div id='biographyContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 
                                         <label className='CreateNewEmployeeFormLabel'>
 
-                                            <input
+                                            <textarea
                                             className='CreateNewEmployeeFormInput'
-                                            id="title"
-                                            name="title"
-                                            type="text"
-                                            placeholder='Name of your employee'
-                                            value={title}
-                                            onChange={(e) => setTitle(e.target.value)}
+                                            id="biography"
+                                            name="biography"
+                                            rows={8}
+                                            cols={40}
+                                            type="text-area"
+                                            placeholder="Enter biography here"
+                                            value={biography}
+                                            onChange={(e) => setBiography(e.target.value)}
                                             required
                                             />
                                         </label>
                             </div>
-                            {errors.title && <p className='CreateNewEmployeeErrors'>{errors.title}</p>}
+                            {errors.biography && <p className='CreateNewEmployeeErrors'>{errors.biography}</p>}
+
+
+
+
+                            <div id='notesContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+
+                                            <textarea
+                                            className='CreateNewEmployeeFormInput'
+                                            id="notes"
+                                            name="notes"
+                                            rows={8}
+                                            cols={40}
+                                            type="text-area"
+                                            placeholder="Enter notes here"
+                                            value={notes}
+                                            onChange={(e) => setNotes(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+                            </div>
+                            {errors.notes && <p className='CreateNewEmployeeErrors'>{errors.notes}</p>}
+
+
 
 
 
@@ -433,13 +1030,325 @@ function CreateNewEmployeeForm() {
 
 {/* form section 4---------------------------------------------------------- */}
 
+
+
+
                         <section id="CreateNewEmployeeFormSection4">
 
-                        <h4 id="CreateNewEmployeeFormSection4H4">Set a base price for your employee</h4>
+                        <h4 id="CreateNewEmployeeFormSection4H4">Additional Employment Information</h4>
 
                             <p id="CreateNewEmployeeFormSection4P">
-                                Competitive pricing can help your listing stand out and rank higher in search results.
+                            Enter additional employment information for new employee.
                             </p>
+
+
+{/* -------------------------------- SECONDARY -----------------------------*/}
+
+                            <div id='secondaryTitleContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Secondary Title:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="secondaryTitle"
+                                            name="secondaryTitle"
+                                            type="text"
+                                            placeholder='Secondary Title'
+                                            value={secondaryTitle}
+                                            onChange={(e) => setSecondaryTitle(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.secondaryTitle && <p className='CreateNewEmployeeErrors'>{errors.secondaryTitle}</p>}
+
+
+
+                            <div id='secondaryStartDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Secondary Start Date:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="secondaryStartDate"
+                                            name="secondaryStartDate"
+                                            type="text"
+                                            placeholder='Secondary Start Date'
+                                            value={secondaryStartDate}
+                                            onChange={(e) => setSecondaryStartDate(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.secondaryStartDate && <p className='CreateNewEmployeeErrors'>{errors.secondaryStartDate}</p>}
+
+
+
+                            <div id='secondaryEndDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Secondary End Date:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="secondaryEndDate"
+                                            name="secondaryEndDate"
+                                            type="text"
+                                            placeholder='Secondary End Date'
+                                            value={secondaryEndDate}
+                                            onChange={(e) => setSecondaryEndDate(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.secondaryEndDate && <p className='CreateNewEmployeeErrors'>{errors.secondaryEndDate}</p>}
+
+
+
+                            <div id='secondaryPayRateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Secondary Pay Rate:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="secondaryPayRate"
+                                            name="secondaryPayRate"
+                                            type="text"
+                                            placeholder='Secondary Pay Rate'
+                                            value={secondaryPayRate}
+                                            onChange={(e) => setSecondaryPayRate(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.secondaryPayRate && <p className='CreateNewEmployeeErrors'>{errors.secondaryPayRate}</p>}
+
+
+
+
+
+
+{/* -------------------------------- TERTIARY -----------------------------*/}
+
+
+
+
+                            <div id='tertiaryTitleContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Tertiary Title:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="tertiaryTitle"
+                                            name="tertiaryTitle"
+                                            type="text"
+                                            placeholder='Tertiary Title'
+                                            value={tertiaryTitle}
+                                            onChange={(e) => setTertiaryTitle(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.tertiaryTitle && <p className='CreateNewEmployeeErrors'>{errors.tertiaryTitle}</p>}
+
+
+
+                            <div id='tertiaryStartDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Tertiary Start Date:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="tertiaryStartDate"
+                                            name="tertiaryStartDate"
+                                            type="text"
+                                            placeholder='Tertiary Start Date'
+                                            value={tertiaryStartDate}
+                                            onChange={(e) => setTertiaryStartDate(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.tertiaryStartDate && <p className='CreateNewEmployeeErrors'>{errors.tertiaryStartDate}</p>}
+
+
+
+                            <div id='tertiaryEndDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Tertiary End Date:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="tertiaryEndDate"
+                                            name="tertiaryEndDate"
+                                            type="text"
+                                            placeholder='Tertiary End Date'
+                                            value={tertiaryEndDate}
+                                            onChange={(e) => setTertiaryEndDate(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.tertiaryEndDate && <p className='CreateNewEmployeeErrors'>{errors.tertiaryEndDate}</p>}
+
+
+
+
+                            <div id='tertiaryPayRateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                                        <label className='CreateNewEmployeeFormLabel'>
+                                            Tertiary Pay Rate:
+                                            <input
+                                            className='CreateNewEmployeeFormInput'
+                                            id="tertiaryPayRate"
+                                            name="tertiaryPayRate"
+                                            type="text"
+                                            placeholder='Tertiary Pay Rate'
+                                            value={tertiaryPayRate}
+                                            onChange={(e) => setTertiaryPayRate(e.target.value)}
+                                            required
+                                            />
+                                        </label>
+
+                            </div>
+                            {errors.tertiaryPayRate && <p className='CreateNewEmployeeErrors'>{errors.tertiaryPayRate}</p>}
+
+
+
+
+{/* -------------------------------- QUARTERNARY -----------------------------*/}
+
+
+
+
+
+
+                            <div id='quarternaryTitleContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                            <label className='CreateNewEmployeeFormLabel'>
+                                Quarternary Title:
+                                <input
+                                className='CreateNewEmployeeFormInput'
+                                id="quarternaryTitle"
+                                name="quarternaryTitle"
+                                type="text"
+                                placeholder='Quarternary Title'
+                                value={quarternaryTitle}
+                                onChange={(e) => setQuarternaryTitle(e.target.value)}
+                                required
+                                />
+                            </label>
+
+                            </div>
+                            {errors.quarternaryTitle && <p className='CreateNewEmployeeErrors'>{errors.quarternaryTitle}</p>}
+
+
+
+                            <div id='quarternaryStartDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                            <label className='CreateNewEmployeeFormLabel'>
+                                Quarternary Start Date:
+                                <input
+                                className='CreateNewEmployeeFormInput'
+                                id="quarternaryStartDate"
+                                name="quarternaryStartDate"
+                                type="text"
+                                placeholder='Quarternary Start Date'
+                                value={quarternaryStartDate}
+                                onChange={(e) => setQuarternaryStartDate(e.target.value)}
+                                required
+                                />
+                            </label>
+
+                            </div>
+                            {errors.quarternaryStartDate && <p className='CreateNewEmployeeErrors'>{errors.quarternaryStartDate}</p>}
+
+
+
+                            <div id='quarternaryEndDateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                            <label className='CreateNewEmployeeFormLabel'>
+                                Quarternary End Date:
+                                <input
+                                className='CreateNewEmployeeFormInput'
+                                id="quarternaryEndDate"
+                                name="quarternaryEndDate"
+                                type="text"
+                                placeholder='Quarternary End Date'
+                                value={quarternaryEndDate}
+                                onChange={(e) => setQuarternaryEndDate(e.target.value)}
+                                required
+                                />
+                            </label>
+
+                            </div>
+                            {errors.quarternaryEndDate && <p className='CreateNewEmployeeErrors'>{errors.quarternaryEndDate}</p>}
+
+
+
+
+                            <div id='quarternaryPayRateContainer' className='CreateNewEmployeeFormLabelInputContainer'>
+
+                            <label className='CreateNewEmployeeFormLabel'>
+                                Quarternary Pay Rate:
+                                <input
+                                className='CreateNewEmployeeFormInput'
+                                id="quarternaryPayRate"
+                                name="quarternaryPayRate"
+                                type="text"
+                                placeholder='Quarternary Pay Rate'
+                                value={quarternaryPayRate}
+                                onChange={(e) => setQuarternaryPayRate(e.target.value)}
+                                required
+                                />
+                            </label>
+
+                            </div>
+                            {errors.quarternaryPayRate && <p className='CreateNewEmployeeErrors'>{errors.quarternaryPayRate}</p>}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                             <div id='basePriceContainer' className='CreateNewEmployeeFormLabelInputContainer'>
 

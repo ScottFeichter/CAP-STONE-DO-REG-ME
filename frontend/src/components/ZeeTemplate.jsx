@@ -1,7 +1,7 @@
 //============CSS IMPORT AND BASE CLASS NAME============//
 
-import './ZeeTemplate.css';
 const BASE_CLASS_NAME = "ZeeTemplate";
+import './ZeeTemplate.css';
 
 //==================PROGRAM IMPORTS=====================//
 

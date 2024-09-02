@@ -59,17 +59,13 @@ h1 {
 }
 
 #CreateNewEmployeeFormSection1H4, #CreateNewEmployeeFormSection2H4, #CreateNewEmployeeFormSection3H4, #CreateNewEmployeeFormSection4H4, #CreateNewEmployeeFormSection5H4 {
-    text-align: center;
-    text-decoration: underline;
-    font-size: x-large;
+    font-size: large;
     font-weight: bold;
     color: black;
-    /* border: 2px solid grey; */
 }
 
 #CreateNewEmployeeFormSection1P, #CreateNewEmployeeFormSection2P, #CreateNewEmployeeFormSection3P, #CreateNewEmployeeFormSection4P, #CreateNewEmployeeFormSection5P {
-    text-align: center;
-    margin: -.5rem 0 3rem 0;
+    margin: -.5rem 0 1.5rem 0;
     font-size: medium;
     font-weight: 400;
     color: black;

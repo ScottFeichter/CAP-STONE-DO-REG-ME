@@ -15,10 +15,16 @@ function EmployeeDetailsKeyValue({k, v}){
 //===================================FUNCTION RETURN========================================//
     return (<>
         <main className={`${BASE_CLASS_NAME}Main`}>
-            <div className={`${BASE_CLASS_NAME}Div`}>
-                <p className={`${BASE_CLASS_NAME}P`}>{k}</p>
-                <p className={`${BASE_CLASS_NAME}P`}>{v}</p>
-            </div>
+            <section className={`${BASE_CLASS_NAME}Section`}>
+                <div className={`${BASE_CLASS_NAME}Div`}>
+                    <p className={`${BASE_CLASS_NAME}P`}>{k}</p>
+                </div>
+                <div className={`${BASE_CLASS_NAME}Div`}>
+                    <p className={`${BASE_CLASS_NAME}P`}>{v}</p>
+                </div>
+
+
+            </section>
         </main>
     </>)
 }

@@ -1,10 +1,10 @@
-.EmployeeDetailsKeyValueMain{
+.ZeeTemplateMain{
     background-color: var(--backgroundColor);
     border: var(--border);
     resize: both;
     overflow: auto;
 }
 
-.EmployeeDetailsKeyValueDiv{}
+.ZeeTemplateDiv{}
 
-.EmployeeDetailsKeyValueP{}
+.ZeeTemplateP{}

@@ -26,10 +26,7 @@ function VerticalNavBar(){
 
     //============================VERTICAL NAV HANDLERS START=================================
 
-      const handleHomeClick = (e) => {
-        e.preventDefault;
-        navigate('/')
-      }
+
 
       const handleResourcesClick = (e) => {
         e.preventDefault;
@@ -57,7 +54,6 @@ function VerticalNavBar(){
         <>
             <div id="VerticalNavBarDivContainer">
 
-                    <button onClick={handleHomeClick} className='VerticalNavBarButton'>Home</button>
                     <button onClick={handleResourcesClick} className='VerticalNavBarButton'>Resources</button>
                     <button onClick={handleDepartmentsClick} className='VerticalNavBarButton'>Departments</button>
                     <button onClick={handleStudentsClick} className='VerticalNavBarButton'>Teachers</button>

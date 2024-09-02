@@ -1,21 +1,32 @@
 import './HorizontalNavBar.css';
 // import { useSelector } from 'react-redux';
-import ProfileButton from '../ProfileButton/ProfileButton.jsx'
-import logo from '../../../../../ADMIN/images/logoDraft5.png'
+
+import GlobalSearch from './GlobalSearch/GlobalSearch.jsx';
+import HomeButton from './HomeButton/HomeButton.jsx';
+import ProfileButton from './ProfileButton/ProfileButton.jsx'
+import LogoutButton from './LogoutButton/LogoutButton.jsx';
+import ModeButton from './ModeButton/ModeButton.jsx';
+
 
 function HorizontalNavBar() {
+
   // const sessionUser = useSelector(state => state.session.user);
+
 
 
   return(
     <>
       <main id="HorizontalNavBarMain">
 
-          <img id="NavigationImgLogo" src={logo} alt="DoRegMi" ></img>
+          <HomeButton />
 
-          <input type="text"></input>
+          <ModeButton />
+
+          <GlobalSearch />
 
           <ProfileButton />
+
+          <LogoutButton />
 
       </main>
     </>
