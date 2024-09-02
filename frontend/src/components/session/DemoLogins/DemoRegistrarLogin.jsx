@@ -1,3 +1,4 @@
+import './DemoRegistrarLogin.css'
 import { useDispatch } from 'react-redux';
 import {thunkLogin} from '../../../redux/sessionReducer.js';
 
@@ -22,10 +23,7 @@ function DemoRegistrarLogin() {
     return(<>
 
 
-        <button
-        onClick={handleClick}>Demo Registrar Login</button>
-
-
+        <button onClick={handleClick} id="DemoRegistrarLoginButton">Demo Registrar Login</button>
 
 
     </>)

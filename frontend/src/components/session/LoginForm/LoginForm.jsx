@@ -29,32 +29,46 @@ function LoginForm() {
 
   return (
     <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username or Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        {errors.credential && <p>{errors.credential}</p>}
-        <button type="submit">Log In</button>
+      <main id="LoginFormMain">
 
-      </form>
+        <h1 id="LoginFormH1">Log In</h1>
 
-      <DemoRegistrarLogin></DemoRegistrarLogin>
+        <form onSubmit={handleSubmit} id="LoginFormForm">
+          <label className="LoginFormLabel">
+            Username or Email
+            <input
+              className="LoginFormInput"
+              type="text"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+          </label>
+          <label className="LoginFormLabel">
+            Password
+            <input
+              className="LoginFormInput"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          {errors.credential && <p>{errors.credential}</p>}
+          <button
+            id="LoginFormButton"
+            type="submit">Submit</button>
+
+        </form>
+
+        <DemoRegistrarLogin></DemoRegistrarLogin>
+
+
+      </main>
+
+
+
+
     </>
   );
 }

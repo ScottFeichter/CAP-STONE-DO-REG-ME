@@ -1,10 +1,14 @@
-function DemoRegistrarSignup() {
+import './DemoRegistrarSignup.css'
+import { useDispatch } from 'react-redux';
+import {thunkSignup} from '../../../redux/sessionReducer.js';
 
-    const handleClick = (e) =>
-    {
+
+
+function DemoRegistrarSignup() {
+    const dispatch = useDispatch();
+    const handleClick = (e) => {
         e.preventDefault;
-        window.store.dispatch(
-          window.sessionActions.signup({
+        dispatch(thunkSignup({
             username: "DemoRegistrarSignupUser",
             firstName: "DemoRegistrarSignupUser",
             lastName: "DemoRegistrarSignupUser",
@@ -12,16 +16,13 @@ function DemoRegistrarSignup() {
             password: "password",
           })
         );
-
     }
 
 
     return(<>
 
 
-        <button onClick={handleClick}>Demo Registrar Signup</button>
-
-
+        <button onClick={handleClick} id="DemoRegistrarSignupButton">Demo Registrar Signup</button>
 
 
     </>)
