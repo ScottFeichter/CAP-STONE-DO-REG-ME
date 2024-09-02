@@ -139,11 +139,12 @@ const handleClickDeleteEmployee = (e) => {
 
   return(
     <>
+        <h1 id={`${BASE_CLASS_NAME}H1`}>Employee Details</h1>
         <main id={`${BASE_CLASS_NAME}Main`}>
 
             <nav id={`${BASE_CLASS_NAME}Nav`}>
               <button id={`${BASE_CLASS_NAME}EditButton`} onClick={handleClickEditEmployee}>Edit Employee</button>
-              <h1 id={`${BASE_CLASS_NAME}H1`}>Employee Details</h1>
+
               <button id={`${BASE_CLASS_NAME}DeleteButton`} onClick={handleClickDeleteEmployee}>Delete Employee</button>
             </nav>
 
