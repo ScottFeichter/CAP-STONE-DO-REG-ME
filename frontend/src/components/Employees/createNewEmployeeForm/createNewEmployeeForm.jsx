@@ -400,8 +400,56 @@ const checkInteger = () => {
 
 
 
-            newEmployee = {
-            }
+         // ---------------REPLACING NEW EMPLOYEE OBJECT VALUES WITH USER INPUT IF EXISTS---------//
+
+
+         if(	employeeDepartment_Id	)	newEmployee	.	employeeDepartment_Id	=	employeeDepartment_Id	;
+         if(	academicDepartment_Id	)	newEmployee	.	academicDepartment_Id	=	academicDepartment_Id	;
+         if(	userType_Id	)	newEmployee	.	userType_Id	=	userType_Id	;
+         if(	firstName1	)	newEmployee	.	firstName1	=	firstName1	;
+         if(	firstName2	)	newEmployee	.	firstName2	=	firstName2	;
+         if(	middleName	)	newEmployee	.	middleName	=	middleName	;
+         if(	lastName1	)	newEmployee	.	lastName1	=	lastName1	;
+         if(	lastName2	)	newEmployee	.	lastName2	=	lastName2	;
+         if(	personalEmail	)	newEmployee	.	personalEmail	=	personalEmail	;
+         if(	personalPhone	)	newEmployee	.	personalPhone	=	personalPhone	;
+         if(	street	)	newEmployee	.	street	=	street	;
+         if(	city	)	newEmployee	.	city	=	city	;
+         if(	state	)	newEmployee	.	state	=	state	;
+         if(	zip	)	newEmployee	.	zip	=	zip	;
+         if(	dob	)	newEmployee	.	dob	=	dob	;
+         if(	age	)	newEmployee	.	age	=	age	;
+         if(	ssn	)	newEmployee	.	ssn	=	ssn	;
+         if(	firstLang	)	newEmployee	.	firstLang	=	firstLang	;
+         if(	secondLang	)	newEmployee	.	secondLang	=	secondLang	;
+         if(	thirdLang	)	newEmployee	.	thirdLang	=	thirdLang	;
+         if(	firstInst	)	newEmployee	.	firstInst	=	firstInst	;
+         if(	secondInst	)	newEmployee	.	secondInst	=	secondInst	;
+         if(	thirdInst	)	newEmployee	.	thirdInst	=	thirdInst	;
+         if(	primaryTitle	)	newEmployee	.	primaryTitle	=	primaryTitle	;
+         if(	primaryStartDate	)	newEmployee	.	primaryStartDate	=	primaryStartDate	;
+         if(	primaryEndDate	)	newEmployee	.	primaryEndDate	=	primaryEndDate	;
+         if(	primaryPayRate	)	newEmployee	.	primaryPayRate	=	primaryPayRate	;
+         if(	secondaryTitle	)	newEmployee	.	secondaryTitle	=	secondaryTitle	;
+         if(	secondaryStartDate	)	newEmployee	.	secondaryStartDate	=	secondaryStartDate	;
+         if(	secondaryEndDate	)	newEmployee	.	secondaryEndDate	=	secondaryEndDate	;
+         if(	secondaryPayRate	)	newEmployee	.	secondaryPayRate	=	secondaryPayRate	;
+         if(	tertiaryTitle	)	newEmployee	.	tertiaryTitle	=	tertiaryTitle	;
+         if(	tertiaryStartDate	)	newEmployee	.	tertiaryStartDate	=	tertiaryStartDate	;
+         if(	tertiaryEndDate	)	newEmployee	.	tertiaryEndDate	=	tertiaryEndDate	;
+         if(	tertiaryPayRate	)	newEmployee	.	tertiaryPayRate	=	tertiaryPayRate	;
+         if(	quarternaryTitle	)	newEmployee	.	quarternaryTitle	=	quarternaryTitle	;
+         if(	quarternaryStartDate	)	newEmployee	.	quarternaryStartDate	=	quarternaryStartDate	;
+         if(	quarternaryEndDate	)	newEmployee	.	quarternaryEndDate	=	quarternaryEndDate	;
+         if(	quarternaryPayRate	)	newEmployee	.	quarternaryPayRate	=	quarternaryPayRate	;
+         if(	biography	)	newEmployee	.	biography	=	biography	;
+         if(	notes	)	newEmployee	.	notes	=	notes	;
+
+
+
+
+
+
 
             let employeeId;
 
