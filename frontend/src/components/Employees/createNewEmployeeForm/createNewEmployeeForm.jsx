@@ -5,10 +5,9 @@ import './CreateNewEmployeeForm.css';
 import {useState } from 'react';
 import {useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-// import * as employeesActions from '../../employees'
-// import * as imagesActions from '../../images';
-// import * as reviewsActions from '../../reviews';
+// import { useEffect } from 'react';
+import * as employeesActions from '../../../redux/employeesReducer.js';
+
 
 
 function CreateNewEmployeeForm() {
@@ -25,11 +24,21 @@ function CreateNewEmployeeForm() {
         const [errorsPersonalPhone, setErrorsPersonalPhone] = useState({});
         const [errorsFirstLang, setErrorsFirstLang] = useState({});
         const [requiredFieldsMessage, setRequiredFieldsMessage] = useState({});
+
+
+
+        const [errorsEmployeeDepartment_Id, setErrorsEmployeeDepartment_Id] = useState({})
+        const [errorsAcademicDepartment_Id, setErrorsAcademicDepartment_Id ] = useState({})
+        const [errorsUserType_Id, setErrorsUserType_Id ] = useState({})
+        const [errorsAge, setErrorsAge ] = useState({})
+        const [errorsZip, setErrorsZip ] = useState({})
+        const [errorsPrimaryPayRate, setErrorsPrimaryPayRate ] = useState({})
+        const [errorsSecondaryPayRate, setErrorsSecondaryPayRate ] = useState({})
+        const [errorsTertiaryPayRate, setErrorsTertiaryPayRate ] = useState({})
+        const [errorsQuarternaryPayRate, setErrorsQuarternaryPayRate ] = useState({})
+
+
         // const [isDisabled, setIsDisabled] = useState(false);
-
-
-
-
 
 
         let newEmployee = {
@@ -181,205 +190,252 @@ function CreateNewEmployeeForm() {
 
 
 
-// CreateNewEmployee Button handler---------------------------------------------------
+// HELPERS FOR CreateNewEmployee Button handler---------------------------------------------------
 
 
 
 // helper for handleSubmit check required fields
-
 const checkRequired = () => {
+
+    let firstName1Bool = false;
+    let lastName1Bool = false;
+    let personalPhoneBool = false;
+    let firstLangBool = false;
 
 
     if(!firstName1) {
-        setErrorsFirstName1({firstName1: "First Name 1 is required"})
+        firstName1Bool = true;
+        setErrorsFirstName1({firstName1: "First Name 1 is required"});
     } else {
-        setErrorsFirstName1({})
+        firstName1Bool = false;
+        setErrorsFirstName1({});
     }
 
     if(!lastName1) {
-        setErrorsLastName1({lastName1: "Last Name 1 is required"})
+        lastName1Bool = true;
+        setErrorsLastName1({lastName1: "Last Name 1 is required"});
     } else {
-        setErrorsLastName1({})
+        lastName1Bool = false;
+        setErrorsLastName1({});
     }
 
     if(!personalPhone) {
-        setErrorsPersonalPhone({personalPhone: "Personal Phone is required"})
+        personalPhoneBool = true;
+        setErrorsPersonalPhone({personalPhone: "Personal Phone is required"});
     } else {
-        setErrorsPersonalPhone({})
+        personalPhoneBool = false;
+        setErrorsPersonalPhone({});
     }
 
-
     if(!firstLang) {
-        setErrorsFirstLang({firstLang: "First Language is required"})
+        firstLangBool = true;
+        setErrorsFirstLang({firstLang: "First Language is required"});
+
     } else {
+        firstLangBool = false;
         setErrorsFirstLang({})
     }
 
     if (
-        (errorsFirstName1.firstName1) ||
-        (errorsLastName1.lastName1) ||
-        (errorsPersonalPhone.personalPhone) ||
-        (errorsFirstLang.firstLange)
-    ) {return true}
+        (firstName1Bool) ||
+        (lastName1Bool) ||
+        (personalPhoneBool) ||
+        (firstLangBool)
+    ) {
+        return true
+    } else {
+        return false;
+    }
 
-    return false
 }
 
 
 
 
+// helper for handleSubmit check integer fields
+const checkInteger = () => {
 
+    let employeeDepartment_IdNum = parseInt(employeeDepartment_Id);
+    let academicDepartment_IdNum = parseInt(academicDepartment_Id);
+    let userType_IdNum = parseInt(userType_Id);
+    let ageNum = parseInt(age);
+    let zipNum = parseInt(zip);
+    let primaryPayRateNum = parseInt(primaryPayRate);
+    let secondaryPayRateNum = parseInt(secondaryPayRate);
+    let tertiaryPayRateNum = parseInt(tertiaryPayRate);
+    let quarternaryPayRateNum = parseInt(quarternaryPayRate);
+
+
+    let employeeDepartment_IdErrorBool = false;
+    let academicDepartment_IdErrorBool = false;
+    let userType_IdErrorBool = false;
+    let ageErrorBool = false;
+    let zipErrorBool = false;
+    let primaryPayRateErrorBool = false;
+    let secondaryPayRateErrorBool = false;
+    let tertiaryPayRateErrorBool = false;
+    let quarternaryPayRateErrorBool = false;
+
+    if(employeeDepartment_Id !== "" && (typeof employeeDepartment_IdNum !== "number" || isNaN(employeeDepartment_IdNum))) {
+        employeeDepartment_IdErrorBool = true;
+        setErrorsEmployeeDepartment_Id({employeeDepartment_Id: "Employee Department ID must be an integer"});
+    } else {
+        employeeDepartment_IdErrorBool = false;
+        setErrorsEmployeeDepartment_Id({});
+    }
+
+
+    if(academicDepartment_Id !== "" && (typeof academicDepartment_IdNum !== "number" || isNaN(academicDepartment_IdNum))) {
+        academicDepartment_IdErrorBool = true;
+        setErrorsAcademicDepartment_Id({academicDepartment_Id: "Academic Department ID must be an integer"});
+    } else {
+        academicDepartment_IdErrorBool = false;
+        setErrorsAcademicDepartment_Id({});
+    }
+
+
+    if(userType_Id !== "" && (typeof userType_IdNum !== "number" || isNaN(userType_IdNum))){
+        userType_IdErrorBool = true;
+        setErrorsUserType_Id({userType_Id: "User Type ID must be an integer"});
+    } else {
+        userType_IdErrorBool = false;
+        setErrorsUserType_Id({});
+    }
+
+    if(age !== "" && (typeof ageNum !== "number" || isNaN(ageNum))){
+        ageErrorBool = true;
+        setErrorsAge({age: "Age must be an integer"});
+    } else {
+        ageErrorBool = false;
+        setErrorsAge({});
+    }
+
+
+    if(zip !== "" && (typeof zipNum !== "number" || isNaN(zipNum))){
+        zipErrorBool = true;
+        setErrorsZip({zip: "Zip must be an integer"});
+    } else {
+        zipErrorBool = false;
+        setErrorsZip({});
+    }
+
+
+    if(primaryPayRate !== "" && (typeof primaryPayRateNum !== "number" || isNaN(primaryPayRateNum))){
+        primaryPayRateErrorBool = true;
+        setErrorsPrimaryPayRate({primaryPayRate: "Primary Pay Rate must be an integer"});
+    } else {
+        primaryPayRateErrorBool = false;
+        setErrorsPrimaryPayRate({});
+    }
+
+
+    if(secondaryPayRate !== "" && (typeof secondaryPayRateNum !== "number" || isNaN(secondaryPayRateNum))){
+        secondaryPayRateErrorBool = true;
+        setErrorsSecondaryPayRate({secondaryPayRate: "Secondary Pay Rate must be an integer"});
+    } else {
+        secondaryPayRateErrorBool = false;
+        setErrorsSecondaryPayRate({});
+    }
+
+
+    if(tertiaryPayRate !== "" && (typeof tertiaryPayRateNum !== "number" || isNaN(tertiaryPayRateNum))){
+        tertiaryPayRateErrorBool = true;
+        setErrorsTertiaryPayRate({tertiaryPayRate: "Tertiary Pay Rate must be an integer"});
+    } else {
+        tertiaryPayRateErrorBool = false;
+        setErrorsTertiaryPayRate({});
+    }
+
+
+    if(quarternaryPayRate !== "" && (typeof quarternaryPayRateNum !== "number" || isNaN(quarternaryPayRateNum))){
+        quarternaryPayRateErrorBool = true;
+        setErrorsQuarternaryPayRate({quarternaryPayRate: "Quarternary Pay Rate must be an integer"});
+    } else {
+        quarternaryPayRateErrorBool = false;
+        setErrorsQuarternaryPayRate({});
+    }
+
+
+    if (
+        (employeeDepartment_IdErrorBool) ||
+        (academicDepartment_IdErrorBool) ||
+        (userType_IdErrorBool) ||
+        (ageErrorBool) ||
+        (zipErrorBool) ||
+        (primaryPayRateErrorBool) ||
+        (secondaryPayRateErrorBool) ||
+        (tertiaryPayRateErrorBool) ||
+        (quarternaryPayRateErrorBool)
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
+// -----------------------------HANDLE SUBMIT -------------------------------//
         const handleSubmit = async (e) => {
             e.preventDefault();
             console.log('HANDLE SUBMIT NEW EMPLOYEE IS RUNNING');
 
+        // -----------------CLIENT SIDE VALIDATIONS-----------------------//
+
             if(checkRequired()) {
 
-                // setRequiredFieldsMessage({message: "Required field must be complete - see errors above."});
+                setRequiredFieldsMessage({message: "Required field must be complete - see errors above."});
                 return console.log("HANDLE SUBMIT STOPPED DUE TO REQUIRED FIELD MISSING INFORMATION")
+            } else {
+                setRequiredFieldsMessage({});
+            }
 
+
+            if(checkInteger()) {
+                setRequiredFieldsMessage({message: "Field(s) must be integers - see errors above."});
+                return console.log("HANDLE SUBMIT STOPPED DUE TO FIELD(S) MUST BE INTEGERS")
+            } else {
+                setRequiredFieldsMessage({});
             }
 
 
 
+            newEmployee = {
+            }
+
+            let employeeId;
 
 
 
-
-
-
-
-            // if(description.length < 10){
-            //     setErrors({description: "Please provide a longer description"})
-            //     return;
-            // }
-
-            // if(!title){
-            //     setErrors({title: "Please provide a title"})
-            //     return;
-            // }
-
-            // if(!basePrice){
-            //     setErrors({price: "Please provide a price"})
-            //     return;
-            // }
-
-            // if(!previewImg) {
-            //     setErrors({previewImg: "A preview image is required"});
-            //     return;
-            // }
-
-            // const newEmployee = {
-            //     "address": street,
-            //     "city": city,
-            //     "state": state,
-            //     "country": country,
-            //     "lat": +latitude,
-            //     "lng": +longitude,
-            //     "name": title,
-            //     "description": description,
-            //     "price": +basePrice,
-            // }
-
-            // let employeeId;
-
-            // await dispatch(employeesActions.createEmployee(newEmployee))
-            // .then(response => {
-            //     // console.log('CREATENEWSPOT RESPONSE: ', response, 'CREATENEWSPOT THENEWSPOT: ')
-            //     return response
-            // })
-            // .then(response => {
-            //     // console.log(`NEW SPOT CREATED`, response);
-            //     employeeId = response.payload.id;
-            //     return response;
-            // })
-            // .then(response =>  {
-            //     const prevImageInfo = {employeeId: response.payload.id, url: previewImg, preview: true};
-            //     return dispatch(imagesActions.addImageToEmployee(prevImageInfo));
-            // }).then(response =>  {
-            //     // console.log('RESPONSE++++++++++++++++++++++++++++110', response)
-            //     if(img1) {
-            //         const img1Info = {employeeId: employeeId, url: img1, preview: false};
-            //         return dispatch(imagesActions.addImageToEmployee(img1Info));
-            //     }
-            //     return response;
-            // }).then(response =>  {
-            //     // console.log('RESPONSE++++++++++++++++++++++++++++117', response)
-            //     if(img2) {
-            //         const img2Info = {employeeId: employeeId, url: img2, preview: false};
-            //         return dispatch(imagesActions.addImageToEmployee(img2Info));
-            //     }
-            //     return response;
-            // }).then(response =>  {
-            //     // console.log('RESPONSE++++++++++++++++++++++++++++124', response)
-            //     if(img3) {
-            //         const img3Info = {employeeId: employeeId, url: img1, preview: false};
-            //         return dispatch(imagesActions.addImageToEmployee(img3Info));
-            //     }
-            //     return response;
-            // }).then(async response =>  {
-            //     // console.log('RESPONSE++++++++++++++++++++++++++++131', response)
-            //     if(img4) {
-            //         const img4Info = {employeeId: employeeId, url: img1, preview: false};
-            //         return dispatch(imagesActions.addImageToEmployee(img4Info));
-            //     }
-            //     return response;
-            // }).then(response => {
-            //     // console.log(`NEW SPOT IMAGES ADDED`);
-            //     // console.log('RESPONSE++++++++++++++++++++++++++++139', response)
-            //     return response;
-            // }).then(response => {
-            //     // console.log('RESPONSE++++++++++++++++++++++++++++142', response)
-            //     response
-            //     return dispatch(reviewsActions.getReviewsByEmployeeId(employeeId));
-            // }).then(response => {
-            //     // console.log('RESPONSE++++++++++++++++++++++++++++145', response)
-            //     response
-            //     return dispatch(employeesActions.getEmployeeDetailsById(employeeId))
-            // }).then(response => {
-            //     // console.log('RESPONSE++++++++++++++++++++++++++++148', response)
-            //     response
-            //     return dispatch(employeesActions.search());
-            // }).then(response => {
-            //     // console.log('RESPONSE++++++++++++++++++++++++++++154', response, response.payload)
-            //     response
-            //     navigate(`/employees/${employeeId}`)
-            // }).catch(
-            //     async (res) => {
-            //         const data = await res.json();
-            //         if (data.errors) setErrors(data.errors);
-            //         // console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
-            //     }
-            // )
-
+            await dispatch(employeesActions.createEmployee(newEmployee))
+            .then(response => {
+                // console.log('CREATENEWSPOT RESPONSE: ', response, 'CREATENEWSPOT THENEWSPOT: ')
+                return response
+            })
+            .then(response => {
+                // console.log(`NEW SPOT CREATED`, response);
+                employeeId = response.payload.id;
+                return response;
+            }).then(response => {
+                // console.log('RESPONSE++++++++++++++++++++++++++++145', response)
+                response
+                return dispatch(employeesActions.getEmployeeDetailsById(employeeId))
+            }).then(response => {
+                // console.log('RESPONSE++++++++++++++++++++++++++++154', response, response.payload)
+                response
+                navigate(`/employees/${employeeId}`)
+            }).catch(
+                async (res) => {
+                    const data = await res.json();
+                    if (data.errors) setErrors(data.errors);
+                    // console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
+                }
+            )
 
             console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-
         }
 
 
-
-
-        // const handleSubmit = (e) => {
-        //     e.preventDefault();
-        //     if (longitude === latitude) {
-        //         setErrors({});
-        //         // // console.log('HANDLE SUBMIT RAN - SIGNUP INFO', country, street, city, state, latitude);
-        //         return dispatch(employeesActions.signup({country, street, city, state, latitude}))
-        //         .then(closeModal)
-        //         .catch(
-        //             async (res) => {
-        //                 const data = await res.json();
-        //                 if (data?.errors) setErrors(data.errors);
-        //                 // // console.log('CATCH DISPATCH RAN', data);
-        //             }
-        //         )
-        //     }
-
-        //     return setErrors({
-        //         longitude: "Confirm Password field must be the same as the Password field"
-        //     })
-        // };
 
 
 // return-----------------------------------
@@ -636,7 +692,8 @@ const checkRequired = () => {
                                         </label>
 
                             </div>
-                            {errors.zip && <p className='CreateNewEmployeeErrors'>{errors.zip}</p>}
+                            {errorsZip.zip && <p className='CreateNewEmployeeErrors'>{errorsZip.zip}</p>}
+
 
 
 
@@ -677,7 +734,7 @@ const checkRequired = () => {
                                         </label>
 
                             </div>
-                            {errors.age && <p className='CreateNewEmployeeErrors'>{errors.age}</p>}
+                            {errorsAge.age && <p className='CreateNewEmployeeErrors'>{errorsAge.age}</p>}
 
 
                             <div id='ssnContainer' className='CreateNewEmployeeFormLabelInputContainer'>
@@ -735,7 +792,7 @@ const checkRequired = () => {
                                         </label>
 
                             </div>
-                            {errors.employeeDepartment_Id && <p className='CreateNewEmployeeErrors'>{errors.employeeDepartment_Id}</p>}
+                            {errorsEmployeeDepartment_Id.employeeDepartment_Id && <p className='CreateNewEmployeeErrors'>{errorsEmployeeDepartment_Id.employeeDepartment_Id}</p>}
 
 
 
@@ -756,7 +813,7 @@ const checkRequired = () => {
                                         </label>
 
                             </div>
-                            {errors.academicDepartment_Id && <p className='CreateNewEmployeeErrors'>{errors.academicDepartment_Id}</p>}
+                            {errorsAcademicDepartment_Id.academicDepartment_Id && <p className='CreateNewEmployeeErrors'>{errorsAcademicDepartment_Id.academicDepartment_Id}</p>}
 
 
 
@@ -777,7 +834,7 @@ const checkRequired = () => {
                                         </label>
 
                             </div>
-                            {errors.userType_Id && <p className='CreateNewEmployeeErrors'>{errors.userType_Id}</p>}
+                            {errorsUserType_Id.userType_Id && <p className='CreateNewEmployeeErrors'>{errorsUserType_Id.userType_Id}</p>}
 
 
 
@@ -861,7 +918,7 @@ const checkRequired = () => {
                                         </label>
 
                             </div>
-                            {errors.primaryPayRate && <p className='CreateNewEmployeeErrors'>{errors.primaryPayRate}</p>}
+                            {errorsPrimaryPayRate.primaryPayRate && <p className='CreateNewEmployeeErrors'>{errorsPrimaryPayRate.primaryPayRate}</p>}
 
 
 
@@ -1169,7 +1226,7 @@ const checkRequired = () => {
                                         </label>
 
                             </div>
-                            {errors.secondaryPayRate && <p className='CreateNewEmployeeErrors'>{errors.secondaryPayRate}</p>}
+                            {errorsSecondaryPayRate.secondaryPayRate && <p className='CreateNewEmployeeErrors'>{errorsSecondaryPayRate.secondaryPayRate}</p>}
 
 
 
@@ -1262,7 +1319,7 @@ const checkRequired = () => {
                                         </label>
 
                             </div>
-                            {errors.tertiaryPayRate && <p className='CreateNewEmployeeErrors'>{errors.tertiaryPayRate}</p>}
+                            {errorsTertiaryPayRate.tertiaryPayRate && <p className='CreateNewEmployeeErrors'>{errorsTertiaryPayRate.tertiaryPayRate}</p>}
 
 
 
@@ -1355,7 +1412,7 @@ const checkRequired = () => {
                             </label>
 
                             </div>
-                            {errors.quarternaryPayRate && <p className='CreateNewEmployeeErrors'>{errors.quarternaryPayRate}</p>}
+                            {errorsQuarternaryPayRate.quarternaryPayRate && <p className='CreateNewEmployeeErrors'>{errorsQuarternaryPayRate.quarternaryPayRate}</p>}
 
 
 
@@ -1367,9 +1424,11 @@ const checkRequired = () => {
 
 
 {/* form button---------------------------------------------------------- */}
+                        {requiredFieldsMessage.message && <p className='CreateNewEmployeeRequiredErrors'>{requiredFieldsMessage.message}</p>}
+
 
                         <div id="buttonContainer">
-                        {requiredFieldsMessage.message && <p className='CreateNewEmployeeErrors'>{requiredFieldsMessage.message}</p>}
+
                             <button
                                 id="CreateNewEmployeeButton"
                                 type="submit"

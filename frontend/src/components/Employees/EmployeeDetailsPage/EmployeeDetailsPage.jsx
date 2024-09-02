@@ -6,8 +6,6 @@ const BASE_CLASS_NAME = "EmployeeDetailsPage";
 
 //==================OTHER IMPORTS=======================//
 
-
-import EmployeeDetailsKeyValue from './EmployeeDetailsKeyValue';
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
