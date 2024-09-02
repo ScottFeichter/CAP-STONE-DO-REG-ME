@@ -1,0 +1,19 @@
+#SplashMain{
+    margin: -1rem;
+    padding: 0;
+}
+
+#SplashDivBanner{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: white;
+    background-color: var(--green1);
+    border: var(--border);
+}
+
+#SplashDivLoginSignupContainer{
+    margin: 8rem 2rem 2rem 2rem;
+    display: flex;
+    /* flex-direction: row; */
+}
