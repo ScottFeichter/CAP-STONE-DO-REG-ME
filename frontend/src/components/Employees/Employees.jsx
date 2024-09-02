@@ -15,16 +15,16 @@ function Employees() {
 
   return(
     <>
+        <h1 id="EmployeesH1">Employees</h1>
+
         <main id="EmployeesMain">
 
+
             <nav id="EmployeesNav">
+              <input type="text" id="EmployeesSearchBar" placeholder="Search Employees" ></input>
+
               <button id="EmployeesCreateButton" onClick={handleClick}>Create New Employee</button>
-              <h1 id="EmployeesH1">Employees</h1>
-              <input type="text" id="EmployeesSearchBar" placeholder='Search Employees' ></input>
             </nav>
-
-
-
 
 
             <EmployeesList />

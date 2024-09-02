@@ -1,19 +1,21 @@
 .EmployeeListMain {
-    margin: 1rem;
-    /* border: black 3px solid; */
-  }
-
-  .EmployeeListMain h2 {
-    font-weight: 550;
-    /* font-size: 2rem; */
-    /* border: purple 2px solid; */
+    overflow:hidden;
+    text-wrap: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem 1rem 1rem 1rem;
+    padding: 1rem 0 0 0;
+    border: var(--green1) 1px solid;
+    border-radius: 25px;
   }
 
   .EmployeeListContainer {
     display: flex;
     flex-direction: column;
     gap: .25rem;
-    /* width: 1200px; */
-    /* margin-top: 20px; */
+    width: fit-content;
+    margin: 0 1rem 0 1rem;
     /* border: red 2px solid; */
   }

@@ -1,20 +1,24 @@
 #EmployeesMain{
-    text-align: center;
     overflow: hidden;
-    /* size-adjust: calc(); */
-    width: 1000px;
     margin: 0 1rem 0 1rem;
-    border: var(--border);
+    padding: .5rem .5rem .5rem .5rem;
+    /* border: 2px blue solid; */
+
 }
 
 #EmployeesNav{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    text-align: center;
+    /* margin: 0; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    /* border: var(--border); */
 }
 
 #EmployeesH1{
+    text-align: center;
     font-size: 2.5rem;
+    margin: 1rem 0 0 0;
 }
 
 
@@ -23,8 +27,8 @@
 
 #EmployeesCreateButton {
     margin: 1rem .5rem 1rem .5rem;
-    width: 12rem;
-    height: 1.8rem;
+    width: 206px;
+    height: 30px;
     font-size: 1rem;
     font-weight: 500;
     border-radius: 5px;
@@ -81,36 +85,39 @@
 
 /*================== SEARCH BAR ==================*/
 
-
 #EmployeesSearchBar::placeholder{
-    color: var(--searchBarPlaceHolderColor);
+    color: white;
     text-align: center;
+    opacity: 1;
 }
 
 #EmployeesSearchBar:hover::placeholder{
-    color: var(--searchBarPlaceHolderHoverColor);
+    color: black;
     text-align: center;
+    opacity: 1;
 }
 
 #EmployeesSearchBar:focus::placeholder{
     color: lightgrey;
     text-align: center;
+    opacity: 1;
+    text-indent: -.5rem;
 }
+
 
 
 #EmployeesSearchBar {
     margin: 1rem .5rem 1rem .5rem;
-    width: 12rem;
-    height: 1.8rem;
+    width: 200px;
+    height: 25.5px;
     font-size: 1rem;
     font-weight: 500;
     border-radius: 5px;
-
 }
 
 
 #EmployeesSearchBar:enabled {
-    color: var(--buttonColor);
+    color: var(--searchBarColor);
     background-color: var(--searchBarBackgroundColor);
     border: var(--searchBarBorder);
 
@@ -129,26 +136,31 @@
     animation-fill-mode: both;
     animation-play-state: initial; */
 
-
 }
 
-#EmployeesSearchBar:disabled {
+
+/* #EmployeesSearchBar:disabled {
     color: var(--searchBarDisabledColor);
     background-color: var(--searchBarDisabledBackgroundColor);
     border: var(--searchBarDisabledBorder);
 
-}
+} */
 
 #EmployeesSearchBar:enabled:hover {
-    color: var(--searchBarHoverColor);
-    background-color: var(--searchBarHoverBackgroundColor);
-    border: var(--searchBarHoverBorder);
+    color: color;
+    background-color: var(--green2);
+    border: 1px solid var(--green2);
     cursor: pointer;
 }
 
-#EmployeesSearchBar:enabled:active{
-    color: var(--searchBarActiveColor);
-    background-color: var(--searchBarActiveBackgroundColor);
-    border: var(--searchBarActiveBorder);
-    cursor: pointer;
+
+
+#EmployeesSearchBar:enabled:focus{
+    color: black;
+    background-color: white;
+    border: 1px grey solid; /* this not doing well its doing but is being overlaid by the browser */
+    outline: 1px solid var(--green2);
+	outline-offset: -2px;
+    text-indent: .5rem;
+    cursor: text;
 }

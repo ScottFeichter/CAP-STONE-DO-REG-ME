@@ -25,7 +25,6 @@ function EmployeesList(){
     return(
     <>
     <main className="EmployeeListMain">
-      {/* <h2>List of all employees</h2> */}
       <EmployeesListItemHeader />
 
       <div className="EmployeeListContainer">
