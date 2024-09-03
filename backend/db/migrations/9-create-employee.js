@@ -38,10 +38,10 @@ module.exports = {
         userType_Id: {
           type: Sequelize.INTEGER,
           allowNull: true,
-          references: {
-            model: "UserTypes",
-            key: "id",
-          },
+          // references: {
+          //   model: "UserTypes",
+          //   key: "id",
+          // },
           // onDelete: "CASCADE"
         },
         firstName1: {

@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       Employee.belongsTo(models.UserType, {
         foreignKey: "userType_Id",
+        // constraints: false
         // as: ''
       });
     }
