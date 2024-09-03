@@ -16,7 +16,7 @@ function EmployeeDepartments() {
 
   return(
     <>
-        <h1 id="EmployeeDepartmentsH1">EmployeeDepartments</h1>
+        <h1 id="EmployeeDepartmentsH1">Employee Departments</h1>
 
         <main id="EmployeeDepartmentsMain">
 

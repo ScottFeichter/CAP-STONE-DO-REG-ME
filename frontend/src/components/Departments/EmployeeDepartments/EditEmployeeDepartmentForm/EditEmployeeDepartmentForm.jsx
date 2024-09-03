@@ -102,7 +102,7 @@ const checkRequired = () => {
 // -----------------------------HANDLE SUBMIT -------------------------------//
         const handleSubmit = async (e) => {
             e.preventDefault();
-            console.log('HANDLE SUBMIT EDIT EMPLOYEE IS RUNNING');
+            console.log('HANDLE SUBMIT EDIT EMPLOYEE DEPARTMENT IS RUNNING');
 
         // -----------------CLIENT SIDE VALIDATIONS-----------------------//
 
@@ -135,9 +135,9 @@ const checkRequired = () => {
             let editedEmployeeDepartmentDetails;
             if(editedEmployeeDepartmentDetails);
 
-            await dispatch(employeeDepartmentsActions.thunkEditEmployee(editedEmployeeDepartment))
+            await dispatch(employeeDepartmentsActions.thunkEditEmployeeDepartment(editedEmployeeDepartment))
             .then(response => {
-                dispatch(employeeDepartmentsActions.thunkGetEmployeesAll())
+                dispatch(employeeDepartmentsActions.thunkGetEmployeeDepartmentsAll())
                 // console.log("response 432: ", response, "response.payload", response.payload, "response.payload[0]", response.payload.id);
                 employeeDepartmentId = response.payload.id
                 return employeeDepartmentId
@@ -149,10 +149,10 @@ const checkRequired = () => {
                 }
             )
 
-            await dispatch(employeeDepartmentsActions.thunkGetEmployeeById(employeeDepartmentId)).then(response => {
+            await dispatch(employeeDepartmentsActions.thunkGetEmployeeDepartmentById(employeeDepartmentId)).then(response => {
                 editedEmployeeDepartmentDetails = response;
 
-                navigate(`/employees`)
+                navigate(`/departments`)
                 return response
             });
 
@@ -166,7 +166,7 @@ const checkRequired = () => {
         return (
           <main id="EditEmployeeDepartmentMain">
 
-            <h1 id='EditEmployeeDepartmentH1'>Edit Employee</h1>
+            <h1 id='EditEmployeeDepartmentH1'>Edit Employee Department</h1>
 
 
                     <form id='EditEmployeeDepartmentForm' onSubmit={handleSubmit}>

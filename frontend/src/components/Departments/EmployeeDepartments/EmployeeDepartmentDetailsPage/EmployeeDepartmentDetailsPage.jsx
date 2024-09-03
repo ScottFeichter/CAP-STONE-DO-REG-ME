@@ -55,9 +55,9 @@ function EmployeeDepartmentDetailsPage() {
 
 
 
-const handleClickEditEmployee = () => {
+const handleClickEditEmployeeDepartment = () => {
   // e.preventDefault();
-  // navigate('/editEmployeeForm')
+  // navigate('/editEmployeeDepartmentForm')
 }
 
 
@@ -72,8 +72,8 @@ const handleClickEditEmployee = () => {
 
             <nav id={`${BASE_CLASS_NAME}Nav`}>
 
-           <Link to='/editEmployeeForm' state={{employeeDepartmentToEdit: employeeDepartment}} >
-           <button id={`${BASE_CLASS_NAME}EditButton`} onClick={handleClickEditEmployee}>Edit Employee</button>
+           <Link to='/editEmployeeDepartmentForm' state={{employeeDepartmentToEdit: employeeDepartment}} >
+           <button id={`${BASE_CLASS_NAME}EditButton`} onClick={handleClickEditEmployeeDepartment}>Edit Employee Department</button>
            </Link>
 
 
@@ -93,7 +93,7 @@ const handleClickEditEmployee = () => {
 
               <EmployeeDepartmentDeleteModalButton
                 id={`${BASE_CLASS_NAME}DeleteButton`}
-                buttonText="Delete Employee"
+                buttonText="Delete Employee Department"
                 modalComponent={<EmployeeDepartmentDeleteModal employeeDepartment={employeeDepartment} />}
               />
 
