@@ -1,14 +1,14 @@
-"use strict";
+'use strict';
 
 let options = {};
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA; // define your schema in options object
 }
 
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable(
-      "Employees",
+      'Employees',
       {
         id: {
           primaryKey: true,
@@ -21,28 +21,28 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: true,
           references: {
-            model: "EmployeeDepartments",
-            key: "id",
+            model: 'EmployeeDepartments',
+            key: 'id',
           },
-          // onDelete: "CASCADE"
+          // onDelete: 'CASCADE'
         },
         academicDepartment_Id: {
           type: Sequelize.INTEGER,
           allowNull: true,
           references: {
-            model: "AcademicDepartments",
-            key: "id",
+            model: 'AcademicDepartments',
+            key: 'id',
           },
-          // onDelete: "CASCADE"
+          // onDelete: 'CASCADE'
         },
         userType_Id: {
           type: Sequelize.INTEGER,
           allowNull: true,
           // references: {
-          //   model: "UserTypes",
-          //   key: "id",
+          //   model: 'UserTypes',
+          //   key: 'id',
           // },
-          // onDelete: "CASCADE"
+          // onDelete: 'CASCADE'
         },
         firstName1: {
           allowNull: false,
@@ -243,19 +243,19 @@ module.exports = {
         createdAt: {
           allowNull: false,
           type: Sequelize.DATE,
-          defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+          defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         },
         updatedAt: {
           allowNull: false,
           type: Sequelize.DATE,
-          defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+          defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         },
       },
       options
     );
   },
   async down(queryInterface, Sequelize) {
-    options.tableName = "Employees";
+    options.tableName = 'Employees';
     await queryInterface.dropTable(options);
   },
 };

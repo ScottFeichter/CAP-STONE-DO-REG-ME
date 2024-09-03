@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-const { UserType } = require("../models");
+const { UserType } = require('../models');
 
 let options = {};
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA; // define your schema in options object
 }
 
@@ -12,19 +12,19 @@ module.exports = {
     await UserType.bulkCreate(
       [
         {
-          type: "Super",
+          type: 'Super',
         },
         {
-          type: "Admin",
+          type: 'Admin',
         },
         {
-          type: "Teacher",
+          type: 'Teacher',
         },
         {
-          type: "Staff",
+          type: 'Staff',
         },
         {
-          type: "Student",
+          type: 'Student',
         }
       ],
       { validate: true }
@@ -32,12 +32,12 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    options.tableName = "UserTypes";
+    options.tableName = 'UserTypes';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(
       options,
       {
-        type: { [Op.in]: ["Super", "Admin", "Teacher"] },
+        type: { [Op.in]: ['Super', 'Admin', 'Teacher'] },
       },
       {}
     );

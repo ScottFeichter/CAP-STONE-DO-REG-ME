@@ -1,22 +1,22 @@
-"use strict";
-const { Model, Validator } = require("sequelize");
+'use strict';
+const { Model, Validator } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Employee extends Model {
     static associate(models) {
       // define association here
       Employee.belongsTo(models.EmployeeDepartment, {
-        foreignKey: "employeeDepartment_Id",
-        // as: ""
+        foreignKey: 'employeeDepartment_Id',
+        // as: ''
       });
       Employee.belongsTo(models.AcademicDepartment, {
-        foreignKey: "academicDepartment_Id",
-        // as: ""
+        foreignKey: 'academicDepartment_Id',
+        // as: ''
       });
       Employee.belongsTo(models.UserType, {
-        foreignKey: "userType_Id",
+        foreignKey: 'userType_Id',
         constraints: false
-        // as: ""
+        // as: ''
       });
     }
   }
@@ -242,7 +242,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Employee",
+      modelName: 'Employee',
     }
   );
   return Employee;

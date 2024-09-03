@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-const { Facility } = require("../models");
+const { Facility } = require('../models');
 
 let options = {};
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA; // define your schema in options object
 }
 
@@ -12,15 +12,15 @@ module.exports = {
     await Facility.bulkCreate(
       [
         {
-          name: "Online",
+          name: 'Online',
           branch_Id: 1,
         },
         {
-          name: "Auditorium",
+          name: 'Auditorium',
           branch_Id: 2,
         },
         {
-          name: "Room 1",
+          name: 'Room 1',
           branch_Id: 2,
         },
       ],
@@ -28,12 +28,12 @@ module.exports = {
     );
   },
   async down(queryInterface, Sequelize) {
-    options.tableName = "Facilities";
+    options.tableName = 'Facilities';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(
       options,
       {
-        name: { [Op.in]: ["Online", "Auditorium", "Room 1"] },
+        name: { [Op.in]: ['Online', 'Auditorium', 'Room 1'] },
       },
       {}
     );

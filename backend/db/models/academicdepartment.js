@@ -1,12 +1,12 @@
-"use strict";
-const { Model, Validator } = require("sequelize");
+'use strict';
+const { Model, Validator } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class AcademicDepartment extends Model {
     static associate(models) {
       // define association here
       AcademicDepartment.hasMany(models.Employee, {
-        foreignKey: "academicDepartment_Id",
-        // onDelete: "CASCADE",
+        foreignKey: 'academicDepartment_Id',
+        // onDelete: 'CASCADE',
         hooks: true
       });
     }
@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "AcademicDepartment",
+      modelName: 'AcademicDepartment',
     }
   );
   return AcademicDepartment;

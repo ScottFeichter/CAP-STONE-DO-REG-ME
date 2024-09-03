@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 let options = {};
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA; // define your schema in options object
 }
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Students", {
+    await queryInterface.createTable('Students', {
       id: {
         primaryKey: true,
         autoIncrement: true,
@@ -20,10 +20,10 @@ module.exports = {
         unique: false,
         type: Sequelize.INTEGER,
         references: {
-          model: "Households",
-          key: "id",
+          model: 'Households',
+          key: 'id',
         },
-        // onDelete: "CASCADE"
+        // onDelete: 'CASCADE'
       },
       headOfHousehold: {
         allowNull: false,
@@ -34,10 +34,10 @@ module.exports = {
         allowNull: true,
         type: Sequelize.INTEGER,
         references: {
-          model: "UserTypes",
-          key: "id",
+          model: 'UserTypes',
+          key: 'id',
         },
-        // onDelete: "CASCADE"
+        // onDelete: 'CASCADE'
       },
       firstName1: {
         allowNull: false,
@@ -152,17 +152,17 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    options.tableName = "Students";
+    options.tableName = 'Students';
     await queryInterface.dropTable(options);
   }
 };
