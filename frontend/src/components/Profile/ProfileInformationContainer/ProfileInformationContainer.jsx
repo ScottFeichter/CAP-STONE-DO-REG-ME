@@ -11,7 +11,7 @@ import './ProfileInformationContainer.css';
 
 //===============FUNCTION DECLARATION===================//
 function ProfileInformationContainer(props){
-    console.log("props", props);
+    // console.log("props", props);
 
     const k = props.info[0];
     const v = props.info[1];

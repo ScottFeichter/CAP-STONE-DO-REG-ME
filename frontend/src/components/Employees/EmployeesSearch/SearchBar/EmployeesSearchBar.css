@@ -1,4 +1,4 @@
-#SearchBarForm {
+#EmployeesSearchBarForm {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,7 +9,7 @@
 
 
 
-#SearchBarLabel {
+#EmployeesSearchBarLabel {
     display: flex;
     align-items: left;
     justify-content: center;
@@ -33,7 +33,7 @@
     cursor: pointer;
 }
 
-#SearchBarInput {
+#EmployeesSearchBarInput {
     border: none;
     font-size: small;
     width: 22rem;
@@ -44,7 +44,7 @@
 
 }
 
-#SearchBarInput:focus {
+#EmployeesSearchBarInput:focus {
     outline: none;
     /* filter: drop-shadow(0rem 1rem 0.75rem rgb(37, 15, 67)); */
     /* width: 21rem; */
@@ -52,7 +52,7 @@
     /* margin: 0 0 .1rem -0.5rem; */
 }
 
-#SearchBarButton {
+#EmployeesSearchBarButton {
     visibility: hidden;
     margin: 0;
     padding: 0;
@@ -60,7 +60,7 @@
     font-size: .5rem;
 }
 
-#SearchBarSuggestionsUl{
+#EmployeesSearchBarSuggestionsUl{
     list-style-type: none;
     position: absolute;
     margin-left: 0rem;
@@ -73,11 +73,11 @@
     /* border: 2px blue dashed; */
 }
 
-.SearchBarSuggestionsUlLi{
+.EmployeesSearchBarSuggestionsUlLi{
     margin-left: .65rem;
 }
 
-.SearchBarSuggestionsUlLiButton{
+.EmployeesSearchBarSuggestionsUlLiButton{
     font-style: italic;
     font-size: small;
     text-align: left;
@@ -95,7 +95,7 @@
 
 }
 
-.SearchBarSuggestionsUlLiButton:hover{
+.EmployeesSearchBarSuggestionsUlLiButton:hover{
     color: white;
     background-color: rgba(85, 26, 139, 1);
     cursor: pointer;

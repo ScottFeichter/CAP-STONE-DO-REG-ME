@@ -3,20 +3,20 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 // import * as searchActions from '../../../search'
-import * as navStocksActions from "../../../redux/navStocksRedux";
-import { useDispatch } from "react-redux";
-import "./SearchBar.css";
+// import * as employeesActions from "../../../../redux/employeesReducer";
+// import { useDispatch } from "react-redux";
+import "./EmployeesSearchBar.css";
 
 // NOTE: DOC STRINGS MAY NEED UPDATED SORRY!!!!!! THINGS CHANGE AND I FORGET TO UPDATE THEM...
 
-function SearchBar() {
+function EmployeesSearchBar() {
   const navigate = useNavigate();
-  const stocks = useSelector((state) => state?.navStocks?.navStocks);
+  const employees = useSelector((state) => state?.employees?.employees);
   // const dispatch = useDispatch();
 
   // useEffect(() => {
-  //   dispatch(navStocksActions.navStocks());
-  //   console.log("FROM SEARCHBAR.JSX dispatch(navStocksActions.navStocks());")
+  //   dispatch(employeesActions.employees());
+  //   console.log("FROM SEARCHBAR.JSX dispatch(employeesActions.employees());")
   // }, []);
 
   // =======================STATEFUL VARIABLES=======================
@@ -45,10 +45,10 @@ function SearchBar() {
 
   /**
    * This useEffect runs everytime there is a change in the variable search
-   * It captures the search value and filters it through the stocks (aka searchables)
+   * It captures the search value and filters it through the employees (aka searchables)
    * The result is the array of stock objects named suggestions
    * Then it creates an array called displaySuggestions which mirrors suggestions...
-   * But it only contains a string of ticker_symbol, company_name, and ceo...
+   * But it only contains a string of name_symbol, company_name, and ceo...
    * This is so the suggestion list is readable and helpful to the user
    */
   useEffect(() => {
@@ -57,16 +57,20 @@ function SearchBar() {
 
     const suggestions = searchables.filter(
       (searchable) =>
-        searchable.ticker_symbol.toLowerCase().includes(search) ||
-        searchable.ticker_symbol.toUpperCase().includes(search) ||
-        searchable.company_name.toUpperCase().includes(search.toUpperCase()) ||
-        searchable.company_name.toLowerCase().includes(search.toLowerCase())
+        searchable.firstName1.toLowerCase().includes(search) ||
+        searchable.firstName1.toUpperCase().includes(search) ||
+        // searchable.firstName2.toLowerCase().includes(search) ||
+        // searchable.firstName2.toUpperCase().includes(search) ||
+        // searchable.middleName.toLowerCase().includes(search) ||
+        // searchable.middleName.toUpperCase().includes(search) ||
+        searchable.lastName1.toUpperCase().includes(search.toUpperCase()) ||
+        searchable.lastName1.toLowerCase().includes(search.toLowerCase())
+        // searchable.lastName2.toUpperCase().includes(search.toUpperCase()) ||
+        // searchable.lastName2.toLowerCase().includes(search.toLowerCase())
     );
     displayedSuggestions = suggestions.map(
       (suggestion) =>
-        `${suggestion.ticker_symbol} ${" - "} ${
-          suggestion.company_name
-        } ${" - "} ${suggestion.ceo}`
+        `${suggestion.firstName1} ${suggestion.lastName1} `
     );
 
     setSearchSuggestions(displayedSuggestions);
@@ -125,44 +129,33 @@ function SearchBar() {
    */
   const handleSearchSuggestionButton = (e) => {
     e.preventDefault();
-    // console.log("e.target.value============== ", e.target.value);
+    console.log("e.target.value============== ", e.target.value);
 
     // setSelectedSuggestion(e.target.value);
     // console.log("selectedSelection", selectedSuggestion)
 
-    let ticker = "";
-    for (let i = 0; i < 6; i++) {
-      if (
-        e.target.value[i] === "" ||
-        e.target.value[i] === undefined ||
-        e.target.value[i] === "-"
-      )
-        break;
+    let firstName1 = e.target.value;
 
-      if (e.target.value[i] !== "" && e.target.value[i] !== undefined) {
-        ticker += e.target.value[i];
-      }
-    }
-    console.log("ticker", ticker, stocks);
-    for (let i = 0; i < stocks.length; i++) {
-      if (stocks[i].ticker_symbol === ticker.trim()) {
+    console.log("firstName1 line 152", firstName1, employees);
+    for (let i = 0; i < employees.length; i++) {
+      if (employees[i].firstName1 === firstName1) {
         displayedSuggestions = [{ test: "test" }];
         console.log(displayedSuggestions);
 
-        document.getElementById("SearchBarInput").focus();
-        setSearch(ticker);
+        document.getElementById("EmployeesSearchBarInput").focus();
+        setSearch(firstName1);
         console.log(search);
         setSearch("");
-        return navigate(`/stocks/${stocks[i].id}`, {
-          state: { suggestions: stocks[i].id },
+        return navigate(`/employees/${employees[i].id}`, {
+          state: { suggestions: employees[i].id },
         });
       }
     }
 
-    // const stockDetail = searchSuggestions.find(suggestion => suggestion.ticker_symbol = ticker.toUpperCase())
+    // const stockDetail = searchSuggestions.find(suggestion => suggestion.name_symbol = name.toUpperCase())
 
-    // setSearch(ticker);
-    // setStockDetailTicker(ticker);
+    // setSearch(name);
+    // setStockDetailTicker(name);
     // setStockDetail(stockDetail)
 
     // console.log("handleSearchSuggestionButton ran setSearch to: ", search, "setStockDetailTicker to: ", stockDetailTicker, "setStockDetail to: ", stockDetail);
@@ -195,22 +188,27 @@ function SearchBar() {
 
   // ===========================RETURN ===============================
   // =======================GRABING STOCK DATA FROM STORE=======================
-  const navStocks = useSelector((store) => store.navStocks.navStocks);
-  // console.log("navStocks from searchBar = ", navStocks)
-  if (navStocks === null) return null;
+  const navEmployees = useSelector((store) => store.employees.employees);
+  console.log("navEmployees from searchBar = ", navEmployees)
+  if (navEmployees === null) return null;
 
-  const searchables = navStocks.filter((stock) => stock.company_name !== null);
+  const searchables = navEmployees;
+
+  // const searchables = navEmployees.filter((navEmployee) => {
+  //   navEmployee.firstName1 !== null
+  // });
+
   // const searchables = ["AAPL", "AMZN", "BUTT"]
-  // console.log("searchables from searchbar ============= ", searchables)
+  console.log("searchables from searchbar ============= ", searchables)
 
   return (
     <>
-      <main id="SearchBarMain">
-        <form id="SearchBarForm" onSubmit={handleSubmit}>
-          <label id="SearchBarLabel">
+      <main id="EmployeesSearchBarMain">
+        <form id="EmployeesSearchBarForm" onSubmit={handleSubmit}>
+          <label id="EmployeesSearchBarLabel">
             <FaMagnifyingGlass onClick={handleSubmit} id="FaMagnifyingGlass" />
             <input
-              id="SearchBarInput"
+              id="EmployeesSearchBarInput"
               type="text"
               value={search}
               placeholder={placeHolder}
@@ -221,22 +219,22 @@ function SearchBar() {
           </label>
           {/* {errors.search && <p>{errors.search}</p>} */}
 
-          <button type="submit" id="SearchBarButton">
+          <button type="submit" id="EmployeesSearchBarButton">
             submit
           </button>
         </form>
 
-        <ul id="SearchBarSuggestionsUl">
+        <ul id="EmployeesSearchBarSuggestionsUl">
           {searchSuggestions.length !== 0
             ? searchSuggestions.map((ele) => (
                 <li
                   key={searchSuggestions.indexOf(ele)}
-                  className="SearchBarSuggestionsUlLi"
+                  className="EmployeesSearchBarSuggestionsUlLi"
                 >
                   <button
                     onClick={handleSearchSuggestionButton}
                     value={ele}
-                    className="SearchBarSuggestionsUlLiButton"
+                    className="EmployeesSearchBarSuggestionsUlLiButton"
                   >
                     {ele}
                   </button>
@@ -249,4 +247,4 @@ function SearchBar() {
   );
 }
 
-export default SearchBar;
+export default EmployeesSearchBar;

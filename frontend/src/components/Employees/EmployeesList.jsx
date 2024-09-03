@@ -27,10 +27,10 @@ function EmployeesList(){
     // const currentPost = currentPost = employeesList.slice(firstPostIndex, lastPostIndex);
 
     if(employeesList !== undefined && employeesList.length !== 0) {
-      console.log("line 29");
+      // console.log("line 29");
       currentPost = employeesList.slice(firstPostIndex, lastPostIndex);
     } else {
-      console.log("line 32")
+      // console.log("line 32")
       employeesList = [{test1: "test1"},{test2: "test"}];
       currentPost = employeesList.slice(firstPostIndex, lastPostIndex);
       dispatch(thunkGetEmployeesAll());
@@ -40,7 +40,7 @@ function EmployeesList(){
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    console.log("employeesList 41: ", employeesList);
+    // console.log("employeesList 41: ", employeesList);
 
     return(
     <>
