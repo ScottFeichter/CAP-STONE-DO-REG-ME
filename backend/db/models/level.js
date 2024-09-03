@@ -1,7 +1,7 @@
 'use strict';
 const { Model, Validator } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Level extends Model {
+  class level extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
 
     }
   }
-  Level.init(
+  level.init(
     {
       id: {
         primaryKey: true,
@@ -46,5 +46,5 @@ module.exports = (sequelize, DataTypes) => {
       modelName: 'Level',
     }
   );
-  return Level;
+  return level;
 };
