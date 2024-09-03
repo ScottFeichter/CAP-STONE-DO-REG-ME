@@ -1,10 +1,125 @@
-.ZeeTemplateMain{
-    background-color: var(--backgroundColor);
-    border: var(--border);
-    resize: both;
-    overflow: auto;
+#EmployeeDetailsMain {
+
 }
 
-.ZeeTemplateDiv{}
+#EmployeeDetailsH1 {
+    text-align: center;
+}
 
-.ZeeTemplateP{}
+
+
+#EmployeeDetailsForm{
+    margin: 2rem 4rem 4rem 4rem;
+    padding: 0rem 0rem 0rem 0rem;
+    border: var(--border);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.EmployeeDetailsFormLabelInputContainer {
+    display: flex;
+    justify-content: center;
+    /* border: 2px grey solid; */
+}
+
+.EmployeeDetailsFormLabel {
+    color: black;
+    font-size: medium;
+    font-weight: 600;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+
+
+.EmployeeDetailsFormInput {
+    font-size: small;
+    height: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 442px;
+}
+
+
+
+
+
+.EmployeeDetailsHr {
+    border: 1px grey solid;
+    width: 80%;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#EmployeeDetailsFormSection1, #EmployeeDetailsFormSection2, #EmployeeDetailsFormSection3, #EmployeeDetailsFormSection4, #EmployeeDetailsFormSection5     {
+    width: 450px;
+}
+
+#EmployeeDetailsFormSection1H4, #EmployeeDetailsFormSection2H4, #EmployeeDetailsFormSection3H4, #EmployeeDetailsFormSection4H4, #EmployeeDetailsFormSection5H4 {
+    text-align: center;
+    text-decoration: underline;
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
+    /* border: 2px solid grey; */
+}
+
+#EmployeeDetailsFormSection1P, #EmployeeDetailsFormSection2P, #EmployeeDetailsFormSection3P, #EmployeeDetailsFormSection4P, #EmployeeDetailsFormSection5P {
+    text-align: center;
+    margin: -1rem 0 .5rem 0;
+    font-size: medium;
+    font-weight: 400;
+    color: black;
+}
+
+.EmployeeDetailsH5 {
+    margin: 0rem 0 3rem 0;
+    color: red;
+    text-align: center;
+}
+
+
+
+#EmployeeDetailsButton {
+    margin: 2rem 0 4rem 0;
+    width: 16rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 25px;
+}
+
+#EmployeeDetailsButton:enabled {
+    color: var(--buttonColor);
+    background-color: var(--buttonBackgroundColor);
+    border: var(--buttonBorder);
+
+}
+
+#EmployeeDetailsButton:disabled {
+    color: var(--buttonDisabledColor);
+    background-color: var(--buttonDisabledBackgroundColor);
+    border: var(--buttonDisabledBorder);
+
+}
+
+#EmployeeDetailsButton:enabled:hover {
+    color: var(--buttonHoverColor);
+    background-color: var(--buttonHoverBackgroundColor);
+    border: var(--buttonHoverBorder);
+    cursor: pointer;
+}
+
+#EmployeeDetailsButton:enabled:active{
+    color: var(--buttonActiveColor);
+    background-color: var(--buttonActiveBackgroundColor);
+    border: var(--buttonActiveBorder);
+    cursor: pointer;
+}

@@ -7,6 +7,7 @@ import Students from "../components/Students/Students.jsx";
 import Employees from "../components/Employees/Employees.jsx";
 import CreateNewEmployeeForm from "../components/Employees/createNewEmployeeForm/createNewEmployeeForm.jsx";
 import EmployeeDetailPage from "../components/Employees/EmployeeDetailsPage/EmployeeDetailsPage.jsx";
+import EmployeeDetails from "../components/Employees/EmployeeDetailsPage/EmployeeDetails.jsx";
 
 
 
@@ -57,6 +58,11 @@ export const router = createBrowserRouter([
           // loader: listStocksLoader,
           element: <CreateNewEmployeeForm />,
         },
+        {
+        path: "/temp",
+        // loader: listStocksLoader,
+        element: <EmployeeDetails />,
+      },
 
 
 

@@ -8,6 +8,7 @@ const BASE_CLASS_NAME = "EmployeeDetailsPage";
 
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
+import EmployeeDetails from './EmployeeDetails';
 // import { useSelector } from 'react-redux';
 
 
@@ -150,6 +151,8 @@ const handleClickDeleteEmployee = (e) => {
 
 
             <div>
+
+              {/* <EmployeeDetails></EmployeeDetails> */}
 
 
 
