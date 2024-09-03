@@ -9,7 +9,7 @@ const Clock = () => {
     return () => {
       clearInterval(timerID);
     };
-  }, []);
+  }, [date]);
 
   const tick = () => {
     setDate(new Date().toLocaleTimeString('en-US'));

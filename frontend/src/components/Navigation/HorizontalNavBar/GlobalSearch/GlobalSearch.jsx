@@ -66,21 +66,22 @@ function GlobalSearch(){
       // console.log("search ===========", search, typeof search, !!search);
       if (!!search === false) return setSearchSuggestions([]);
 
-      const suggestions = searchables.filter(
-        (searchable) =>
-          searchable.name.toLowerCase().includes(search) ||
-          searchable.name.toUpperCase().includes(search) ||
-          searchable.firstName1.toUpperCase().includes(search.toUpperCase()) ||
-          searchable.firstName1.toLowerCase().includes(search.toLowerCase())
-      );
-      displayedSuggestions = suggestions.map(
-        (suggestion) =>
-          `${suggestion.name} ${" - "} ${
-            suggestion.firstName1
-          } ${" - "} ${suggestion.ceo}`
-      );
+      // const suggestions = searchables.filter(
+      //   (searchable) =>
+      //     searchable.name.toLowerCase().includes(search) ||
+      //     searchable.name.toUpperCase().includes(search) ||
+      //     searchable.firstName1.toUpperCase().includes(search.toUpperCase()) ||
+      //     searchable.firstName1.toLowerCase().includes(search.toLowerCase())
+      // );
+      // displayedSuggestions = suggestions;
+      // .map(
+      //   (suggestion) =>
+      //     `${suggestion.name} ${" - "} ${
+      //       suggestion.firstName1
+      //     } ${" - "} ${suggestion.ceo}`
+      // );
 
-      setSearchSuggestions(displayedSuggestions);
+      // setSearchSuggestions(suggestions);
       // console.log("suggestions: ", suggestions)
       // console.log("displayedSuggestions ==== ", displayedSuggestions)
       // console.log("searchSuggestions: ", searchSuggestions)
@@ -107,7 +108,7 @@ function GlobalSearch(){
       //   setSearch("");
       //   return
       // }
-
+if(displayedSuggestions);
       // setErrors({});
 
       // dispatch(searchActions.search({search}));
@@ -212,7 +213,7 @@ function GlobalSearch(){
 
     // const searchables = globalState.filter((stock) => stock.firstName1 !== null);
 
-    const searchables = ["AAPL", "AMZN", "BUTT"]
+    // const searchables = ["AAPL", "AMZN", "BUTT"]
     // console.log("searchables from searchbar ============= ", searchables)
 
 
