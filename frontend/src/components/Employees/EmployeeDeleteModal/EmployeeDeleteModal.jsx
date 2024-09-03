@@ -1,5 +1,6 @@
 import { useModal } from "../../../context/Modal";
-import {useDispatch } from 'react-redux'
+import {useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import * as employeesActions from '../../../redux/employeesReducer.js';
 import "./EmployeeDeleteModal.css"
 
@@ -8,9 +9,9 @@ import "./EmployeeDeleteModal.css"
 function EmployeeDeleteModal({employee}) {
 
     const dispatch = useDispatch();
-    const { closeModal } = useModal();
+    const navigate = useNavigate();
 
-    // console.log('SPOT!!!!!!!!!!!!!!!!', employee.id)
+    const { closeModal } = useModal();
 
 
 //  handlerDelete-------------------------------------------
@@ -20,6 +21,7 @@ function EmployeeDeleteModal({employee}) {
 
         return dispatch(employeesActions.thunkDeleteEmployee(employee))
             .then(() => {return dispatch(employeesActions.thunkGetEmployeesAll())})
+            .then(() => navigate('/employees'))
             .then(()=> closeModal())
     };
 

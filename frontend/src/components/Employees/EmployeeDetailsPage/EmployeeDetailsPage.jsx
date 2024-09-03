@@ -29,12 +29,6 @@ const handleClickEditEmployee = (e) => {
   navigate('/employees/:employee_Id/editForm')
 }
 
-const handleClickDeleteEmployee = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  // navigate('/employees/:employee_Id/deleteModal')
-}
-
 
 
 
@@ -59,11 +53,10 @@ const handleClickDeleteEmployee = (e) => {
               </button> */}
 
               <EmployeeDeleteModalButton
-                            // id="deleteEmployeeModalButton"
-                            id={`${BASE_CLASS_NAME}DeleteButton`}
-                            buttonText="Delete Employee"
-                            modalComponent={<EmployeeDeleteModal employee={employee} />}
-                            />
+                id={`${BASE_CLASS_NAME}DeleteButton`}
+                buttonText="Delete Employee"
+                modalComponent={<EmployeeDeleteModal employee={employee} />}
+              />
 
             </nav>
 

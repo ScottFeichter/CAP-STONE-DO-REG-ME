@@ -84,17 +84,17 @@ export const thunkRestoreUser = () => async (dispatch) => {
   const data = await response.json();
   console.log(`THUNK RESTORE USER RAN - DATA`,  response);
 
-  // if(data.user !== null) {
-  //     console.log("data.user", data.user);
-  //     dispatch(thunkGetBranchesAll());
-  //     dispatch(thunkGetFacilitiesAll());
-  //     dispatch(thunkGetAcademicDepartmentsAll());
-  //     dispatch(thunkGetEmployeeDepartmentsAll());
-  //     dispatch(thunkGetUserTypesAll());
-  //     dispatch(thunkGetHouseholdsAll());
-  //     dispatch(thunkGetEmployeesAll());
-  //     dispatch(thunkGetStudentsAll());
-  //   }
+  if(data.user !== null) {
+      // console.log("data.user", data.user);
+      dispatch(thunkGetBranchesAll());
+      dispatch(thunkGetFacilitiesAll());
+      dispatch(thunkGetAcademicDepartmentsAll());
+      dispatch(thunkGetEmployeeDepartmentsAll());
+      dispatch(thunkGetUserTypesAll());
+      dispatch(thunkGetHouseholdsAll());
+      dispatch(thunkGetEmployeesAll());
+      dispatch(thunkGetStudentsAll());
+    }
 
 
   dispatch(setUser(data.user))
