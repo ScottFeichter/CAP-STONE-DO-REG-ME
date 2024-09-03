@@ -5,6 +5,7 @@ import './EditEmployeeForm.css';
 import {useState } from 'react';
 import {useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 // import { useEffect } from 'react';
 import * as employeesActions from '../../../redux/employeesReducer.js';
 
@@ -16,6 +17,11 @@ function EditEmployeeForm(props) {
 
         const dispatch = useDispatch();
         const navigate = useNavigate();
+
+        const location = useLocation();
+        const {employeee} = location.state;
+
+        console.log("employeee : ", employeee)
 
         const [errors, setErrors] = useState({});
 

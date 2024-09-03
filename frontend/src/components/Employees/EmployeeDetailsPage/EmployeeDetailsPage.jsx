@@ -8,7 +8,7 @@ const BASE_CLASS_NAME = "EmployeeDetailsPage";
 
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import EmployeeDetails from './EmployeeDetails';
 import EmployeeDeleteModal from '../EmployeeDeleteModal/EmployeeDeleteModal';
 import EmployeeDeleteModalButton from '../EmployeeDeleteModal/EmployeeDeleteModalButton'
@@ -19,15 +19,15 @@ import EmployeeDeleteModalButton from '../EmployeeDeleteModal/EmployeeDeleteModa
 
 function EmployeeDetailsPage() {
   // const employee = useSelector(state => state.employees.employees[0]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
   const {employee} = location.state;
 
 
 
 const handleClickEditEmployee = (e) => {
-  e.preventDefault();
-  navigate('/editEmployeeForm')
+  // e.preventDefault();
+  // navigate('/editEmployeeForm')
 }
 
 
@@ -41,8 +41,15 @@ const handleClickEditEmployee = (e) => {
         <main id={`${BASE_CLASS_NAME}Main`}>
 
             <nav id={`${BASE_CLASS_NAME}Nav`}>
-              <button id={`${BASE_CLASS_NAME}EditButton`} onClick={handleClickEditEmployee}>Edit Employee</button>
-              <NavLink to='/editform/'id={`${BASE_CLASS_NAME}EditButton`} >Edit Employee</NavLink>
+
+           <Link to='/editEmployeeForm' state={{employeee: employee}} >
+           <button id={`${BASE_CLASS_NAME}EditButton`} onClick={handleClickEditEmployee}>Edit Employee</button>
+           </Link>
+
+
+
+
+
 {/*
               <button id={`${BASE_CLASS_NAME}DeleteButton`} onClick={handleClickDeleteEmployee}>
                 Delete Employee
