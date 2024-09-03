@@ -43,6 +43,11 @@ function VerticalNavBar(){
         navigate('/students')
       }
 
+      const handleTeachersClick = (e) => {
+        e.preventDefault;
+        navigate('/teachers')
+      }
+
       const handleEmployeesClick = (e) => {
         e.preventDefault;
         navigate('/employees')
@@ -56,7 +61,7 @@ function VerticalNavBar(){
 
                     <button onClick={handleResourcesClick} className='VerticalNavBarButton'>Resources</button>
                     <button onClick={handleDepartmentsClick} className='VerticalNavBarButton'>Departments</button>
-                    <button onClick={handleStudentsClick} className='VerticalNavBarButton'>Teachers</button>
+                    <button onClick={handleTeachersClick} className='VerticalNavBarButton'>Teachers</button>
                     <button onClick={handleStudentsClick} className='VerticalNavBarButton'>Students</button>
                     <button onClick={handleEmployeesClick} className='VerticalNavBarButton'>Employees</button>
 

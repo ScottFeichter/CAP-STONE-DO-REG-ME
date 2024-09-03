@@ -1,5 +1,6 @@
 import './Departments.css';
 import { useSelector } from 'react-redux';
+import EmployeeDepartments from './EmployeeDepartments/EmployeeDepartments.jsx';
 
 function Departments() {
   const employeeDepartments = useSelector(state => state.employeeDepartments.employeeDepartments);
@@ -13,7 +14,8 @@ function Departments() {
     <>
         <main>
             <div>
-                <h1>This is Departments!</h1>
+  
+                <EmployeeDepartments></EmployeeDepartments>
             </div>
         </main>
 

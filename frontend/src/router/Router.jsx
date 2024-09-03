@@ -5,6 +5,7 @@ import ProfilePage from "../components/Profile/ProfilePage.jsx";
 import Resources from "../components/Resources/Resources.jsx";
 import Departments from "../components/Departments/Departments.jsx";
 import Students from "../components/Students/Students.jsx";
+import Teachers from "../components/Teachers/Teachers.jsx";
 import Employees from "../components/Employees/Employees.jsx";
 import CreateNewEmployeeForm from "../components/Employees/createNewEmployeeForm/createNewEmployeeForm.jsx";
 import EditEmployeeForm from "../components/Employees/EditEmployeeForm/EditEmployeeForm.jsx";
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
         {
           path: "/students",
           element: <Students />
+        },
+        {
+          path: "/teachers",
+          element: <Teachers />
         },
         {
           path: "/employees",
