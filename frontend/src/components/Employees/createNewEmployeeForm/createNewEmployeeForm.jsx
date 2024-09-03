@@ -464,6 +464,7 @@ const checkInteger = () => {
          // --------------------------MAKING THE DISPATCH---------------------//
             let employeeId;
             let newEmployeeDetails;
+            if(newEmployeeDetails);
 
             await dispatch(employeesActions.thunkCreateEmployee(newEmployee))
             .then(response => {
@@ -478,14 +479,18 @@ const checkInteger = () => {
                     // console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
                 }
             )
-            
-            await dispatch(employeesActions.thunkGetEmployeeById(employeeId)).then(response => {
+
+            await dispatch(employeesActions.thunkGetEmployeeById(employeeId))
+            .then(response => {
+                dispatch(employeesActions.thunkGetEmployeesAll())
+                return response
+            }).then(response => {
                 newEmployeeDetails = response;
                 navigate(`/employees/${employeeId}`)
                 return response
             });
 
-            // console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+            console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         }
 
 
@@ -791,7 +796,7 @@ const checkInteger = () => {
 
 
                             <div id='ssnContainer' className='CreateNewEmployeeFormLabelInputContainer'>
-
+                                        <p className='CreateNewEmployeeFormRequired'>{required}</p>
                                         <label className='CreateNewEmployeeFormLabel'>
                                             SSN:
                                             <input

@@ -6,22 +6,52 @@ const BASE_CLASS_NAME = "EmployeeDetailsPage";
 
 //==================OTHER IMPORTS=======================//
 
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import EmployeeDetails from './EmployeeDetails';
 import EmployeeDeleteModal from '../EmployeeDeleteModal/EmployeeDeleteModal';
 import EmployeeDeleteModalButton from '../EmployeeDeleteModal/EmployeeDeleteModalButton'
-// import { useSelector } from 'react-redux';
+
 
 
 //===============FUNCTION DECLARATION===================//
 
 function EmployeeDetailsPage() {
-  // const employee = useSelector(state => state.employees.employees[0]);
-  // const navigate = useNavigate();
-  const location = useLocation();
-  const {employee} = location.state;
+
+  const navigate = useNavigate();
+  let employee;
+  let employees;
+  let employeeId;
+  let employeeParams;
+
+  let location;
+
+  try {
+      employeeParams = useParams();
+      employeeId  = employeeParams.employeeId;
+      employees = useSelector(state => state?.employees?.employees);
+      employee = employees.find(employee => employee.id === +employeeId)
+  } catch (err) {
+        console.log("err 38", err);
+        try {
+          location = useLocation();
+          employee = location.state.employee;
+        } catch (error) {
+          console.log("error 45: ", err);
+          navigate("/employees");
+        }
+  } finally {
+    console.log("employee 49 : ", employee);
+    console.log("employeeParams: ", employeeParams);
+    console.log("employeeId : ", employeeId);
+    console.log('employees : ', employees);
+    console.log("location : ", location);
+    console.log("employee 54 : ", employee);
+  }
+
 
 
 
