@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       Household.hasMany(models.Student, {
         foreignKey: 'household_Id',
         // onDelete: 'CASCADE',
-        hooks: true
+        // hooks: true
       });
     }
   }

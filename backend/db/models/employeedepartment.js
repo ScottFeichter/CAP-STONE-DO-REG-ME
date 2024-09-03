@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       EmployeeDepartment.hasMany(models.Employee, {
         foreignKey: 'employeeDepartment_Id',
         // onDelete: 'CASCADE',
-        hooks: true
+        // hooks: true
       });
     }
   }

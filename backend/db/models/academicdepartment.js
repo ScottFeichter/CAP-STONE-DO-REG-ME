@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       AcademicDepartment.hasMany(models.Employee, {
         foreignKey: 'academicDepartment_Id',
         // onDelete: 'CASCADE',
-        hooks: true
+        // hooks: true
       });
     }
   }

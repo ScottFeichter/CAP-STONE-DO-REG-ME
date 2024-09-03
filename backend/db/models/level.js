@@ -13,13 +13,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'level_Id',
         constraints: false
         // onDelete: 'CASCADE',
-        hooks: true
+        // hooks: true
       });
       UserType.hasMany(models.Student, {
         foreignKey: 'level_Id',
         constraints: false
         // onDelete: 'CASCADE',
-        hooks: true
+        // hooks: true
       });
 
     }
