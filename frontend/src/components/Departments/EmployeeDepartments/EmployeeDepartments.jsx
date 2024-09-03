@@ -26,7 +26,7 @@ function EmployeeDepartments() {
             <nav id="EmployeeDepartmentsNav">
               {/* <input type="text" id="EmployeeDepartmentsSearchBar" placeholder="Search EmployeeDepartments" ></input> */}
 
-              <button id="EmployeeDepartmentsCreateButton" onClick={handleClick}>Create New Employee Department</button>
+              <button id="EmployeeDepartmentsCreateButton" onClick={handleClick}>Create Employee Department</button>
             </nav>
 
 
