@@ -9,7 +9,7 @@ import './GlobalSearch.css';
 import { TbWorldSearch } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 
 //================COMPONENT IMPORTS=====================//
@@ -141,34 +141,34 @@ function GlobalSearch(){
       // setSelectedSuggestion(e.target.value);
       // console.log("selectedSelection", selectedSuggestion)
 
-      let ticker = "";
-      for (let i = 0; i < 6; i++) {
-        if (
-          e.target.value[i] === "" ||
-          e.target.value[i] === undefined ||
-          e.target.value[i] === "-"
-        )
-          break;
+      // let ticker = "";
+      // for (let i = 0; i < 6; i++) {
+      //   if (
+      //     e.target.value[i] === "" ||
+      //     e.target.value[i] === undefined ||
+      //     e.target.value[i] === "-"
+      //   )
+      //     break;
 
-        if (e.target.value[i] !== "" && e.target.value[i] !== undefined) {
-          ticker += e.target.value[i];
-        }
-      }
-      // console.log("ticker", ticker, stocks);
-      for (let i = 0; i < stocks.length; i++) {
-        if (stocks[i].name === ticker.trim()) {
-          displayedSuggestions = [{ test: "test" }];
-          // console.log(displayedSuggestions);
+      //   if (e.target.value[i] !== "" && e.target.value[i] !== undefined) {
+      //     ticker += e.target.value[i];
+      //   }
+      // }
+      // // console.log("ticker", ticker, stocks);
+      // for (let i = 0; i < stocks.length; i++) {
+      //   if (stocks[i].name === ticker.trim()) {
+      //     displayedSuggestions = [{ test: "test" }];
+      //     // console.log(displayedSuggestions);
 
-          document.getElementById("SearchBarInput").focus();
-          setSearch(ticker);
-          // console.log(search);
-          setSearch("");
-          return navigate(`/stocks/${stocks[i].id}`, {
-            state: { suggestions: stocks[i].id },
-          });
-        }
-      }
+      //     document.getElementById("SearchBarInput").focus();
+      //     setSearch(ticker);
+      //     // console.log(search);
+      //     setSearch("");
+      //     return navigate(`/stocks/${stocks[i].id}`, {
+      //       state: { suggestions: stocks[i].id },
+      //     });
+      //   }
+      // }
 
       // const stockDetail = searchSuggestions.find(suggestion => suggestion.name = ticker.toUpperCase())
 

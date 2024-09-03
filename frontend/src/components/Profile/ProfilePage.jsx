@@ -5,7 +5,7 @@ import './ProfilePage.css';
 
 //==================PROGRAM IMPORTS=====================//
 
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 
 
@@ -18,20 +18,20 @@ import ProfileDetails from './ProfileDetails';
 //===============FUNCTION DECLARATION===================//
 function ProfilePage(){
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const profile = useSelector(state => state.session.user);
 
 
 
-  const handleClickEditProfile = (e) => {
-    e.preventDefault();
-    navigate('/profiles/:profile_Id/editForm')
-  }
+  // const handleClickEditProfile = (e) => {
+  //   e.preventDefault();
+  //   navigate('/profiles/:profile_Id/editForm')
+  // }
 
-  const handleClickDeleteProfile = (e) => {
-    e.preventDefault();
-    navigate('/profiles/:profile_Id/deleteModal')
-  }
+  // const handleClickDeleteProfile = (e) => {
+  //   e.preventDefault();
+  //   navigate('/profiles/:profile_Id/deleteModal')
+  // }
 
 
 

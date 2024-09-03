@@ -21,7 +21,7 @@ function CreateNewEmployeeForm() {
 
         //-----required
         const [errorsName, setErrorsName] = useState({});
-        const [errorsImageURL, setErrorsImageURL] = useState({});
+        // const [errorsImageURL, setErrorsImageURL] = useState({});
         const [requiredFieldsMessage, setRequiredFieldsMessage] = useState({});
 
 

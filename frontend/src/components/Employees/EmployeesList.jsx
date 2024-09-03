@@ -17,7 +17,8 @@ function EmployeesList(){
 
     const [currentPage, setCurrentPage] = useState(1);
 
-    const [employeesPerPage, setEmployeesPerPage] = useState(2);
+    const [employeesPerPage, setEmployeesPerPage] = useState(30);
+    setEmployeesPerPage(30);
 
 
     const lastPostIndex = currentPage * employeesPerPage;

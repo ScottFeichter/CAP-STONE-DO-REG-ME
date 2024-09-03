@@ -19,6 +19,8 @@ function EmployeeDepartmentsList(){
 
     const [employeeDepartmentsPerPage, setEmployeeDepartmentsPerPage] = useState(30);
 
+    setEmployeeDepartmentsPerPage(30);
+
 
     const lastPostIndex = currentPage * employeeDepartmentsPerPage;
     const firstPostIndex = lastPostIndex - employeeDepartmentsPerPage;

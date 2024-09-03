@@ -1,8 +1,8 @@
 import './Students.css';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 function Students() {
-  const students = useSelector(state => state.students.students);
+  // const students = useSelector(state => state.students.students);
   // console.log("students: ", students);
 
 

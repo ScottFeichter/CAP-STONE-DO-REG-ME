@@ -23,7 +23,7 @@ function EditEmployeeDepartmentForm() {
 
         // console.log("employeeDepartmentToEdit : ", employeeDepartmentToEdit)
 
-        const [errors, setErrors] = useState({});
+        // const [errors, setErrors] = useState({});
 
         //-----required
         const [errorsName, setErrorsName] = useState({});
@@ -144,7 +144,8 @@ const checkRequired = () => {
             }).catch(async (res) => {
                     // console.log("res 439", res);
                     const data = await res.json();
-                    if (data.errors) setErrors(data.errors);
+                    if(data);
+                    // if (data.errors) setErrors(data.errors);
                     // console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
                 }
             )

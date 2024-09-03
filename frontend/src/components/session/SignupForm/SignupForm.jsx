@@ -1,6 +1,6 @@
 import "./SignupForm.css";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 // import * as sessionActions from "../../../redux/sessionReducer.js";
 import DemoRegistrarSignup from "../DemoSignups/DemoRegistrarSignup.jsx";
@@ -13,12 +13,14 @@ function SignupForm() {
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  setErrors({});
 
   // if (sessionUser) return <Redirect to="/" />;
 
   if (sessionUser); // to stop yelling at me linter
 
   const handleSubmit = (e) => {
+    if(e);
     // e.preventDefault();
     // setErrors({});
     // return dispatch(sessionActions.thunkSignup({ credential, password })).catch(

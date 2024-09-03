@@ -1,10 +1,10 @@
 import './Resources.css';
 
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 function Resources() {
-  const branches = useSelector(state => state.branches.branches);
-  const facilities = useSelector(state => state.facilities.facilities);
+  // const branches = useSelector(state => state.branches.branches);
+  // const facilities = useSelector(state => state.facilities.facilities);
   // console.log("branches: ", branches);
   // console.log("facilities: ", facilities);
 

@@ -6,8 +6,8 @@ const BASE_CLASS_NAME = "EmployeeDepartmentDetailsPage";
 
 //==================OTHER IMPORTS=======================//
 
-import { useNavigate } from 'react-router-dom'
-import { useLocation } from 'react-router-dom';
+
+// import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -21,36 +21,26 @@ import EmployeeDepartmentDeleteModalButton from '../EmployeeDepartmentDeleteModa
 
 function EmployeeDepartmentDetailsPage() {
 
-  const navigate = useNavigate();
+
   let employeeDepartment;
   let employeeDepartments;
   let employeeDepartmentId;
   let employeeDepartmentParams;
 
-  let location;
+  // let location;
 
-  try {
-      employeeDepartmentParams = useParams();
-      employeeDepartmentId  = employeeDepartmentParams.employeeDepartmentId;
-      employeeDepartments = useSelector(state => state?.employeeDepartments?.employeeDepartments);
-      employeeDepartment = employeeDepartments.find(employeeDepartment => employeeDepartment.id === +employeeDepartmentId)
-  } catch (err) {
-        // console.log("err 38", err);
-        try {
-          location = useLocation();
-          employeeDepartment = location.state.employeeDepartment;
-        } catch (error) {
-          // console.log("error 45: ", err);
-          navigate("/employeeDepartments");
-        }
-  } finally {
-    // console.log("employeeDepartment 49 : ", employeeDepartment);
-    // console.log("employeeDepartmentParams: ", employeeDepartmentParams);
-    // console.log("employeeDepartmentId : ", employeeDepartmentId);
-    // console.log('employeeDepartments : ', employeeDepartments);
-    // console.log("location : ", location);
-    // console.log("employeeDepartment 54 : ", employeeDepartment);
-  }
+  employeeDepartmentParams = useParams();
+  employeeDepartmentId  = employeeDepartmentParams.employeeDepartmentId;
+  employeeDepartments = useSelector(state => state?.employeeDepartments?.employeeDepartments);
+  employeeDepartment = employeeDepartments.find(employeeDepartment => employeeDepartment.id === +employeeDepartmentId)
+
+  // if(!employeeDepartment){
+  //   location = useLocation();
+  //   employeeDepartment = location.state.employeeDepartment;
+  // }
+
+
+
 
 
 
@@ -61,6 +51,7 @@ const handleClickEditEmployeeDepartment = () => {
 }
 
 
+if(!employeeDepartment) return null;
 
 
 //=================FUNCTION RETURN======================//
