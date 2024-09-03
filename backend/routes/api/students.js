@@ -157,10 +157,10 @@ router.post("/", requireAuth, async (req, res, next) => {
     where: [{ dob: dob }, { lastName1: lastName1 }, { lastName2: lastName2 }],
   });
 
-  console.log(
-    "exists ===============================================: ",
-    exists
-  );
+  // console.log(
+  //   "exists ===============================================: ",
+  //   exists
+  // );
 
   if (exists.length !== 0) {
     const err = new Error("Student already exists.");

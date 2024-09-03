@@ -85,7 +85,8 @@ const checkRequired = () => {
             if(checkRequired()) {
 
                 setRequiredFieldsMessage({message: "Required field must be complete - see errors above."});
-                return console.log("HANDLE SUBMIT STOPPED DUE TO REQUIRED FIELD MISSING INFORMATION")
+                // console.log("HANDLE SUBMIT STOPPED DUE TO REQUIRED FIELD MISSING INFORMATION")
+                return
             } else {
                 setRequiredFieldsMessage({});
             }
@@ -136,7 +137,7 @@ const checkRequired = () => {
                 return response
             });
 
-            console.log('HANDLE SUBMIT NEW EMPLOYEE DEPARTMENT HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+            // console.log('HANDLE SUBMIT NEW EMPLOYEE DEPARTMENT HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         }
 
 

@@ -351,14 +351,15 @@ const checkInteger = () => {
 // -----------------------------HANDLE SUBMIT -------------------------------//
         const handleSubmit = async (e) => {
             e.preventDefault();
-            console.log('HANDLE SUBMIT EDIT EMPLOYEE IS RUNNING');
+            // console.log('HANDLE SUBMIT EDIT EMPLOYEE IS RUNNING');
 
         // -----------------CLIENT SIDE VALIDATIONS-----------------------//
 
             if(checkRequired()) {
 
                 setRequiredFieldsMessage({message: "Required field must be complete - see errors above."});
-                return console.log("HANDLE SUBMIT STOPPED DUE TO REQUIRED FIELD MISSING INFORMATION")
+                // console.log("HANDLE SUBMIT STOPPED DUE TO REQUIRED FIELD MISSING INFORMATION")
+                return
             } else {
                 setRequiredFieldsMessage({});
             }
@@ -366,7 +367,8 @@ const checkInteger = () => {
 
             if(checkInteger()) {
                 setRequiredFieldsMessage({message: "Field(s) must be integers - see errors above."});
-                return console.log("HANDLE SUBMIT STOPPED DUE TO FIELD(S) MUST BE INTEGERS")
+                // console.log("HANDLE SUBMIT STOPPED DUE TO FIELD(S) MUST BE INTEGERS")
+                return
             } else {
                 setRequiredFieldsMessage({});
             }
@@ -420,7 +422,7 @@ const checkInteger = () => {
 
          editedEmployee.id = employeeToEdit.id;
 
-         console.log("editedEmployee 423: ", editedEmployee)
+        //  console.log("editedEmployee 423: ", editedEmployee)
 
          // --------------------------MAKING THE DISPATCH---------------------//
             let employeeId;
@@ -434,10 +436,10 @@ const checkInteger = () => {
                 employeeId = response.payload.id
                 return employeeId
             }).catch(async (res) => {
-                    console.log("res 439", res);
+                    // console.log("res 439", res);
                     const data = await res.json();
                     if (data.errors) setErrors(data.errors);
-                    console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
+                    // console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
                 }
             )
 
@@ -448,7 +450,7 @@ const checkInteger = () => {
                 return response
             });
 
-            console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+            // console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         }
 
 

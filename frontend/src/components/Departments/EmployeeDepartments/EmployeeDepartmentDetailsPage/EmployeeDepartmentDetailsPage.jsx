@@ -35,21 +35,21 @@ function EmployeeDepartmentDetailsPage() {
       employeeDepartments = useSelector(state => state?.employeeDepartments?.employeeDepartments);
       employeeDepartment = employeeDepartments.find(employeeDepartment => employeeDepartment.id === +employeeDepartmentId)
   } catch (err) {
-        console.log("err 38", err);
+        // console.log("err 38", err);
         try {
           location = useLocation();
           employeeDepartment = location.state.employeeDepartment;
         } catch (error) {
-          console.log("error 45: ", err);
+          // console.log("error 45: ", err);
           navigate("/employeeDepartments");
         }
   } finally {
-    console.log("employeeDepartment 49 : ", employeeDepartment);
-    console.log("employeeDepartmentParams: ", employeeDepartmentParams);
-    console.log("employeeDepartmentId : ", employeeDepartmentId);
-    console.log('employeeDepartments : ', employeeDepartments);
-    console.log("location : ", location);
-    console.log("employeeDepartment 54 : ", employeeDepartment);
+    // console.log("employeeDepartment 49 : ", employeeDepartment);
+    // console.log("employeeDepartmentParams: ", employeeDepartmentParams);
+    // console.log("employeeDepartmentId : ", employeeDepartmentId);
+    // console.log('employeeDepartments : ', employeeDepartments);
+    // console.log("location : ", location);
+    // console.log("employeeDepartment 54 : ", employeeDepartment);
   }
 
 

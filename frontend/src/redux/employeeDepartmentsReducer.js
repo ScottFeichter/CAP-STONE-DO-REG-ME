@@ -129,7 +129,7 @@ export const thunkEditEmployeeDepartment = (editedEmployeeDepartment) => async (
   const { id } = editedEmployeeDepartment;
 //  console.log('UPDATED EMPLOYEE DEPARTMENT FROM EMPLOYEE DEPARTMENTS EDIT EMPLOYEE DEPARTMENT', updatedEmployeeDepartment);
 
-console.log("editedEmployee Department from reducer:", editedEmployeeDepartment, id)
+// console.log("editedEmployee Department from reducer:", editedEmployeeDepartment, id)
 
   const response = await csrfFetch(`/api/employeeDepartments/${id}`, {
     method: "PUT",

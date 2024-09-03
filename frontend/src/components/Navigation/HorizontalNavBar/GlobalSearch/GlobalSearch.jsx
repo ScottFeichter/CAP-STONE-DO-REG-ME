@@ -100,8 +100,8 @@ function GlobalSearch(){
       if (!search || search === undefined || search === "")
         return setPlaceHolder("Enter a value to search");
 
-      console.log("e.target.value in handlesubmit", e.target.value);
-      console.log("search = ", search);
+      // console.log("e.target.value in handlesubmit", e.target.value);
+      // console.log("search = ", search);
 
       // if(e.target.value === "" || e.target.value === undefined){
       //   setSearch("");
@@ -112,13 +112,13 @@ function GlobalSearch(){
 
       // dispatch(searchActions.search({search}));
 
-      console.log("THIS IS PSUEDO FOR A SEARCH RUNNING WITH: ", search);
+      // console.log("THIS IS PSUEDO FOR A SEARCH RUNNING WITH: ", search);
 
       // setSelectedSuggestion("")
 
       setSearch("");
 
-      console.log("HANDLE SUBMIT SEARCH RAN");
+      // console.log("HANDLE SUBMIT SEARCH RAN");
 
       return navigate("/searchResults", {
         state: { suggestions: searchSuggestions },
@@ -154,15 +154,15 @@ function GlobalSearch(){
           ticker += e.target.value[i];
         }
       }
-      console.log("ticker", ticker, stocks);
+      // console.log("ticker", ticker, stocks);
       for (let i = 0; i < stocks.length; i++) {
         if (stocks[i].name === ticker.trim()) {
           displayedSuggestions = [{ test: "test" }];
-          console.log(displayedSuggestions);
+          // console.log(displayedSuggestions);
 
           document.getElementById("SearchBarInput").focus();
           setSearch(ticker);
-          console.log(search);
+          // console.log(search);
           setSearch("");
           return navigate(`/stocks/${stocks[i].id}`, {
             state: { suggestions: stocks[i].id },

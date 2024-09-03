@@ -399,7 +399,8 @@ const checkInteger = () => {
             if(checkRequired()) {
 
                 setRequiredFieldsMessage({message: "Required field must be complete - see errors above."});
-                return console.log("HANDLE SUBMIT STOPPED DUE TO REQUIRED FIELD MISSING INFORMATION")
+                // console.log("HANDLE SUBMIT STOPPED DUE TO REQUIRED FIELD MISSING INFORMATION")
+                return
             } else {
                 setRequiredFieldsMessage({});
             }
@@ -407,7 +408,8 @@ const checkInteger = () => {
 
             if(checkInteger()) {
                 setRequiredFieldsMessage({message: "Field(s) must be integers - see errors above."});
-                return console.log("HANDLE SUBMIT STOPPED DUE TO FIELD(S) MUST BE INTEGERS")
+                // console.log("HANDLE SUBMIT STOPPED DUE TO FIELD(S) MUST BE INTEGERS")
+                return
             } else {
                 setRequiredFieldsMessage({});
             }
@@ -493,7 +495,7 @@ const checkInteger = () => {
                 return response
             });
 
-            console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+            // console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         }
 
 

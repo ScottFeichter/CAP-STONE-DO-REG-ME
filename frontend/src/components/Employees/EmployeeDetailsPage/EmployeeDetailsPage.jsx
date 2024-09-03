@@ -35,21 +35,21 @@ function EmployeeDetailsPage() {
       employees = useSelector(state => state?.employees?.employees);
       employee = employees.find(employee => employee.id === +employeeId)
   } catch (err) {
-        console.log("err 38", err);
+        // console.log("err 38", err);
         try {
           location = useLocation();
           employee = location.state.employee;
         } catch (error) {
-          console.log("error 45: ", err);
+          // console.log("error 45: ", err);
           navigate("/employees");
         }
   } finally {
-    console.log("employee 49 : ", employee);
-    console.log("employeeParams: ", employeeParams);
-    console.log("employeeId : ", employeeId);
-    console.log('employees : ', employees);
-    console.log("location : ", location);
-    console.log("employee 54 : ", employee);
+    // console.log("employee 49 : ", employee);
+    // console.log("employeeParams: ", employeeParams);
+    // console.log("employeeId : ", employeeId);
+    // console.log('employees : ', employees);
+    // console.log("location : ", location);
+    // console.log("employee 54 : ", employee);
   }
 
 
@@ -71,7 +71,7 @@ const handleClickEditEmployee = () => {
  // RE RENDER MEANS THE DOM IS BEING UPDATE IN THE BROWSER - THE HTML IS CHANGING
  // BROWSER REFRESH COMPLETELY EMPTIES REDUX
 
- 
+
 
 //=================FUNCTION RETURN======================//
 

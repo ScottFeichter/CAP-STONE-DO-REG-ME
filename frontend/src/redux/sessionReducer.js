@@ -82,7 +82,7 @@ export const thunkSignup = (user) => async (dispatch) => {
 export const thunkRestoreUser = () => async (dispatch) => {
   const response = await csrfFetch("/api/session");
   const data = await response.json();
-  console.log(`THUNK RESTORE USER RAN - DATA`,  response);
+  // console.log(`THUNK RESTORE USER RAN - DATA`,  response);
 
   if(data.user !== null) {
       // console.log("data.user", data.user);

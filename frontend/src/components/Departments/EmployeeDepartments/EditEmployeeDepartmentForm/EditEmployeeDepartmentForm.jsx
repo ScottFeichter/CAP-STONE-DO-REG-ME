@@ -102,14 +102,14 @@ const checkRequired = () => {
 // -----------------------------HANDLE SUBMIT -------------------------------//
         const handleSubmit = async (e) => {
             e.preventDefault();
-            console.log('HANDLE SUBMIT EDIT EMPLOYEE DEPARTMENT IS RUNNING');
+            // console.log('HANDLE SUBMIT EDIT EMPLOYEE DEPARTMENT IS RUNNING');
 
         // -----------------CLIENT SIDE VALIDATIONS-----------------------//
 
             if(checkRequired()) {
 
                 setRequiredFieldsMessage({message: "Required field must be complete - see errors above."});
-                return console.log("HANDLE SUBMIT STOPPED DUE TO REQUIRED FIELD MISSING INFORMATION")
+                // return console.log("HANDLE SUBMIT STOPPED DUE TO REQUIRED FIELD MISSING INFORMATION")
             } else {
                 setRequiredFieldsMessage({});
             }
@@ -128,7 +128,7 @@ const checkRequired = () => {
 
          editedEmployeeDepartment.id = employeeDepartmentToEdit.id;
 
-         console.log("editedEmployeeDepartment 423: ", editedEmployeeDepartment)
+        //  console.log("editedEmployeeDepartment 423: ", editedEmployeeDepartment)
 
          // --------------------------MAKING THE DISPATCH---------------------//
             let employeeDepartmentId;
@@ -142,10 +142,10 @@ const checkRequired = () => {
                 employeeDepartmentId = response.payload.id
                 return employeeDepartmentId
             }).catch(async (res) => {
-                    console.log("res 439", res);
+                    // console.log("res 439", res);
                     const data = await res.json();
                     if (data.errors) setErrors(data.errors);
-                    console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
+                    // console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
                 }
             )
 
@@ -156,7 +156,7 @@ const checkRequired = () => {
                 return response
             });
 
-            console.log('HANDLE SUBMIT NEW EMPLOYEE DEPARTMENT HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+            // console.log('HANDLE SUBMIT NEW EMPLOYEE DEPARTMENT HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         }
 
 

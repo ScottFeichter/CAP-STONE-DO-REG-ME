@@ -128,7 +128,7 @@ export const thunkCreateEmployee = (newEmployee) => async (dispatch) => {
 export const thunkEditEmployee = (editedEmployee) => async (dispatch) => {
 
   const { id } = editedEmployee;
-  console.log("editedEmployee from reducer:", editedEmployee, id)
+  // console.log("editedEmployee from reducer:", editedEmployee, id)
 //  console.log('UPDATED EMPLOYEE FROM EMPLOYEES EDIT EMPLOYEE', updatedEmployee);
 
   const response = await csrfFetch(`/api/employees/${id}`, {

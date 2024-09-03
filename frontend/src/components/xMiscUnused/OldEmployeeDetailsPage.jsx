@@ -74,11 +74,11 @@ function OldEmployeeDetailsPage() {
 
      } = employee;
 
- console.log("OBJECT.KEYS EMPLOYEE: ", employeeObjectKeys);
- console.log("OBJECT.VALUES EMPLOYEE: ", employeeObjectValues);
- console.log("OBJECT.ENTRIES EMPLOYEE: ", employeeObjectEntries);
+//  console.log("OBJECT.KEYS EMPLOYEE: ", employeeObjectKeys);
+//  console.log("OBJECT.VALUES EMPLOYEE: ", employeeObjectValues);
+//  console.log("OBJECT.ENTRIES EMPLOYEE: ", employeeObjectEntries);
 
- console.log("DESTRUCTURED EMPLOYEE: ",
+//  console.log("DESTRUCTURED EMPLOYEE: ",
     id,
     employeeDepartment_Id,
     academicDepartment_Id,

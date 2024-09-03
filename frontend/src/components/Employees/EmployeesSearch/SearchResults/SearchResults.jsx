@@ -46,7 +46,7 @@ const SearchResults = () => {
         <div id="SearchResults"></div>
       </main> */}
       <div className="stock-list-container">
-        {console.log(currentPost)}
+        {/* {console.log(currentPost)} */}
         {currentPost.map((stock, index) => {
           return (
             <ListStocksIndex

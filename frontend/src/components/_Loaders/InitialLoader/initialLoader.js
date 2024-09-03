@@ -4,7 +4,7 @@ export const initialLoader = async () => {
 
 
   branchesActions.thunkGetBranchesAll();
-  console.log("===============InitialLoader RAN===================")
+  // console.log("===============InitialLoader RAN===================")
 
   return null
 };

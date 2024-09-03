@@ -93,8 +93,8 @@ function EmployeesSearchBar() {
     if (!search || search === undefined || search === "")
       return setPlaceHolder("Enter a value to search");
 
-    console.log("e.target.value in handlesubmit", e.target.value);
-    console.log("search = ", search);
+    // console.log("e.target.value in handlesubmit", e.target.value);
+    // console.log("search = ", search);
 
     // if(e.target.value === "" || e.target.value === undefined){
     //   setSearch("");
@@ -105,13 +105,13 @@ function EmployeesSearchBar() {
 
     // dispatch(searchActions.search({search}));
 
-    console.log("THIS IS PSUEDO FOR A SEARCH RUNNING WITH: ", search);
+    // console.log("THIS IS PSUEDO FOR A SEARCH RUNNING WITH: ", search);
 
     // setSelectedSuggestion("")
 
     setSearch("");
 
-    console.log("HANDLE SUBMIT SEARCH RAN");
+    // console.log("HANDLE SUBMIT SEARCH RAN");
 
     return navigate("/searchResults", {
       state: { suggestions: searchSuggestions },
@@ -129,22 +129,22 @@ function EmployeesSearchBar() {
    */
   const handleSearchSuggestionButton = (e) => {
     e.preventDefault();
-    console.log("e.target.value============== ", e.target.value);
+    // console.log("e.target.value============== ", e.target.value);
 
     // setSelectedSuggestion(e.target.value);
     // console.log("selectedSelection", selectedSuggestion)
 
     let firstName1 = e.target.value;
 
-    console.log("firstName1 line 152", firstName1, employees);
+    // console.log("firstName1 line 152", firstName1, employees);
     for (let i = 0; i < employees.length; i++) {
       if (employees[i].firstName1 === firstName1) {
         displayedSuggestions = [{ test: "test" }];
-        console.log(displayedSuggestions);
+        // console.log(displayedSuggestions);
 
         document.getElementById("EmployeesSearchBarInput").focus();
         setSearch(firstName1);
-        console.log(search);
+        // console.log(search);
         setSearch("");
         return navigate(`/employees/${employees[i].id}`, {
           state: { suggestions: employees[i].id },
@@ -189,7 +189,7 @@ function EmployeesSearchBar() {
   // ===========================RETURN ===============================
   // =======================GRABING STOCK DATA FROM STORE=======================
   const navEmployees = useSelector((store) => store.employees.employees);
-  console.log("navEmployees from searchBar = ", navEmployees)
+  // console.log("navEmployees from searchBar = ", navEmployees)
   if (navEmployees === null) return null;
 
   const searchables = navEmployees;
@@ -199,7 +199,7 @@ function EmployeesSearchBar() {
   // });
 
   // const searchables = ["AAPL", "AMZN", "BUTT"]
-  console.log("searchables from searchbar ============= ", searchables)
+  // console.log("searchables from searchbar ============= ", searchables)
 
   return (
     <>
