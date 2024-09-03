@@ -1,11 +1,11 @@
 //============CSS IMPORT AND BASE CLASS NAME============//
 
 const BASE_CLASS_NAME = "EmployeeDetails";
-import { useSelector } from 'react-redux';
+
 import './EmployeeDetails.css';
 
 //==================PROGRAM IMPORTS=====================//
-
+import { useSelector } from 'react-redux';
 
 //================COMPONENT IMPORTS=====================//
 
@@ -24,7 +24,7 @@ function EmployeeDetails(){
 
 <main id="EmployeeDetailsMain">
 
-<h1 id='EmployeeDetailsH1'>Employee Details</h1>
+
 
 
         <div id='EmployeeDetailsForm' >
@@ -33,11 +33,6 @@ function EmployeeDetails(){
             <section id="EmployeeDetailsFormSection1">
 
                 <h4 id="EmployeeDetailsFormSection1H4">Personal Information</h4>
-
-                <p id="EmployeeDetailsFormSection1P">
-                    Enter personal information for new employee.
-                </p>
-                <h5 className='EmployeeDetailsH5'>* indicates required field</h5>
 
 
 
@@ -55,26 +50,22 @@ function EmployeeDetails(){
 {/* form section 2---------------------------------------------------------- */}
 
             <section id="EmployeeDetailsFormSection2">
-
-            <h4 id="EmployeeDetailsFormSection2H4">Employment Information</h4>
+                <h4 id="EmployeeDetailsFormSection2H4">Employment Information</h4>
 
 
 
             </section>
-
             <hr className='EmployeeDetailsHr'></hr>
 
 {/* form section 3---------------------------------------------------------- */}
 
             <section id="EmployeeDetailsFormSection3">
-
-            <h4 id="EmployeeDetailsFormSection3H4">Biographical Information</h4>
+                <h4 id="EmployeeDetailsFormSection3H4">Biographical Information</h4>
 
 
 
 
             </section>
-
             <hr className='EmployeeDetailsHr'></hr>
 
 
@@ -84,8 +75,7 @@ function EmployeeDetails(){
 
 
             <section id="EmployeeDetailsFormSection4">
-
-            <h4 id="EmployeeDetailsFormSection4H4">Additional Employment Information</h4>
+                <h4 id="EmployeeDetailsFormSection4H4">Additional Employment Information</h4>
 
 
 
@@ -104,12 +94,11 @@ function EmployeeDetails(){
 
 
             </section>
-
             <hr className='EmployeeDetailsHr'></hr>
 
 
 
-{/* form button---------------------------------------------------------- */}
+{/* to top button---------------------------------------------------------- */}
 
 
 
