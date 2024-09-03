@@ -1,4 +1,5 @@
 #ModeButtonButton {
+    visibility: hidden;
     text-align: center;
     height: 3rem;
     width: 3rem;
