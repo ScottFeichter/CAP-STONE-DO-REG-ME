@@ -42,11 +42,11 @@ function ProfilePage(){
         <h1 id={`${BASE_CLASS_NAME}H1`}>Your Profile </h1>
         <main id={`${BASE_CLASS_NAME}Main`}>
 
-            <nav id={`${BASE_CLASS_NAME}Nav`}>
+            {/* <nav id={`${BASE_CLASS_NAME}Nav`}>
               <button id={`${BASE_CLASS_NAME}EditButton`} onClick={handleClickEditProfile}>Edit Profile</button>
 
               <button id={`${BASE_CLASS_NAME}DeleteButton`} onClick={handleClickDeleteProfile}>Delete Profile</button>
-            </nav>
+            </nav> */}
 
 
             <div>

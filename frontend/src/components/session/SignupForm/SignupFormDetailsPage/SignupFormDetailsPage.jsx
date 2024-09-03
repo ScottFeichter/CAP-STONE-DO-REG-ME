@@ -1,9 +1,8 @@
 // frontend/src/components/SignupFormPage/index.js
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
-import * as sessionActions from "../../store/session";
-import "SignupFormDetailsPage.css";
+import * as sessionActions from "../../../../redux/sessionReducer";
+import "./SignupFormDetailsPage.css";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -16,7 +15,7 @@ function SignupFormPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
 
-  if (sessionUser) return <Redirect to="/" />;
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

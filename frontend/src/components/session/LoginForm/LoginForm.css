@@ -1,4 +1,7 @@
 #LoginFormMain{
+    width: 19rem;
+    height: 42rem;
+    margin: 0 0 2rem 0;
     text-align: center;
     display: flex;
     flex-direction: column;

@@ -1,13 +1,14 @@
 import "./SignupForm.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as sessionActions from "../../../redux/sessionReducer.js";
+import { NavLink } from "react-router-dom";
+// import * as sessionActions from "../../../redux/sessionReducer.js";
 import DemoRegistrarSignup from "../DemoSignups/DemoRegistrarSignup.jsx";
 
 
 
 function SignupForm() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -15,17 +16,17 @@ function SignupForm() {
 
   // if (sessionUser) return <Redirect to="/" />;
 
-  if (sessionUser);
+  if (sessionUser); // to stop yelling at me linter
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setErrors({});
-    return dispatch(sessionActions.thunkSignup({ credential, password })).catch(
-      async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      }
-    );
+    // e.preventDefault();
+    // setErrors({});
+    // return dispatch(sessionActions.thunkSignup({ credential, password })).catch(
+    //   async (res) => {
+    //     const data = await res.json();
+    //     if (data && data.errors) setErrors(data.errors);
+    //   }
+    // );
   };
 
   return (
@@ -56,9 +57,13 @@ function SignupForm() {
             />
           </label>
           {errors.credential && <p>{errors.credential}</p>}
+
+          <NavLink to='/signupform'>
           <button
+            onClick={handleSubmit}
             id="SignupFormButton"
             type="submit">Submit</button>
+            </NavLink>
 
           </form>
 

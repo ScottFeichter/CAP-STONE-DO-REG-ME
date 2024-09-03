@@ -1,7 +1,7 @@
 import {useState } from 'react';
 import {useDispatch } from 'react-redux'
-import { useModal } from '../../../context/Modal';
-import * as sessionActions from '../../session'
+// import { useModal } from '../../../context/Modal';
+import * as sessionActions from '../../../../redux/sessionReducer'
 import { useEffect } from 'react';
 import './SignupFormModal.css';
 
@@ -15,31 +15,31 @@ const SignupFormModal = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState({});
-    const [isDisabled, setIsDisabled] = useState(true);
-    const { closeModal } = useModal();
+    // const [isDisabled, setIsDisabled] = useState(true);
+    // const { closeModal } = useModal();
 
 
 // Log In Button Disabled------------------------------------------------------------------------
 
 
-const checkDisabled = () => {
-    if(
-    (firstName.length === 0 || !firstName) ||
-    (lastName.length === 0 || !lastName) ||
-    (email.length === 0 || !email) ||
-    (username.length === 0 || !username) ||
-    (password.length === 0 || !password) ||
-    (confirmPassword.length === 0 || !confirmPassword) ||
-    (username.length < 4) ||
-    (password.length < 6)
-    )
-    {setIsDisabled(true) } else {setIsDisabled(false)}
+// const checkDisabled = () => {
+//     if(
+//     (firstName.length === 0 || !firstName) ||
+//     (lastName.length === 0 || !lastName) ||
+//     (email.length === 0 || !email) ||
+//     (username.length === 0 || !username) ||
+//     (password.length === 0 || !password) ||
+//     (confirmPassword.length === 0 || !confirmPassword) ||
+//     (username.length < 4) ||
+//     (password.length < 6)
+//     )
+//     {setIsDisabled(true) } else {setIsDisabled(false)}
 
-   }
+//    }
 
-   useEffect(()=> {
-    checkDisabled();
-   });
+//    useEffect(()=> {
+//     checkDisabled();
+//    });
 
 
 
@@ -50,8 +50,7 @@ const checkDisabled = () => {
         if (confirmPassword === password) {
             setErrors({});
             // console.log('HANDLE SUBMIT RAN - SIGNUP INFO', firstName, lastName, email, username, password);
-            return dispatch(sessionActions.signup({firstName, lastName, email, username, password}))
-            .then(closeModal)
+            return dispatch(sessionActions.thunkSignup({firstName, lastName, email, username, password}))
             .catch(
                 async (res) => {
                     const data = await res.json();
@@ -68,11 +67,15 @@ const checkDisabled = () => {
 
     return (
       <main id="SignupFormModalMain">
+            <div id="SignupFormDivBanner">
 
-        <h1>Sign Up</h1>
+            </div>
+
+
 
 
                 <form id='SignupForm' onSubmit={handleSubmit}>
+                    <h2 id="SignupFormH2">Sign Up</h2>
 
                     <div id='firstNameContainer'>
                             <div className="SignUpFormErrors">{errors.firstName}</div>
@@ -89,7 +92,7 @@ const checkDisabled = () => {
                                     />
                                 </label>
                             </div>
-                            {/* {errors.firstName && <p>{errors.firstName}</p>} */}
+                            {errors.firstName && <p>{errors.firstName}</p>}
 
                         <div id='lastNameContainer'>
                             <div className="SignUpFormErrors">{errors.lastName}</div>
@@ -106,7 +109,7 @@ const checkDisabled = () => {
                                     />
                                 </label>
                             </div>
-                            {/* {errors.lastName && <p>{errors.lastName}</p>} */}
+                            {errors.lastName && <p>{errors.lastName}</p>}
 
                         <div id='emailContainer'>
                             <div className="SignUpFormErrors">{errors.email}</div>
@@ -123,7 +126,7 @@ const checkDisabled = () => {
                                     />
                                 </label>
                             </div>
-                            {/* {errors.email && <p>{errors.email}</p>} */}
+                            {errors.email && <p>{errors.email}</p>}
 
                         <div id='userNameContainer'>
                             <div className="SignUpFormErrors">{errors.username}</div>
@@ -140,7 +143,7 @@ const checkDisabled = () => {
                                         />
                                     </label>
                                 </div>
-                                {/* {errors.username && <p>{errors.username}</p>} */}
+                                {errors.username && <p>{errors.username}</p>}
 
 
                             <div id='passwordContainer'>
@@ -158,7 +161,7 @@ const checkDisabled = () => {
                                         />
                                     </label>
                                 </div>
-                                {/* {errors.password && <p>{errors.password}</p>} */}
+                                {errors.password && <p>{errors.password}</p>}
 
 
                             <div id='confirmPasswordContainer'>
@@ -176,13 +179,13 @@ const checkDisabled = () => {
                                         />
                                     </label>
                                 </div>
-                                {/* {errors.confirmPassword && <p>{errors.confirmPassword}</p>} */}
+                                {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
 
                             <div id="buttonContainer">
                                 <button
                                     id="SignupFormModalButton"
                                     type="submit"
-                                    disabled={isDisabled}
+                                    // disabled={isDisabled}
                                     >Sign Up
                                 </button>
                             </div>

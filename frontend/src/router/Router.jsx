@@ -10,10 +10,16 @@ import CreateNewEmployeeForm from "../components/Employees/createNewEmployeeForm
 import EditEmployeeForm from "../components/Employees/EditEmployeeForm/EditEmployeeForm.jsx";
 import EmployeeDetailPage from "../components/Employees/EmployeeDetailsPage/EmployeeDetailsPage.jsx";
 import EmployeeDetails from "../components/Employees/EmployeeDetailsPage/EmployeeDetails.jsx";
+import SignupFormDetailsPage from "../components/Session/SignupForm/SignupFormDetailsPage/SignupFormDetailsPage.jsx";
+import SignupFormModal from "../components/Session/SignupForm/SignupFormModal/SignupFormModal.jsx";
 
 
 export const router = createBrowserRouter([
+  {  path: "/signupform",
+    element: <SignupFormModal />
+  },
   {
+
     element: <Layout />,
     children: [
         {
@@ -52,10 +58,8 @@ export const router = createBrowserRouter([
           path: "/editEmployeeForm/",
           element: <EditEmployeeForm />,
         },
-        {
-        path: "/temp",
-        element: <EmployeeDetails />,
-      },
+
+
 
 
 
@@ -131,6 +135,7 @@ export const router = createBrowserRouter([
           </div>
         ),
       },
+
     ],
   },
 ]);

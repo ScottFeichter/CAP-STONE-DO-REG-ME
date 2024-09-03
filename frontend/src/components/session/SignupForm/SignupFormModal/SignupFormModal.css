@@ -1,19 +1,44 @@
 /* ======================MAIN========================== */
 
  #SignupFormModalMain {
-    width: 20rem;
-    height: 40rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    /* border: purple 2px solid; */
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h1 {
+/* #SignupFormDivBanner{
+    margin: -1;
+    padding: 1rem 0 0 0;
+    height: 5rem;
+    width: 100%;
     text-align: center;
+    color: white;
+    background-color: var(--green1);
+    border: var(--border);
+}
+
+#SignupFormH1{
+    padding: 0 0 2rem 0;
+} */
+
+#SignupFormH2{
+    text-align: center;
+    font-size: xx-large;
 }
 
 
 #SignupForm{
-    margin: 3rem 4rem 4rem 4rem;
-    padding: 2rem 0rem 0rem 0rem;
-    border: 1px #FF5A5F solid;
+    text-align: center;
+    margin: 2rem 4rem 4rem 4rem;
+    /* padding: 2rem 0rem 0rem 0rem; */
+    width: 20rem;
+    border: var(--border);
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -21,6 +46,9 @@ h1 {
     justify-content: center;
 }
 
+#firstNameContainer{
+    margin: 2rem 0 0 0;
+}
 
 .SignupFormLabel {
     display: flex;
@@ -47,19 +75,20 @@ h1 {
 
 
 #SignupFormModalButton {
-    margin: 1rem 0 3rem 0;
+    margin: 2rem 0 3rem 0;
     width: 8rem;
     height: 2rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 500;
     border-radius: 25px;
-    width: 100px;
+    width: 10rem;
+    height: 2.5rem;
 }
 
 #SignupFormModalButton:enabled {
-    border: 1px solid #FE595D;
+    border: var(--border);
     color: white;
-    background-color: #FE595D;
+    background-color: var(--green1);
 
 }
 
@@ -71,11 +100,13 @@ h1 {
 }
 
 #SignupFormModalButton:enabled:hover {
-    color: white;
-    background-color: rgba(0, 0, 0, 1);
+    color: black;
+    border-color: var(--green2);
+    background-color: var(--green2);
+    cursor: pointer;
 }
 
 #SignupFormModalButton:enabled:active{
-    color: #FE595D;
+    color: var(--green1);
     background-color: rgba(255, 255, 255, .5);
 }
