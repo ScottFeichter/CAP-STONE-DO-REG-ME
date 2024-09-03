@@ -472,6 +472,7 @@ const checkInteger = () => {
             })
             .then(response => {
                 employeeId = response.payload[0].id;
+                dispatch(employeesActions.thunkGetEmployeesAll());
                 return employeeId;
             }).catch(async (res) => {
                     const data = await res.json();
@@ -480,8 +481,10 @@ const checkInteger = () => {
                 }
             )
 
-            await dispatch(employeesActions.thunkGetEmployeeById(employeeId))
-            .then(response => {
+            await dispatch(employeesActions.thunkGetEmployeesAll()).then((response) => {
+                dispatch(employeesActions.thunkGetEmployeeById(employeeId));
+                return response
+            }).then(response => {
                 dispatch(employeesActions.thunkGetEmployeesAll())
                 return response
             }).then(response => {

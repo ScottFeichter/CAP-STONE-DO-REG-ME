@@ -12,21 +12,6 @@ import EmployeeDetailPage from "../components/Employees/EmployeeDetailsPage/Empl
 import EmployeeDetails from "../components/Employees/EmployeeDetailsPage/EmployeeDetails.jsx";
 
 
-
-// import ListStocks from "../components/ListStocks/ListStocks.jsx"
-// import { initialLoader } from "../components/_Loaders/InitialLoader/initialLoader.js";
-// import { modifyPortfolio } from "../components/actions/portfolios";
-
-// import { watchlistLoader } from "../components/loaders/watchLists";
-// import Watchlist from "../components/Watchlist/Watchlist";
-// import { deleteWatchlist } from "../components/actions/watchLists";
-// import WatchlistAll from "../components/Watchlist/WatchlistUser_All";
-
-// import SearchResults from "../components/Navigation/SearchResults/SearchResults.jsx";
-// import { navStocksLoader } from "../components/loaders/navStocksLoader.js";
-
-// import UpdateProfileModal from "../components/Profile/UpdateProfileModal.jsx";
-
 export const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -61,17 +46,14 @@ export const router = createBrowserRouter([
         },
         {
           path: "/createNewEmployeeForm/",
-          // loader: listStocksLoader,
           element: <CreateNewEmployeeForm />,
         },
         {
           path: "/editEmployeeForm/",
-          // loader: listStocksLoader,
           element: <EditEmployeeForm />,
         },
         {
         path: "/temp",
-        // loader: listStocksLoader,
         element: <EmployeeDetails />,
       },
 
