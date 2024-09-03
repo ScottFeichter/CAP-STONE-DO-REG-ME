@@ -9,13 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      UserType.hasMany(models.Employee, {
+      Level.hasMany(models.Employee, {
         foreignKey: 'level_Id',
         constraints: false
         // onDelete: 'CASCADE',
         // hooks: true
       });
-      UserType.hasMany(models.Student, {
+      Level.hasMany(models.Student, {
         foreignKey: 'level_Id',
         constraints: false
         // onDelete: 'CASCADE',
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
 
     }
   }
-  UserType.init(
+  Level.init(
     {
       id: {
         primaryKey: true,
@@ -46,5 +46,5 @@ module.exports = (sequelize, DataTypes) => {
       modelName: 'Level',
     }
   );
-  return UserType;
+  return Level;
 };
