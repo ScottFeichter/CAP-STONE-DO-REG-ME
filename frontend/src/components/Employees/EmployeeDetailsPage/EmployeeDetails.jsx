@@ -12,8 +12,24 @@ import { useSelector } from 'react-redux';
 
 //===============FUNCTION DECLARATION===================//
 function EmployeeDetails(){
+
     const employee = useSelector(state => state.employees.employees[0])
-    console.log("employee : ", employee)
+    // const employeeObjectKeys = Object.keys(employee);
+    // const employeeObjectValues = Object.values(employee);
+    // const employeeObjectEntries = Object.entries(employee);
+
+    const infoDivider = ":";
+
+    function getKeyByValue(object, value) {
+        return Object.keys(object).find(key =>
+            object[key] === value);
+    }
+
+//--------------------handleScroll-----------------------//
+
+const handleScroll = (e) => {
+    e.preventDefault();
+}
 
 
 
@@ -35,11 +51,90 @@ function EmployeeDetails(){
                 <h4 id="EmployeeDetailsFormSection1H4">Personal Information</h4>
 
 
-
                 <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
-                        <div className='EmployeeDetailsFormLabel'>First Name 1:</div>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
                         <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
                 </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
 
 
 
@@ -54,6 +149,93 @@ function EmployeeDetails(){
 
 
 
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+
+
             </section>
             <hr className='EmployeeDetailsHr'></hr>
 
@@ -64,9 +246,96 @@ function EmployeeDetails(){
 
 
 
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+
+
 
             </section>
             <hr className='EmployeeDetailsHr'></hr>
+
 
 
 {/* form section 4---------------------------------------------------------- */}
@@ -77,19 +346,112 @@ function EmployeeDetails(){
             <section id="EmployeeDetailsFormSection4">
                 <h4 id="EmployeeDetailsFormSection4H4">Additional Employment Information</h4>
 
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
 
 
 {/* -------------------------------- SECONDARY -----------------------------*/}
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
 
 
 
 {/* -------------------------------- TERTIARY -----------------------------*/}
 
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
 
 
 {/* -------------------------------- QUARTERNARY -----------------------------*/}
 
 
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
+
+                <div id='firstName1Container' className='EmployeeDetailsFormLabelInputContainer'>
+                        <div className='EmployeeDetailsFormLabel'>{getKeyByValue(employee, employee.firstName1)}</div>
+                        <div className='EmployeeDetailsFormInfoDivider'>{infoDivider}</div>
+                        <div className='EmployeeDetailsFormInput'>{employee.firstName1}</div>
+                </div>
 
 
 
@@ -100,9 +462,15 @@ function EmployeeDetails(){
 
 {/* to top button---------------------------------------------------------- */}
 
+                <div id="buttonContainer">
 
-
-
+                <button
+                    id="CreateNewEmployeeButton"
+                    type="submit"
+                    onClick={handleScroll}
+                    >Back To Top
+                </button>
+                </div>
 
 
         </div>

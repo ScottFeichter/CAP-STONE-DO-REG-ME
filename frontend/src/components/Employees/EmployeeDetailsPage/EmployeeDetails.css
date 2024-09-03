@@ -2,64 +2,74 @@
 
 }
 
-#EmployeeDetailsH1 {
-    text-align: center;
-}
-
-
 
 #EmployeeDetailsForm{
     margin: 2rem 4rem 4rem 4rem;
     padding: 0rem 0rem 0rem 0rem;
-    border: var(--border);
-    border-radius: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: var(--border);
+    border-radius: 25px;
+
 }
 
 
 .EmployeeDetailsFormLabelInputContainer {
+    text-align: center;
     display: flex;
+    align-items: center;
     justify-content: center;
-    /* border: 2px grey solid; */
+    border: 3px purple solid;
+
 }
 
 .EmployeeDetailsFormLabel {
+    text-align: right;
     color: black;
     font-size: medium;
     font-weight: 600;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
+    width: 40%;
+    height: fit-content;
+    /* border: 2px blue solid; */
 }
 
+.EmployeeDetailsFormInfoDivider{
+    color: black;
+    font-size: x-large;
+    font-weight: 900;
+    margin: 0;
+    padding: 0 0 0 0;
+    width: 10%;
+    height: fit-content;
+    /* border: 2px orange solid; */
 
+}
 
 .EmployeeDetailsFormInput {
-    font-size: small;
-    height: 1.5rem;
-    margin-bottom: 1.5rem;
-    width: 442px;
+    text-align: left;
+    font-size: medium;
+    margin: 0;
+    padding: 0 0 0 0;
+    width: 40%;
+    height: fit-content;
+    /* border: 2px red solid; */
 }
-
-
-
 
 
 .EmployeeDetailsHr {
-    border: 1px grey solid;
     width: 80%;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
+    border: 1px grey solid;
 }
 
 #EmployeeDetailsFormSection1, #EmployeeDetailsFormSection2, #EmployeeDetailsFormSection3, #EmployeeDetailsFormSection4, #EmployeeDetailsFormSection5     {
-    width: 450px;
+    width: 80%;
+    /* border: brown 2px solid; */
 }
 
 #EmployeeDetailsFormSection1H4, #EmployeeDetailsFormSection2H4, #EmployeeDetailsFormSection3H4, #EmployeeDetailsFormSection4H4, #EmployeeDetailsFormSection5H4 {
@@ -69,20 +79,6 @@
     font-weight: bold;
     color: black;
     /* border: 2px solid grey; */
-}
-
-#EmployeeDetailsFormSection1P, #EmployeeDetailsFormSection2P, #EmployeeDetailsFormSection3P, #EmployeeDetailsFormSection4P, #EmployeeDetailsFormSection5P {
-    text-align: center;
-    margin: -1rem 0 .5rem 0;
-    font-size: medium;
-    font-weight: 400;
-    color: black;
-}
-
-.EmployeeDetailsH5 {
-    margin: 0rem 0 3rem 0;
-    color: red;
-    text-align: center;
 }
 
 
