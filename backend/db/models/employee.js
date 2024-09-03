@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'academicDepartment_Id',
         // as: ''
       });
-      Employee.belongsTo(models.UserType, {
-        foreignKey: 'userType_Id',
+      Employee.belongsTo(models.Level, {
+        foreignKey: 'level_Id',
         constraints: false
         // as: ''
       });
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
-      userType_Id: {
+      level_Id: {
         type: DataTypes.INTEGER,
         allowNull: true,
       },

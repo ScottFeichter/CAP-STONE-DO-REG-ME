@@ -15,7 +15,7 @@ module.exports = {
         {
           household_Id: 1,
           headOfHousehold: false,
-          userType_Id: 5,
+          level_Id: 5,
           firstName1: 'Ferris',
           firstName2: null,
           middleName: 'Matthew',
@@ -43,7 +43,7 @@ module.exports = {
         {
           household_Id: 2,
           headOfHousehold: false,
-          userType_Id: 5,
+          level_Id: 5,
           firstName1: 'Wednesday',
           firstName2: null,
           middleName: 'Christina',
@@ -72,7 +72,7 @@ module.exports = {
         {
           household_Id: 3,
           headOfHousehold: false,
-          userType_Id: 5,
+          level_Id: 5,
           firstName1: 'Ronald',
           firstName2: null,
           middleName: 'Bilius',

@@ -15,7 +15,7 @@ module.exports = {
         {
           employeeDepartment_Id: 3,
           academicDepartment_Id: 1,
-          userType_Id: 3,
+          level_Id: 3,
           firstName1: 'Juliette',
           firstName2: 'Nadia',
           middleName: null,
@@ -59,7 +59,7 @@ module.exports = {
         {
           employeeDepartment_Id: 1,
           academicDepartment_Id: null,
-          userType_Id: null,
+          level_Id: null,
           firstName1: 'Fred',
           firstName2: null,
           middleName: null,
@@ -105,7 +105,7 @@ module.exports = {
         {
           employeeDepartment_Id: 2,
           academicDepartment_Id: null,
-          userType_Id: 1,
+          level_Id: 1,
           firstName1: 'Buffy',
           firstName2: null,
           middleName: 'Anne',

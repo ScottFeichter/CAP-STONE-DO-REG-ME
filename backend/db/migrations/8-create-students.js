@@ -30,11 +30,11 @@ module.exports = {
         unique: false,
         type: Sequelize.BOOLEAN
       },
-      userType_Id: {
+      level_Id: {
         allowNull: true,
         type: Sequelize.INTEGER,
         references: {
-          model: 'UserTypes',
+          model: 'Levels',
           key: 'id',
         },
         // onDelete: 'CASCADE'

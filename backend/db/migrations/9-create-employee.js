@@ -35,13 +35,13 @@ module.exports = {
           },
           // onDelete: 'CASCADE'
         },
-        userType_Id: {
+        level_Id: {
           type: Sequelize.INTEGER,
           allowNull: true,
-          // references: {
-          //   model: 'UserTypes',
-          //   key: 'id',
-          // },
+          references: {
+            model: 'Levels',
+            key: 'id',
+          },
           // onDelete: 'CASCADE'
         },
         firstName1: {

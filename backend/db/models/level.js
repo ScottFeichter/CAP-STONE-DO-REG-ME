@@ -1,7 +1,7 @@
 'use strict';
 const { Model, Validator } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class UserType extends Model {
+  class Level extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -10,12 +10,14 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       UserType.hasMany(models.Employee, {
-        foreignKey: 'userType_Id',
+        foreignKey: 'level_Id',
+        constraints: false
         // onDelete: 'CASCADE',
         hooks: true
       });
       UserType.hasMany(models.Student, {
-        foreignKey: 'userType_Id',
+        foreignKey: 'level_Id',
+        constraints: false
         // onDelete: 'CASCADE',
         hooks: true
       });
@@ -41,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'UserType',
+      modelName: 'Level',
     }
   );
   return UserType;

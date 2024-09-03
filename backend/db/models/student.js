@@ -9,8 +9,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'household_Id',
         // as: ''
       });
-      Student.belongsTo(models.UserType, {
-        foreignKey: 'userType_Id',
+      Student.belongsTo(models.Level, {
+        foreignKey: 'level_Id',
+        constraints: false
         // as: ''
       });
     }
@@ -34,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
         unique: false,
         type: DataTypes.BOOLEAN,
       },
-      userType_Id: {
+      level_Id: {
         allowNull: true,
         unique: false,
         type: DataTypes.INTEGER,
