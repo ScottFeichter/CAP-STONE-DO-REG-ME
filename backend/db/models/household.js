@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 const { Model, Validator } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     static assocate(models) {
       // define association here
       Household.hasMany(models.Student, {
-        foreignKey: 'household_Id',
+        foreignKey: "household_Id",
         // onDelete: "CASCADE",
         hooks: true
       });
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: DataTypes.DATE,
   }, {
     sequelize,
-    modelName: 'Household',
+    modelName: "Household",
   });
   return Household;
 };

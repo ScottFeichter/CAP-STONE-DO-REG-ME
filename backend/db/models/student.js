@@ -7,11 +7,11 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Student.belongsTo(models.Household, {
         foreignKey: "household_Id",
-        // as: ''
+        // as: ""
       });
       Student.belongsTo(models.UserType, {
         foreignKey: "userType_Id",
-        // as: ''
+        // as: ""
       });
     }
   }

@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       AcademicDepartment.hasMany(models.Employee, {
-        foreignKey: 'academicDepartment_Id',
+        foreignKey: "academicDepartment_Id",
         // onDelete: "CASCADE",
         hooks: true
       });

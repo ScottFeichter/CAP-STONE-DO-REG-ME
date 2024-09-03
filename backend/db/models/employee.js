@@ -7,16 +7,16 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Employee.belongsTo(models.EmployeeDepartment, {
         foreignKey: "employeeDepartment_Id",
-        // as: ''
+        // as: ""
       });
       Employee.belongsTo(models.AcademicDepartment, {
         foreignKey: "academicDepartment_Id",
-        // as: ''
+        // as: ""
       });
       Employee.belongsTo(models.UserType, {
         foreignKey: "userType_Id",
         constraints: false
-        // as: ''
+        // as: ""
       });
     }
   }
