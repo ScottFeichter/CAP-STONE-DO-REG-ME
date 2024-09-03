@@ -1446,7 +1446,7 @@ const checkInteger = () => {
                                 id="EditEmployeeButton"
                                 type="submit"
                                 onClick={handleSubmit}
-                                >Edit Employee
+                                >Submit Edit
                             </button>
                         </div>
 
