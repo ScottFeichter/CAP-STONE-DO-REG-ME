@@ -21,7 +21,7 @@ function EditEmployeeForm() {
         const location = useLocation();
         const {employeeToEdit} = location.state;
 
-        console.log("employeeToEdit : ", employeeToEdit)
+        // console.log("employeeToEdit : ", employeeToEdit)
 
         const [errors, setErrors] = useState({});
 
@@ -351,7 +351,7 @@ const checkInteger = () => {
 // -----------------------------HANDLE SUBMIT -------------------------------//
         const handleSubmit = async (e) => {
             e.preventDefault();
-            // console.log('HANDLE SUBMIT NEW EMPLOYEE IS RUNNING');
+            console.log('HANDLE SUBMIT EDIT EMPLOYEE IS RUNNING');
 
         // -----------------CLIENT SIDE VALIDATIONS-----------------------//
 
@@ -418,7 +418,9 @@ const checkInteger = () => {
          if(	biography	)	editedEmployee	.	biography	=	biography	;
          if(	notes	)	editedEmployee	.	notes	=	notes	;
 
-        //  console.log("editedEmployee 448: ", editedEmployee)
+         editedEmployee.id = employeeToEdit.id;
+
+         console.log("editedEmployee 423: ", editedEmployee)
 
          // --------------------------MAKING THE DISPATCH---------------------//
             let employeeId;
@@ -427,6 +429,7 @@ const checkInteger = () => {
 
             await dispatch(employeesActions.thunkEditEmployee(editedEmployee))
             .then(response => {
+                console.log("response 432: ", response);
                 return response
             })
             .then(response => {
@@ -435,7 +438,7 @@ const checkInteger = () => {
             }).catch(async (res) => {
                     const data = await res.json();
                     if (data.errors) setErrors(data.errors);
-                    // console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
+                    console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
                 }
             )
 
@@ -445,7 +448,7 @@ const checkInteger = () => {
                 return response
             });
 
-            // console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+            console.log('HANDLE SUBMIT NEW EMPLOYEE HAS FINISHED RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         }
 
 
