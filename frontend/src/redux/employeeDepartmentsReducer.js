@@ -126,15 +126,17 @@ export const thunkCreateEmployeeDepartment = (newEmployeeDepartment) => async (d
 
 /** PUT EMPLOYEE DEPARTMENTS */
 export const thunkEditEmployeeDepartment = (editedEmployeeDepartment) => async (dispatch) => {
-  const { employeeDepartmentId, updatedEmployeeDepartment } = editedEmployeeDepartment;
+  const { id } = editedEmployeeDepartment;
 //  console.log('UPDATED EMPLOYEE DEPARTMENT FROM EMPLOYEE DEPARTMENTS EDIT EMPLOYEE DEPARTMENT', updatedEmployeeDepartment);
 
-  const response = await csrfFetch(`/api/employeeDepartments/${employeeDepartmentId}`, {
+console.log("editedEmployee Department from reducer:", editedEmployeeDepartment, id)
+
+  const response = await csrfFetch(`/api/employeeDepartments/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(updatedEmployeeDepartment)
+    body: JSON.stringify(editedEmployeeDepartment)
   });
 
   const data = await response.json();

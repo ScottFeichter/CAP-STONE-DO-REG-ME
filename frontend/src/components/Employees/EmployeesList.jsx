@@ -17,7 +17,7 @@ function EmployeesList(){
 
     const [currentPage, setCurrentPage] = useState(1);
 
-    const [employeesPerPage, setEmployeesPerPage] = useState(30);
+    const [employeesPerPage, setEmployeesPerPage] = useState(2);
 
 
     const lastPostIndex = currentPage * employeesPerPage;
@@ -41,7 +41,7 @@ function EmployeesList(){
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     // console.log("employeesList 41: ", employeesList);
-    console.log("currentPage: ", currentPage, "employeesPerPage : ", employeesPerPage, "lastPostIndex: ", lastPostIndex, "firstPostIndex: ", firstPostIndex, "currentPost: ", currentPost, "paginate: ");
+    // console.log("currentPage: ", currentPage, "employeesPerPage : ", employeesPerPage, "lastPostIndex: ", lastPostIndex, "firstPostIndex: ", firstPostIndex, "currentPost: ", currentPost, "paginate: ");
 
     return(
     <>

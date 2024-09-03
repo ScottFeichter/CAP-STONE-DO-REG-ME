@@ -62,6 +62,16 @@ const handleClickEditEmployee = () => {
 
 
 
+ if(!employee) return null; // will flick a blank page
+
+ // THINGS THAT MAY TRIGGER A RE RENDER
+ // change value of useState() hook
+ // an update to the slice being tracked by useSelector()
+
+ // RE RENDER MEANS THE DOM IS BEING UPDATE IN THE BROWSER - THE HTML IS CHANGING
+ // BROWSER REFRESH COMPLETELY EMPTIES REDUX
+
+ 
 
 //=================FUNCTION RETURN======================//
 
