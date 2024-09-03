@@ -6,7 +6,7 @@ const BASE_CLASS_NAME = "EmployeeDetailsPage";
 
 //==================OTHER IMPORTS=======================//
 
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import EmployeeDetails from './EmployeeDetails';
@@ -25,7 +25,7 @@ function EmployeeDetailsPage() {
 
 
 
-const handleClickEditEmployee = (e) => {
+const handleClickEditEmployee = () => {
   // e.preventDefault();
   // navigate('/editEmployeeForm')
 }
@@ -42,7 +42,7 @@ const handleClickEditEmployee = (e) => {
 
             <nav id={`${BASE_CLASS_NAME}Nav`}>
 
-           <Link to='/editEmployeeForm' state={{employeee: employee}} >
+           <Link to='/editEmployeeForm' state={{employeeToEdit: employee}} >
            <button id={`${BASE_CLASS_NAME}EditButton`} onClick={handleClickEditEmployee}>Edit Employee</button>
            </Link>
 

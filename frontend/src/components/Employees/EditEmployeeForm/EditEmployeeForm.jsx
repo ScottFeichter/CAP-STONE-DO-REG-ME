@@ -11,7 +11,7 @@ import * as employeesActions from '../../../redux/employeesReducer.js';
 
 
 
-function EditEmployeeForm(props) {
+function EditEmployeeForm() {
 
         const required = "*";
 
@@ -19,9 +19,9 @@ function EditEmployeeForm(props) {
         const navigate = useNavigate();
 
         const location = useLocation();
-        const {employeee} = location.state;
+        const {employeeToEdit} = location.state;
 
-        console.log("employeee : ", employeee)
+        console.log("employeeToEdit : ", employeeToEdit)
 
         const [errors, setErrors] = useState({});
 
@@ -50,7 +50,7 @@ function EditEmployeeForm(props) {
         // const [isDisabled, setIsDisabled] = useState(false);
 
 
-        let newEmployee = {
+        let editedEmployee = {
 
 // personal information form section 1----------------------------------------------------------
             firstName1	            :	null	,
@@ -105,97 +105,50 @@ function EditEmployeeForm(props) {
 
 
 
-
-// personal information form section 1----------------------------------------------------------
-
-
-
-
-        const [firstName1, setFirstName1] = useState("");
-        const [firstName2, setFirstName2] = useState("");
-        const [middleName, setMiddleName] = useState("");
-        const [lastName1, setLastName1] = useState("");
-        const [lastName2, setLastName2] = useState("");
-        const [personalEmail, setPersonalEmail] = useState("");
-        const [personalPhone, setPersonalPhone] = useState("");
-        const [street, setStreet] = useState("");
-        const [city, setCity] = useState("");
-        const [state, setState] = useState("");
-        const [zip, setZip] = useState("");
-        const [dob, setDob] = useState("");
-        const [age, setAge] = useState("");
-        const [ssn, setSsn] = useState("");
-
-
-
-
-// employment information form section 2----------------------------------------------------------
-
-        const [employeeDepartment_Id, setEmployeeDepartment_Id] = useState("");
-        const [academicDepartment_Id, setAcademicDepartment_Id] = useState("");
-        const [userType_Id, setUserType_Id] = useState("");
-        const [primaryTitle, setPrimaryTitle] = useState("");
-        const [primaryStartDate, setPrimaryStartDate] = useState("");
-        const [primaryEndDate, setPrimaryEndDate] = useState("");
-        const [primaryPayRate, setPrimaryPayRate] = useState("");
-
-
-
-
-// biographical information form section 3----------------------------------------------------------
-
-
-        const [firstLang, setFirstLang] = useState("");
-        const [secondLang, setSecondLang] = useState("");
-        const [thirdLang, setThirdLang] = useState("");
-        const [firstInst, setFirstInst] = useState("");
-        const [secondInst, setSecondInst] = useState("");
-        const [thirdInst, setThirdInst] = useState("");
-        const [biography, setBiography] = useState("");
-        const [notes, setNotes] = useState("");
+    const [employeeDepartment_Id,setEmployeeDepartment_Id] = useState(employeeToEdit.employeeDepartment_Id||"")
+    const [academicDepartment_Id,setAcademicDepartment_Id] = useState(employeeToEdit.academicDepartment_Id||"")
+    const [userType_Id,setUserType_Id] = useState(employeeToEdit.userType_Id||"")
+    const [firstName1,setFirstName1] = useState(employeeToEdit.firstName1||"")
+    const [firstName2,setFirstName2] = useState(employeeToEdit.firstName2||"")
+    const [middleName,setMiddleName] = useState(employeeToEdit.middleName||"")
+    const [lastName1,setLastName1] = useState(employeeToEdit.lastName1||"")
+    const [lastName2,setLastName2] = useState(employeeToEdit.lastName2||"")
+    const [personalEmail,setPersonalEmail] = useState(employeeToEdit.personalEmail||"")
+    const [personalPhone,setPersonalPhone] = useState(employeeToEdit.personalPhone||"")
+    const [street,setStreet] = useState(employeeToEdit.street||"")
+    const [city,setCity] = useState(employeeToEdit.city||"")
+    const [state,setState] = useState(employeeToEdit.state||"")
+    const [zip,setZip] = useState(employeeToEdit.zip||"")
+    const [dob,setDob] = useState(employeeToEdit.dob||"")
+    const [age,setAge] = useState(employeeToEdit.age||"")
+    const [ssn,setSsn] = useState(employeeToEdit.ssn||"")
+    const [firstLang,setFirstLang] = useState(employeeToEdit.firstLang||"")
+    const [secondLang,setSecondLang] = useState(employeeToEdit.secondLang||"")
+    const [thirdLang,setThirdLang] = useState(employeeToEdit.thirdLang||"")
+    const [firstInst,setFirstInst] = useState(employeeToEdit.firstInst||"")
+    const [secondInst,setSecondInst] = useState(employeeToEdit.secondInst||"")
+    const [thirdInst,setThirdInst] = useState(employeeToEdit.thirdInst||"")
+    const [primaryTitle,setPrimaryTitle] = useState(employeeToEdit.primaryTitle||"")
+    const [primaryStartDate,setPrimaryStartDate] = useState(employeeToEdit.primaryStartDate||"")
+    const [primaryEndDate,setPrimaryEndDate] = useState(employeeToEdit.primaryEndDate||"")
+    const [primaryPayRate,setPrimaryPayRate] = useState(employeeToEdit.primaryPayRate||"")
+    const [secondaryTitle,setSecondaryTitle] = useState(employeeToEdit.secondaryTitle||"")
+    const [secondaryStartDate,setSecondaryStartDate] = useState(employeeToEdit.secondaryStartDate||"")
+    const [secondaryEndDate,setSecondaryEndDate] = useState(employeeToEdit.secondaryEndDate||"")
+    const [secondaryPayRate,setSecondaryPayRate] = useState(employeeToEdit.secondaryPayRate||"")
+    const [tertiaryTitle,setTertiaryTitle] = useState(employeeToEdit.tertiaryTitle||"")
+    const [tertiaryStartDate,setTertiaryStartDate] = useState(employeeToEdit.tertiaryStartDate||"")
+    const [tertiaryEndDate,setTertiaryEndDate] = useState(employeeToEdit.tertiaryEndDate||"")
+    const [tertiaryPayRate,setTertiaryPayRate] = useState(employeeToEdit.tertiaryPayRate||"")
+    const [quarternaryTitle,setQuarternaryTitle] = useState(employeeToEdit.quarternaryTitle||"")
+    const [quarternaryStartDate,setQuarternaryStartDate] = useState(employeeToEdit.quarternaryStartDate||"")
+    const [quarternaryEndDate,setQuarternaryEndDate] = useState(employeeToEdit.quarternaryEndDate||"")
+    const [quarternaryPayRate,setQuarternaryPayRate] = useState(employeeToEdit.quarternaryPayRate||"")
+    const [biography,setBiography] = useState(employeeToEdit.biography||"")
+    const [notes,setNotes] = useState(employeeToEdit.notes||"")
 
 
 
-// states form section 4----------------------------------------------------------
-
-        const [secondaryTitle, setSecondaryTitle] = useState("");
-        const [secondaryStartDate, setSecondaryStartDate] = useState("");
-        const [secondaryEndDate, setSecondaryEndDate] = useState("");
-        const [secondaryPayRate, setSecondaryPayRate] = useState("");
-        const [tertiaryTitle, setTertiaryTitle] = useState("");
-        const [tertiaryStartDate, setTertiaryStartDate] = useState("");
-        const [tertiaryEndDate, setTertiaryEndDate] = useState("");
-        const [tertiaryPayRate, setTertiaryPayRate] = useState("");
-        const [quarternaryTitle, setQuarternaryTitle] = useState("");
-        const [quarternaryStartDate, setQuarternaryStartDate] = useState("");
-        const [quarternaryEndDate, setQuarternaryEndDate] = useState("");
-        const [quarternaryPayRate, setQuarternaryPayRate] = useState("");
-
-
-
-
-
-// EditEmployee Button Disabled------------------------------------------------------------------------
-
-
-    // const checkDisabled = () => {
-    //     if(
-    //     (country.length === 0 || !country) ||
-    //     (street.length === 0 || !street) ||
-    //     (city.length === 0 || !city) ||
-    //     (state.length === 0 || !state) ||
-    //     (latitude.length === 0 || !latitude) ||
-    //     (longitude.length === 0 || !longitude) ||
-    //     (state.length < 4) ||
-    //     (latitude.length < 6)
-    //     )
-    //     {setIsDisabled(true) } else {setIsDisabled(false)}
-
-    //    }
-
-    //    useEffect(()=> {
-    //     checkDisabled();
-    //    });
 
 
 
@@ -423,55 +376,56 @@ const checkInteger = () => {
          // ---------------REPLACING NEW EMPLOYEE OBJECT VALUES WITH USER INPUT IF EXISTS---------//
 
 
-         if(	employeeDepartment_Id	)	newEmployee	.	employeeDepartment_Id	=	employeeDepartment_Id	;
-         if(	academicDepartment_Id	)	newEmployee	.	academicDepartment_Id	=	academicDepartment_Id	;
-         if(	userType_Id	)	newEmployee	.	userType_Id	=	userType_Id	;
-         if(	firstName1	)	newEmployee	.	firstName1	=	firstName1	;
-         if(	firstName2	)	newEmployee	.	firstName2	=	firstName2	;
-         if(	middleName	)	newEmployee	.	middleName	=	middleName	;
-         if(	lastName1	)	newEmployee	.	lastName1	=	lastName1	;
-         if(	lastName2	)	newEmployee	.	lastName2	=	lastName2	;
-         if(	personalEmail	)	newEmployee	.	personalEmail	=	personalEmail	;
-         if(	personalPhone	)	newEmployee	.	personalPhone	=	personalPhone	;
-         if(	street	)	newEmployee	.	street	=	street	;
-         if(	city	)	newEmployee	.	city	=	city	;
-         if(	state	)	newEmployee	.	state	=	state	;
-         if(	zip	)	newEmployee	.	zip	=	zip	;
-         if(	dob	)	newEmployee	.	dob	=	dob	;
-         if(	age	)	newEmployee	.	age	=	age	;
-         if(	ssn	)	newEmployee	.	ssn	=	ssn	;
-         if(	firstLang	)	newEmployee	.	firstLang	=	firstLang	;
-         if(	secondLang	)	newEmployee	.	secondLang	=	secondLang	;
-         if(	thirdLang	)	newEmployee	.	thirdLang	=	thirdLang	;
-         if(	firstInst	)	newEmployee	.	firstInst	=	firstInst	;
-         if(	secondInst	)	newEmployee	.	secondInst	=	secondInst	;
-         if(	thirdInst	)	newEmployee	.	thirdInst	=	thirdInst	;
-         if(	primaryTitle	)	newEmployee	.	primaryTitle	=	primaryTitle	;
-         if(	primaryStartDate	)	newEmployee	.	primaryStartDate	=	primaryStartDate	;
-         if(	primaryEndDate	)	newEmployee	.	primaryEndDate	=	primaryEndDate	;
-         if(	primaryPayRate	)	newEmployee	.	primaryPayRate	=	primaryPayRate	;
-         if(	secondaryTitle	)	newEmployee	.	secondaryTitle	=	secondaryTitle	;
-         if(	secondaryStartDate	)	newEmployee	.	secondaryStartDate	=	secondaryStartDate	;
-         if(	secondaryEndDate	)	newEmployee	.	secondaryEndDate	=	secondaryEndDate	;
-         if(	secondaryPayRate	)	newEmployee	.	secondaryPayRate	=	secondaryPayRate	;
-         if(	tertiaryTitle	)	newEmployee	.	tertiaryTitle	=	tertiaryTitle	;
-         if(	tertiaryStartDate	)	newEmployee	.	tertiaryStartDate	=	tertiaryStartDate	;
-         if(	tertiaryEndDate	)	newEmployee	.	tertiaryEndDate	=	tertiaryEndDate	;
-         if(	tertiaryPayRate	)	newEmployee	.	tertiaryPayRate	=	tertiaryPayRate	;
-         if(	quarternaryTitle	)	newEmployee	.	quarternaryTitle	=	quarternaryTitle	;
-         if(	quarternaryStartDate	)	newEmployee	.	quarternaryStartDate	=	quarternaryStartDate	;
-         if(	quarternaryEndDate	)	newEmployee	.	quarternaryEndDate	=	quarternaryEndDate	;
-         if(	quarternaryPayRate	)	newEmployee	.	quarternaryPayRate	=	quarternaryPayRate	;
-         if(	biography	)	newEmployee	.	biography	=	biography	;
-         if(	notes	)	newEmployee	.	notes	=	notes	;
+         if(	employeeDepartment_Id	)	editedEmployee	.	employeeDepartment_Id	=	employeeDepartment_Id	;
+         if(	academicDepartment_Id	)	editedEmployee	.	academicDepartment_Id	=	academicDepartment_Id	;
+         if(	userType_Id	)	editedEmployee	.	userType_Id	=	userType_Id	;
+         if(	firstName1	)	editedEmployee	.	firstName1	=	firstName1	;
+         if(	firstName2	)	editedEmployee	.	firstName2	=	firstName2	;
+         if(	middleName	)	editedEmployee	.	middleName	=	middleName	;
+         if(	lastName1	)	editedEmployee	.	lastName1	=	lastName1	;
+         if(	lastName2	)	editedEmployee	.	lastName2	=	lastName2	;
+         if(	personalEmail	)	editedEmployee	.	personalEmail	=	personalEmail	;
+         if(	personalPhone	)	editedEmployee	.	personalPhone	=	personalPhone	;
+         if(	street	)	editedEmployee	.	street	=	street	;
+         if(	city	)	editedEmployee	.	city	=	city	;
+         if(	state	)	editedEmployee	.	state	=	state	;
+         if(	zip	)	editedEmployee	.	zip	=	zip	;
+         if(	dob	)	editedEmployee	.	dob	=	dob	;
+         if(	age	)	editedEmployee	.	age	=	age	;
+         if(	ssn	)	editedEmployee	.	ssn	=	ssn	;
+         if(	firstLang	)	editedEmployee	.	firstLang	=	firstLang	;
+         if(	secondLang	)	editedEmployee	.	secondLang	=	secondLang	;
+         if(	thirdLang	)	editedEmployee	.	thirdLang	=	thirdLang	;
+         if(	firstInst	)	editedEmployee	.	firstInst	=	firstInst	;
+         if(	secondInst	)	editedEmployee	.	secondInst	=	secondInst	;
+         if(	thirdInst	)	editedEmployee	.	thirdInst	=	thirdInst	;
+         if(	primaryTitle	)	editedEmployee	.	primaryTitle	=	primaryTitle	;
+         if(	primaryStartDate	)	editedEmployee	.	primaryStartDate	=	primaryStartDate	;
+         if(	primaryEndDate	)	editedEmployee	.	primaryEndDate	=	primaryEndDate	;
+         if(	primaryPayRate	)	editedEmployee	.	primaryPayRate	=	primaryPayRate	;
+         if(	secondaryTitle	)	editedEmployee	.	secondaryTitle	=	secondaryTitle	;
+         if(	secondaryStartDate	)	editedEmployee	.	secondaryStartDate	=	secondaryStartDate	;
+         if(	secondaryEndDate	)	editedEmployee	.	secondaryEndDate	=	secondaryEndDate	;
+         if(	secondaryPayRate	)	editedEmployee	.	secondaryPayRate	=	secondaryPayRate	;
+         if(	tertiaryTitle	)	editedEmployee	.	tertiaryTitle	=	tertiaryTitle	;
+         if(	tertiaryStartDate	)	editedEmployee	.	tertiaryStartDate	=	tertiaryStartDate	;
+         if(	tertiaryEndDate	)	editedEmployee	.	tertiaryEndDate	=	tertiaryEndDate	;
+         if(	tertiaryPayRate	)	editedEmployee	.	tertiaryPayRate	=	tertiaryPayRate	;
+         if(	quarternaryTitle	)	editedEmployee	.	quarternaryTitle	=	quarternaryTitle	;
+         if(	quarternaryStartDate	)	editedEmployee	.	quarternaryStartDate	=	quarternaryStartDate	;
+         if(	quarternaryEndDate	)	editedEmployee	.	quarternaryEndDate	=	quarternaryEndDate	;
+         if(	quarternaryPayRate	)	editedEmployee	.	quarternaryPayRate	=	quarternaryPayRate	;
+         if(	biography	)	editedEmployee	.	biography	=	biography	;
+         if(	notes	)	editedEmployee	.	notes	=	notes	;
 
-        //  console.log("newEmployee 448: ", newEmployee)
+        //  console.log("editedEmployee 448: ", editedEmployee)
 
          // --------------------------MAKING THE DISPATCH---------------------//
             let employeeId;
-            let newEmployeeDetails;
+            let editedEmployeeDetails;
+            if(editedEmployeeDetails);
 
-            await dispatch(employeesActions.thunkEditEmployee(newEmployee))
+            await dispatch(employeesActions.thunkEditEmployee(editedEmployee))
             .then(response => {
                 return response
             })
@@ -486,7 +440,7 @@ const checkInteger = () => {
             )
 
             await dispatch(employeesActions.thunkGetEmployeeById(employeeId)).then(response => {
-                newEmployeeDetails = response;
+                editedEmployeeDetails = response;
                 navigate(`/employees/${employeeId}`)
                 return response
             });
