@@ -51,7 +51,7 @@ const handleClickDeleteEmployee = (e) => {
 
             <div>
 
-              {/* <EmployeeDetails></EmployeeDetails> */}
+              <EmployeeDetails employee={employee}></EmployeeDetails>
 
 
 

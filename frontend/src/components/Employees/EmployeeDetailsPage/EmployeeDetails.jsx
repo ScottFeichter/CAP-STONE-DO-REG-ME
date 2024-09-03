@@ -1,19 +1,21 @@
 //============CSS IMPORT AND BASE CLASS NAME============//
 
-const BASE_CLASS_NAME = "EmployeeDetails";
+// const BASE_CLASS_NAME = "EmployeeDetails";
 
 import './EmployeeDetails.css';
 
 //==================PROGRAM IMPORTS=====================//
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 //================COMPONENT IMPORTS=====================//
 
 
 //===============FUNCTION DECLARATION===================//
-function EmployeeDetails(){
+function EmployeeDetails(props){
 
-    const employee = useSelector(state => state.employees.employees[1])
+    // const employee = useSelector(state => state.employees.employees[1])
+    const employee = props.employee;
+
     // const employeeObjectKeys = Object.keys(employee);
     // const employeeObjectValues = Object.values(employee);
     // const employeeObjectEntries = Object.entries(employee);
@@ -21,10 +23,10 @@ function EmployeeDetails(){
     const infoDivider = ":";
     const nullReplacer = `- -`
 
-    function getKeyByValue(object, value) {
-        return Object.keys(object).find(key =>
-            object[key] === value);
-    }
+//     function getKeyByValue(object, value) {
+//         return Object.keys(object).find(key =>
+//             object[key] === value);
+//     }
 
 //--------------------handleScroll-----------------------//
 
