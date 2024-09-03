@@ -38,10 +38,10 @@ module.exports = {
         level_Id: {
           type: Sequelize.INTEGER,
           allowNull: true,
-          references: {
-            model: 'Levels',
-            key: 'id',
-          },
+          // references: {
+          //   model: 'Levels',
+          //   key: 'id',
+          // },
           // onDelete: 'CASCADE'
         },
         firstName1: {
