@@ -8,6 +8,7 @@ const BASE_CLASS_NAME = "EmployeeDetailsPage";
 
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import EmployeeDetails from './EmployeeDetails';
 import EmployeeDeleteModal from '../EmployeeDeleteModal/EmployeeDeleteModal';
 import EmployeeDeleteModalButton from '../EmployeeDeleteModal/EmployeeDeleteModalButton'
@@ -26,7 +27,7 @@ function EmployeeDetailsPage() {
 
 const handleClickEditEmployee = (e) => {
   e.preventDefault();
-  navigate('/employees/:employee_Id/editForm')
+  navigate('/editEmployeeForm')
 }
 
 
@@ -41,6 +42,7 @@ const handleClickEditEmployee = (e) => {
 
             <nav id={`${BASE_CLASS_NAME}Nav`}>
               <button id={`${BASE_CLASS_NAME}EditButton`} onClick={handleClickEditEmployee}>Edit Employee</button>
+              <NavLink to='/editform/'id={`${BASE_CLASS_NAME}EditButton`} >Edit Employee</NavLink>
 {/*
               <button id={`${BASE_CLASS_NAME}DeleteButton`} onClick={handleClickDeleteEmployee}>
                 Delete Employee
