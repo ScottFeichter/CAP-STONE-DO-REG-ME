@@ -134,3 +134,17 @@
     border: var(--buttonActiveBorder);
     cursor: pointer;
 }
+
+
+    /* spotDeleteButton-------------------------- */
+
+    #spotToManageUpdateHiddenButton {
+
+        color: none;
+        background-color: white;
+        border: none;
+        margin: 0;
+        padding: 0;
+}
+
+#deleteSpotModalButton{}

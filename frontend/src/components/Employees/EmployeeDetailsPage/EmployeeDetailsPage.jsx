@@ -9,6 +9,8 @@ const BASE_CLASS_NAME = "EmployeeDetailsPage";
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 import EmployeeDetails from './EmployeeDetails';
+import EmployeeDeleteModal from '../EmployeeDeleteModal/EmployeeDeleteModal';
+import EmployeeDeleteModalButton from '../EmployeeDeleteModal/EmployeeDeleteModalButton'
 // import { useSelector } from 'react-redux';
 
 
@@ -29,7 +31,8 @@ const handleClickEditEmployee = (e) => {
 
 const handleClickDeleteEmployee = (e) => {
   e.preventDefault();
-  navigate('/employees/:employee_Id/deleteModal')
+  e.stopPropagation();
+  // navigate('/employees/:employee_Id/deleteModal')
 }
 
 
@@ -44,8 +47,24 @@ const handleClickDeleteEmployee = (e) => {
 
             <nav id={`${BASE_CLASS_NAME}Nav`}>
               <button id={`${BASE_CLASS_NAME}EditButton`} onClick={handleClickEditEmployee}>Edit Employee</button>
+{/*
+              <button id={`${BASE_CLASS_NAME}DeleteButton`} onClick={handleClickDeleteEmployee}>
+                Delete Employee
+                <EmployeeDeleteModalButton
+                            id="deleteEmployeeModalButton"
+                            buttonText="Delete Employee"
+                            modalComponent={<EmployeeDeleteModal employee={employee} />}
+                            />
 
-              <button id={`${BASE_CLASS_NAME}DeleteButton`} onClick={handleClickDeleteEmployee}>Delete Employee</button>
+              </button> */}
+
+              <EmployeeDeleteModalButton
+                            // id="deleteEmployeeModalButton"
+                            id={`${BASE_CLASS_NAME}DeleteButton`}
+                            buttonText="Delete Employee"
+                            modalComponent={<EmployeeDeleteModal employee={employee} />}
+                            />
+
             </nav>
 
 

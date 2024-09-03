@@ -7,7 +7,7 @@ const EMPLOYEES_ALL = "employees/all";
 const EMPLOYEE_BY_ID = "employee/employeeById";
 const CREATE_EMPLOYEE = "employee/createEmployee";
 const UPDATE_EMPLOYEE = "employee/updateEmployee";
-const DELETE_EMPLOYEE = "employee/deletedEmployee";
+const DELETE_EMPLOYEE = "employee/deleteEmployee";
 const REMOVE_EMPLOYEE_DATA_FROM_STORE = "employee/removeEmployeeDataFromStore";
 
 /** ==============ACTION CREATORS:============================================*/
@@ -53,7 +53,7 @@ const updateEmployee = (employee) => {
   };
 };
 
-const deletedEmployee = (employee) => {
+const deleteEmployee = (employee) => {
   // console.log('DELETED EMPLOYEE RAN - EMPLOYEES', employee);
   return {
     type: DELETE_EMPLOYEE,
@@ -153,7 +153,7 @@ export const thunkDeleteEmployee = (employee) => async (dispatch) => {
   response
   // const data = await response.json();
   // console.log('THUNK DELET EEMPLOYEE DEPARTMENT RAN: ', response );
-  return dispatch(deletedEmployee(employee));
+  return dispatch(deleteEmployee(employee));
 };
 
 
