@@ -9,18 +9,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Level.hasMany(models.Employee, {
-        foreignKey: 'level_Id',
-        constraints: false
-        // onDelete: 'CASCADE',
-        // hooks: true
-      });
-      Level.hasMany(models.Student, {
-        foreignKey: 'level_Id',
-        constraints: false
-        // onDelete: 'CASCADE',
-        // hooks: true
-      });
+      // Level.hasMany(models.Employee, {
+      //   foreignKey: 'level_Id',
+      //   constraints: false
+      //   // onDelete: 'CASCADE',
+      //   // hooks: true
+      // });
+      // Level.hasMany(models.Student, {
+      //   foreignKey: 'level_Id',
+      //   constraints: false
+      //   // onDelete: 'CASCADE',
+      //   // hooks: true
+      // });
 
     }
   }

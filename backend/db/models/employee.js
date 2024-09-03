@@ -5,19 +5,19 @@ module.exports = (sequelize, DataTypes) => {
   class Employee extends Model {
     static associate(models) {
       // define association here
-      Employee.belongsTo(models.EmployeeDepartment, {
-        foreignKey: 'employeeDepartment_Id',
-        // as: ''
-      });
-      Employee.belongsTo(models.AcademicDepartment, {
-        foreignKey: 'academicDepartment_Id',
-        // as: ''
-      });
-      Employee.belongsTo(models.Level, {
-        foreignKey: 'level_Id',
-        constraints: false
-        // as: ''
-      });
+      // Employee.belongsTo(models.EmployeeDepartment, {
+      //   foreignKey: 'employeeDepartment_Id',
+      //   // as: ''
+      // });
+      // Employee.belongsTo(models.AcademicDepartment, {
+      //   foreignKey: 'academicDepartment_Id',
+      //   // as: ''
+      // });
+      // Employee.belongsTo(models.Level, {
+      //   foreignKey: 'level_Id',
+      //   constraints: false
+      //   // as: ''
+      // });
     }
   }
   Employee.init(

@@ -5,11 +5,11 @@ module.exports = (sequelize, DataTypes) => {
   class Household extends Model {
     static assocate(models) {
       // define association here
-      Household.hasMany(models.Student, {
-        foreignKey: 'household_Id',
-        // onDelete: 'CASCADE',
-        // hooks: true
-      });
+      // Household.hasMany(models.Student, {
+      //   foreignKey: 'household_Id',
+      //   // onDelete: 'CASCADE',
+      //   // hooks: true
+      // });
     }
   }
   Household.init({

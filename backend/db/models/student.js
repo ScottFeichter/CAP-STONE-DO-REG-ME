@@ -5,15 +5,15 @@ module.exports = (sequelize, DataTypes) => {
   class Student extends Model {
     static associate(models) {
       // define association here
-      Student.belongsTo(models.Household, {
-        foreignKey: 'household_Id',
-        // as: ''
-      });
-      Student.belongsTo(models.Level, {
-        foreignKey: 'level_Id',
-        constraints: false
-        // as: ''
-      });
+      // Student.belongsTo(models.Household, {
+      //   foreignKey: 'household_Id',
+      //   // as: ''
+      // });
+      // Student.belongsTo(models.Level, {
+      //   foreignKey: 'level_Id',
+      //   constraints: false
+      //   // as: ''
+      // });
     }
   }
   Student.init(

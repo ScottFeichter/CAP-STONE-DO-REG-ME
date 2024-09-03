@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
   class AcademicDepartment extends Model {
     static associate(models) {
       // define association here
-      AcademicDepartment.hasMany(models.Employee, {
-        foreignKey: 'academicDepartment_Id',
-        // onDelete: 'CASCADE',
-        // hooks: true
-      });
+      // AcademicDepartment.hasMany(models.Employee, {
+      //   foreignKey: 'academicDepartment_Id',
+      //   // onDelete: 'CASCADE',
+      //   // hooks: true
+      // });
     }
   }
   AcademicDepartment.init(
