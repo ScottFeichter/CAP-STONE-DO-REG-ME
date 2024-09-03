@@ -1,6 +1,6 @@
 import './Home.css';
 
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import Clock from './Clock/Clock';

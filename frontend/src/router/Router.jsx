@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "../components/Home/Home.jsx";
+import ProfilePage from "../components/Profile/ProfilePage.jsx";
 import Resources from "../components/Resources/Resources.jsx";
 import Departments from "../components/Departments/Departments.jsx";
 import Students from "../components/Students/Students.jsx";
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "/profile",
+          element: <ProfilePage />,
         },
         {
           path: "/resources",
