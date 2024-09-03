@@ -429,13 +429,12 @@ const checkInteger = () => {
 
             await dispatch(employeesActions.thunkEditEmployee(editedEmployee))
             .then(response => {
-                console.log("response 432: ", response);
-                return response
-            })
-            .then(response => {
-                employeeId = response.payload[0].id;
-                return employeeId;
+                dispatch(employeesActions.thunkGetEmployeesAll())
+                // console.log("response 432: ", response, "response.payload", response.payload, "response.payload[0]", response.payload.id);
+                employeeId = response.payload.id
+                return employeeId
             }).catch(async (res) => {
+                    console.log("res 439", res);
                     const data = await res.json();
                     if (data.errors) setErrors(data.errors);
                     console.log('CATCH DISPATCH RAN DATA:', data, 'DATA.ERRORS: ', data.errors, 'RES: ', res);
@@ -444,7 +443,8 @@ const checkInteger = () => {
 
             await dispatch(employeesActions.thunkGetEmployeeById(employeeId)).then(response => {
                 editedEmployeeDetails = response;
-                navigate(`/employees/${employeeId}`)
+
+                navigate(`/employees`)
                 return response
             });
 
