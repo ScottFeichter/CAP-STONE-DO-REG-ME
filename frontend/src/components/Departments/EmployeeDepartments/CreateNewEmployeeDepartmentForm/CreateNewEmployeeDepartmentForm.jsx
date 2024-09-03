@@ -1,4 +1,4 @@
-import './CreateNewEmployeeForm.css';
+import './CreateNewEmployeeDepartmentForm.css';
 // const BASE_CLASS_NAME = "CreateNewEmployeeForm"
 
 
@@ -6,7 +6,7 @@ import {useState } from 'react';
 import {useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 // import { useEffect } from 'react';
-import * as employeesActions from '../../../redux/employeesReducer.js';
+import * as employeeDepartmentsActions from '../../../../redux/employeeDepartmentsReducer.js';
 
 
 
@@ -44,7 +44,7 @@ function CreateNewEmployeeForm() {
         // const [isDisabled, setIsDisabled] = useState(false);
 
 
-        let newEmployee = {
+        let newEmployeeDepartment = {
 
 // personal information form section 1----------------------------------------------------------
             firstName1	            :	null	,
@@ -417,62 +417,62 @@ const checkInteger = () => {
          // ---------------REPLACING NEW EMPLOYEE OBJECT VALUES WITH USER INPUT IF EXISTS---------//
 
 
-         if(	employeeDepartment_Id	)	newEmployee	.	employeeDepartment_Id	=	employeeDepartment_Id	;
-         if(	academicDepartment_Id	)	newEmployee	.	academicDepartment_Id	=	academicDepartment_Id	;
-         if(	userType_Id	)	newEmployee	.	userType_Id	=	userType_Id	;
-         if(	firstName1	)	newEmployee	.	firstName1	=	firstName1	;
-         if(	firstName2	)	newEmployee	.	firstName2	=	firstName2	;
-         if(	middleName	)	newEmployee	.	middleName	=	middleName	;
-         if(	lastName1	)	newEmployee	.	lastName1	=	lastName1	;
-         if(	lastName2	)	newEmployee	.	lastName2	=	lastName2	;
-         if(	personalEmail	)	newEmployee	.	personalEmail	=	personalEmail	;
-         if(	personalPhone	)	newEmployee	.	personalPhone	=	personalPhone	;
-         if(	street	)	newEmployee	.	street	=	street	;
-         if(	city	)	newEmployee	.	city	=	city	;
-         if(	state	)	newEmployee	.	state	=	state	;
-         if(	zip	)	newEmployee	.	zip	=	zip	;
-         if(	dob	)	newEmployee	.	dob	=	dob	;
-         if(	age	)	newEmployee	.	age	=	age	;
-         if(	ssn	)	newEmployee	.	ssn	=	ssn	;
-         if(	firstLang	)	newEmployee	.	firstLang	=	firstLang	;
-         if(	secondLang	)	newEmployee	.	secondLang	=	secondLang	;
-         if(	thirdLang	)	newEmployee	.	thirdLang	=	thirdLang	;
-         if(	firstInst	)	newEmployee	.	firstInst	=	firstInst	;
-         if(	secondInst	)	newEmployee	.	secondInst	=	secondInst	;
-         if(	thirdInst	)	newEmployee	.	thirdInst	=	thirdInst	;
-         if(	primaryTitle	)	newEmployee	.	primaryTitle	=	primaryTitle	;
-         if(	primaryStartDate	)	newEmployee	.	primaryStartDate	=	primaryStartDate	;
-         if(	primaryEndDate	)	newEmployee	.	primaryEndDate	=	primaryEndDate	;
-         if(	primaryPayRate	)	newEmployee	.	primaryPayRate	=	primaryPayRate	;
-         if(	secondaryTitle	)	newEmployee	.	secondaryTitle	=	secondaryTitle	;
-         if(	secondaryStartDate	)	newEmployee	.	secondaryStartDate	=	secondaryStartDate	;
-         if(	secondaryEndDate	)	newEmployee	.	secondaryEndDate	=	secondaryEndDate	;
-         if(	secondaryPayRate	)	newEmployee	.	secondaryPayRate	=	secondaryPayRate	;
-         if(	tertiaryTitle	)	newEmployee	.	tertiaryTitle	=	tertiaryTitle	;
-         if(	tertiaryStartDate	)	newEmployee	.	tertiaryStartDate	=	tertiaryStartDate	;
-         if(	tertiaryEndDate	)	newEmployee	.	tertiaryEndDate	=	tertiaryEndDate	;
-         if(	tertiaryPayRate	)	newEmployee	.	tertiaryPayRate	=	tertiaryPayRate	;
-         if(	quarternaryTitle	)	newEmployee	.	quarternaryTitle	=	quarternaryTitle	;
-         if(	quarternaryStartDate	)	newEmployee	.	quarternaryStartDate	=	quarternaryStartDate	;
-         if(	quarternaryEndDate	)	newEmployee	.	quarternaryEndDate	=	quarternaryEndDate	;
-         if(	quarternaryPayRate	)	newEmployee	.	quarternaryPayRate	=	quarternaryPayRate	;
-         if(	biography	)	newEmployee	.	biography	=	biography	;
-         if(	notes	)	newEmployee	.	notes	=	notes	;
+         if(	employeeDepartment_Id	)	newEmployeeDepartment	.	employeeDepartment_Id	=	employeeDepartment_Id	;
+         if(	academicDepartment_Id	)	newEmployeeDepartment	.	academicDepartment_Id	=	academicDepartment_Id	;
+         if(	userType_Id	)	newEmployeeDepartment	.	userType_Id	=	userType_Id	;
+         if(	firstName1	)	newEmployeeDepartment	.	firstName1	=	firstName1	;
+         if(	firstName2	)	newEmployeeDepartment	.	firstName2	=	firstName2	;
+         if(	middleName	)	newEmployeeDepartment	.	middleName	=	middleName	;
+         if(	lastName1	)	newEmployeeDepartment	.	lastName1	=	lastName1	;
+         if(	lastName2	)	newEmployeeDepartment	.	lastName2	=	lastName2	;
+         if(	personalEmail	)	newEmployeeDepartment	.	personalEmail	=	personalEmail	;
+         if(	personalPhone	)	newEmployeeDepartment	.	personalPhone	=	personalPhone	;
+         if(	street	)	newEmployeeDepartment	.	street	=	street	;
+         if(	city	)	newEmployeeDepartment	.	city	=	city	;
+         if(	state	)	newEmployeeDepartment	.	state	=	state	;
+         if(	zip	)	newEmployeeDepartment	.	zip	=	zip	;
+         if(	dob	)	newEmployeeDepartment	.	dob	=	dob	;
+         if(	age	)	newEmployeeDepartment	.	age	=	age	;
+         if(	ssn	)	newEmployeeDepartment	.	ssn	=	ssn	;
+         if(	firstLang	)	newEmployeeDepartment	.	firstLang	=	firstLang	;
+         if(	secondLang	)	newEmployeeDepartment	.	secondLang	=	secondLang	;
+         if(	thirdLang	)	newEmployeeDepartment	.	thirdLang	=	thirdLang	;
+         if(	firstInst	)	newEmployeeDepartment	.	firstInst	=	firstInst	;
+         if(	secondInst	)	newEmployeeDepartment	.	secondInst	=	secondInst	;
+         if(	thirdInst	)	newEmployeeDepartment	.	thirdInst	=	thirdInst	;
+         if(	primaryTitle	)	newEmployeeDepartment	.	primaryTitle	=	primaryTitle	;
+         if(	primaryStartDate	)	newEmployeeDepartment	.	primaryStartDate	=	primaryStartDate	;
+         if(	primaryEndDate	)	newEmployeeDepartment	.	primaryEndDate	=	primaryEndDate	;
+         if(	primaryPayRate	)	newEmployeeDepartment	.	primaryPayRate	=	primaryPayRate	;
+         if(	secondaryTitle	)	newEmployeeDepartment	.	secondaryTitle	=	secondaryTitle	;
+         if(	secondaryStartDate	)	newEmployeeDepartment	.	secondaryStartDate	=	secondaryStartDate	;
+         if(	secondaryEndDate	)	newEmployeeDepartment	.	secondaryEndDate	=	secondaryEndDate	;
+         if(	secondaryPayRate	)	newEmployeeDepartment	.	secondaryPayRate	=	secondaryPayRate	;
+         if(	tertiaryTitle	)	newEmployeeDepartment	.	tertiaryTitle	=	tertiaryTitle	;
+         if(	tertiaryStartDate	)	newEmployeeDepartment	.	tertiaryStartDate	=	tertiaryStartDate	;
+         if(	tertiaryEndDate	)	newEmployeeDepartment	.	tertiaryEndDate	=	tertiaryEndDate	;
+         if(	tertiaryPayRate	)	newEmployeeDepartment	.	tertiaryPayRate	=	tertiaryPayRate	;
+         if(	quarternaryTitle	)	newEmployeeDepartment	.	quarternaryTitle	=	quarternaryTitle	;
+         if(	quarternaryStartDate	)	newEmployeeDepartment	.	quarternaryStartDate	=	quarternaryStartDate	;
+         if(	quarternaryEndDate	)	newEmployeeDepartment	.	quarternaryEndDate	=	quarternaryEndDate	;
+         if(	quarternaryPayRate	)	newEmployeeDepartment	.	quarternaryPayRate	=	quarternaryPayRate	;
+         if(	biography	)	newEmployeeDepartment	.	biography	=	biography	;
+         if(	notes	)	newEmployeeDepartment	.	notes	=	notes	;
 
-        //  console.log("newEmployee 448: ", newEmployee)
+        //  console.log("newEmployeeDepartment 448: ", newEmployeeDepartment)
 
          // --------------------------MAKING THE DISPATCH---------------------//
             let employeeId;
-            let newEmployeeDetails;
-            if(newEmployeeDetails);
+            let newEmployeeDepartmentDetails;
+            if(newEmployeeDepartmentDetails);
 
-            await dispatch(employeesActions.thunkCreateEmployee(newEmployee))
+            await dispatch(employeeDepartmentsActions.thunkCreateEmployee(newEmployeeDepartment))
             .then(response => {
                 return response
             })
             .then(response => {
                 employeeId = response.payload[0].id;
-                dispatch(employeesActions.thunkGetEmployeesAll());
+                dispatch(employeeDepartmentsActions.thunkGetEmployeesAll());
                 return employeeId;
             }).catch(async (res) => {
                     const data = await res.json();
@@ -481,14 +481,14 @@ const checkInteger = () => {
                 }
             )
 
-            await dispatch(employeesActions.thunkGetEmployeesAll()).then((response) => {
-                dispatch(employeesActions.thunkGetEmployeeById(employeeId));
+            await dispatch(employeeDepartmentsActions.thunkGetEmployeesAll()).then((response) => {
+                dispatch(employeeDepartmentsActions.thunkGetEmployeeById(employeeId));
                 return response
             }).then(response => {
-                dispatch(employeesActions.thunkGetEmployeesAll())
+                dispatch(employeeDepartmentsActions.thunkGetEmployeesAll())
                 return response
             }).then(response => {
-                newEmployeeDetails = response;
+                newEmployeeDepartmentDetails = response;
                 navigate(`/employees/${employeeId}`)
                 return response
             });
