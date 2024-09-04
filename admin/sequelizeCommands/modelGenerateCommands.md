@@ -1,4 +1,16 @@
 
+===========================================================================================
+
+TEST MODEL GENERATOR
+
+npx sequelize-cli model:generate --name test --attributes firstName:string
+
+npx sequelize-cli model:generate --name Best --attributes firstName:string
+
+===========================================================================================
+
+MODEL GENERATORS
+
 npx sequelize-cli model:generate --name user --attributes firstName:string,lastName:string,username:string,email:string,hashedPassword:string
 
 npx sequelize-cli model:generate --name branch --attributes name:string,street:string,city:string,state:string,zip:string
@@ -19,20 +31,32 @@ npx sequelize-cli model:generate --name student --attributes householdId:integer
 
 ===========================================================================================
 
-npx sequelize-cli seed:generate --name demo-users
+TEST SEEDER GENERATOR
 
-npx sequelize-cli seed:generate --name demo-branches
+npx sequelize-cli seed:generate --name demo-test
 
-npx sequelize-cli seed:generate --name demo-facilities
+npx sequelize-cli seed:generate --name demo-Best
 
-npx sequelize-cli seed:generate --name demo-accesslevels
 
-npx sequelize-cli seed:generate --name demo-academicdepartments
+===========================================================================================
 
-npx sequelize-cli seed:generate --name demo-employeedepartments
 
-npx sequelize-cli seed:generate --name demo-employees
+SEEDER GENERATORS
 
-npx sequelize-cli seed:generate --name demo-households
+npx sequelize-cli seed:generate --name demo-user
 
-npx sequelize-cli seed:generate --name demo-students
+npx sequelize-cli seed:generate --name demo-branche
+
+npx sequelize-cli seed:generate --name demo-facilitie
+
+npx sequelize-cli seed:generate --name demo-accesslevel
+
+npx sequelize-cli seed:generate --name demo-academicdepartment
+
+npx sequelize-cli seed:generate --name demo-employeedepartment
+
+npx sequelize-cli seed:generate --name demo-employee
+
+npx sequelize-cli seed:generate --name demo-household
+
+npx sequelize-cli seed:generate --name demo-student
