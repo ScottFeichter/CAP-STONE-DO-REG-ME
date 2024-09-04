@@ -2,7 +2,7 @@ const express = require("express");
 const { Op } = require("sequelize");
 
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { Branch } = require("../../db/models");
+const { branches } = require("../../db/models");
 
 // const { check } = require('express-validator');
 // const { handleValidationErrors } = require('../../utils/validation');
@@ -41,7 +41,7 @@ const pagination = (reqQuery) => {
 
 // ==================GET ALL BRANCHES==============================
 router.get("/", requireAuth, async (req, res, next) => {
-  let branches = await Branch.findAll({
+  let branches = await branches.findAll({
     attributes: [
       "id",
       "name",
@@ -60,7 +60,7 @@ router.get("/", requireAuth, async (req, res, next) => {
 
 // ==================GET A BRANCH BY ID =========================
 router.get("/:branchId", async (req, res, next) => {
-  const branch = await Branch.findByPk(req.params.branchId, {
+  const branch = await branches.findByPk(req.params.branchId, {
     attributes: [
       "id",
       "name",
@@ -87,7 +87,7 @@ router.get("/:branchId", async (req, res, next) => {
 router.post("/", requireAuth, async (req, res, next) => {
   const { name, street, city, state, zip } = req.body;
 
-  const exists = await Branch.findAll({
+  const exists = await branches.findAll({
     where: [{ name: name }],
   });
 
@@ -96,7 +96,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     err.status = 409;
     next(err);
   } else {
-    const nuBranch = await Branch.build({
+    const nuBranch = await branches.build({
       name: name,
       street: street,
       city: city,
@@ -108,7 +108,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     await nuBranch.save();
   }
 
-  const nuBranchFromDB = await Branch.findAll({
+  const nuBranchFromDB = await branches.findAll({
     where: [{ name: name }],
   });
 
@@ -121,7 +121,7 @@ router.put("/:branchId", requireAuth, async (req, res, next) => {
   const { name, street, city, state, zip } = req.body;
   const branchId = req.params.branchId;
 
-  const branchToUpdate = await Branch.findByPk(req.params.branchId);
+  const branchToUpdate = await branches.findByPk(req.params.branchId);
 
   if (!branchToUpdate) {
     const err = new Error("Branch couldn't be found");
@@ -155,7 +155,7 @@ router.put("/:branchId", requireAuth, async (req, res, next) => {
 // ==================DELETE A BRANCH=============================
 
 router.delete("/:branchId", requireAuth, async (req, res, next) => {
-  const branchToDelete = await Branch.findByPk(req.params.branchId);
+  const branchToDelete = await branches.findByPk(req.params.branchId);
 
   if (!branchToDelete) {
     const err = new Error("Branch couldn't be found");

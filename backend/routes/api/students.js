@@ -2,7 +2,7 @@ const express = require("express");
 const { Op } = require("sequelize");
 
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { Student } = require("../../db/models");
+const { students } = require("../../db/models");
 
 // const { check } = require('express-validator');
 // const { handleValidationErrors } = require('../../utils/validation');
@@ -41,25 +41,24 @@ const pagination = (reqQuery) => {
 
 // ==================GET ALL STUDENTS==============================
 router.get("/", requireAuth, async (req, res, next) => {
-  let students = await Student.findAll({
+  let students = await students.findAll({
     attributes: [
       "id",
-      "household_Id",
+      "householdId",
       "headOfHousehold",
-      "userType_Id",
-      "firstName1",
-      "firstName2",
+      "accesslevelId",
+      "firstName",
+      "nickName",
       "middleName",
-      "lastName1",
-      "lastName2",
-      "personalEmail",
-      "personalPhone",
+      "lastName",
+      "familyName",
+      "phone",
+      "email",
       "street",
       "city",
       "state",
       "zip",
       "dob",
-      "age",
       "firstLang",
       "secondLang",
       "thirdLang",
@@ -80,25 +79,24 @@ router.get("/", requireAuth, async (req, res, next) => {
 
 // ==================GET A STUDENT BY ID =========================
 router.get("/:studentId", async (req, res, next) => {
-  const student = await Student.findByPk(req.params.studentId, {
+  const student = await students.findByPk(req.params.studentId, {
     attributes: [
       "id",
-      "household_Id",
+      "householdId",
       "headOfHousehold",
-      "userType_Id",
-      "firstName1",
-      "firstName2",
+      "accesslevelId",
+      "firstName",
+      "nickName",
       "middleName",
-      "lastName1",
-      "lastName2",
-      "personalEmail",
-      "personalPhone",
+      "lastName",
+      "familyName",
+      "phone",
+      "email",
       "street",
       "city",
       "state",
       "zip",
       "dob",
-      "age",
       "firstLang",
       "secondLang",
       "thirdLang",
@@ -126,22 +124,21 @@ router.get("/:studentId", async (req, res, next) => {
 
 router.post("/", requireAuth, async (req, res, next) => {
   const {
-    household_Id,
+    householdId,
     headOfHousehold,
-    userType_Id,
-    firstName1,
-    firstName2,
+    accesslevelId,
+    firstName,
+    nickName,
     middleName,
-    lastName1,
-    lastName2,
-    personalEmail,
-    personalPhone,
+    lastName,
+    familyName,
+    phone,
+    email,
     street,
     city,
     state,
     zip,
     dob,
-    age,
     firstLang,
     secondLang,
     thirdLang,
@@ -153,8 +150,8 @@ router.post("/", requireAuth, async (req, res, next) => {
     notes,
   } = req.body;
 
-  const exists = await Student.findAll({
-    where: [{ dob: dob }, { lastName1: lastName1 }, { lastName2: lastName2 }],
+  const exists = await students.findAll({
+    where: [{ dob: dob }, { lastName: lastName }, { familyName: familyName }],
   });
 
   // console.log(
@@ -167,23 +164,22 @@ router.post("/", requireAuth, async (req, res, next) => {
     err.status = 409;
     next(err);
   } else {
-    const nuStudent = await Student.build({
-      household_Id: household_Id,
+    const nuStudent = await students.build({
+      householdId: householdId,
       headOfHousehold: headOfHousehold,
-      userType_Id: userType_Id,
-      firstName1: firstName1,
-      firstName2: firstName2,
+      accesslevelId: accesslevelId,
+      firstName: firstName,
+      nickName: nickName,
       middleName: middleName,
-      lastName1: lastName1,
-      lastName2: lastName2,
-      personalEmail: personalEmail,
-      personalPhone: personalPhone,
+      lastName: lastName,
+      familyName: familyName,
+      phone: phone,
+      email: email,
       street: street,
       city: city,
       state: state,
       zip: zip,
       dob: dob,
-      age: age,
       firstLang: firstLang,
       secondLang: secondLang,
       thirdLang: thirdLang,
@@ -199,8 +195,8 @@ router.post("/", requireAuth, async (req, res, next) => {
     await nuStudent.save();
   }
 
-  const nuStudentFromDB = await Student.findAll({
-    where: [{ firstName1: firstName1 }, { lastName1: lastName1 }, { personalEmail: personalEmail }],
+  const nuStudentFromDB = await students.findAll({
+    where: [{ firstName: firstName }, { lastName: lastName }, { email: email }],
   });
 
   return res.status(201).json(nuStudentFromDB);
@@ -210,24 +206,23 @@ router.post("/", requireAuth, async (req, res, next) => {
 
 router.put("/:studentId", requireAuth, async (req, res, next) => {
   const studentId = req.params.studentId;
-  const studentToUpdate = await Student.findByPk(req.params.studentId);
+  const studentToUpdate = await students.findByPk(req.params.studentId);
   const {
-    household_Id,
+    householdId,
     headOfHousehold,
-    userType_Id,
-    firstName1,
-    firstName2,
+    accesslevelId,
+    firstName,
+    nickName,
     middleName,
-    lastName1,
-    lastName2,
-    personalEmail,
-    personalPhone,
+    lastName,
+    familyName,
+    phone,
+    email,
     street,
     city,
     state,
     zip,
     dob,
-    age,
     firstLang,
     secondLang,
     thirdLang,
@@ -257,26 +252,26 @@ router.put("/:studentId", requireAuth, async (req, res, next) => {
   //   return next(err);
   // }
 
-  if (household_Id !== undefined || household_Id !== null)
-    studentToUpdate.household_Id = household_Id;
+  if (householdId !== undefined || householdId !== null)
+    studentToUpdate.householdId = householdId;
   if (headOfHousehold !== undefined || headOfHousehold !== null)
     studentToUpdate.headOfHousehold = headOfHousehold;
-  if (userType_Id !== undefined || userType_Id !== null)
-    studentToUpdate.userType_Id = userType_Id;
-  if (firstName1 !== undefined || firstName1 !== null)
-    studentToUpdate.firstName1 = firstName1;
-  if (firstName2 !== undefined || firstName2 !== null)
-    studentToUpdate.firstName2 = firstName2;
+  if (accesslevelId !== undefined || accesslevelId !== null)
+    studentToUpdate.accesslevelId = accesslevelId;
+  if (firstName !== undefined || firstName !== null)
+    studentToUpdate.firstName = firstName;
+  if (nickName !== undefined || nickName !== null)
+    studentToUpdate.nickName = nickName;
   if (middleName !== undefined || middleName !== null)
     studentToUpdate.middleName = middleName;
-  if (lastName1 !== undefined || lastName1 !== null)
-    studentToUpdate.lastName1 = lastName1;
-  if (lastName2 !== undefined || lastName2 !== null)
-    studentToUpdate.lastName2 = lastName2;
-  if (personalEmail !== undefined || personalEmail !== null)
-    studentToUpdate.personalEmail = personalEmail;
-  if (personalPhone !== undefined || personalPhone !== null)
-    studentToUpdate.personalPhone = personalPhone;
+  if (lastName !== undefined || lastName !== null)
+    studentToUpdate.lastName = lastName;
+  if (familyName !== undefined || familyName !== null)
+    studentToUpdate.familyName = familyName;
+  if (email !== undefined || email !== null)
+    studentToUpdate.email = email;
+  if (phone !== undefined || phone !== null)
+    studentToUpdate.phone = phone;
   if (street !== undefined || street !== null) studentToUpdate.street = street;
   if (city !== undefined || city !== null) studentToUpdate.city = city;
   if (state !== undefined || state !== null) studentToUpdate.state = state;
@@ -284,7 +279,6 @@ router.put("/:studentId", requireAuth, async (req, res, next) => {
   if (state !== undefined || state !== null) studentToUpdate.state = state;
   if (zip !== undefined || zip !== null) studentToUpdate.zip = zip;
   if (dob !== undefined || dob !== null) studentToUpdate.dob = dob;
-  if (age !== undefined || age !== null) studentToUpdate.age = age;
   if (firstLang !== undefined || firstLang !== null)
     studentToUpdate.firstLang = firstLang;
   if (secondLang !== undefined || secondLang !== null)
@@ -311,7 +305,7 @@ router.put("/:studentId", requireAuth, async (req, res, next) => {
 // ==================DELETE A STUDENT=============================
 
 router.delete("/:studentId", requireAuth, async (req, res, next) => {
-  const studentToDelete = await Student.findByPk(req.params.studentId);
+  const studentToDelete = await students.findByPk(req.params.studentId);
 
   if (!studentToDelete) {
     const err = new Error("Student couldn't be found");

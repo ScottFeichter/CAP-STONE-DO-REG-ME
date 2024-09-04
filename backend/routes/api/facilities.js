@@ -2,7 +2,7 @@ const express = require("express");
 const { Op } = require("sequelize");
 
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { Facility } = require("../../db/models");
+const { facilities } = require("../../db/models");
 
 // const { check } = require('express-validator');
 // const { handleValidationErrors } = require('../../utils/validation');
@@ -41,7 +41,7 @@ const pagination = (reqQuery) => {
 
 // ==================GET ALL FACILITIES==============================
 router.get("/", requireAuth, async (req, res, next) => {
-  let facilities = await Facility.findAll({
+  let facilities = await facilities.findAll({
     attributes: [
       "id",
       "name",
@@ -57,7 +57,7 @@ router.get("/", requireAuth, async (req, res, next) => {
 
 // ==================GET A FACILITY BY ID =========================
 router.get("/:facilityId", async (req, res, next) => {
-  const facility = await Facility.findByPk(req.params.facilityId, {
+  const facility = await facilities.findByPk(req.params.facilityId, {
     attributes: [
       "id",
       "name",
@@ -81,7 +81,7 @@ router.get("/:facilityId", async (req, res, next) => {
 router.post("/", requireAuth, async (req, res, next) => {
   const { name, branch_Id } = req.body;
 
-  const exists = await Facility.findAll({
+  const exists = await facilities.findAll({
     where: [{ name: name }],
   });
 
@@ -90,7 +90,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     err.status = 409;
     next(err);
   } else {
-    const nuFacility = await Facility.build({
+    const nufacilities = await facilities.build({
       name: name,
       branch_Id: branch_Id,
     });
@@ -99,7 +99,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     await nuFacility.save();
   }
 
-  const nuFacilityFromDB = await Facility.findAll({
+  const nuFacilityFromDB = await facilities.findAll({
     where: [{ name: name }],
   });
 
@@ -112,7 +112,7 @@ router.put("/:facilityId", requireAuth, async (req, res, next) => {
   const { name, branch_Id, city, state, zip } = req.body;
   const facilityId = req.params.facilityId;
 
-  const facilityToUpdate = await Facility.findByPk(req.params.facilityId);
+  const facilityToUpdate = await facilities.findByPk(req.params.facilityId);
 
   if (!facilityToUpdate) {
     const err = new Error("Facility couldn't be found");
@@ -143,7 +143,7 @@ router.put("/:facilityId", requireAuth, async (req, res, next) => {
 // ==================DELETE A FACILITY=============================
 
 router.delete("/:facilityId", requireAuth, async (req, res, next) => {
-  const facilityToDelete = await Facility.findByPk(req.params.facilityId);
+  const facilityToDelete = await facilities.findByPk(req.params.facilityId);
 
   if (!facilityToDelete) {
     const err = new Error("Facility couldn't be found");

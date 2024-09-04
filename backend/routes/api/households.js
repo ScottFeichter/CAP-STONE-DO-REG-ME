@@ -3,7 +3,7 @@ const express = require('express');
 const { Op } = require('sequelize');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { Household } = require("../../db/models");
+const { households } = require("../../db/models");
 
 
 // const { check } = require('express-validator');
@@ -48,7 +48,7 @@ const pagination = (reqQuery) => {
 router.get("/", requireAuth, async (req, res, next) => {
 
 
-  let households = await Household.findAll({
+  let households = await households.findAll({
     attributes: [
       "id",
       "name",
@@ -65,7 +65,7 @@ router.get("/", requireAuth, async (req, res, next) => {
 
 // ==================GET A HOUSEHOLD BY ID =========================
 router.get("/:householdId", async (req, res, next) => {
-  const household = await Household.findByPk(req.params.householdId, {
+  const household = await households.findByPk(req.params.householdId, {
     attributes: [
       "id",
       "name",
@@ -92,7 +92,7 @@ router.post("/", requireAuth, async (req, res, next) => {
   const { name, notes } = req.body;
 
 
-  const exists = await Household.findAll({
+  const exists = await households.findAll({
     where: [
       { name: name },
     ],
@@ -103,7 +103,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     err.status = 409;
     next(err);
   } else {
-    const nuHousehold = await Household.build({
+    const nuHousehold = await households.build({
       name: name,
       notes: notes,
     });
@@ -112,7 +112,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     await nuHousehold.save();
   }
 
-  const nuHouseholdFromDB = await Household.findAll({
+  const nuHouseholdFromDB = await households.findAll({
     where: [
       { name: name },
     ],
@@ -133,7 +133,7 @@ router.put("/:householdId", requireAuth, async (req, res, next) => {
   const { name, notes } = req.body;
   const householdId = req.params.householdId;
 
-  const householdToUpdate = await Household.findByPk(req.params.householdId);
+  const householdToUpdate = await households.findByPk(req.params.householdId);
 
   if (!householdToUpdate) {
     const err = new Error("Household couldn't be found");
@@ -167,7 +167,7 @@ router.put("/:householdId", requireAuth, async (req, res, next) => {
 // ==================DELETE A HOUSEHOLD=============================
 
 router.delete("/:householdId", requireAuth, async (req, res, next) => {
-  const householdToDelete = await Household.findByPk(req.params.householdId);
+  const householdToDelete = await households.findByPk(req.params.householdId);
 
 
   if (!householdToDelete) {

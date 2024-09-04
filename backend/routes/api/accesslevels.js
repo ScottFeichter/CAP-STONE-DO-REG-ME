@@ -3,7 +3,7 @@ const express = require('express');
 const { Op } = require('sequelize');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { UserType } = require("../../db/models");
+const { accesslevels } = require("../../db/models");
 
 
 // const { check } = require('express-validator');
@@ -48,7 +48,7 @@ const pagination = (reqQuery) => {
 router.get("/", requireAuth, async (req, res, next) => {
 
 
-  let userTypes = await UserType.findAll({
+  let userTypes = await accesslevels.findAll({
     attributes: [
       "id",
       "type",
@@ -64,7 +64,7 @@ router.get("/", requireAuth, async (req, res, next) => {
 
 // ==================GET A USER TYPE BY ID =========================
 router.get("/:userTypeId", async (req, res, next) => {
-  const userType = await UserType.findByPk(req.params.userTypeId, {
+  const userType = await accesslevels.findByPk(req.params.userTypeId, {
     attributes: [
       "id",
       "type",
@@ -90,7 +90,7 @@ router.post("/", requireAuth, async (req, res, next) => {
   const { type } = req.body;
 
 
-  const exists = await UserType.findAll({
+  const exists = await accesslevels.findAll({
     where: [
       { type: type },
     ],
@@ -101,7 +101,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     err.status = 409;
     next(err);
   } else {
-    const nuUserType = await UserType.build({
+    const nuUserType = await accesslevels.build({
       type: type,
     });
 
@@ -109,7 +109,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     await nuUserType.save();
   }
 
-  const nuUserTypeFromDB = await UserType.findAll({
+  const nuUserTypeFromDB = await accesslevels.findAll({
     where: [
       { type: type },
     ],
@@ -130,7 +130,7 @@ router.put("/:userTypeId", requireAuth, async (req, res, next) => {
   const { type } = req.body;
   const userTypeId = req.params.userTypeId;
 
-  const userTypeToUpdate = await UserType.findByPk(req.params.userTypeId);
+  const userTypeToUpdate = await accesslevels.findByPk(req.params.userTypeId);
 
   if (!userTypeToUpdate) {
     const err = new Error("User Type couldn't be found");
@@ -163,7 +163,7 @@ router.put("/:userTypeId", requireAuth, async (req, res, next) => {
 // ==================DELETE A USER TYPE=============================
 
 router.delete("/:userTypeId", requireAuth, async (req, res, next) => {
-  const userTypeToDelete = await UserType.findByPk(req.params.userTypeId);
+  const userTypeToDelete = await accesslevels.findByPk(req.params.userTypeId);
 
 
   if (!userTypeToDelete) {

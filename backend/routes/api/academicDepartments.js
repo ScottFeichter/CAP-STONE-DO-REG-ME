@@ -3,7 +3,7 @@ const express = require('express');
 const { Op } = require('sequelize');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { AcademicDepartment } = require("../../db/models");
+const { academicdepartments } = require("../../db/models");
 
 
 // const { check } = require('express-validator');
@@ -48,12 +48,12 @@ const pagination = (reqQuery) => {
 router.get("/", requireAuth, async (req, res, next) => {
 
 
-  let academicDepartments = await AcademicDepartment.findAll({
+  let academicDepartments = await academicdepartments.findAll({
     attributes: [
       "id",
       "name",
       "chair",
-      "imageURL",
+      "imgurl",
       "createdAt",
       "updatedAt",
     ],
@@ -66,12 +66,12 @@ router.get("/", requireAuth, async (req, res, next) => {
 
 // ==================GET AN ACADEMIC DEPARTMENT BY ID =========================
 router.get("/:academicDepartmentId", async (req, res, next) => {
-  const academicDepartment = await AcademicDepartment.findByPk(req.params.academicDepartmentId, {
+  const academicDepartment = await academicdepartments.findByPk(req.params.academicDepartmentId, {
     attributes: [
       "id",
       "name",
       "chair",
-      "imageURL",
+      "imgurl",
       "createdAt",
       "updatedAt",
     ],
@@ -91,10 +91,10 @@ router.get("/:academicDepartmentId", async (req, res, next) => {
 
 router.post("/", requireAuth, async (req, res, next) => {
 
-  const { name, chair, imageURL } = req.body;
+  const { name, chair, imgurl } = req.body;
 
 
-  const exists = await AcademicDepartment.findAll({
+  const exists = await academicdepartments.findAll({
     where: [
       { name: name },
     ],
@@ -105,17 +105,17 @@ router.post("/", requireAuth, async (req, res, next) => {
     err.status = 409;
     next(err);
   } else {
-    const nuAcademicDepartment = await AcademicDepartment.build({
+    const nuAcademicDepartment = await academicdepartments.build({
       name: name,
       chair: chair,
-      imageURL: imageURL,
+      imgurl: imgurl,
     });
 
     await nuAcademicDepartment.validate();
     await nuAcademicDepartment.save();
   }
 
-  const nuAcademicDepartmentFromDB = await AcademicDepartment.findAll({
+  const nuAcademicDepartmentFromDB = await academicdepartments.findAll({
     where: [
       { name: name },
     ],
@@ -133,10 +133,10 @@ router.post("/", requireAuth, async (req, res, next) => {
 
 
 router.put("/:academicDepartmentId", requireAuth, async (req, res, next) => {
-  const { name, chair, imageURL } = req.body;
+  const { name, chair, imgurl } = req.body;
   const academicDepartmentId = req.params.academicDepartmentId;
 
-  const academicDepartmentToUpdate = await AcademicDepartment.findByPk(req.params.academicDepartmentId);
+  const academicDepartmentToUpdate = await academicdepartments.findByPk(req.params.academicDepartmentId);
 
   if (!academicDepartmentToUpdate) {
     const err = new Error("Academic Department couldn't be found");
@@ -167,10 +167,10 @@ router.put("/:academicDepartmentId", requireAuth, async (req, res, next) => {
   }
 
   if (
-    (typeof imageURL !== "string" && (imageURL !== undefined || imageURL !== null))
+    (typeof imgurl !== "string" && (imgurl !== undefined || imgurl !== null))
   ) {
     const err = new Error("Bad Request");
-    err.errors = { imageURL: "Image URL is invalid" };
+    err.errors = { imgurl: "Image URL is invalid" };
     err.status = 400;
     return next(err);
   }
@@ -178,7 +178,7 @@ router.put("/:academicDepartmentId", requireAuth, async (req, res, next) => {
 
   if (name !== undefined) academicDepartmentToUpdate.name = name;
   if (chair !== undefined) academicDepartmentToUpdate.chair = chair;
-  if (imageURL !== undefined) academicDepartmentToUpdate.imageURL = imageURL;
+  if (imgurl !== undefined) academicDepartmentToUpdate.imgurl = imgurl;
 
 
   await academicDepartmentToUpdate.save();
@@ -190,7 +190,7 @@ router.put("/:academicDepartmentId", requireAuth, async (req, res, next) => {
 // ==================DELETE AN ACADEMIC DEPARTMENT=============================
 
 router.delete("/:academicDepartmentId", requireAuth, async (req, res, next) => {
-  const academicDepartmentToDelete = await AcademicDepartment.findByPk(req.params.academicDepartmentId);
+  const academicDepartmentToDelete = await academicdepartments.findByPk(req.params.academicDepartmentId);
 
 
   if (!academicDepartmentToDelete) {

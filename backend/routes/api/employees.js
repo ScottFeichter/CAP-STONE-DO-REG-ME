@@ -2,7 +2,7 @@ const express = require("express");
 const { Op } = require("sequelize");
 
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { Employee } = require("../../db/models");
+const { employees } = require("../../db/models");
 
 // const { check } = require('express-validator');
 // const { handleValidationErrors } = require('../../utils/validation');
@@ -41,25 +41,24 @@ const pagination = (reqQuery) => {
 
 // ==================GET ALL EMPLOYEES==============================
 router.get("/", requireAuth, async (req, res, next) => {
-  let employees = await Employee.findAll({
+  let employees = await employees.findAll({
     attributes: [
       "id",
-      "employeeDepartment_Id",
-      "academicDepartment_Id",
-      "userType_Id",
-      "firstName1",
-      "firstName2",
+      "employeeDepartmentId",
+      "academicDepartmentId",
+      "accessLevelId",
+      "firstName",
+      "nickName",
       "middleName",
-      "lastName1",
-      "lastName2",
-      "personalEmail",
-      "personalPhone",
+      "lastName",
+      "familyName",
+      "phone",
+      "email",
       "street",
       "city",
       "state",
       "zip",
       "dob",
-      "age",
       "ssn",
       "firstLang",
       "secondLang",
@@ -96,25 +95,24 @@ router.get("/", requireAuth, async (req, res, next) => {
 
 // ==================GET A EMPLOYEE BY ID =========================
 router.get("/:employeeId", async (req, res, next) => {
-  const employee = await Employee.findByPk(req.params.employeeId, {
+  const employee = await employees.findByPk(req.params.employeeId, {
     attributes: [
       "id",
-      "employeeDepartment_Id",
-      "academicDepartment_Id",
-      "userType_Id",
-      "firstName1",
-      "firstName2",
+      "employeeDepartmentId",
+      "academicDepartmentId",
+      "accessLevelId",
+      "firstName",
+      "nickName",
       "middleName",
-      "lastName1",
-      "lastName2",
-      "personalEmail",
-      "personalPhone",
+      "lastName",
+      "familyName",
+      "phone",
+      "email",
       "street",
       "city",
       "state",
       "zip",
       "dob",
-      "age",
       "ssn",
       "firstLang",
       "secondLang",
@@ -161,22 +159,21 @@ router.get("/:employeeId", async (req, res, next) => {
 
 router.post("/", requireAuth, async (req, res, next) => {
   const {
-    employeeDepartment_Id,
-    academicDepartment_Id,
-    userType_Id,
-    firstName1,
-    firstName2,
+    employeeDepartmentId,
+    academicDepartmentId,
+    accessLevelId,
+    firstName,
+    nickName,
     middleName,
-    lastName1,
-    lastName2,
-    personalEmail,
-    personalPhone,
+    lastName,
+    familyName,
+    phone,
+    email,
     street,
     city,
     state,
     zip,
     dob,
-    age,
     ssn,
     firstLang,
     secondLang,
@@ -204,7 +201,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     notes,
   } = req.body;
 
-  const exists = await Employee.findAll({
+  const exists = await employees.findAll({
     where: [{ ssn: ssn }],
   });
 
@@ -215,23 +212,22 @@ router.post("/", requireAuth, async (req, res, next) => {
     err.status = 409;
     next(err);
   } else {
-    const nuEmployee = await Employee.build({
-      employeeDepartment_Id: employeeDepartment_Id,
-      academicDepartment_Id: academicDepartment_Id,
-      userType_Id: userType_Id,
-      firstName1: firstName1,
-      firstName2: firstName2,
+    const nuEmployee = await employees.build({
+      employeeDepartmentId: employeeDepartmentId,
+      academicDepartmentId: academicDepartmentId,
+      accessLevelId: accessLevelId,
+      firstName: firstName,
+      nickName: nickName,
       middleName: middleName,
-      lastName1: lastName1,
-      lastName2: lastName2,
-      personalEmail: personalEmail,
-      personalPhone: personalPhone,
+      lastName: lastName,
+      familyName: familyName,
+      phone: phone,
+      email: email,
       street: street,
       city: city,
       state: state,
       zip: zip,
       dob: dob,
-      age: age,
       ssn: ssn,
       firstLang: firstLang,
       secondLang: secondLang,
@@ -263,7 +259,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     await nuEmployee.save();
   }
 
-  const nuEmployeeFromDB = await Employee.findAll({
+  const nuEmployeeFromDB = await employees.findAll({
     where: [{ ssn: ssn }],
   });
 
@@ -274,24 +270,23 @@ router.post("/", requireAuth, async (req, res, next) => {
 
 router.put("/:employeeId", requireAuth, async (req, res, next) => {
   const employeeId = req.params.employeeId;
-  const employeeToUpdate = await Employee.findByPk(req.params.employeeId);
+  const employeeToUpdate = await employees.findByPk(req.params.employeeId);
   const {
-    employeeDepartment_Id,
-    academicDepartment_Id,
-    userType_Id,
-    firstName1,
-    firstName2,
+    employeeDepartmentId,
+    academicDepartmentId,
+    accessLevelId,
+    firstName,
+    nickName,
     middleName,
-    lastName1,
-    lastName2,
-    personalEmail,
-    personalPhone,
+    lastName,
+    familyName,
+    phone,
+    email,
     street,
     city,
     state,
     zip,
     dob,
-    age,
     ssn,
     firstLang,
     secondLang,
@@ -337,16 +332,16 @@ router.put("/:employeeId", requireAuth, async (req, res, next) => {
   //   return next(err);
   // }
 
-  if (employeeDepartment_Id !== undefined || employeeDepartment_Id !== null) employeeToUpdate.employeeDepartment_Id = employeeDepartment_Id;
-  if (academicDepartment_Id !== undefined || academicDepartment_Id !== null) employeeToUpdate.academicDepartment_Id = academicDepartment_Id;
-  if (userType_Id !== undefined || userType_Id !== null) employeeToUpdate.userType_Id = userType_Id;
-  if (firstName1 !== undefined || firstName1 !== null) employeeToUpdate.firstName1 = firstName1;
-  if (firstName2 !== undefined || firstName2 !== null) employeeToUpdate.firstName2 = firstName2;
+  if (employeeDepartmentId !== undefined || employeeDepartmentId !== null) employeeToUpdate.employeeDepartmentId = employeeDepartmentId;
+  if (academicDepartmentId !== undefined || academicDepartmentId !== null) employeeToUpdate.academicDepartmentId = academicDepartmentId;
+  if (accessLevelId !== undefined || accessLevelId !== null) employeeToUpdate.accessLevelId = accessLevelId;
+  if (firstName !== undefined || firstName !== null) employeeToUpdate.firstName = firstName;
+  if (nickName !== undefined || nickName !== null) employeeToUpdate.nickName = nickName;
   if (middleName !== undefined || middleName !== null) employeeToUpdate.middleName = middleName;
-  if (lastName1 !== undefined || lastName1 !== null) employeeToUpdate.lastName1 = lastName1;
-  if (lastName2 !== undefined || lastName2 !== null) employeeToUpdate.lastName2 = lastName2;
-  if (personalEmail !== undefined || personalEmail !== null) employeeToUpdate.personalEmail = personalEmail;
-  if (personalPhone !== undefined || personalPhone !== null) employeeToUpdate.personalPhone = personalPhone;
+  if (lastName !== undefined || lastName !== null) employeeToUpdate.lastName = lastName;
+  if (familyName !== undefined || familyName !== null) employeeToUpdate.familyName = familyName;
+  if (email !== undefined || email !== null) employeeToUpdate.email = email;
+  if (phone !== undefined || phone !== null) employeeToUpdate.phone = phone;
   if (street !== undefined || street !== null) employeeToUpdate.street = street;
   if (city !== undefined || city !== null) employeeToUpdate.city = city;
   if (state !== undefined || state !== null) employeeToUpdate.state = state;
@@ -354,7 +349,6 @@ router.put("/:employeeId", requireAuth, async (req, res, next) => {
   if (state !== undefined || state !== null) employeeToUpdate.state = state;
   if (zip !== undefined || zip !== null) employeeToUpdate.zip = zip;
   if (dob !== undefined || dob !== null) employeeToUpdate.dob = dob;
-  if (age !== undefined || age !== null) employeeToUpdate.age = age;
   if (ssn !== undefined || ssn !== null) employeeToUpdate.ssn = ssn;
   if (firstLang !== undefined || firstLang !== null) employeeToUpdate.firstLang = firstLang;
   if (secondLang !== undefined || secondLang !== null) employeeToUpdate.secondLang = secondLang;
@@ -390,7 +384,7 @@ router.put("/:employeeId", requireAuth, async (req, res, next) => {
 // ==================DELETE A EMPLOYEE=============================
 
 router.delete("/:employeeId", requireAuth, async (req, res, next) => {
-  const employeeToDelete = await Employee.findByPk(req.params.employeeId);
+  const employeeToDelete = await employees.findByPk(req.params.employeeId);
 
   if (!employeeToDelete) {
     const err = new Error("Employee couldn't be found");

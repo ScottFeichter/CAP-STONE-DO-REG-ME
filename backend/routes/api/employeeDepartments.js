@@ -2,7 +2,7 @@ const express = require('express');
 const { Op } = require('sequelize');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { EmployeeDepartment } = require("../../db/models");
+const { employeedepartments } = require("../../db/models");
 
 
 // const { check } = require('express-validator');
@@ -47,11 +47,11 @@ const pagination = (reqQuery) => {
 router.get("/", requireAuth, async (req, res, next) => {
 
 
-  let employeeDepartments = await EmployeeDepartment.findAll({
+  let employeeDepartments = await employeedepartments.findAll({
     attributes: [
       "id",
       "name",
-      "imageURL",
+      "imgurl",
       "createdAt",
       "updatedAt",
     ],
@@ -66,11 +66,11 @@ router.get("/", requireAuth, async (req, res, next) => {
 
 // ==================GET AN EMPLOYEE DEPARTMENT BY ID =========================
 router.get("/:employeeDepartmentId", async (req, res, next) => {
-  const employeeDepartment = await EmployeeDepartment.findByPk(req.params.employeeDepartmentId, {
+  const employeeDepartment = await employeedepartments.findByPk(req.params.employeeDepartmentId, {
     attributes: [
       "id",
       "name",
-      "imageURL",
+      "imgurl",
       "createdAt",
       "updatedAt",
     ],
@@ -90,10 +90,10 @@ router.get("/:employeeDepartmentId", async (req, res, next) => {
 
 router.post("/", requireAuth, async (req, res, next) => {
 
-  const { name, imageURL } = req.body;
+  const { name, imgurl } = req.body;
 
 
-  const exists = await EmployeeDepartment.findAll({
+  const exists = await employeedepartments.findAll({
     where: [
       { name: name },
     ],
@@ -104,16 +104,16 @@ router.post("/", requireAuth, async (req, res, next) => {
     err.status = 409;
     next(err);
   } else {
-    const nuEmployeeDepartment = await EmployeeDepartment.build({
+    const nuEmployeeDepartment = await employeedepartments.build({
       name: name,
-      imageURL: imageURL,
+      imgurl: imgurl,
     });
 
     await nuEmployeeDepartment.validate();
     await nuEmployeeDepartment.save();
   }
 
-  const nuEmployeeDepartmentFromDB = await EmployeeDepartment.findAll({
+  const nuEmployeeDepartmentFromDB = await employeedepartments.findAll({
     where: [
       { name: name },
     ],
@@ -131,10 +131,10 @@ router.post("/", requireAuth, async (req, res, next) => {
 
 
 router.put("/:employeeDepartmentId", requireAuth, async (req, res, next) => {
-  const { name, imageURL } = req.body;
+  const { name, imgurl } = req.body;
   const employeeDepartmentId = req.params.employeeDepartmentId;
 
-  const employeeDepartmentToUpdate = await EmployeeDepartment.findByPk(req.params.employeeDepartmentId);
+  const employeeDepartmentToUpdate = await employeedepartments.findByPk(req.params.employeeDepartmentId);
 
   if (!employeeDepartmentToUpdate) {
     const err = new Error("Employee Department couldn't be found");
@@ -155,17 +155,17 @@ router.put("/:employeeDepartmentId", requireAuth, async (req, res, next) => {
   }
 
   if (
-    (typeof imageURL !== "string" && (imageURL !== undefined || imageURL !== null))
+    (typeof imgurl !== "string" && (imgurl !== undefined || imgurl !== null))
   ) {
     const err = new Error("Bad Request");
-    err.errors = { imageURL: "Image URL is invalid" };
+    err.errors = { imgurl: "Image URL is invalid" };
     err.status = 400;
     return next(err);
   }
 
 
   if (name !== undefined) employeeDepartmentToUpdate.name = name;
-  if (imageURL !== undefined) employeeDepartmentToUpdate.imageURL = imageURL;
+  if (imgurl !== undefined) employeeDepartmentToUpdate.imgurl = imgurl;
 
 
   await employeeDepartmentToUpdate.save();
@@ -177,7 +177,7 @@ router.put("/:employeeDepartmentId", requireAuth, async (req, res, next) => {
 // ==================DELETE AN EMPLOYEE DEPARTMENT=============================
 
 router.delete("/:employeeDepartmentId", requireAuth, async (req, res, next) => {
-  const employeeDepartmentToDelete = await EmployeeDepartment.findByPk(req.params.employeeDepartmentId);
+  const employeeDepartmentToDelete = await employeedepartments.findByPk(req.params.employeeDepartmentId);
 
 
   if (!employeeDepartmentToDelete) {

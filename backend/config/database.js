@@ -1,4 +1,4 @@
-const config = require("./index");
+const config = require("./index"); // importing the index entry file
 
 module.exports = {
   development: {
@@ -23,3 +23,19 @@ module.exports = {
     },
   },
 };
+
+// DEVELOPMENT AND PRODUCTION
+// - defining different environments
+
+// STORAGE
+// DIALECT
+// DIALECT OPTIONS
+// MIGRATION STORAGE
+// - this will be the SequelizeMeta table in db
+// - default is sequelize
+// SEEDER STORAGE
+// - sequelize: store seeds in a table on sequelize db
+// - other options would be json and none
+// LOG QUERY PARAMETERS
+// TYPE VALIDATION
+// DEFINE

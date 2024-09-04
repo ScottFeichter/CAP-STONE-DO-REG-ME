@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-const employeeDepartmentsRouter = require('./employeeDepartments.js');
-const academicDepartmentsRouter = require('./academicDepartments.js');
-const userTypesRouter = require('./userTypes.js');
+const employeedepartmentsRouter = require('./employeedepartments.js');
+const academicdepartmentsRouter = require('./academicdepartments.js');
+const accesslevelsRouter = require('./accesslevels.js');
 const employeesRouter = require('./employees.js');
 const branchesRouter = require('./branches.js');
 const facilitiesRouter = require('./facilities.js');
@@ -18,9 +18,9 @@ router.use(restoreUser);
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
-router.use('/employeeDepartments', employeeDepartmentsRouter);
-router.use('/academicDepartments', academicDepartmentsRouter);
-router.use('/userTypes', userTypesRouter);
+router.use('/employeedepartments', employeedepartmentsRouter);
+router.use('/academicdepartments', academicdepartmentsRouter);
+router.use('/accesslevels', accesslevelsRouter);
 router.use('/employees', employeesRouter);
 router.use('/branches', branchesRouter);
 router.use('/facilities', facilitiesRouter);
@@ -53,9 +53,9 @@ router.get("/require-auth", requireAuth, (req, res) => {
 
 // GET /api/set-token-cookie
 const { setTokenCookie } = require("../../utils/auth.js");
-const { User } = require("../../db/models");
+const { users } = require("../../db/models");
 router.get("/set-token-cookie", async (_req, res) => {
-  const user = await User.findOne({
+  const user = await users.findOne({
     where: {
       username: "Demo-lition",
     },

@@ -1,7 +1,7 @@
 
 npx sequelize-cli model:generate --name users --attributes firstName:string,lastName:string,username:string,email:string,hasedPassword:string,createdAt:date,updatedAt:date
 
-npx sequelize-cli model:generate --name branches --attributes name:string,street:string,city:string,state:string,zip:integer,createdAt:date,updatedAt:date
+npx sequelize-cli model:generate --name branches --attributes name:string,street:string,city:string,state:string,zip:string,createdAt:date,updatedAt:date
 
 npx sequelize-cli model:generate --name facilities --attributes name:string,branchId:integer,createdAt:date,updatedAt:date
 
@@ -19,20 +19,20 @@ npx sequelize-cli model:generate --name students --attributes householdId:intege
 
 ===========================================================================================
 
-npx sequelize-cli seed:generate --name demo-user
+npx sequelize-cli seed:generate --name demo-users
 
-npx sequelize-cli seed:generate --name demo-branch
+npx sequelize-cli seed:generate --name demo-branches
 
-npx sequelize-cli seed:generate --name demo-facility
+npx sequelize-cli seed:generate --name demo-facilities
 
-npx sequelize-cli seed:generate --name demo-accesslevel
+npx sequelize-cli seed:generate --name demo-accesslevels
 
-npx sequelize-cli seed:generate --name demo-academicdepartment
+npx sequelize-cli seed:generate --name demo-academicdepartments
 
-npx sequelize-cli seed:generate --name demo-employeedepartment
+npx sequelize-cli seed:generate --name demo-employeedepartments
 
-npx sequelize-cli seed:generate --name demo-employee
+npx sequelize-cli seed:generate --name demo-employees
 
-npx sequelize-cli seed:generate --name demo-household
+npx sequelize-cli seed:generate --name demo-households
 
-npx sequelize-cli seed:generate --name demo-student
+npx sequelize-cli seed:generate --name demo-students
