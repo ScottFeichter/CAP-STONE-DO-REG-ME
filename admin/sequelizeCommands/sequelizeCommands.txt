@@ -20,6 +20,7 @@ SEEDERS
 npx sequelize-cli seed:generate --name <name> 		        // creates blank seed file
 npx dotenv sequelize-cli db:seed --seed <name of seed> 	    // runs the up
 npx dotenv sequelize-cli db:seed:all 			            // runs the up
+
 npx dotenv sequelize-cli db:seed:undo 			            // runs the down
 npx dotenv sequelize db:seed:undo --seed <name of seeder> 	// runs the down
 npx dotenv sequelize-cli db:seed:undo:all 			        // runs the down
